@@ -148,7 +148,7 @@
     cursor: pointer;
     touch-action: manipulation;
   }
-  button.action:hover { background: var(--primary-dark); }
+  button.action:hover:not(:disabled) { background: var(--primary-dark); }
   button.action:disabled { background: var(--border); cursor: default; }
   .feedback {
     margin-top: 16px;
@@ -208,9 +208,6 @@
     input[type="text"] {
       width: 100%;
       font-size: 16px;
-    }
-    .text-input-row button.action {
-      width: 100%;
     }
     .next-row {
       justify-content: stretch;
@@ -284,7 +281,7 @@ const words = [
   { en: "fireplace", nl: "haard" },
   { en: "destroyed", nl: "verwoeste" },
   { en: "standstill", nl: "stilstand" },
-  { en: "weather (or: again)", nl: "weer" },
+  { en: "weather (or: again)", nl: "weer (weerbericht)" },
   { en: "traffic", nl: "verkeer" },
   { en: "pregnancy (of animals)", nl: "dracht" },
   { en: "carries", nl: "draagt" },
@@ -408,7 +405,7 @@ const words = [
   { en: "bridges", nl: "bruggen" },
   { en: "distance", nl: "afstand" },
   { en: "attempt", nl: "poging" },
-  { en: "more (or: lake)", nl: "meer" },
+  { en: "more (or: lake)", nl: "meer (het meer)" },
   { en: "to belong (or: hear)", nl: "horen" },
   { en: "right next to (not correct)", nl: "vlak" },
   { en: "thrown", nl: "gegooid" },
@@ -555,8 +552,7 @@ function renderQuestion() {
   } else {
     optionsHtml = `
       <div class="text-input-row">
-        <input type="text" id="textAnswer" autocomplete="off" placeholder="Type the ${q.answerLabel} translation" onkeydown="if(event.key==='Enter') handleTextAnswer()">
-        <button class="action" onclick="handleTextAnswer()">Check</button>
+        <input type="text" id="textAnswer" autocomplete="off" placeholder="Type the ${q.answerLabel} translation">
       </div>`;
   }
 
@@ -574,7 +570,7 @@ function renderQuestion() {
     ${optionsHtml}
     <div class="feedback" id="feedback"></div>
     <div class="next-row">
-      <button class="action" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+      <button class="action" id="actionBtn" onclick="handleActionButton()" ${q.type === "mc" ? "disabled" : ""}>${q.type === "mc" ? "Next" : "Check"}</button>
     </div>
   `;
 
@@ -585,6 +581,21 @@ function renderQuestion() {
 
 function normalize(str) {
   return str.trim().toLowerCase();
+}
+
+// Single button drives both "check" and "next": before an answer is
+// given it checks (text questions only — multiple choice checks itself
+// when an option is clicked); after an answer is given it advances.
+function handleActionButton() {
+  const q = questions[currentIndex];
+  if (!q) return;
+  if (!answered) {
+    if (q.type === "text") {
+      handleTextAnswer();
+    }
+  } else {
+    nextQuestion();
+  }
 }
 
 function handleMcAnswer(btn, chosen) {
@@ -630,7 +641,10 @@ function showFeedback(isCorrect, correctAnswer) {
     ? "Correct!"
     : `Not quite. Correct answer: ${correctAnswer}`;
   feedback.className = "feedback " + (isCorrect ? "correct-text" : "wrong-text");
-  document.getElementById("nextBtn").disabled = false;
+
+  const btn = document.getElementById("actionBtn");
+  btn.textContent = "Next";
+  btn.disabled = false;
 }
 
 function nextQuestion() {
@@ -688,6 +702,18 @@ function escapeHtml(str) {
 function escapeAttr(str) {
   return String(str).replace(/'/g, "\\'");
 }
+
+// Enter key drives the same action button (check, then next), and is
+// ignored on the set-complete / end screens where actionBtn isn't present.
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const btn = document.getElementById("actionBtn");
+    if (btn && !btn.disabled) {
+      e.preventDefault();
+      handleActionButton();
+    }
+  }
+});
 
 startQuiz();
 </script>
