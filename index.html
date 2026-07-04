@@ -182,21 +182,216 @@
    LANG_B_LABEL below to match.
    ============================================================ */
 const words = [
-  { en: "house", nl: "huis" },
-  { en: "dog", nl: "hond" },
-  { en: "cat", nl: "kat" },
-  { en: "water", nl: "water" },
-  { en: "bread", nl: "brood" },
-  { en: "book", nl: "boek" },
-  { en: "friend", nl: "vriend" },
-  { en: "to eat", nl: "eten" },
-  { en: "to drink", nl: "drinken" },
-  { en: "beautiful", nl: "mooi" },
-  { en: "fast", nl: "snel" },
-  { en: "slow", nl: "langzaam" },
-  { en: "morning", nl: "ochtend" },
-  { en: "evening", nl: "avond" },
-  { en: "to work", nl: "werken" }
+  { en: "continual", nl: "voortdurend" },
+  { en: "flung", nl: "geslingerde" },
+  { en: "evidently", nl: "blijkbaar" },
+  { en: "meanwhile", nl: "ondertussen" },
+  { en: "disturbed", nl: "verstoorde" },
+  { en: "rather", nl: "nogal" },
+  { en: "to imagine", nl: "zich voorstellen" },
+  { en: "suggest", nl: "voorstellen" },
+  { en: "suggested", nl: "voorgesteld" },
+  { en: "permission", nl: "toestemming" },
+  { en: "imagine", nl: "voorstellen" },
+  { en: "example", nl: "voorbeeld" },
+  { en: "fetched", nl: "haalde" },
+  { en: "care", nl: "schelen" },
+  { en: "cheerful", nl: "opgewekt" },
+  { en: "called", nl: "geroepen" },
+  { en: "loose", nl: "los" },
+  { en: "blazed", nl: "laaiden" },
+  { en: "hole", nl: "gat" },
+  { en: "hurry up", nl: "opschieten" },
+  { en: "giant", nl: "reus" },
+  { en: "tyres", nl: "banden" },
+  { en: "bicycles", nl: "rijwielen" },
+  { en: "brewer", nl: "brouwer" },
+  { en: "knots", nl: "knopen" },
+  { en: "brave", nl: "moedig" },
+  { en: "cousin", nl: "neef" },
+  { en: "once", nl: "eenmaal" },
+  { en: "plug", nl: "stekker" },
+  { en: "purple", nl: "paars" },
+  { en: "chewing", nl: "kauwen" },
+  { en: "icy", nl: "ijzige" },
+  { en: "extremely", nl: "uiterst" },
+  { en: "words", nl: "woorden" },
+  { en: "suspected", nl: "vermoedde" },
+  { en: "seen", nl: "gezien" },
+  { en: "since", nl: "aangezien" },
+  { en: "saved", nl: "gered" },
+  { en: "wink", nl: "knipoog" },
+  { en: "concealed", nl: "verschool" },
+  { en: "struck by lightning", nl: "bliksem getroffen" },
+  { en: "affected", nl: "getroffen" },
+  { en: "organized", nl: "geregeld" },
+  { en: "connected", nl: "aangesloten" },
+  { en: "fireplace", nl: "haard" },
+  { en: "destroyed", nl: "verwoeste" },
+  { en: "standstill", nl: "stilgeval" },
+  { en: "weather", nl: "weer" },
+  { en: "traffic", nl: "verkeer" },
+  { en: "pregnancy", nl: "dracht" },
+  { en: "carries", nl: "draagt" },
+  { en: "wear", nl: "dragen" },
+  { en: "dressed", nl: "gekleed" },
+  { en: "lean forward", nl: "voorover" },
+  { en: "bow", nl: "boog" },
+  { en: "collided", nl: "botste" },
+  { en: "virtually", nl: "vrijwel" },
+  { en: "cheering", nl: "juichen" },
+  { en: "tendency", nl: "neiging" },
+  { en: "fighting", nl: "vechtend" },
+  { en: "approved", nl: "goedgekeurd" },
+  { en: "intruders", nl: "indringers" },
+  { en: "ostentatious", nl: "opzichtige" },
+  { en: "attitude", nl: "houding" },
+  { en: "inform", nl: "inlichten" },
+  { en: "regarding", nl: "wat betreft" },
+  { en: "entertained", nl: "vermaakte" },
+  { en: "deliver", nl: "bezorgen" },
+  { en: "harassment", nl: "lastigval" },
+  { en: "survived", nl: "overleefde" },
+  { en: "very", nl: "zeerste" },
+  { en: "disputed", nl: "betwijfelde" },
+  { en: "approach", nl: "naderen" },
+  { en: "expired", nl: "vervallen" },
+  { en: "damp", nl: "vochtig" },
+  { en: "beautiful", nl: "fraai" },
+  { en: "were missing", nl: "ontbraken" },
+  { en: "missing", nl: "ontbrekend" },
+  { en: "roof tiles", nl: "dakpannen" },
+  { en: "pans", nl: "pannen" },
+  { en: "timbered", nl: "getimmerde" },
+  { en: "roof", nl: "dak" },
+  { en: "hill", nl: "heuvel" },
+  { en: "have fun", nl: "veel plezier" },
+  { en: "let me introduce myself", nl: "even voorstellen" },
+  { en: "approached", nl: "naderde" },
+  { en: "freckles", nl: "sproeten" },
+  { en: "curved", nl: "gebogen" },
+  { en: "amount", nl: "hoeveelheid" },
+  { en: "a few", nl: "enkele" },
+  { en: "patient", nl: "geduldig" },
+  { en: "ringing", nl: "rinkelen" },
+  { en: "uncontrolled", nl: "onbeheerst" },
+  { en: "masters", nl: "beheerst" },
+  { en: "gust", nl: "vlaag" },
+  { en: "dropped", nl: "zakte" },
+  { en: "shoes", nl: "schoenen" },
+  { en: "stomach", nl: "maag" },
+  { en: "completely", nl: "volkomen" },
+  { en: "appear", nl: "verschijnen" },
+  { en: "appear (out of nowhere)", nl: "tevoorschijn" },
+  { en: "to shoot", nl: "schieten" },
+  { en: "pinched", nl: "knepen" },
+  { en: "sparks", nl: "vonken" },
+  { en: "flash", nl: "flits" },
+  { en: "fell", nl: "vielen" },
+  { en: "as a result of which", nl: "waardoor" },
+  { en: "wrist", nl: "pols" },
+  { en: "grownup", nl: "volwassen" },
+  { en: "grown", nl: "gekweekt" },
+  { en: "fade", nl: "vervagen" },
+  { en: "throw", nl: "gooien" },
+  { en: "branches", nl: "vestigingen" },
+  { en: "complaints and abuses", nl: "klachten en misstanden" },
+  { en: "stroke", nl: "beroerte" },
+  { en: "case", nl: "geval" },
+  { en: "shield", nl: "schild" },
+  { en: "part", nl: "gedelt" },
+  { en: "stuff", nl: "spullen" },
+  { en: "watched", nl: "bekeken" },
+  { en: "angry", nl: "kwaad" },
+  { en: "down", nl: "neer" },
+  { en: "to tow", nl: "slepen" },
+  { en: "similar", nl: "achtige" },
+  { en: "took place", nl: "verliep" },
+  { en: "enemy", nl: "vijand" },
+  { en: "something like that", nl: "zoiets" },
+  { en: "reached", nl: "bereikte" },
+  { en: "add", nl: "voegen" },
+  { en: "expectation", nl: "verwachting" },
+  { en: "legs", nl: "benen" },
+  { en: "conscious", nl: "bewust" },
+  { en: "hidden", nl: "verborgen" },
+  { en: "limited", nl: "beperkt" },
+  { en: "education", nl: "onderwijs" },
+  { en: "ridiculous", nl: "belachelijk" },
+  { en: "prepared", nl: "beried" },
+  { en: "invite", nl: "uitnodiging" },
+  { en: "expect", nl: "verwachten" },
+  { en: "blame", nl: "schuld" },
+  { en: "matched", nl: "overeenkomend" },
+  { en: "celebrity", nl: "beroemheid" },
+  { en: "bald", nl: "kaal" },
+  { en: "shallow", nl: "oppervlakkig" },
+  { en: "deduction", nl: "aftrek" },
+  { en: "compared", nl: "vergeleken" },
+  { en: "please excuse me", nl: "neem me niet kwalijk" },
+  { en: "literal", nl: "letterlijk" },
+  { en: "actually", nl: "eigenlijk" },
+  { en: "weight", nl: "gewicht" },
+  { en: "owed", nl: "verschuldigd" },
+  { en: "support", nl: "steun" },
+  { en: "guilty", nl: "schuldig" },
+  { en: "proof", nl: "bewijs" },
+  { en: "balance", nl: "evenwicht" },
+  { en: "recoiled", nl: "deinsde" },
+  { en: "sold", nl: "verkocht" },
+  { en: "thin", nl: "dunne" },
+  { en: "insult", nl: "belediging" },
+  { en: "understood", nl: "opgevat" },
+  { en: "displayed", nl: "weergegeven" },
+  { en: "to suggest (a plan)", nl: "voorstel" },
+  { en: "display", nl: "vertoon" },
+  { en: "banks (of a river)", nl: "oevers" },
+  { en: "proposal", nl: "voorstel" },
+  { en: "unobstructed", nl: "ongehinderde" },
+  { en: "brush", nl: "borstel" },
+  { en: "spoilage", nl: "bederf" },
+  { en: "bridges", nl: "brugden" },
+  { en: "distance", nl: "afstand" },
+  { en: "attempt", nl: "poging" },
+  { en: "more", nl: "meer" },
+  { en: "to belong", nl: "horen" },
+  { en: "right (correct)", nl: "vlak" },
+  { en: "thrown", nl: "gegooid" },
+  { en: "grasp", nl: "vatten" },
+  { en: "restored", nl: "hersteld" },
+  { en: "general", nl: "algemeen" },
+  { en: "sweep", nl: "vegen" },
+  { en: "defence", nl: "verdediging" },
+  { en: "loss", nl: "verlies" },
+  { en: "dangerous", nl: "gevaarlijk" },
+  { en: "submitted", nl: "voorgelegd" },
+  { en: "disappeared", nl: "verdwenen" },
+  { en: "effort", nl: "inspanning" },
+  { en: "heaven", nl: "hemel" },
+  { en: "cancelled", nl: "afgelast" },
+  { en: "which", nl: "hetgeen" },
+  { en: "quite", nl: "behoorlijk" },
+  { en: "inspired", nl: "bezielde" },
+  { en: "opinion", nl: "mening" },
+  { en: "suppose", nl: "veronderstellen" },
+  { en: "surprising", nl: "verrasend" },
+  { en: "sad", nl: "triest" },
+  { en: "smoke", nl: "rook" },
+  { en: "guess", nl: "gok" },
+  { en: "ordinary", nl: "gewone" },
+  { en: "competition", nl: "wedstrijd" },
+  { en: "noticed", nl: "opgevallen" },
+  { en: "should", nl: "mocht" },
+  { en: "brought", nl: "bracht" },
+  { en: "faded", nl: "bleek" },
+  { en: "touches", nl: "raakt" },
+  { en: "lost / astray", nl: "verdwaald" },
+  { en: "groceries", nl: "boodschappen" },
+  { en: "when", nl: "wanneer" },
+  { en: "contain", nl: "bevatten" },
+  { en: "collection", nl: "verzameling" },
+  { en: "emphasized", nl: "benedrukt" },
+  { en: "suspected (2)", nl: "vermoed" }
 ];
 
 const LANG_A_KEY = "en";
@@ -208,9 +403,12 @@ const LANG_B_LABEL = "Dutch";
    APP LOGIC
    ============================================================ */
 
+const QUESTIONS_PER_SET = 15;
+
 let questions = [];
 let currentIndex = 0;
 let score = 0;
+let setScore = 0;
 let answered = false;
 
 function shuffle(arr) {
@@ -261,6 +459,7 @@ function startQuiz() {
   questions = buildQuestions();
   currentIndex = 0;
   score = 0;
+  setScore = 0;
   answered = false;
   renderQuestion();
 }
@@ -270,7 +469,12 @@ function renderQuestion() {
   const q = questions[currentIndex];
   answered = false;
 
-  const progressPct = Math.round((currentIndex / questions.length) * 100);
+  const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
+  const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET) + 1;
+  const setStart = (setNumber - 1) * QUESTIONS_PER_SET;
+  const setLength = Math.min(QUESTIONS_PER_SET, questions.length - setStart);
+  const posInSet = currentIndex - setStart + 1;
+  const progressPct = Math.round((posInSet - 1) / setLength * 100);
 
   let optionsHtml = "";
   if (q.type === "mc") {
@@ -289,7 +493,7 @@ function renderQuestion() {
 
   app.innerHTML = `
     <div class="top-row">
-      <span>Question ${currentIndex + 1} / ${questions.length}</span>
+      <span>Set ${setNumber} / ${totalSets} — Question ${posInSet} / ${setLength}</span>
       <span>Score: ${score}</span>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
@@ -345,7 +549,10 @@ function handleTextAnswer() {
 }
 
 function showFeedback(isCorrect, correctAnswer) {
-  if (isCorrect) score++;
+  if (isCorrect) {
+    score++;
+    setScore++;
+  }
   const feedback = document.getElementById("feedback");
   feedback.textContent = isCorrect
     ? "Correct!"
@@ -358,9 +565,34 @@ function nextQuestion() {
   currentIndex++;
   if (currentIndex >= questions.length) {
     renderEndScreen();
+  } else if (currentIndex % QUESTIONS_PER_SET === 0) {
+    renderSetCompleteScreen();
   } else {
     renderQuestion();
   }
+}
+
+function renderSetCompleteScreen() {
+  const app = document.getElementById("app");
+  const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
+  const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET);
+  const setStart = (setNumber - 1) * QUESTIONS_PER_SET;
+  const setLength = Math.min(QUESTIONS_PER_SET, questions.length - setStart);
+  const pct = Math.round((setScore / setLength) * 100);
+
+  app.innerHTML = `
+    <div class="end-screen">
+      <p class="lang-tag">Set ${setNumber} of ${totalSets} complete</p>
+      <div class="end-score">${setScore} / ${setLength}</div>
+      <p class="end-sub">${pct}% correct on this set</p>
+      <button class="restart-btn" onclick="continueToNextSet()">Continue to Set ${setNumber + 1}</button>
+    </div>
+  `;
+}
+
+function continueToNextSet() {
+  setScore = 0;
+  renderQuestion();
 }
 
 function renderEndScreen() {
