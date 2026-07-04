@@ -70,11 +70,20 @@
     border-radius: 999px;
     margin-bottom: 14px;
   }
+  .prompt-block {
+    margin-bottom: 28px;
+  }
   .prompt-word {
     font-size: 30px;
     font-weight: 700;
-    margin: 0 0 28px 0;
+    margin: 0;
     word-break: break-word;
+  }
+  .prompt-hint {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 4px 0 0 0;
   }
   .options {
     display: flex;
@@ -192,10 +201,10 @@ const words = [
   { en: "suggest", nl: "voorstellen" },
   { en: "suggested", nl: "voorgesteld" },
   { en: "permission", nl: "toestemming" },
-  { en: "imagine (also used loosely for 'suggest/propose')", nl: "voorstellen" },
+  { en: "imagine (or: suggest)", nl: "voorstellen" },
   { en: "example", nl: "voorbeeld" },
   { en: "fetched", nl: "haalde" },
-  { en: "care (matter/differ)", nl: "schelen" },
+  { en: "care (matter)", nl: "schelen" },
   { en: "cheerful", nl: "opgewekt" },
   { en: "called", nl: "geroepen" },
   { en: "loose", nl: "los" },
@@ -203,12 +212,12 @@ const words = [
   { en: "hole", nl: "gat" },
   { en: "hurry up", nl: "opschieten" },
   { en: "giant", nl: "reus" },
-  { en: "tyres (also: bands/straps)", nl: "banden" },
-  { en: "bicycles (formal; 'fietsen' is more common)", nl: "rijwielen" },
+  { en: "tyres (or: straps)", nl: "banden" },
+  { en: "bicycles (formal)", nl: "rijwielen" },
   { en: "brewer", nl: "brouwer" },
-  { en: "knots (also: buttons)", nl: "knopen" },
+  { en: "knots (or: buttons)", nl: "knopen" },
   { en: "brave", nl: "moedig" },
-  { en: "cousin (also: nephew)", nl: "neef" },
+  { en: "cousin (or: nephew)", nl: "neef" },
   { en: "once", nl: "eenmaal" },
   { en: "plug", nl: "stekker" },
   { en: "purple", nl: "paars" },
@@ -223,20 +232,20 @@ const words = [
   { en: "wink", nl: "knipoog" },
   { en: "concealed (hid oneself)", nl: "verschool" },
   { en: "struck by lightning", nl: "bliksem getroffen" },
-  { en: "affected (also: struck/hit)", nl: "getroffen" },
+  { en: "affected (or: struck)", nl: "getroffen" },
   { en: "organized (arranged)", nl: "geregeld" },
   { en: "connected", nl: "aangesloten" },
   { en: "fireplace", nl: "haard" },
   { en: "destroyed", nl: "verwoeste" },
   { en: "standstill", nl: "stilstand" },
-  { en: "weather (also: again)", nl: "weer" },
+  { en: "weather (or: again)", nl: "weer" },
   { en: "traffic", nl: "verkeer" },
-  { en: "pregnancy (animal gestation; human is 'zwangerschap')", nl: "dracht" },
+  { en: "pregnancy (of animals)", nl: "dracht" },
   { en: "carries", nl: "draagt" },
   { en: "wear", nl: "dragen" },
   { en: "dressed", nl: "gekleed" },
-  { en: "forward, e.g. 'voorover buigen' (lean forward)", nl: "voorover" },
-  { en: "bow (arc/curve)", nl: "boog" },
+  { en: "forward (lean forward)", nl: "voorover" },
+  { en: "bow (arc)", nl: "boog" },
   { en: "collided", nl: "botste" },
   { en: "virtually", nl: "vrijwel" },
   { en: "cheering", nl: "juichen" },
@@ -250,67 +259,67 @@ const words = [
   { en: "regarding", nl: "wat betreft" },
   { en: "entertained", nl: "vermaakte" },
   { en: "deliver", nl: "bezorgen" },
-  { en: "to harass / bother", nl: "lastigvallen" },
+  { en: "to harass (or: bother)", nl: "lastigvallen" },
   { en: "survived", nl: "overleefde" },
   { en: "very", nl: "zeer" },
   { en: "disputed (doubted)", nl: "betwijfelde" },
   { en: "approach", nl: "naderen" },
-  { en: "expired (also: dilapidated/collapsed)", nl: "vervallen" },
+  { en: "expired (or: dilapidated)", nl: "vervallen" },
   { en: "damp", nl: "vochtig" },
-  { en: "beautiful (fine, literary register)", nl: "fraai" },
+  { en: "beautiful (literary)", nl: "fraai" },
   { en: "were missing", nl: "ontbraken" },
   { en: "missing", nl: "ontbrekend" },
   { en: "roof tiles", nl: "dakpannen" },
   { en: "pans", nl: "pannen" },
-  { en: "timbered (built/carpentered)", nl: "getimmerde" },
+  { en: "timbered (built)", nl: "getimmerde" },
   { en: "roof", nl: "dak" },
   { en: "hill", nl: "heuvel" },
   { en: "have fun", nl: "veel plezier" },
   { en: "let me introduce myself", nl: "even voorstellen" },
   { en: "approached", nl: "naderde" },
   { en: "freckles", nl: "sproeten" },
-  { en: "curved (also: bent)", nl: "gebogen" },
+  { en: "curved (or: bent)", nl: "gebogen" },
   { en: "amount", nl: "hoeveelheid" },
-  { en: "a few (some/several)", nl: "enkele" },
-  { en: "patient (adj: having patience, not a medical patient)", nl: "geduldig" },
+  { en: "a few (some)", nl: "enkele" },
+  { en: "patient (adj)", nl: "geduldig" },
   { en: "ringing", nl: "rinkelen" },
   { en: "uncontrolled", nl: "onbeheerst" },
-  { en: "masters (controlled/composed)", nl: "beheerst" },
+  { en: "masters (composed)", nl: "beheerst" },
   { en: "gust", nl: "vlaag" },
   { en: "dropped", nl: "zakte" },
   { en: "shoes", nl: "schoenen" },
   { en: "stomach", nl: "maag" },
   { en: "completely", nl: "volkomen" },
   { en: "appear", nl: "verschijnen" },
-  { en: "appear out of nowhere (used with 'komen')", nl: "tevoorschijn" },
+  { en: "appear (with komen)", nl: "tevoorschijn" },
   { en: "to shoot", nl: "schieten" },
   { en: "pinched", nl: "knepen" },
   { en: "sparks", nl: "vonken" },
   { en: "flash", nl: "flits" },
   { en: "fell", nl: "vielen" },
   { en: "as a result of which", nl: "waardoor" },
-  { en: "wrist (also: pulse)", nl: "pols" },
+  { en: "wrist (or: pulse)", nl: "pols" },
   { en: "grownup", nl: "volwassen" },
-  { en: "grown (cultivated, e.g. crops)", nl: "gekweekt" },
+  { en: "grown (cultivated)", nl: "gekweekt" },
   { en: "fade", nl: "vervagen" },
   { en: "throw", nl: "gooien" },
-  { en: "branches (business locations, not tree branches)", nl: "vestigingen" },
+  { en: "branches (business)", nl: "vestigingen" },
   { en: "complaints and abuses", nl: "klachten en misstanden" },
   { en: "stroke (medical)", nl: "beroerte" },
-  { en: "case (instance/situation)", nl: "geval" },
+  { en: "case (situation)", nl: "geval" },
   { en: "shield", nl: "schild" },
   { en: "part", nl: "gedeelte" },
   { en: "stuff", nl: "spullen" },
   { en: "watched", nl: "bekeken" },
-  { en: "angry (also: evil/harm as a noun)", nl: "kwaad" },
+  { en: "angry (or: evil)", nl: "kwaad" },
   { en: "down", nl: "neer" },
   { en: "to tow (drag)", nl: "slepen" },
   { en: "similar", nl: "soortgelijk" },
-  { en: "took place (went / unfolded)", nl: "verliep" },
+  { en: "took place (unfolded)", nl: "verliep" },
   { en: "enemy", nl: "vijand" },
   { en: "something like that", nl: "zoiets" },
   { en: "reached", nl: "bereikte" },
-  { en: "add ('voegen' alone often means to join/fit; 'toevoegen' = to add)", nl: "voegen" },
+  { en: "add (or: join)", nl: "voegen" },
   { en: "expectation", nl: "verwachting" },
   { en: "legs", nl: "benen" },
   { en: "conscious", nl: "bewust" },
@@ -321,11 +330,11 @@ const words = [
   { en: "prepared (willing)", nl: "bereid" },
   { en: "invitation", nl: "uitnodiging" },
   { en: "expect", nl: "verwachten" },
-  { en: "blame (fault/guilt, noun)", nl: "schuld" },
+  { en: "blame (fault)", nl: "schuld" },
   { en: "matched", nl: "overeenkomend" },
-  { en: "celebrity (also: fame)", nl: "beroemheid" },
-  { en: "bald (also: bare)", nl: "kaal" },
-  { en: "shallow (also: superficial)", nl: "oppervlakkig" },
+  { en: "celebrity (or: fame)", nl: "beroemheid" },
+  { en: "bald (or: bare)", nl: "kaal" },
+  { en: "shallow (or: superficial)", nl: "oppervlakkig" },
   { en: "deduction", nl: "aftrek" },
   { en: "compared", nl: "vergeleken" },
   { en: "please excuse me", nl: "neem me niet kwalijk" },
@@ -341,11 +350,11 @@ const words = [
   { en: "sold", nl: "verkocht" },
   { en: "thin", nl: "dun" },
   { en: "insult", nl: "belediging" },
-  { en: "understood (interpreted/perceived)", nl: "opgevat" },
+  { en: "understood (perceived)", nl: "opgevat" },
   { en: "displayed", nl: "weergegeven" },
   { en: "suggestion", nl: "voorstel" },
-  { en: "display (show, e.g. 'uiterlijk vertoon' = outward show)", nl: "vertoon" },
-  { en: "banks (of a river)", nl: "oevers" },
+  { en: "display (show)", nl: "vertoon" },
+  { en: "banks (river)", nl: "oevers" },
   { en: "proposal", nl: "voorstel" },
   { en: "unobstructed", nl: "ongehinderde" },
   { en: "brush", nl: "borstel" },
@@ -353,9 +362,9 @@ const words = [
   { en: "bridges", nl: "bruggen" },
   { en: "distance", nl: "afstand" },
   { en: "attempt", nl: "poging" },
-  { en: "more (also: lake)", nl: "meer" },
-  { en: "to belong ('horen' alone usually means 'to hear'; belong = 'horen bij')", nl: "horen" },
-  { en: "right, as in 'right next to' (flat/level; not 'correct')", nl: "vlak" },
+  { en: "more (or: lake)", nl: "meer" },
+  { en: "to belong (or: hear)", nl: "horen" },
+  { en: "right next to (not correct)", nl: "vlak" },
   { en: "thrown", nl: "gegooid" },
   { en: "grasp", nl: "vatten" },
   { en: "restored", nl: "hersteld" },
@@ -367,25 +376,25 @@ const words = [
   { en: "submitted (presented)", nl: "voorgelegd" },
   { en: "disappeared", nl: "verdwenen" },
   { en: "effort", nl: "inspanning" },
-  { en: "heaven (also: sky)", nl: "hemel" },
-  { en: "cancelled (called off, e.g. an event)", nl: "afgelast" },
+  { en: "heaven (or: sky)", nl: "hemel" },
+  { en: "cancelled (called off)", nl: "afgelast" },
   { en: "which", nl: "hetgeen" },
-  { en: "quite (fairly/considerably)", nl: "behoorlijk" },
+  { en: "quite (fairly)", nl: "behoorlijk" },
   { en: "inspired", nl: "bezielde" },
   { en: "opinion", nl: "mening" },
   { en: "suppose", nl: "veronderstellen" },
   { en: "surprising", nl: "verrassend" },
   { en: "sad", nl: "triest" },
   { en: "smoke", nl: "rook" },
-  { en: "guess (also: gamble/bet)", nl: "gok" },
+  { en: "guess (or: gamble)", nl: "gok" },
   { en: "ordinary", nl: "gewoon" },
-  { en: "competition (a contest/match, not economic competition)", nl: "wedstrijd" },
+  { en: "competition (contest)", nl: "wedstrijd" },
   { en: "noticed (stood out)", nl: "opgevallen" },
-  { en: "should (conditional 'if', e.g. 'mocht het zo zijn' = should it be the case)", nl: "mocht" },
+  { en: "should (if)", nl: "mocht" },
   { en: "brought", nl: "bracht" },
-  { en: "pale (also: past tense of 'blijken' = turned out)", nl: "bleek" },
-  { en: "touches (also: becomes/gets, e.g. 'boos raken' = to get angry)", nl: "raakt" },
-  { en: "lost / astray", nl: "verdwaald" },
+  { en: "pale (or: turned out)", nl: "bleek" },
+  { en: "touches (or: becomes)", nl: "raakt" },
+  { en: "lost (astray)", nl: "verdwaald" },
   { en: "groceries", nl: "boodschappen" },
   { en: "when", nl: "wanneer" },
   { en: "contain", nl: "bevatten" },
@@ -420,6 +429,16 @@ function shuffle(arr) {
   return a;
 }
 
+// Splits a word like "rather (quite)" into { base: "rather", hint: "quite" }.
+// Hints are for on-screen context only and are never part of a correct answer.
+function parseWord(str) {
+  const match = str.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  if (match) {
+    return { base: match[1].trim(), hint: match[2].trim() };
+  }
+  return { base: str.trim(), hint: null };
+}
+
 function buildQuestions() {
   const shuffledWords = shuffle(words);
   return shuffledWords.map((pair) => {
@@ -431,12 +450,16 @@ function buildQuestions() {
     const promptLabel = direction === "a-to-b" ? LANG_A_LABEL : LANG_B_LABEL;
     const answerLabel = direction === "a-to-b" ? LANG_B_LABEL : LANG_A_LABEL;
 
+    const promptParsed = parseWord(pair[promptKey]);
+    const answerParsed = parseWord(pair[answerKey]);
+
     const question = {
       pair,
       type,
       direction,
-      promptWord: pair[promptKey],
-      correctAnswer: pair[answerKey],
+      promptWord: promptParsed.base,
+      promptHint: promptParsed.hint,
+      correctAnswer: answerParsed.base,
       promptLabel,
       answerLabel,
       answerKey
@@ -445,7 +468,7 @@ function buildQuestions() {
     if (type === "mc") {
       const distractorPool = words
         .filter((w) => w !== pair)
-        .map((w) => w[answerKey])
+        .map((w) => parseWord(w[answerKey]).base)
         .filter((val) => val !== question.correctAnswer);
       const distractors = shuffle([...new Set(distractorPool)]).slice(0, 3);
       question.options = shuffle([question.correctAnswer, ...distractors]);
@@ -498,7 +521,10 @@ function renderQuestion() {
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
     <span class="lang-tag">${q.promptLabel} → ${q.answerLabel}</span>
-    <p class="prompt-word">${escapeHtml(q.promptWord)}</p>
+    <div class="prompt-block">
+      <p class="prompt-word">${escapeHtml(q.promptWord)}</p>
+      ${q.promptHint ? `<p class="prompt-hint">(${escapeHtml(q.promptHint)})</p>` : ""}
+    </div>
     ${optionsHtml}
     <div class="feedback" id="feedback"></div>
     <div class="next-row">
