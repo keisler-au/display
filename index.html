@@ -181,6 +181,52 @@
     cursor: pointer;
   }
   .restart-btn:hover { background: var(--primary-dark); }
+  .secondary-btn {
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .secondary-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+  .mode-select h1 {
+    font-size: 22px;
+    margin: 0 0 6px 0;
+  }
+  .mode-select p.sub {
+    color: var(--muted);
+    margin: 0 0 24px 0;
+    font-size: 14px;
+  }
+  .mode-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 18px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .mode-btn:hover { border-color: var(--primary); background: #eff6ff; }
+  .mode-btn .mode-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 2px 0;
+  }
+  .mode-btn .mode-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
 
   @media (max-width: 480px) {
     body {
@@ -217,6 +263,7 @@
     }
     .end-score { font-size: 40px; }
     .restart-btn { width: 100%; }
+    .secondary-btn { width: 100%; }
   }
 </style>
 </head>
@@ -234,222 +281,396 @@
    LANG_B_LABEL below to match.
    ============================================================ */
 const words = [
-  { en: "continual", nl: "voortdurend" },
-  { en: "flung", nl: "geslingerde" },
-  { en: "evidently (apparently)", nl: "blijkbaar" },
-  { en: "meanwhile", nl: "ondertussen" },
-  { en: "disturbed", nl: "verstoorde" },
-  { en: "rather (quite)", nl: "nogal" },
-  { en: "to imagine", nl: "zich voorstellen" },
-  { en: "suggest", nl: "voorstellen" },
-  { en: "suggested", nl: "voorgesteld" },
-  { en: "permission", nl: "toestemming" },
-  { en: "imagine (or: suggest)", nl: "voorstellen" },
-  { en: "example", nl: "voorbeeld" },
-  { en: "fetched", nl: "haalde" },
-  { en: "care (matter)", nl: "schelen" },
-  { en: "cheerful", nl: "opgewekt" },
-  { en: "called", nl: "geroepen" },
-  { en: "loose", nl: "los" },
-  { en: "blazed", nl: "laaiden" },
-  { en: "hole", nl: "gat" },
-  { en: "hurry up", nl: "opschieten" },
-  { en: "giant", nl: "reus" },
-  { en: "tyres (or: straps)", nl: "banden" },
-  { en: "bicycles (formal)", nl: "rijwielen" },
-  { en: "brewer", nl: "brouwer" },
-  { en: "knots (or: buttons)", nl: "knopen" },
-  { en: "brave", nl: "moedig" },
-  { en: "cousin (or: nephew)", nl: "neef" },
-  { en: "once", nl: "eenmaal" },
-  { en: "plug", nl: "stekker" },
-  { en: "purple", nl: "paars" },
-  { en: "chewing", nl: "kauwen" },
-  { en: "icy", nl: "ijzige" },
-  { en: "extremely", nl: "uiterst" },
-  { en: "words", nl: "woorden" },
-  { en: "suspected", nl: "vermoedde" },
-  { en: "seen", nl: "gezien" },
-  { en: "since (because)", nl: "aangezien" },
-  { en: "saved", nl: "gered" },
-  { en: "wink", nl: "knipoog" },
-  { en: "concealed (hid oneself)", nl: "verschool" },
-  { en: "struck by lightning", nl: "bliksem getroffen" },
-  { en: "affected (or: struck)", nl: "getroffen" },
-  { en: "organized (arranged)", nl: "geregeld" },
-  { en: "connected", nl: "aangesloten" },
-  { en: "fireplace", nl: "haard" },
-  { en: "destroyed", nl: "verwoeste" },
-  { en: "standstill", nl: "stilstand" },
-  { en: "weather (or: again)", nl: "weer (weerbericht)" },
-  { en: "traffic", nl: "verkeer" },
-  { en: "pregnancy (of animals)", nl: "dracht" },
-  { en: "carries", nl: "draagt" },
-  { en: "wear", nl: "dragen" },
-  { en: "dressed", nl: "gekleed" },
-  { en: "forward (lean forward)", nl: "voorover" },
-  { en: "bow (arc)", nl: "boog" },
-  { en: "collided", nl: "botste" },
-  { en: "virtually", nl: "vrijwel" },
-  { en: "cheering", nl: "juichen" },
-  { en: "tendency", nl: "neiging" },
-  { en: "fighting", nl: "vechtend" },
-  { en: "approved", nl: "goedgekeurd" },
-  { en: "intruders", nl: "indringers" },
-  { en: "ostentatious", nl: "opzichtige" },
-  { en: "attitude", nl: "houding" },
-  { en: "inform", nl: "inlichten" },
-  { en: "regarding", nl: "wat betreft" },
-  { en: "entertained", nl: "vermaakte" },
-  { en: "deliver", nl: "bezorgen" },
-  { en: "to harass (or: bother)", nl: "lastigvallen" },
-  { en: "survived", nl: "overleefde" },
-  { en: "very", nl: "zeer" },
-  { en: "disputed (doubted)", nl: "betwijfelde" },
-  { en: "approach", nl: "naderen" },
-  { en: "expired (or: dilapidated)", nl: "vervallen" },
-  { en: "damp", nl: "vochtig" },
-  { en: "beautiful (literary)", nl: "fraai" },
-  { en: "were missing", nl: "ontbraken" },
-  { en: "missing", nl: "ontbrekend" },
-  { en: "roof tiles", nl: "dakpannen" },
-  { en: "pans", nl: "pannen" },
-  { en: "timbered (built)", nl: "getimmerde" },
-  { en: "roof", nl: "dak" },
-  { en: "hill", nl: "heuvel" },
-  { en: "have fun", nl: "veel plezier" },
-  { en: "let me introduce myself", nl: "even voorstellen" },
-  { en: "approached", nl: "naderde" },
-  { en: "freckles", nl: "sproeten" },
-  { en: "curved (or: bent)", nl: "gebogen" },
-  { en: "amount", nl: "hoeveelheid" },
-  { en: "a few (some)", nl: "enkele" },
-  { en: "patient (adj)", nl: "geduldig" },
-  { en: "ringing", nl: "rinkelen" },
-  { en: "uncontrolled", nl: "onbeheerst" },
-  { en: "masters (composed)", nl: "beheerst" },
-  { en: "gust", nl: "vlaag" },
-  { en: "dropped", nl: "zakte" },
-  { en: "shoes", nl: "schoenen" },
-  { en: "stomach", nl: "maag" },
-  { en: "completely", nl: "volkomen" },
-  { en: "appear", nl: "verschijnen" },
-  { en: "appear (with komen)", nl: "tevoorschijn" },
-  { en: "to shoot", nl: "schieten" },
-  { en: "pinched", nl: "knepen" },
-  { en: "sparks", nl: "vonken" },
-  { en: "flash", nl: "flits" },
-  { en: "fell", nl: "vielen" },
-  { en: "as a result of which", nl: "waardoor" },
-  { en: "wrist (or: pulse)", nl: "pols" },
-  { en: "grownup", nl: "volwassen" },
-  { en: "grown (cultivated)", nl: "gekweekt" },
-  { en: "fade", nl: "vervagen" },
-  { en: "throw", nl: "gooien" },
-  { en: "branches (business)", nl: "vestigingen" },
-  { en: "complaints and abuses", nl: "klachten en misstanden" },
-  { en: "stroke (medical)", nl: "beroerte" },
-  { en: "case (situation)", nl: "geval" },
-  { en: "shield", nl: "schild" },
-  { en: "part", nl: "gedeelte" },
-  { en: "stuff", nl: "spullen" },
-  { en: "watched", nl: "bekeken" },
-  { en: "angry (or: evil)", nl: "kwaad" },
-  { en: "down", nl: "neer" },
-  { en: "to tow (drag)", nl: "slepen" },
-  { en: "similar", nl: "soortgelijk" },
-  { en: "took place (unfolded)", nl: "verliep" },
-  { en: "enemy", nl: "vijand" },
-  { en: "something like that", nl: "zoiets" },
-  { en: "reached", nl: "bereikte" },
-  { en: "add (or: join)", nl: "voegen" },
-  { en: "expectation", nl: "verwachting" },
-  { en: "legs", nl: "benen" },
-  { en: "conscious", nl: "bewust" },
-  { en: "hidden", nl: "verborgen" },
-  { en: "limited", nl: "beperkt" },
-  { en: "education", nl: "onderwijs" },
-  { en: "ridiculous", nl: "belachelijk" },
-  { en: "prepared (willing)", nl: "bereid" },
-  { en: "invitation", nl: "uitnodiging" },
-  { en: "expect", nl: "verwachten" },
-  { en: "blame (fault)", nl: "schuld" },
-  { en: "matched", nl: "overeenkomend" },
-  { en: "celebrity (or: fame)", nl: "beroemheid" },
-  { en: "bald (or: bare)", nl: "kaal" },
-  { en: "shallow (or: superficial)", nl: "oppervlakkig" },
-  { en: "deduction", nl: "aftrek" },
-  { en: "compared", nl: "vergeleken" },
-  { en: "please excuse me", nl: "neem me niet kwalijk" },
-  { en: "literal", nl: "letterlijk" },
-  { en: "actually", nl: "eigenlijk" },
-  { en: "weight", nl: "gewicht" },
-  { en: "owed", nl: "verschuldigd" },
-  { en: "support", nl: "steun" },
-  { en: "guilty", nl: "schuldig" },
-  { en: "proof (evidence)", nl: "bewijs" },
-  { en: "balance", nl: "evenwicht" },
-  { en: "recoiled", nl: "deinsde" },
-  { en: "sold", nl: "verkocht" },
-  { en: "thin", nl: "dun" },
-  { en: "insult", nl: "belediging" },
-  { en: "understood (perceived)", nl: "opgevat" },
-  { en: "displayed", nl: "weergegeven" },
-  { en: "suggestion", nl: "voorstel" },
-  { en: "display (show)", nl: "vertoon" },
-  { en: "banks (river)", nl: "oevers" },
-  { en: "proposal", nl: "voorstel" },
-  { en: "unobstructed", nl: "ongehinderde" },
-  { en: "brush", nl: "borstel" },
-  { en: "spoilage", nl: "bederf" },
-  { en: "bridges", nl: "bruggen" },
-  { en: "distance", nl: "afstand" },
-  { en: "attempt", nl: "poging" },
-  { en: "more (or: lake)", nl: "meer (het meer)" },
-  { en: "to belong (or: hear)", nl: "horen" },
-  { en: "right next to (not correct)", nl: "vlak" },
-  { en: "thrown", nl: "gegooid" },
-  { en: "grasp", nl: "vatten" },
-  { en: "restored", nl: "hersteld" },
-  { en: "general", nl: "algemeen" },
-  { en: "sweep", nl: "vegen" },
-  { en: "defence", nl: "verdediging" },
-  { en: "loss", nl: "verlies" },
-  { en: "dangerous", nl: "gevaarlijk" },
-  { en: "submitted (presented)", nl: "voorgelegd" },
-  { en: "disappeared", nl: "verdwenen" },
-  { en: "effort", nl: "inspanning" },
-  { en: "heaven (or: sky)", nl: "hemel" },
-  { en: "cancelled (called off)", nl: "afgelast" },
-  { en: "which", nl: "hetgeen" },
-  { en: "quite (fairly)", nl: "behoorlijk" },
-  { en: "inspired", nl: "bezielde" },
-  { en: "opinion", nl: "mening" },
-  { en: "suppose", nl: "veronderstellen" },
-  { en: "surprising", nl: "verrassend" },
-  { en: "sad", nl: "triest" },
-  { en: "smoke", nl: "rook" },
-  { en: "guess (or: gamble)", nl: "gok" },
-  { en: "ordinary", nl: "gewoon" },
-  { en: "competition (contest)", nl: "wedstrijd" },
-  { en: "noticed (stood out)", nl: "opgevallen" },
-  { en: "should (if)", nl: "mocht" },
-  { en: "brought", nl: "bracht" },
-  { en: "pale (or: turned out)", nl: "bleek" },
-  { en: "touches (or: becomes)", nl: "raakt" },
-  { en: "lost (astray)", nl: "verdwaald" },
-  { en: "groceries", nl: "boodschappen" },
-  { en: "when", nl: "wanneer" },
-  { en: "contain", nl: "bevatten" },
-  { en: "collection", nl: "verzameling" },
-  { en: "emphasized", nl: "benadrukt" },
-  { en: "suspected (2)", nl: "vermoed" }
-];
+  { "en": "continual", "nl": "voortdurend" },
+  { "en": "flung", "nl": "geslingerd" },
+  { "en": "evidently (apparently)", "nl": "blijkbaar" },
+  { "en": "meanwhile", "nl": "ondertussen" },
+  { "en": "disturbed", "nl": "verstoord" },
+  { "en": "rather (quite)", "nl": "nogal" },
 
+  { "en": "to imagine", "nl": "zich voorstellen (verbeelden)" },
+  { "en": "to introduce oneself", "nl": "zich voorstellen (introduceren)" },
+  { "en": "let me introduce myself", "nl": "even voorstellen" },
+  { "en": "to suggest (propose)", "nl": "voorstellen" },
+  { "en": "suggested (proposed)", "nl": "voorgesteld" },
+  { "en": "suggestion", "nl": "voorstel (suggestie)" },
+  { "en": "suggestions (plural)", "nl": "voorstellen (suggesties)" },
+  { "en": "proposal", "nl": "voorstel (plan)" },
+  { "en": "proposals (plural)", "nl": "voorstellen (plannen)" },
+
+  { "en": "to suppose", "nl": "veronderstellen" },
+  { "en": "to assume", "nl": "aannemen (veronderstellen)" },
+  { "en": "to accept", "nl": "aannemen (accepteren)" },
+  { "en": "to hire", "nl": "aannemen (inhuren)" },
+  { "en": "assumed", "nl": "aangenomen (verondersteld)" },
+  { "en": "accepted", "nl": "aangenomen (geaccepteerd)" },
+  { "en": "hired", "nl": "aangenomen (ingehuurd)" },
+  { "en": "presumably", "nl": "vermoedelijk" },
+  { "en": "suspected (past tense)", "nl": "vermoedde" },
+  { "en": "suspected (participle/adjective)", "nl": "vermoed" },
+
+  { "en": "permission", "nl": "toestemming" },
+  { "en": "example", "nl": "voorbeeld" },
+  { "en": "examples (plural)", "nl": "voorbeelden" },
+  { "en": "fetched", "nl": "haalde" },
+
+  { "en": "to matter", "nl": "schelen (uitmaken)" },
+  { "en": "to care", "nl": "schelen (boeien)" },
+
+  { "en": "cheerful", "nl": "opgewekt" },
+  { "en": "called", "nl": "geroepen" },
+  { "en": "blazed", "nl": "laaiden" },
+
+  { "en": "brave", "nl": "moedig" },
+  { "en": "male cousin", "nl": "neef (familielid)" },
+  { "en": "male cousins (plural)", "nl": "neven (familieleden)" },
+  { "en": "nephew", "nl": "neef (oomzegger)" },
+  { "en": "nephews (plural)", "nl": "neven (oomzeggers)" },
+
+  { "en": "once", "nl": "eenmaal" },
+  { "en": "chewing", "nl": "kauwen" },
+  { "en": "icy", "nl": "ijzig" },
+  { "en": "extremely", "nl": "uiterst" },
+  { "en": "words", "nl": "woorden" },
+  { "en": "since (because)", "nl": "aangezien" },
+  { "en": "saved", "nl": "gered" },
+  { "en": "concealed oneself", "nl": "verschool zich" },
+
+  { "en": "organised (arranged)", "nl": "geregeld (georganiseerd)" },
+  { "en": "regular", "nl": "geregeld (regelmatig)" },
+
+  { "en": "connected", "nl": "aangesloten (verbonden)" },
+  { "en": "affiliated", "nl": "aangesloten (lid)" },
+  { "en": "to connect (join/plug in)", "nl": "aansluiten" },
+  { "en": "connected (past singular)", "nl": "sloot aan" },
+  { "en": "to close (lock)", "nl": "sluiten" },
+  { "en": "closed (past singular)", "nl": "sloot" },
+  { "en": "closed (participle)", "nl": "gesloten" },
+  { "en": "conclusion (decision)", "nl": "besluit" },
+  { "en": "conclusions (plural)", "nl": "besluiten" },
+  { "en": "to exclude", "nl": "uitsluiten" },
+  { "en": "excluded (past singular)", "nl": "sloot uit" },
+  { "en": "excluded (participle)", "nl": "uitgesloten" },
+
+  { "en": "destroyed", "nl": "verwoest" },
+  { "en": "traffic", "nl": "verkeer" },
+
+  { "en": "carries", "nl": "draagt (torsen)" },
+  { "en": "wears", "nl": "draagt (aanhebben)" },
+  { "en": "to carry", "nl": "dragen (torsen)" },
+  { "en": "carried (past singular)", "nl": "droeg (torsen)" },
+  { "en": "carried (participle)", "nl": "gedragen (torsen)" },
+  { "en": "to wear", "nl": "dragen (aanhebben)" },
+  { "en": "wore (past singular)", "nl": "droeg (aanhebben)" },
+  { "en": "worn (participle)", "nl": "gedragen (aanhebben)" },
+  { "en": "to behave", "nl": "zich gedragen" },
+  { "en": "behaved (past singular)", "nl": "gedroeg zich" },
+  { "en": "behaved (participle)", "nl": "zich gedragen (gedrag)" },
+
+  { "en": "dressed", "nl": "gekleed" },
+  { "en": "forward (bent forward)", "nl": "voorover" },
+  { "en": "bow (arc)", "nl": "boog" },
+  { "en": "bows (arcs - plural)", "nl": "bogen" },
+  { "en": "collided", "nl": "botste" },
+  { "en": "virtually", "nl": "vrijwel" },
+  { "en": "tendency", "nl": "neiging" },
+  { "en": "tendencies (plural)", "nl": "neigingen" },
+  { "en": "fighting", "nl": "vechtend" },
+  { "en": "approved", "nl": "goedgekeurd" },
+  { "en": "intruders", "nl": "indringers" },
+  { "en": "ostentatious", "nl": "opzichtig" },
+  { "en": "attitude", "nl": "houding" },
+  { "en": "attitudes (plural)", "nl": "houdingen" },
+  { "en": "regarding", "nl": "wat betreft" },
+  { "en": "entertained", "nl": "vermaakte" },
+  { "en": "to deliver", "nl": "bezorgen" },
+  { "en": "to harass (bother)", "nl": "lastigvallen" },
+  { "en": "harassed (past singular)", "nl": "viel lastig" },
+  { "en": "harassed (participle)", "nl": "lastiggevallen" },
+  { "en": "survived", "nl": "overleefde" },
+  { "en": "disputed (doubted)", "nl": "betwijfelde" },
+  { "en": "to approach", "nl": "naderen" },
+
+  { "en": "expired", "nl": "vervallen (verlopen)" },
+  { "en": "dilapidated", "nl": "vervallen (bouwvallig)" },
+  { "en": "lapsed", "nl": "vervallen (ongeldig)" },
+
+  { "en": "damp", "nl": "vochtig" },
+  { "en": "beautiful", "nl": "fraai" },
+  { "en": "were missing", "nl": "ontbraken" },
+  { "en": "missing", "nl": "ontbrekend" },
+  { "en": "timbered (built)", "nl": "getimmerd" },
+  { "en": "approached", "nl": "naderde" },
+  { "en": "curved (bent)", "nl": "gebogen" },
+  { "en": "amount", "nl": "hoeveelheid" },
+  { "en": "amounts (plural)", "nl": "hoeveelheden" },
+  { "en": "a few (some)", "nl": "enkele" },
+  { "en": "patient", "nl": "geduldig" },
+  { "en": "uncontrolled", "nl": "onbeheerst" },
+
+  { "en": "controlled", "nl": "beheerst (kalm)" },
+  { "en": "mastered", "nl": "beheerst (onder de knie)" },
+
+  { "en": "gust", "nl": "vlaag" },
+  { "en": "gusts (plural)", "nl": "vlagen" },
+
+  { "en": "dropped", "nl": "zakte (daalde)" },
+  { "en": "sank", "nl": "zakte (zonk)" },
+  { "en": "to drop (fail an exam / sink)", "nl": "zakken" },
+  { "en": "dropped/sunk (participle)", "nl": "gezakt" },
+  { "en": "pocket (bag)", "nl": "zak" },
+  { "en": "pockets (bags - plural)", "nl": "zakken" },
+  { "en": "business (matters/ affairs)", "nl": "zaken" },
+
+  { "en": "completely", "nl": "volkomen" },
+  { "en": "to appear", "nl": "verschijnen" },
+  { "en": "appeared (past singular)", "nl": "verscheen" },
+  { "en": "appeared (participle)", "nl": "verschenen" },
+  { "en": "into view", "nl": "tevoorschijn" },
+  { "en": "to shoot", "nl": "schieten" },
+  { "en": "shot (past singular)", "nl": "schoot" },
+  { "en": "shot (participle)", "nl": "geschoten" },
+  { "en": "pinched", "nl": "knepen" },
+  { "en": "fell", "nl": "vielen" },
+  { "en": "to fall", "nl": "vallen" },
+  { "en": "fell (past singular)", "nl": "viel" },
+  { "en": "fallen (participle)", "nl": "gevallen" },
+  { "en": "to stand out (notice)", "nl": "opvallen" },
+  { "en": "stood out (past singular)", "nl": "viel op" },
+  { "en": "stood out (participle)", "nl": "opgevallen" },
+  { "en": "to lose weight (drop out)", "nl": "afvallen" },
+  { "en": "lost weight (past singular)", "nl": "viel af" },
+  { "en": "lost weight (participle)", "nl": "afgevallen" },
+  { "en": "to experience (happen/be a setback)", "nl": "tegenvallen" },
+  { "en": "disappointed (past singular)", "nl": "viel tegen" },
+  { "en": "disappointed (participle)", "nl": "tegengevallen" },
+  { "en": "to turn out better than expected", "nl": "meevallen" },
+  { "en": "turned out well (past singular)", "nl": "viel mee" },
+  { "en": "turned out well (participle)", "nl": "meegevallen" },
+  { "en": "accident", "nl": "onval (ongeluk)" },
+  { "en": "accidents (plural)", "nl": "onvallen (ongelukken)" },
+  { "en": "as a result of which", "nl": "waardoor" },
+  { "en": "grown (cultivated)", "nl": "gekweekt" },
+  { "en": "to fade", "nl": "vervagen" },
+  { "en": "complaints", "nl": "klachten" },
+  { "en": "abuses (misconducts)", "nl": "misstanden" },
+  { "en": "case (situation)", "nl": "geval" },
+  { "en": "cases (situations - plural)", "nl": "gevallen" },
+  { "en": "part", "nl": "gedeelte" },
+  { "en": "parts (plural)", "nl": "gedeelten (gedeeltes)" },
+
+  { "en": "watched / viewed", "nl": "bekeken (gezien)" },
+  { "en": "examined", "nl": "bekeken (onderzocht)" },
+  { "en": "to view (look at)", "nl": "bekijken" },
+  { "en": "viewed (past singular)", "nl": "bekeek" },
+  { "en": "to look (see)", "nl": "zien" },
+  { "en": "saw (past singular)", "nl": "zag" },
+  { "en": "seen (participle)", "nl": "gezien" },
+  { "en": "to look like (resemble/show)", "nl": "eruitzien" },
+  { "en": "looked like (past singular)", "nl": "zag eruit" },
+  { "en": "looked like (participle)", "nl": "eruitgezien" },
+
+  { "en": "down", "nl": "neer" },
+
+  { "en": "to tow", "nl": "slepen (trekken)" },
+  { "en": "to drag", "nl": "slepen (voortsleuren)" },
+
+  { "en": "similar", "nl": "soortgelijk" },
+
+  { "en": "took place (proceeded)", "nl": "verliep (ging)" },
+  { "en": "ran out (expired)", "nl": "verliep (verstreek)" },
+  { "en": "to expire (proceed)", "nl": "verlopen" },
+  { "en": "expired (participle)", "nl": "verlopen (gebeurd)" },
+  { "en": "to undergo (experience)", "nl": "ondergaan" },
+  { "en": "underwent (past singular)", "nl": "onderging" },
+  { "en": "undergone (participle)", "nl": "ondergaan (meegemaakt)" },
+  { "en": "to bypass (evade/deal with)", "nl": "omgaan (met)" },
+  { "en": "bypassed (past singular)", "nl": "ging om (met)" },
+  { "en": "bypassed (participle)", "nl": "omgegaan (met)" },
+
+  { "en": "enemy", "nl": "vijand" },
+  { "en": "enemies (plural)", "nl": "vijanden" },
+
+  { "en": "reached", "nl": "bereikte (kwam bij)" },
+  { "en": "achieved", "nl": "bereikte (behaalde)" },
+
+  { "en": "to add", "nl": "voegen (toevoegen)" },
+  { "en": "to join", "nl": "voegen (verbinden)" },
+
+  { "en": "expectation", "nl": "verwachting" },
+  { "en": "expectations (plural)", "nl": "verwachtingen" },
+
+  { "en": "prepared", "nl": "bereid (klaar)" },
+  { "en": "willing", "nl": "bereid (gewillig)" },
+
+  { "en": "invitation", "nl": "uitnodiging" },
+  { "en": "invitations (plural)", "nl": "uitnodigingen" },
+  { "en": "to expect", "nl": "verwachten" },
+  { "en": "matched (corresponding)", "nl": "overeenkomend" },
+
+  { "en": "shallow", "nl": "oppervlakkig (ondiep)" },
+  { "en": "superficial", "nl": "oppervlakkig (vluchtig)" },
+
+  { "en": "deduction", "nl": "aftrek" },
+  { "en": "compared", "nl": "vergeleken" },
+  { "en": "literal", "nl": "letterlijk" },
+  { "en": "actually", "nl": "eigenlijk" },
+  { "en": "weight", "nl": "gewicht" },
+  { "en": "weights (plural)", "nl": "gewichten" },
+  { "en": "owed", "nl": "verschuldigd" },
+  { "en": "support", "nl": "steun" },
+  { "en": "recoiled", "nl": "deinsde" },
+  { "en": "insult", "nl": "belediging" },
+  { "en": "insults (plural)", "nl": "beledigingen" },
+  { "en": "understood (interpreted)", "nl": "opgevat" },
+  { "en": "displayed (represented)", "nl": "weergegeven" },
+  { "en": "display (show)", "nl": "vertoon" },
+  { "en": "banks (of a river)", "nl": "oevers" },
+  { "en": "unobstructed", "nl": "ongehinderd" },
+  { "en": "attempt", "nl": "poging" },
+  { "en": "attempts (plural)", "nl": "pogingen" },
+
+  { "en": "to hear", "nl": "horen (waarnemen)" },
+  { "en": "to belong", "nl": "horen (thuishoren)" },
+  { "en": "heard (past singular)", "nl": "hoorde" },
+  { "en": "heard (participle)", "nl": "gehoord" },
+  { "en": "to obey", "nl": "gehoorzamen" },
+  { "en": "obeyed (past singular)", "nl": "gehoorzaamde" },
+  { "en": "obedient", "nl": "gehoorzaam" },
+  { "en": "disobedient", "nl": "ongehoorzaam" },
+
+  { "en": "thrown", "nl": "gegooid" },
+
+  { "en": "to grasp", "nl": "vatten (grijpen)" },
+  { "en": "to understand", "nl": "vatten (begrijpen)" },
+  { "en": "grasped/understood (past singular)", "nl": "vatte" },
+  { "en": "grasped/understood (participle)", "nl": "gevat" },
+  { "en": "to contain", "nl": "bevatten" },
+  { "en": "contained (past singular)", "nl": "bevatte" },
+  { "en": "contained (participle)", "nl": "bevat" },
+
+  { "en": "restored", "nl": "hersteld (gerepareerd)" },
+  { "en": "recovered", "nl": "hersteld (genezen)" },
+
+  { "en": "defence", "nl": "verdediging" },
+  { "en": "defences (plural)", "nl": "verdedigingen" },
+  { "en": "loss", "nl": "verlies" },
+  { "en": "losses (plural)", "nl": "verliezen" },
+  { "en": "submitted / presented", "nl": "voorgelegd" },
+  { "en": "disappeared", "nl": "verdwenen" },
+  { "en": "cancelled", "nl": "afgelast" },
+
+  { "en": "quite / fairly", "nl": "behoorlijk (tamelijk)" },
+  { "en": "properly", "nl": "behoorlijk (netjes)" },
+
+  { "en": "inspired", "nl": "bezield" },
+
+  { "en": "noticed", "nl": "opgevallen (bemerkt)" },
+  { "en": "stood out", "nl": "opgevallen (uitgesprongen)" },
+
+  { "en": "touches", "nl": "raakt (aanraakt)" },
+  { "en": "hits", "nl": "raakt (treft)" },
+  { "en": "becomes", "nl": "raakt (wordt)" },
+
+  { "en": "when", "nl": "wanneer" },
+  { "en": "emphasised", "nl": "benadrukt" },
+
+  { "en": "to be", "nl": "zijn" },
+  { "en": "was/were (past singular)", "nl": "was" },
+  { "en": "been (participle)", "nl": "geweest" },
+
+  { "en": "to have", "nl": "hebben" },
+  { "en": "had (past singular)", "nl": "had" },
+  { "en": "had (participle)", "nl": "gehad" },
+
+  { "en": "to become (shall/will)", "nl": "worden" },
+  { "en": "became (past singular)", "nl": "werd" },
+  { "en": "become (participle)", "nl": "geworden" },
+
+  { "en": "to be able to (can)", "nl": "kunnen" },
+  { "en": "could (past singular)", "nl": "kon" },
+  { "en": "been able to (participle)", "nl": "gekund" },
+
+  { "en": "to have to (must)", "nl": "moeten" },
+  { "en": "had to (past singular)", "nl": "moest" },
+
+  { "en": "to want", "nl": "willen" },
+  { "en": "wanted (past singular)", "nl": "wilde (wou)" },
+
+  { "en": "to go", "nl": "gaan" },
+  { "en": "went (past singular)", "nl": "ging" },
+  { "en": "gone (participle)", "nl": "gegaan" },
+
+  { "en": "to come", "nl": "komen" },
+  { "en": "came (past singular)", "nl": "kwam" },
+  { "en": "come (participle)", "nl": "gekomen" },
+
+  { "en": "to do (make)", "nl": "doen" },
+  { "en": "did (past singular)", "nl": "deed" },
+  { "en": "done (participle)", "nl": "gedaan" },
+
+  { "en": "to give", "nl": "geven" },
+  { "en": "gave (past singular)", "nl": "gaf" },
+  { "en": "given (participle)", "nl": "gegeven" },
+
+  { "en": "to sit", "nl": "zitten" },
+  { "en": "sat (past singular)", "nl": "zat" },
+  { "en": "sat (participle)", "nl": "gezeten" },
+
+  { "en": "to stand", "nl": "staan" },
+  { "en": "stood (past singular)", "nl": "stond" },
+  { "en": "stood (participle)", "nl": "gestaan" },
+
+  { "en": "to lie (recline)", "nl": "liggen" },
+  { "en": "lay (past singular)", "nl": "lag" },
+  { "en": "lain (participle)", "nl": "gelegen" },
+
+  { "en": "to hang", "nl": "hangen" },
+  { "en": "hung (past singular)", "nl": "hing" },
+  { "en": "hung (participle)", "nl": "gehangen" },
+
+  { "en": "to know (a fact)", "nl": "weten" },
+  { "en": "knew (past singular)", "nl": "wist" },
+  { "en": "known (participle)", "nl": "geweten" },
+
+  { "en": "to say", "nl": "zeggen" },
+  { "en": "said (past singular)", "nl": "zei" },
+  { "en": "said (participle)", "nl": "gezegd" },
+
+  { "en": "to understand", "nl": "begrijpen" },
+  { "en": "understood (past singular)", "nl": "begreep" },
+  { "en": "understood (participle)", "nl": "begrepen" },
+
+  { "en": "to ask", "nl": "vragen" },
+  { "en": "asked (past singular)", "nl": "vroeg" },
+  { "en": "asked (participle)", "nl": "gevraagd" }
+]
 const LANG_A_KEY = "en";
 const LANG_B_KEY = "nl";
 const LANG_A_LABEL = "English";
 const LANG_B_LABEL = "Dutch";
+
+/* ============================================================
+   QUIZ MODES
+   ============================================================ */
+const MODES = {
+  mc: {
+    title: "Multiple Choice",
+    desc: "All questions are multiple choice, either direction."
+  },
+  "a-to-b": {
+    title: `${LANG_A_LABEL} → ${LANG_B_LABEL} (typed)`,
+    desc: `Type the ${LANG_B_LABEL} translation for each ${LANG_A_LABEL} word.`
+  },
+  "b-to-a": {
+    title: `${LANG_B_LABEL} → ${LANG_A_LABEL} (typed)`,
+    desc: `Type the ${LANG_A_LABEL} translation for each ${LANG_B_LABEL} word.`
+  },
+  mixed: {
+    title: "Mixed",
+    desc: "Random mix of multiple choice and typed, both directions."
+  }
+};
 
 /* ============================================================
    APP LOGIC
@@ -457,11 +678,24 @@ const LANG_B_LABEL = "Dutch";
 
 const QUESTIONS_PER_SET = 15;
 
+let currentMode = "mixed";
 let questions = [];
 let currentIndex = 0;
 let score = 0;
 let setScore = 0;
 let answered = false;
+
+// Running totals used to compute accuracy, and a "snapshot" that only
+// gets refreshed at the end of each 15-question block, so the accuracy
+// shown during a block reflects the last completed block, not the
+// in-progress one.
+let totalAnswered = 0;
+let totalCorrect = 0;
+let displayedAccuracy = null;
+
+function snapshotAccuracy() {
+  displayedAccuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : null;
+}
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -482,11 +716,26 @@ function parseWord(str) {
   return { base: str.trim(), hint: null };
 }
 
-function buildQuestions() {
+function buildQuestions(mode) {
   const shuffledWords = shuffle(words);
   return shuffledWords.map((pair) => {
-    const type = Math.random() < 0.35 ? "mc" : "text";
-    const direction = Math.random() < 0.5 ? "a-to-b" : "b-to-a";
+    let type;
+    let direction;
+
+    if (mode === "mc") {
+      type = "mc";
+      direction = Math.random() < 0.5 ? "a-to-b" : "b-to-a";
+    } else if (mode === "a-to-b") {
+      type = "text";
+      direction = "a-to-b";
+    } else if (mode === "b-to-a") {
+      type = "text";
+      direction = "b-to-a";
+    } else {
+      // mixed: random type and random direction, independently per word
+      type = Math.random() < 0.35 ? "mc" : "text";
+      direction = Math.random() < 0.5 ? "a-to-b" : "b-to-a";
+    }
 
     const promptKey = direction === "a-to-b" ? LANG_A_KEY : LANG_B_KEY;
     const answerKey = direction === "a-to-b" ? LANG_B_KEY : LANG_A_KEY;
@@ -521,12 +770,32 @@ function buildQuestions() {
   });
 }
 
-function startQuiz() {
-  questions = buildQuestions();
+function renderModeSelect() {
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <div class="mode-select">
+      <h1>Vocabulary Quiz</h1>
+      <p class="sub">Choose how you'd like to practice:</p>
+      ${Object.entries(MODES).map(([key, m]) => `
+        <button class="mode-btn" onclick="startQuiz('${key}')">
+          <p class="mode-title">${escapeHtml(m.title)}</p>
+          <p class="mode-desc">${escapeHtml(m.desc)}</p>
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function startQuiz(mode) {
+  currentMode = mode || currentMode;
+  questions = buildQuestions(currentMode);
   currentIndex = 0;
   score = 0;
   setScore = 0;
   answered = false;
+  totalAnswered = 0;
+  totalCorrect = 0;
+  displayedAccuracy = null;
   renderQuestion();
 }
 
@@ -559,7 +828,7 @@ function renderQuestion() {
   app.innerHTML = `
     <div class="top-row">
       <span>Set ${setNumber} / ${totalSets} — Question ${posInSet} / ${setLength}</span>
-      <span>Score: ${score}</span>
+      <span>${displayedAccuracy !== null ? `Accuracy: ${displayedAccuracy}%` : ""}</span>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
     <span class="lang-tag">${q.promptLabel} → ${q.answerLabel}</span>
@@ -632,9 +901,11 @@ function handleTextAnswer() {
 }
 
 function showFeedback(isCorrect, correctAnswer) {
+  totalAnswered++;
   if (isCorrect) {
     score++;
     setScore++;
+    totalCorrect++;
   }
   const feedback = document.getElementById("feedback");
   feedback.textContent = isCorrect
@@ -650,8 +921,10 @@ function showFeedback(isCorrect, correctAnswer) {
 function nextQuestion() {
   currentIndex++;
   if (currentIndex >= questions.length) {
+    snapshotAccuracy();
     renderEndScreen();
   } else if (currentIndex % QUESTIONS_PER_SET === 0) {
+    snapshotAccuracy();
     renderSetCompleteScreen();
   } else {
     renderQuestion();
@@ -670,7 +943,7 @@ function renderSetCompleteScreen() {
     <div class="end-screen">
       <p class="lang-tag">Set ${setNumber} of ${totalSets} complete</p>
       <div class="end-score">${setScore} / ${setLength}</div>
-      <p class="end-sub">${pct}% correct on this set</p>
+      <p class="end-sub">${pct}% correct on this set &nbsp;·&nbsp; ${displayedAccuracy}% overall</p>
       <button class="restart-btn" onclick="continueToNextSet()">Continue to Set ${setNumber + 1}</button>
     </div>
   `;
@@ -688,8 +961,9 @@ function renderEndScreen() {
     <div class="end-screen">
       <p class="lang-tag">Quiz complete</p>
       <div class="end-score">${score} / ${questions.length}</div>
-      <p class="end-sub">${pct}% correct</p>
-      <button class="restart-btn" onclick="startQuiz()">Try again</button>
+      <p class="end-sub">${pct}% correct — ${escapeHtml(MODES[currentMode].title)}</p>
+      <button class="restart-btn" onclick="startQuiz(currentMode)">Try again</button>
+      <button class="secondary-btn" onclick="renderModeSelect()">Change quiz type</button>
     </div>
   `;
 }
@@ -704,7 +978,8 @@ function escapeAttr(str) {
 }
 
 // Enter key drives the same action button (check, then next), and is
-// ignored on the set-complete / end screens where actionBtn isn't present.
+// ignored on the set-complete / end / mode-select screens where
+// actionBtn isn't present.
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     const btn = document.getElementById("actionBtn");
@@ -715,7 +990,7 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-startQuiz();
+renderModeSelect();
 </script>
 </body>
 </html>
