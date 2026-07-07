@@ -37,7 +37,7 @@
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     width: 100%;
-    max-width: 480px;
+    max-width: 640px;
     padding: 32px;
   }
   .top-row {
@@ -234,19 +234,35 @@
     flex-direction: column;
     gap: 14px;
   }
-  .verb-field label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 6px;
-  }
   .verb-field .correct-hint {
     font-size: 13px;
     margin-top: 4px;
     color: var(--wrong);
+  }
+  .verb-field-terms {
+  margin-bottom: 6px;
+}
+  .verb-term-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .verb-term {
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex: 1;
+  }
+  .verb-pronouns {
+    color: var(--text);
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+    flex: 0;
   }
   .verb-summary {
     margin-top: 10px;
@@ -308,375 +324,51 @@
    you also update LANG_A_KEY / LANG_B_KEY / LANG_A_LABEL /
    LANG_B_LABEL below to match.
    ============================================================ */
-const words = [
-  { "en": "continual", "nl": "voortdurend" },
-  { "en": "flung", "nl": "geslingerd" },
-  { "en": "evidently (apparently)", "nl": "blijkbaar" },
-  { "en": "meanwhile", "nl": "ondertussen" },
-  { "en": "disturbed", "nl": "verstoord" },
-  { "en": "rather (quite)", "nl": "nogal" },
 
-  { "en": "to imagine", "nl": "zich voorstellen (verbeelden)" },
-  { "en": "to introduce oneself", "nl": "zich voorstellen (introduceren)" },
-  { "en": "let me introduce myself", "nl": "even voorstellen" },
-  { "en": "to suggest (propose)", "nl": "voorstellen" },
-  { "en": "suggested (proposed)", "nl": "voorgesteld" },
-  { "en": "suggestion", "nl": "voorstel (suggestie)" },
-  { "en": "suggestions (plural)", "nl": "voorstellen (suggesties)" },
-  { "en": "proposal", "nl": "voorstel (plan)" },
-  { "en": "proposals (plural)", "nl": "voorstellen (plannen)" },
-
-  { "en": "to suppose", "nl": "veronderstellen" },
-  { "en": "to assume", "nl": "aannemen (veronderstellen)" },
-  { "en": "to accept", "nl": "aannemen (accepteren)" },
-  { "en": "to hire", "nl": "aannemen (inhuren)" },
-  { "en": "assumed", "nl": "aangenomen (verondersteld)" },
-  { "en": "accepted", "nl": "aangenomen (geaccepteerd)" },
-  { "en": "hired", "nl": "aangenomen (ingehuurd)" },
-  { "en": "presumably", "nl": "vermoedelijk" },
-  { "en": "suspected (past tense)", "nl": "vermoedde" },
-  { "en": "suspected (participle/adjective)", "nl": "vermoed" },
-
-  { "en": "permission", "nl": "toestemming" },
-  { "en": "example", "nl": "voorbeeld" },
-  { "en": "examples (plural)", "nl": "voorbeelden" },
-  { "en": "fetched", "nl": "haalde" },
-
-  { "en": "to matter", "nl": "schelen (uitmaken)" },
-  { "en": "to care", "nl": "schelen (boeien)" },
-
-  { "en": "cheerful", "nl": "opgewekt" },
-  { "en": "called", "nl": "geroepen" },
-  { "en": "blazed", "nl": "laaiden" },
-
-  { "en": "brave", "nl": "moedig" },
-  { "en": "male cousin", "nl": "neef (familielid)" },
-  { "en": "male cousins (plural)", "nl": "neven (familieleden)" },
-  { "en": "nephew", "nl": "neef (oomzegger)" },
-  { "en": "nephews (plural)", "nl": "neven (oomzeggers)" },
-
-  { "en": "once", "nl": "eenmaal" },
-  { "en": "chewing", "nl": "kauwen" },
-  { "en": "icy", "nl": "ijzig" },
-  { "en": "extremely", "nl": "uiterst" },
-  { "en": "words", "nl": "woorden" },
-  { "en": "since (because)", "nl": "aangezien" },
-  { "en": "saved", "nl": "gered" },
-  { "en": "concealed oneself", "nl": "verschool zich" },
-
-  { "en": "organised (arranged)", "nl": "geregeld (georganiseerd)" },
-  { "en": "regular", "nl": "geregeld (regelmatig)" },
-
-  { "en": "connected", "nl": "aangesloten (verbonden)" },
-  { "en": "affiliated", "nl": "aangesloten (lid)" },
-  { "en": "to connect (join/plug in)", "nl": "aansluiten" },
-  { "en": "connected (past singular)", "nl": "sloot aan" },
-  { "en": "to close (lock)", "nl": "sluiten" },
-  { "en": "closed (past singular)", "nl": "sloot" },
-  { "en": "closed (participle)", "nl": "gesloten" },
-  { "en": "conclusion (decision)", "nl": "besluit" },
-  { "en": "conclusions (plural)", "nl": "besluiten" },
-  { "en": "to exclude", "nl": "uitsluiten" },
-  { "en": "excluded (past singular)", "nl": "sloot uit" },
-  { "en": "excluded (participle)", "nl": "uitgesloten" },
-
-  { "en": "destroyed", "nl": "verwoest" },
-  { "en": "traffic", "nl": "verkeer" },
-
-  { "en": "carries", "nl": "draagt (torsen)" },
-  { "en": "wears", "nl": "draagt (aanhebben)" },
-  { "en": "to carry", "nl": "dragen (torsen)" },
-  { "en": "carried (past singular)", "nl": "droeg (torsen)" },
-  { "en": "carried (participle)", "nl": "gedragen (torsen)" },
-  { "en": "to wear", "nl": "dragen (aanhebben)" },
-  { "en": "wore (past singular)", "nl": "droeg (aanhebben)" },
-  { "en": "worn (participle)", "nl": "gedragen (aanhebben)" },
-  { "en": "to behave", "nl": "zich gedragen" },
-  { "en": "behaved (past singular)", "nl": "gedroeg zich" },
-  { "en": "behaved (participle)", "nl": "zich gedragen (gedrag)" },
-
-  { "en": "dressed", "nl": "gekleed" },
-  { "en": "forward (bent forward)", "nl": "voorover" },
-  { "en": "bow (arc)", "nl": "boog" },
-  { "en": "bows (arcs - plural)", "nl": "bogen" },
-  { "en": "collided", "nl": "botste" },
-  { "en": "virtually", "nl": "vrijwel" },
-  { "en": "tendency", "nl": "neiging" },
-  { "en": "tendencies (plural)", "nl": "neigingen" },
-  { "en": "fighting", "nl": "vechtend" },
-  { "en": "approved", "nl": "goedgekeurd" },
-  { "en": "intruders", "nl": "indringers" },
-  { "en": "ostentatious", "nl": "opzichtig" },
-  { "en": "attitude", "nl": "houding" },
-  { "en": "attitudes (plural)", "nl": "houdingen" },
-  { "en": "regarding", "nl": "wat betreft" },
-  { "en": "entertained", "nl": "vermaakte" },
-  { "en": "to deliver", "nl": "bezorgen" },
-  { "en": "to harass (bother)", "nl": "lastigvallen" },
-  { "en": "harassed (past singular)", "nl": "viel lastig" },
-  { "en": "harassed (participle)", "nl": "lastiggevallen" },
-  { "en": "survived", "nl": "overleefde" },
-  { "en": "disputed (doubted)", "nl": "betwijfelde" },
-  { "en": "to approach", "nl": "naderen" },
-
-  { "en": "expired", "nl": "vervallen (verlopen)" },
-  { "en": "dilapidated", "nl": "vervallen (bouwvallig)" },
-  { "en": "lapsed", "nl": "vervallen (ongeldig)" },
-
-  { "en": "damp", "nl": "vochtig" },
-  { "en": "beautiful", "nl": "fraai" },
-  { "en": "were missing", "nl": "ontbraken" },
-  { "en": "missing", "nl": "ontbrekend" },
-  { "en": "timbered (built)", "nl": "getimmerd" },
-  { "en": "approached", "nl": "naderde" },
-  { "en": "curved (bent)", "nl": "gebogen" },
-  { "en": "amount", "nl": "hoeveelheid" },
-  { "en": "amounts (plural)", "nl": "hoeveelheden" },
-  { "en": "a few (some)", "nl": "enkele" },
-  { "en": "patient", "nl": "geduldig" },
-  { "en": "uncontrolled", "nl": "onbeheerst" },
-
-  { "en": "controlled", "nl": "beheerst (kalm)" },
-  { "en": "mastered", "nl": "beheerst (onder de knie)" },
-
-  { "en": "gust", "nl": "vlaag" },
-  { "en": "gusts (plural)", "nl": "vlagen" },
-
-  { "en": "dropped", "nl": "zakte (daalde)" },
-  { "en": "sank", "nl": "zakte (zonk)" },
-  { "en": "to drop (fail an exam / sink)", "nl": "zakken" },
-  { "en": "dropped/sunk (participle)", "nl": "gezakt" },
-  { "en": "pocket (bag)", "nl": "zak" },
-  { "en": "pockets (bags - plural)", "nl": "zakken" },
-  { "en": "business (matters/ affairs)", "nl": "zaken" },
-
-  { "en": "completely", "nl": "volkomen" },
-  { "en": "to appear", "nl": "verschijnen" },
-  { "en": "appeared (past singular)", "nl": "verscheen" },
-  { "en": "appeared (participle)", "nl": "verschenen" },
-  { "en": "into view", "nl": "tevoorschijn" },
-  { "en": "to shoot", "nl": "schieten" },
-  { "en": "shot (past singular)", "nl": "schoot" },
-  { "en": "shot (participle)", "nl": "geschoten" },
-  { "en": "pinched", "nl": "knepen" },
-  { "en": "fell", "nl": "vielen" },
-  { "en": "to fall", "nl": "vallen" },
-  { "en": "fell (past singular)", "nl": "viel" },
-  { "en": "fallen (participle)", "nl": "gevallen" },
-  { "en": "to stand out (notice)", "nl": "opvallen" },
-  { "en": "stood out (past singular)", "nl": "viel op" },
-  { "en": "stood out (participle)", "nl": "opgevallen" },
-  { "en": "to lose weight (drop out)", "nl": "afvallen" },
-  { "en": "lost weight (past singular)", "nl": "viel af" },
-  { "en": "lost weight (participle)", "nl": "afgevallen" },
-  { "en": "to experience (happen/be a setback)", "nl": "tegenvallen" },
-  { "en": "disappointed (past singular)", "nl": "viel tegen" },
-  { "en": "disappointed (participle)", "nl": "tegengevallen" },
-  { "en": "to turn out better than expected", "nl": "meevallen" },
-  { "en": "turned out well (past singular)", "nl": "viel mee" },
-  { "en": "turned out well (participle)", "nl": "meegevallen" },
-  { "en": "accident", "nl": "onval (ongeluk)" },
-  { "en": "accidents (plural)", "nl": "onvallen (ongelukken)" },
-  { "en": "as a result of which", "nl": "waardoor" },
-  { "en": "grown (cultivated)", "nl": "gekweekt" },
-  { "en": "to fade", "nl": "vervagen" },
-  { "en": "complaints", "nl": "klachten" },
-  { "en": "abuses (misconducts)", "nl": "misstanden" },
-  { "en": "case (situation)", "nl": "geval" },
-  { "en": "cases (situations - plural)", "nl": "gevallen" },
-  { "en": "part", "nl": "gedeelte" },
-  { "en": "parts (plural)", "nl": "gedeelten (gedeeltes)" },
-
-  { "en": "watched (viewed)", "nl": "bekeken (gezien)" },
-  { "en": "examined", "nl": "bekeken (onderzocht)" },
-  { "en": "to view (look at)", "nl": "bekijken" },
-  { "en": "viewed (past singular)", "nl": "bekeek" },
-  { "en": "to look (see)", "nl": "zien" },
-  { "en": "saw (past singular)", "nl": "zag" },
-  { "en": "seen (participle)", "nl": "gezien" },
-  { "en": "to look like (resemble/show)", "nl": "eruitzien" },
-  { "en": "looked like (past singular)", "nl": "zag eruit" },
-  { "en": "looked like (participle)", "nl": "eruitgezien" },
-
-  { "en": "down", "nl": "neer" },
-
-  { "en": "to tow", "nl": "slepen (trekken)" },
-  { "en": "to drag", "nl": "slepen (voortsleuren)" },
-
-  { "en": "similar", "nl": "soortgelijk" },
-
-  { "en": "took place (proceeded)", "nl": "verliep (ging)" },
-  { "en": "ran out (expired)", "nl": "verliep (verstreek)" },
-  { "en": "to expire (proceed)", "nl": "verlopen" },
-  { "en": "expired (participle)", "nl": "verlopen (gebeurd)" },
-  { "en": "to undergo (experience)", "nl": "ondergaan" },
-  { "en": "underwent (past singular)", "nl": "onderging" },
-  { "en": "undergone (participle)", "nl": "ondergaan (meegemaakt)" },
-  { "en": "to bypass (evade/deal with)", "nl": "omgaan (met)" },
-  { "en": "bypassed (past singular)", "nl": "ging om (met)" },
-  { "en": "bypassed (participle)", "nl": "omgegaan (met)" },
-
-  { "en": "enemy", "nl": "vijand" },
-  { "en": "enemies (plural)", "nl": "vijanden" },
-
-  { "en": "reached", "nl": "bereikte (kwam bij)" },
-  { "en": "achieved", "nl": "bereikte (behaalde)" },
-
-  { "en": "to add", "nl": "voegen (toevoegen)" },
-  { "en": "to join", "nl": "voegen (verbinden)" },
-
-  { "en": "expectation", "nl": "verwachting" },
-  { "en": "expectations (plural)", "nl": "verwachtingen" },
-
-  { "en": "prepared", "nl": "bereid (klaar)" },
-  { "en": "willing", "nl": "bereid (gewillig)" },
-
-  { "en": "invitation", "nl": "uitnodiging" },
-  { "en": "invitations (plural)", "nl": "uitnodigingen" },
-  { "en": "to expect", "nl": "verwachten" },
-  { "en": "matched (corresponding)", "nl": "overeenkomend" },
-
-  { "en": "shallow", "nl": "oppervlakkig (ondiep)" },
-  { "en": "superficial", "nl": "oppervlakkig (vluchtig)" },
-
-  { "en": "deduction", "nl": "aftrek" },
-  { "en": "compared", "nl": "vergeleken" },
-  { "en": "literal", "nl": "letterlijk" },
-  { "en": "actually", "nl": "eigenlijk" },
-  { "en": "weight", "nl": "gewicht" },
-  { "en": "weights (plural)", "nl": "gewichten" },
-  { "en": "owed", "nl": "verschuldigd" },
-  { "en": "support", "nl": "steun" },
-  { "en": "recoiled", "nl": "deinsde" },
-  { "en": "insult", "nl": "belediging" },
-  { "en": "insults (plural)", "nl": "beledigingen" },
-  { "en": "understood (interpreted)", "nl": "opgevat" },
-  { "en": "displayed (represented)", "nl": "weergegeven" },
-  { "en": "display (show)", "nl": "vertoon" },
-  { "en": "banks (of a river)", "nl": "oevers" },
-  { "en": "unobstructed", "nl": "ongehinderd" },
-  { "en": "attempt", "nl": "poging" },
-  { "en": "attempts (plural)", "nl": "pogingen" },
-
-  { "en": "to hear", "nl": "horen (waarnemen)" },
-  { "en": "to belong", "nl": "horen (thuishoren)" },
-  { "en": "heard (past singular)", "nl": "hoorde" },
-  { "en": "heard (participle)", "nl": "gehoord" },
-  { "en": "to obey", "nl": "gehoorzamen" },
-  { "en": "obeyed (past singular)", "nl": "gehoorzaamde" },
-  { "en": "obedient", "nl": "gehoorzaam" },
-  { "en": "disobedient", "nl": "ongehoorzaam" },
-
-  { "en": "thrown", "nl": "gegooid" },
-
-  { "en": "to grasp", "nl": "vatten (grijpen)" },
-  { "en": "to understand", "nl": "vatten (begrijpen)" },
-  { "en": "grasped/understood (past singular)", "nl": "vatte" },
-  { "en": "grasped/understood (participle)", "nl": "gevat" },
-  { "en": "to contain", "nl": "bevatten" },
-  { "en": "contained (past singular)", "nl": "bevatte" },
-  { "en": "contained (participle)", "nl": "bevat" },
-
-  { "en": "restored", "nl": "hersteld (gerepareerd)" },
-  { "en": "recovered", "nl": "hersteld (genezen)" },
-
-  { "en": "defence", "nl": "verdediging" },
-  { "en": "defences (plural)", "nl": "verdedigingen" },
-  { "en": "loss", "nl": "verlies" },
-  { "en": "losses (plural)", "nl": "verliezen" },
-  { "en": "submitted (presented)", "nl": "voorgelegd" },
-  { "en": "disappeared", "nl": "verdwenen" },
-  { "en": "cancelled", "nl": "afgelast" },
-
-  { "en": "quite (fairly)", "nl": "behoorlijk (tamelijk)" },
-  { "en": "properly", "nl": "behoorlijk (netjes)" },
-
-  { "en": "inspired", "nl": "bezield" },
-
-  { "en": "noticed", "nl": "opgevallen (bemerkt)" },
-  { "en": "stood out", "nl": "opgevallen (uitgesprongen)" },
-
-  { "en": "touches", "nl": "raakt (aanraakt)" },
-  { "en": "hits", "nl": "raakt (treft)" },
-  { "en": "becomes", "nl": "raakt (wordt)" },
-
-  { "en": "when", "nl": "wanneer" },
-  { "en": "emphasised", "nl": "benadrukt" },
-
-  { "en": "to be", "nl": "zijn" },
-  { "en": "was/were (past singular)", "nl": "was" },
-  { "en": "been (participle)", "nl": "geweest" },
-
-  { "en": "to have", "nl": "hebben" },
-  { "en": "had (past singular)", "nl": "had" },
-  { "en": "had (participle)", "nl": "gehad" },
-
-  { "en": "to become (shall/will)", "nl": "worden" },
-  { "en": "became (past singular)", "nl": "werd" },
-  { "en": "become (participle)", "nl": "geworden" },
-
-  { "en": "to be able to (can)", "nl": "kunnen" },
-  { "en": "could (past singular)", "nl": "kon" },
-  { "en": "been able to (participle)", "nl": "gekund" },
-
-  { "en": "to have to (must)", "nl": "moeten" },
-  { "en": "had to (past singular)", "nl": "moest" },
-
-  { "en": "to want", "nl": "willen" },
-  { "en": "wanted (past singular)", "nl": "wilde (wou)" },
-
-  { "en": "to go", "nl": "gaan" },
-  { "en": "went (past singular)", "nl": "ging" },
-  { "en": "gone (participle)", "nl": "gegaan" },
-
-  { "en": "to come", "nl": "komen" },
-  { "en": "came (past singular)", "nl": "kwam" },
-  { "en": "come (participle)", "nl": "gekomen" },
-
-  { "en": "to do (make)", "nl": "doen" },
-  { "en": "did (past singular)", "nl": "deed" },
-  { "en": "done (participle)", "nl": "gedaan" },
-
-  { "en": "to give", "nl": "geven" },
-  { "en": "gave (past singular)", "nl": "gaf" },
-  { "en": "given (participle)", "nl": "gegeven" },
-
-  { "en": "to sit", "nl": "zitten" },
-  { "en": "sat (past singular)", "nl": "zat" },
-  { "en": "sat (participle)", "nl": "gezeten" },
-
-  { "en": "to stand", "nl": "staan" },
-  { "en": "stood (past singular)", "nl": "stond" },
-  { "en": "stood (participle)", "nl": "gestaan" },
-
-  { "en": "to lie (recline)", "nl": "liggen" },
-  { "en": "lay (past singular)", "nl": "lag" },
-  { "en": "lain (participle)", "nl": "gelegen" },
-
-  { "en": "to hang", "nl": "hangen" },
-  { "en": "hung (past singular)", "nl": "hing" },
-  { "en": "hung (participle)", "nl": "gehangen" },
-
-  { "en": "to know (a fact)", "nl": "weten" },
-  { "en": "knew (past singular)", "nl": "wist" },
-  { "en": "known (participle)", "nl": "geweten" },
-
-  { "en": "to say", "nl": "zeggen" },
-  { "en": "said (past singular)", "nl": "zei" },
-  { "en": "said (participle)", "nl": "gezegd" },
-
-  { "en": "to understand", "nl": "begrijpen" },
-  { "en": "understood (past singular)", "nl": "begreep" },
-  { "en": "understood (participle)", "nl": "begrepen" },
-
-  { "en": "to ask", "nl": "vragen" },
-  { "en": "asked (past singular)", "nl": "vroeg" },
-  { "en": "asked (participle)", "nl": "gevraagd" }
-]
 const LANG_A_KEY = "en";
 const LANG_B_KEY = "nl";
 const LANG_A_LABEL = "English";
 const LANG_B_LABEL = "Dutch";
+const VERB_FORM_CATEGORIES = [
+  {
+    key: "Infinitief\nMeervoud",
+    rows: [
+      { term: "Infinitief", pronouns: "–" },
+      { term: "Meervoud", pronouns: "wij · we · jullie · zij · ze" }
+    ]
+  },
+  {
+    key: "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs",
+    rows: [
+      { term: "Eerste persoon enkelvoud", pronouns: "ik" },
+      { term: "Tweede persoon enkelvoud met inversie informeel (e.g., een vraag)", pronouns: "jij · je" },
+      { term: "Gebiedende wijs", pronouns: "jij · je (impliciet)" }
+    ]
+  },
+  {
+    key: "Tweede persoon enkelvoud\nDerde persoon enkelvoud",
+    rows: [
+      { term: "Tweede persoon enkelvoud", pronouns: "jij · je · u" },
+      { term: "Derde persoon enkelvoud", pronouns: "hij · zij · ze · het" }
+    ]
+  },
+  {
+    key: "Onvoltooid verleden tijd enkelvoud",
+    rows: [{ term: "Onvoltooid verleden tijd enkelvoud", pronouns: "ik · jij · je · u · hij · zij · ze · het" }]
+  },
+  {
+    key: "Onvoltooid verleden tijd meervoud",
+    rows: [{ term: "Onvoltooid verleden tijd meervoud", pronouns: "wij · we · jullie · zij · ze" }]
+  },
+  {
+    key: "Voltooid deelwoord",
+    rows: [{ term: "Voltooid deelwoord", pronouns: "–" }]
+  },
+  {
+    key: "Tegenwoordig deelwoord",
+    rows: [{ term: "Tegenwoordig deelwoord", pronouns: "–" }]
+  }
+];
 
 /* ============================================================
    VERB CONJUGATION LIST
@@ -688,102 +380,6 @@ const LANG_B_LABEL = "Dutch";
      pastPlural: "bakten", perfect: "heeft gebakken", type: "irregular" }
    Add/replace entries here to practice your own verb list.
    ============================================================ */
-const verbs = [
-  // -- regular (weak) verbs --
-  { en: "to work", infinitive: "werken", pastSingular: "werkte", pastPlural: "werkten", perfect: "heeft gewerkt", type: "regular" },
-  { en: "to make", infinitive: "maken", pastSingular: "maakte", pastPlural: "maakten", perfect: "heeft gemaakt", type: "regular" },
-  { en: "to live (reside)", infinitive: "wonen", pastSingular: "woonde", pastPlural: "woonden", perfect: "heeft gewoond", type: "regular" },
-  { en: "to learn", infinitive: "leren", pastSingular: "leerde", pastPlural: "leerden", perfect: "heeft geleerd", type: "regular" },
-  { en: "to play", infinitive: "spelen", pastSingular: "speelde", pastPlural: "speelden", perfect: "heeft gespeeld", type: "regular" },
-  { en: "to talk", infinitive: "praten", pastSingular: "praatte", pastPlural: "praatten", perfect: "heeft gepraat", type: "regular" },
-  { en: "to listen", infinitive: "luisteren", pastSingular: "luisterde", pastPlural: "luisterden", perfect: "heeft geluisterd", type: "regular" },
-  { en: "to cycle", infinitive: "fietsen", pastSingular: "fietste", pastPlural: "fietsten", perfect: "heeft gefietst", type: "regular" },
-  { en: "to travel", infinitive: "reizen", pastSingular: "reisde", pastPlural: "reisden", perfect: "heeft gereisd", type: "regular" },
-  { en: "to study", infinitive: "studeren", pastSingular: "studeerde", pastPlural: "studeerden", perfect: "heeft gestudeerd", type: "regular" },
-  { en: "to open", infinitive: "openen", pastSingular: "opende", pastPlural: "openden", perfect: "heeft geopend", type: "regular" },
-  { en: "to close (shut)", infinitive: "dichten", pastSingular: "dichtte", pastPlural: "dichtten", perfect: "heeft gedicht", type: "regular" },
-  { en: "to cook", infinitive: "koken", pastSingular: "kookte", pastPlural: "kookten", perfect: "heeft gekookt", type: "regular" },
-  { en: "to clean", infinitive: "schoonmaken", pastSingular: "maakte schoon", pastPlural: "maakten schoon", perfect: "heeft schoongemaakt", type: "regular" },
-  { en: "to move (house)", infinitive: "verhuizen", pastSingular: "verhuisde", pastPlural: "verhuisden", perfect: "is verhuisd", type: "regular" },
-  { en: "to laugh", infinitive: "lachen", pastSingular: "lachte", pastPlural: "lachten", perfect: "heeft gelachen", type: "irregular" },
-  { en: "to wash", infinitive: "wassen", pastSingular: "waste", pastPlural: "wasten", perfect: "heeft gewassen", type: "irregular" },
-  { en: "to be called", infinitive: "heten", pastSingular: "heette", pastPlural: "heetten", perfect: "heeft geheten", type: "irregular" },
-
-  // -- irregular (strong / mixed) verbs --
-  { en: "to bake", infinitive: "bakken", pastSingular: "bakte", pastPlural: "bakten", perfect: "heeft gebakken", type: "irregular" },
-  { en: "to walk", infinitive: "lopen", pastSingular: "liep", pastPlural: "liepen", perfect: "heeft gelopen", type: "irregular" },
-  { en: "to buy", infinitive: "kopen", pastSingular: "kocht", pastPlural: "kochten", perfect: "heeft gekocht", type: "irregular" },
-  { en: "to think", infinitive: "denken", pastSingular: "dacht", pastPlural: "dachten", perfect: "heeft gedacht", type: "irregular" },
-  { en: "to bring", infinitive: "brengen", pastSingular: "bracht", pastPlural: "brachten", perfect: "heeft gebracht", type: "irregular" },
-  { en: "to search", infinitive: "zoeken", pastSingular: "zocht", pastPlural: "zochten", perfect: "heeft gezocht", type: "irregular" },
-  { en: "to eat", infinitive: "eten", pastSingular: "at", pastPlural: "aten", perfect: "heeft gegeten", type: "irregular" },
-  { en: "to drink", infinitive: "drinken", pastSingular: "dronk", pastPlural: "dronken", perfect: "heeft gedronken", type: "irregular" },
-  { en: "to see", infinitive: "zien", pastSingular: "zag", pastPlural: "zagen", perfect: "heeft gezien", type: "irregular" },
-  { en: "to go", infinitive: "gaan", pastSingular: "ging", pastPlural: "gingen", perfect: "is gegaan", type: "irregular" },
-  { en: "to come", infinitive: "komen", pastSingular: "kwam", pastPlural: "kwamen", perfect: "is gekomen", type: "irregular" },
-  { en: "to do", infinitive: "doen", pastSingular: "deed", pastPlural: "deden", perfect: "heeft gedaan", type: "irregular" },
-  { en: "to give", infinitive: "geven", pastSingular: "gaf", pastPlural: "gaven", perfect: "heeft gegeven", type: "irregular" },
-  { en: "to take", infinitive: "nemen", pastSingular: "nam", pastPlural: "namen", perfect: "heeft genomen", type: "irregular" },
-  { en: "to read", infinitive: "lezen", pastSingular: "las", pastPlural: "lazen", perfect: "heeft gelezen", type: "irregular" },
-  { en: "to write", infinitive: "schrijven", pastSingular: "schreef", pastPlural: "schreven", perfect: "heeft geschreven", type: "irregular" },
-  { en: "to stay (remain)", infinitive: "blijven", pastSingular: "bleef", pastPlural: "bleven", perfect: "is gebleven", type: "irregular" },
-  { en: "to ride/drive", infinitive: "rijden", pastSingular: "reed", pastPlural: "reden", perfect: "is gereden", type: "irregular" },
-  { en: "to fly", infinitive: "vliegen", pastSingular: "vloog", pastPlural: "vlogen", perfect: "is gevlogen", type: "irregular" },
-  { en: "to find", infinitive: "vinden", pastSingular: "vond", pastPlural: "vonden", perfect: "heeft gevonden", type: "irregular" },
-  { en: "to begin", infinitive: "beginnen", pastSingular: "begon", pastPlural: "begonnen", perfect: "is begonnen", type: "irregular" },
-  { en: "to help", infinitive: "helpen", pastSingular: "hielp", pastPlural: "hielpen", perfect: "heeft gehelpen", type: "irregular" },
-  { en: "to sleep", infinitive: "slapen", pastSingular: "sliep", pastPlural: "sliepen", perfect: "heeft geslapen", type: "irregular" },
-  { en: "to fall", infinitive: "vallen", pastSingular: "viel", pastPlural: "vielen", perfect: "is gevallen", type: "irregular" },
-  { en: "to hold (to like)", infinitive: "houden", pastSingular: "hield", pastPlural: "hielden", perfect: "heeft gehouden", type: "irregular" },
-  { en: "to stand", infinitive: "staan", pastSingular: "stond", pastPlural: "stonden", perfect: "heeft gestaan", type: "irregular" },
-  { en: "to sit", infinitive: "zitten", pastSingular: "zat", pastPlural: "zaten", perfect: "heeft gezeten", type: "irregular" },
-  { en: "to lie (recline)", infinitive: "liggen", pastSingular: "lag", pastPlural: "lagen", perfect: "heeft gelegen", type: "irregular" },
-  { en: "to hang", infinitive: "hangen", pastSingular: "hing", pastPlural: "hingen", perfect: "heeft gehangen", type: "irregular" },
-  { en: "to know (a fact)", infinitive: "weten", pastSingular: "wist", pastPlural: "wisten", perfect: "heeft geweten", type: "irregular" },
-  { en: "to say", infinitive: "zeggen", pastSingular: "zei", pastPlural: "zeiden", perfect: "heeft gezegd", type: "irregular" },
-  { en: "to ask", infinitive: "fragen", pastSingular: "vroeg", pastPlural: "vroegen", perfect: "heeft gevraagd", type: "irregular" },
-  { en: "to understand", infinitive: "begrijpen", pastSingular: "begreep", pastPlural: "begrepen", perfect: "heeft begrepen", type: "irregular" },
-  { en: "to look (watch)", infinitive: "kijken", pastSingular: "keek", pastPlural: "keken", perfect: "heeft gekeken", type: "irregular" },
-  { en: "to be", infinitive: "zijn", pastSingular: "was", pastPlural: "waren", perfect: "is geweest", type: "irregular" },
-  { en: "to have", infinitive: "hebben", pastSingular: "had", pastPlural: "hadden", perfect: "heeft gehad", type: "irregular" },
-  { en: "to become", infinitive: "worden", pastSingular: "werd", pastPlural: "werden", perfect: "is geworden", type: "irregular" },
-  { en: "can (to be able to)", infinitive: "kunnen", pastSingular: "kon", pastPlural: "konden", perfect: "heeft gekund", type: "irregular" },
-  { en: "must (to have to)", infinitive: "moeten", pastSingular: "moest", pastPlural: "moesten", perfect: "heeft gemoeten", type: "irregular" },
-  { en: "to want", infinitive: "willen", pastSingular: "wilde / wou", pastPlural: "wilden", perfect: "heeft gewild", type: "irregular" },
-
-  // -- newly added verbs from the textbook images --
-  { en: "to depend", infinitive: "afhangen", pastSingular: "hing af", pastPlural: "hingen af", perfect: "heeft afgehangen", type: "irregular" },
-  { en: "to exist", infinitive: "bestaan", pastSingular: "bestond", pastPlural: "bestonden", perfect: "heeft bestaan", type: "irregular" },
-  { en: "to move (physically)", infinitive: "bewegen", pastSingular: "bewoog", pastPlural: "bewogen", perfect: "heeft bewogen", type: "irregular" },
-  { en: "to offer", infinitive: "bieden", pastSingular: "bood", pastPlural: "boden", perfect: "heeft geboden", type: "irregular" },
-  { en: "to appear (to turn out)", infinitive: "blijken", pastSingular: "bleek", pastPlural: "bleken", perfect: "is gebleken", type: "irregular" },
-  { en: "to wear (to carry)", infinitive: "dragen", pastSingular: "droeg", pastPlural: "droegen", perfect: "heeft gedragen", type: "irregular" },
-  { en: "to enjoy", infinitive: "genieten", pastSingular: "genoot", pastPlural: "genoten", perfect: "heeft genoten", type: "irregular" },
-  { en: "to choose", infinitive: "kiezen", pastSingular: "koos", pastPlural: "kozen", perfect: "heeft gekozen", type: "irregular" },
-  { en: "to sound", infinitive: "klinken", pastSingular: "klonk", pastPlural: "klonken", perfect: "heeft geklonken", type: "irregular" },
-  { en: "to get (to receive)", infinitive: "krijgen", pastSingular: "kreeg", pastPlural: "kregen", perfect: "heeft gekregen", type: "irregular" },
-  { en: "to look like (to seem)", infinitive: "lijken", pastSingular: "leek", pastPlural: "leken", perfect: "heeft geleken", type: "irregular" },
-  { en: "may (to be allowed to)", infinitive: "mogen", pastSingular: "mocht", pastPlural: "mochten", perfect: "heeft gemogen", type: "irregular" },
-  { en: "to receive", infinitive: "ontvangen", pastSingular: "ontving", pastPlural: "ontvingen", perfect: "heeft ontvangen", type: "irregular" },
-  { en: "to guess (to advise)", infinitive: "raden", pastSingular: "raadde", pastPlural: "raadden", perfect: "heeft geraden", type: "irregular" },
-  { en: "to separate (to divide)", infinitive: "scheiden", pastSingular: "scheidde", pastPlural: "scheidden", perfect: "is gescheiden", type: "irregular" },
-  { en: "to shine (to seem)", infinitive: "schijnen", pastSingular: "scheen", pastPlural: "schenen", perfect: "heeft geschenen", type: "irregular" },
-  { en: "to close (to lock)", infinitive: "sluiten", pastSingular: "sloot", pastPlural: "sloten", perfect: "heeft gesloten", type: "irregular" },
-  { en: "to cut", infinitive: "snijden", pastSingular: "sneed", pastPlural: "sneden", perfect: "heeft gesneden", type: "irregular" },
-  { en: "to blow one's nose", infinitive: "snuiten", pastSingular: "snoot", pastPlural: "snoten", perfect: "heeft gesnoten", type: "irregular" },
-  { en: "to regret (to be sorry)", infinitive: "spijten", pastSingular: "speet", pastPlural: "speten", perfect: "heeft gespeten", type: "irregular" },
-  { en: "to speak", infinitive: "spreken", pastSingular: "sprak", pastPlural: "spraken", perfect: "heeft gesproken", type: "irregular" },
-  { en: "to steal", infinitive: "stelen", pastSingular: "stal", pastPlural: "stalen", perfect: "heeft gestolen", type: "irregular" },
-  { en: "to die", infinitive: "sterven", pastSingular: "stierf", pastPlural: "stierven", perfect: "is gestorven", type: "irregular" },
-  { en: "to pull (to draw)", infinitive: "trekken", pastSingular: "trok", pastPlural: "trokken", perfect: "heeft getrokken", type: "irregular" },
-  { en: "to sail (to drive a boat)", infinitive: "varen", pastSingular: "voer", pastPlural: "voeren", perfect: "heeft/is gevaren", type: "irregular" },
-  { en: "to forget", infinitive: "vergeten", pastSingular: "vergat", pastPlural: "vergaten", perfect: "heeft/is vergeten", type: "irregular" },
-  { en: "to freeze", infinitive: "vriezen", pastSingular: "vroor", pastPlural: "vroren", perfect: "heeft gevroren", type: "irregular" },
-  { en: "to weigh", infinitive: "wegen", pastSingular: "woog", pastPlural: "wogen", perfect: "heeft gewogen", type: "irregular" },
-  { en: "to point out (to show)", infinitive: "wijzen", pastSingular: "wees", pastPlural: "wezen", perfect: "heeft gewezen", type: "irregular" },
-  { en: "to sing", infinitive: "zingen", pastSingular: "zong", pastPlural: "zongen", perfect: "heeft gezongen", type: "irregular" },
-  { en: "shall (will)", infinitive: "zullen", pastSingular: "zou", pastPlural: "zouden", perfect: "-", type: "irregular" }
-];
 /* ============================================================
    QUIZ MODES
    ============================================================ */
@@ -913,12 +509,10 @@ function buildQuestions(mode) {
 function buildVerbQuestions() {
   return shuffle(verbs).map((v) => ({
     verb: v,
-    fields: [
-      { key: "infinitive", label: "Infinitive", value: v.infinitive },
-      { key: "pastSingular", label: "Past tense (ik / jij / hij)", value: v.pastSingular },
-      { key: "pastPlural", label: "Past tense (wij / jullie / zij)", value: v.pastPlural },
-      { key: "perfect", label: "Perfect tense (heeft/is + participle)", value: v.perfect }
-    ]
+    fields: VERB_FORM_CATEGORIES.map((cat) => ({
+      rows: cat.rows,
+      value: v[cat.key]
+    }))
   }));
 }
 
@@ -1018,12 +612,19 @@ function renderVerbQuestion() {
   const progressPct = Math.round((posInSet - 1) / setLength * 100);
 
   const fieldsHtml = q.fields.map((f, i) => `
-    <div class="verb-field">
-      <label for="verbField${i}">${escapeHtml(f.label)}</label>
-      <input type="text" id="verbField${i}" data-key="${f.key}" autocomplete="off" placeholder="…">
-      <div class="correct-hint" id="verbHint${i}"></div>
-    </div>
-  `).join("");
+      <div class="verb-field">
+        <div class="verb-field-terms">
+          ${f.rows.map(r => `
+            <div class="verb-term-row">
+              <span class="verb-term">${escapeHtml(r.term)}</span>
+              <span class="verb-pronouns">${escapeHtml(r.pronouns)}</span>
+            </div>
+          `).join("")}
+        </div>
+        <input type="text" id="verbField${i}" autocomplete="off" placeholder="…">
+        <div class="correct-hint" id="verbHint${i}"></div>
+      </div>
+    `).join("");
 
   app.innerHTML = `
     <div class="top-row">
@@ -1234,5 +835,7 @@ document.addEventListener("keydown", (e) => {
 
 renderModeSelect();
 </script>
+<script src="gewone-woorden.js"></script>
+<script src="werkwoorden.js"></script>
 </body>
 </html>
