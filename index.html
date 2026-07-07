@@ -240,8 +240,11 @@
     color: var(--wrong);
   }
   .verb-field-terms {
-  margin-bottom: 6px;
-}
+    margin-bottom: 6px;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 2px 10px;
+  }
   .verb-term-row {
     display: flex;
     justify-content: space-between;
@@ -249,6 +252,11 @@
     gap: 10px;
     font-size: 12px;
     line-height: 1.4;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .verb-term-row:last-child {
+    border-bottom: none;
   }
   .verb-term {
     font-weight: 600;
@@ -264,12 +272,24 @@
     white-space: nowrap;
     flex: 0;
   }
-  .verb-summary {
-    margin-top: 10px;
-    font-size: 15px;
-    padding: 12px 14px;
-    border-radius: 10px;
-    background: var(--bg);
+  .option-btn.selected {
+    border-color: var(--primary);
+    background: #eff6ff;
+  }
+  .verb-type-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 8px 0;
+  }
+  .verb-type-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .verb-type-options .option-btn {
+    flex: 1;
+    text-align: center;
   }
 
   @media (max-width: 480px) {
@@ -403,7 +423,23 @@ const MODES = {
   verbs: {
     title: "Verb Conjugations",
     desc: "Given the English meaning, type the infinitive, past singular, past plural, and perfect tense."
+  },
+  "verb-infinitives": {
+    title: "Verb Infinitives",
+    desc: "Given the English meaning, type just the Dutch infinitive."
   }
+};
+
+// Modes that use the verb dataset (verbs.js) rather than the plain
+// word list, and are rendered/scored via the verb-question code path.
+const VERB_MODES = new Set(["verbs", "verb-infinitives"]);
+
+// Which VERB_FORM_CATEGORIES keys each verb mode should quiz on.
+// "verbs" uses all of them; "verb-infinitives" uses only the first
+// (infinitive / meervoud) field.
+const VERB_MODE_CATEGORY_KEYS = {
+  verbs: VERB_FORM_CATEGORIES.map((cat) => cat.key),
+  "verb-infinitives": [VERB_FORM_CATEGORIES[0].key]
 };
 
 /* ============================================================
@@ -418,6 +454,7 @@ let currentIndex = 0;
 let score = 0;
 let setScore = 0;
 let answered = false;
+let selectedVerbType = null;
 
 // Running totals used to compute accuracy, and a "snapshot" that only
 // gets refreshed at the end of each 15-question block, so the accuracy
@@ -504,12 +541,16 @@ function buildQuestions(mode) {
   });
 }
 
-// Verb-mode questions are simpler: one entry per verb, each requiring
-// four typed fields (infinitive, past singular, past plural, perfect).
-function buildVerbQuestions() {
+// Verb-mode questions are simpler: one entry per verb, requiring one
+// typed field per relevant category. "verbs" quizzes every form
+// (infinitive, past singular, past plural, perfect); "verb-infinitives"
+// quizzes only the infinitive.
+function buildVerbQuestions(mode) {
+  const categoryKeys = VERB_MODE_CATEGORY_KEYS[mode] || VERB_FORM_CATEGORIES.map((cat) => cat.key);
+  const categories = VERB_FORM_CATEGORIES.filter((cat) => categoryKeys.includes(cat.key));
   return shuffle(verbs).map((v) => ({
     verb: v,
-    fields: VERB_FORM_CATEGORIES.map((cat) => ({
+    fields: categories.map((cat) => ({
       rows: cat.rows,
       value: v[cat.key]
     }))
@@ -534,7 +575,7 @@ function renderModeSelect() {
 
 function startQuiz(mode) {
   currentMode = mode || currentMode;
-  questions = currentMode === "verbs" ? buildVerbQuestions() : buildQuestions(currentMode);
+  questions = VERB_MODES.has(currentMode) ? buildVerbQuestions(currentMode) : buildQuestions(currentMode);
   currentIndex = 0;
   score = 0;
   setScore = 0;
@@ -546,7 +587,7 @@ function startQuiz(mode) {
 }
 
 function renderQuestion() {
-  if (currentMode === "verbs") {
+  if (VERB_MODES.has(currentMode)) {
     renderVerbQuestion();
     return;
   }
@@ -603,6 +644,9 @@ function renderVerbQuestion() {
   const app = document.getElementById("app");
   const q = questions[currentIndex];
   answered = false;
+  selectedVerbType = null;
+
+  const isInfinitivesMode = currentMode === "verb-infinitives";
 
   const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
   const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET) + 1;
@@ -626,16 +670,25 @@ function renderVerbQuestion() {
       </div>
     `).join("");
 
+  const typePickerHtml = isInfinitivesMode ? `
+    <p class="verb-type-label">Is this verb regular or irregular?</p>
+    <div class="verb-type-options" id="typeOptions">
+      <button class="option-btn" data-type="regular" onclick="handleTypeChoice(this, 'regular')">Regular</button>
+      <button class="option-btn" data-type="irregular" onclick="handleTypeChoice(this, 'irregular')">Irregular</button>
+    </div>
+  ` : "";
+
   app.innerHTML = `
     <div class="top-row">
       <span>Set ${setNumber} / ${totalSets} — Question ${posInSet} / ${setLength}</span>
       <span>${displayedAccuracy !== null ? `Accuracy: ${displayedAccuracy}%` : ""}</span>
     </div>
     <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
-    <span class="lang-tag">${q.verb.type === "irregular" ? "Irregular verb" : "Regular verb"}</span>
+    ${isInfinitivesMode ? "" : `<span class="lang-tag">${q.verb.type === "irregular" ? "Irregular verb" : "Regular verb"}</span>`}
     <div class="prompt-block">
       <p class="prompt-word">${escapeHtml(q.verb.en)}</p>
     </div>
+    ${typePickerHtml}
     <div class="verb-fields">
       ${fieldsHtml}
     </div>
@@ -645,7 +698,23 @@ function renderVerbQuestion() {
     </div>
   `;
 
-  document.getElementById("verbField0").focus();
+  if (isInfinitivesMode) {
+    document.querySelector("#typeOptions .option-btn").focus();
+  } else {
+    document.getElementById("verbField0").focus();
+  }
+}
+
+function handleTypeChoice(btn, chosen) {
+  if (answered) return;
+  selectedVerbType = chosen;
+  document.querySelectorAll("#typeOptions .option-btn").forEach((b) => {
+    b.classList.toggle("selected", b === btn);
+  });
+  // Move straight to the text field so a keyboard-only flow (Tab, Enter
+  // to pick a type, type the answer, Enter to check) never needs a mouse.
+  const firstField = document.getElementById("verbField0");
+  if (firstField) firstField.focus();
 }
 
 function normalize(str) {
@@ -658,7 +727,7 @@ function normalize(str) {
 function handleActionButton() {
   const q = questions[currentIndex];
   if (!q) return;
-  if (currentMode === "verbs") {
+  if (VERB_MODES.has(currentMode)) {
     if (!answered) {
       handleVerbCheck();
     } else {
@@ -727,6 +796,21 @@ function handleVerbCheck() {
       hint.textContent = `Correct: ${f.value}`;
     }
   });
+
+  if (currentMode === "verb-infinitives") {
+    const typeCorrect = selectedVerbType === q.verb.type;
+    const typeButtons = document.querySelectorAll("#typeOptions .option-btn");
+    typeButtons.forEach((b) => {
+      b.disabled = true;
+      b.classList.remove("selected");
+      if (b.dataset.type === q.verb.type) {
+        b.classList.add("correct");
+      } else if (b.dataset.type === selectedVerbType) {
+        b.classList.add("wrong");
+      }
+    });
+    if (!typeCorrect) allCorrect = false;
+  }
 
   totalAnswered++;
   if (allCorrect) {
@@ -820,16 +904,21 @@ function escapeAttr(str) {
   return String(str).replace(/'/g, "\\'");
 }
 
-// Enter key drives the same action button (check, then next), and is
-// ignored on the set-complete / end / mode-select screens where
-// actionBtn isn't present.
+// Enter key drives the same action button (check, then next). Buttons
+// (multiple-choice options, type picker) already handle their own Enter
+// press via the browser's default click behavior, so we deliberately
+// don't also fire handleActionButton() when one of those has focus —
+// otherwise selecting an option and submitting the question would both
+// happen on the same keypress. Only text inputs and the action button
+// itself route Enter through to handleActionButton().
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    const btn = document.getElementById("actionBtn");
-    if (btn && !btn.disabled) {
-      e.preventDefault();
-      handleActionButton();
-    }
+  if (e.key !== "Enter") return;
+  const target = e.target;
+  if (target.tagName === "BUTTON" && target.id !== "actionBtn") return;
+  const btn = document.getElementById("actionBtn");
+  if (btn && !btn.disabled) {
+    e.preventDefault();
+    handleActionButton();
   }
 });
 
