@@ -7,8 +7,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "werkt",
     "Onvoltooid verleden tijd enkelvoud": "werkte",
     "Onvoltooid verleden tijd meervoud": "werkten",
-    "Voltooid deelwoord": "heeft gewerkt",
-    "Tegenwoordig deelwoord": "werkend"
+    "Voltooid deelwoord": "heeft gewerkt"
   },
   {
     "en": "to make",
@@ -18,8 +17,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "maakt",
     "Onvoltooid verleden tijd enkelvoud": "maakte",
     "Onvoltooid verleden tijd meervoud": "maakten",
-    "Voltooid deelwoord": "heeft gemaakt",
-    "Tegenwoordig deelwoord": "makend"
+    "Voltooid deelwoord": "heeft gemaakt"
   },
   {
     "en": "to live (reside)",
@@ -29,8 +27,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "woont",
     "Onvoltooid verleden tijd enkelvoud": "woonde",
     "Onvoltooid verleden tijd meervoud": "woonden",
-    "Voltooid deelwoord": "heeft gewoond",
-    "Tegenwoordig deelwoord": "wonend"
+    "Voltooid deelwoord": "heeft gewoond"
   },
   {
     "en": "to learn",
@@ -40,8 +37,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "leert",
     "Onvoltooid verleden tijd enkelvoud": "leerde",
     "Onvoltooid verleden tijd meervoud": "leerden",
-    "Voltooid deelwoord": "heeft geleerd",
-    "Tegenwoordig deelwoord": "lerend"
+    "Voltooid deelwoord": "heeft geleerd"
   },
   {
     "en": "to play",
@@ -51,8 +47,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "speelt",
     "Onvoltooid verleden tijd enkelvoud": "speelde",
     "Onvoltooid verleden tijd meervoud": "speelden",
-    "Voltooid deelwoord": "heeft gespeeld",
-    "Tegenwoordig deelwoord": "spelend"
+    "Voltooid deelwoord": "heeft gespeeld"
   },
   {
     "en": "to talk",
@@ -62,8 +57,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "praat",
     "Onvoltooid verleden tijd enkelvoud": "praatte",
     "Onvoltooid verleden tijd meervoud": "praatten",
-    "Voltooid deelwoord": "heeft gepraat",
-    "Tegenwoordig deelwoord": "pratend"
+    "Voltooid deelwoord": "heeft gepraat"
   },
   {
     "en": "to listen",
@@ -73,8 +67,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "luisters",
     "Onvoltooid verleden tijd enkelvoud": "luisterde",
     "Onvoltooid verleden tijd meervoud": "luisterden",
-    "Voltooid deelwoord": "heeft geluisterd",
-    "Tegenwoordig deelwoord": "luisterend"
+    "Voltooid deelwoord": "heeft geluisterd"
   },
   {
     "en": "to cycle",
@@ -84,8 +77,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "fietst",
     "Onvoltooid verleden tijd enkelvoud": "fietste",
     "Onvoltooid verleden tijd meervoud": "fietsten",
-    "Voltooid deelwoord": "heeft gefietst",
-    "Tegenwoordig deelwoord": "fietsend"
+    "Voltooid deelwoord": "heeft gefietst"
   },
   {
     "en": "to travel",
@@ -95,8 +87,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "reist",
     "Onvoltooid verleden tijd enkelvoud": "reisde",
     "Onvoltooid verleden tijd meervoud": "reisden",
-    "Voltooid deelwoord": "heeft gereisd",
-    "Tegenwoordig deelwoord": "reizend"
+    "Voltooid deelwoord": "heeft gereisd"
   },
   {
     "en": "to study",
@@ -106,8 +97,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "studeert",
     "Onvoltooid verleden tijd enkelvoud": "studeerde",
     "Onvoltooid verleden tijd meervoud": "studeerden",
-    "Voltooid deelwoord": "heeft gestudeerd",
-    "Tegenwoordig deelwoord": "studerend"
+    "Voltooid deelwoord": "heeft gestudeerd"
   },
   {
     "en": "to open",
@@ -117,8 +107,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "opent",
     "Onvoltooid verleden tijd enkelvoud": "opende",
     "Onvoltooid verleden tijd meervoud": "openden",
-    "Voltooid deelwoord": "heeft geopend",
-    "Tegenwoordig deelwoord": "openend"
+    "Voltooid deelwoord": "heeft geopend"
   },
   {
     "en": "to close (shut)",
@@ -128,8 +117,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "dicht",
     "Onvoltooid verleden tijd enkelvoud": "dichtte",
     "Onvoltooid verleden tijd meervoud": "dichtten",
-    "Voltooid deelwoord": "heeft gedicht",
-    "Tegenwoordig deelwoord": "dichtend"
+    "Voltooid deelwoord": "heeft gedicht"
   },
   {
     "en": "to cook",
@@ -139,8 +127,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "kookt",
     "Onvoltooid verleden tijd enkelvoud": "kookte",
     "Onvoltooid verleden tijd meervoud": "kookten",
-    "Voltooid deelwoord": "heeft gekookt",
-    "Tegenwoordig deelwoord": "kokend"
+    "Voltooid deelwoord": "heeft gekookt"
   },
   {
     "en": "to clean",
@@ -150,8 +137,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "maakt schoon",
     "Onvoltooid verleden tijd enkelvoud": "maakte schoon",
     "Onvoltooid verleden tijd meervoud": "maakten schoon",
-    "Voltooid deelwoord": "heeft schoongemaakt",
-    "Tegenwoordig deelwoord": "schoonmakend"
+    "Voltooid deelwoord": "heeft schoongemaakt"
   },
   {
     "en": "to move (house)",
@@ -161,8 +147,36 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "verhuist",
     "Onvoltooid verleden tijd enkelvoud": "verhuisde",
     "Onvoltooid verleden tijd meervoud": "verhuisden",
-    "Voltooid deelwoord": "is verhuisd",
-    "Tegenwoordig deelwoord": "verhuizend"
+    "Voltooid deelwoord": "is verhuisd"
+  },
+  {
+    "en": "to swim",
+    "type": "irregular",
+    "Infinitief\nMeervoud": "zwemmen",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "zwem",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zwemt",
+    "Onvoltooid verleden tijd enkelvoud": "zwom",
+    "Onvoltooid verleden tijd meervoud": "zwommen",
+    "Voltooid deelwoord": "heeft/is gezwommen"
+  },
+  {
+    "en": "to fight",
+    "type": "irregular",
+    "Infinitief\nMeervoud": "vechten",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "vecht",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vecht",
+    "Onvoltooid verleden tijd enkelvoud": "vocht",
+    "Onvoltooid verleden tijd meervoud": "vochten",
+    "Voltooid deelwoord": "heeft gevochten"
+  },
+  {
+    "en": "to melt",
+    "type": "irregular",
+    "Infinitief\nMeervoud": "smelten",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "smelt",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "smelt",
+    "Onvoltooid verleden tijd enkelvoud": "smolt",
+    "Onvoltooid verleden tijd meervoud": "smolten"
   },
   {
     "en": "to laugh",
@@ -172,8 +186,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "lacht",
     "Onvoltooid verleden tijd enkelvoud": "lachte",
     "Onvoltooid verleden tijd meervoud": "lachten",
-    "Voltooid deelwoord": "heeft gelachen",
-    "Tegenwoordig deelwoord": "lachend"
+    "Voltooid deelwoord": "heeft gelachen"
   },
   {
     "en": "to wash",
@@ -183,8 +196,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wast",
     "Onvoltooid verleden tijd enkelvoud": "waste",
     "Onvoltooid verleden tijd meervoud": "wasten",
-    "Voltooid deelwoord": "heeft gewassen",
-    "Tegenwoordig deelwoord": "wassend"
+    "Voltooid deelwoord": "heeft gewassen"
   },
   {
     "en": "to be called",
@@ -194,8 +206,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "heet",
     "Onvoltooid verleden tijd enkelvoud": "heette",
     "Onvoltooid verleden tijd meervoud": "heetten",
-    "Voltooid deelwoord": "heeft geheten",
-    "Tegenwoordig deelwoord": "hetend"
+    "Voltooid deelwoord": "heeft geheten"
   },
   {
     "en": "to bake",
@@ -205,8 +216,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "bakt",
     "Onvoltooid verleden tijd enkelvoud": "bakte",
     "Onvoltooid verleden tijd meervoud": "bakten",
-    "Voltooid deelwoord": "heeft gebakken",
-    "Tegenwoordig deelwoord": "bakkend"
+    "Voltooid deelwoord": "heeft gebakken"
   },
   {
     "en": "to walk",
@@ -216,8 +226,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "loopt",
     "Onvoltooid verleden tijd enkelvoud": "liep",
     "Onvoltooid verleden tijd meervoud": "liepen",
-    "Voltooid deelwoord": "heeft gelopen",
-    "Tegenwoordig deelwoord": "lopend"
+    "Voltooid deelwoord": "heeft gelopen"
   },
   {
     "en": "to buy",
@@ -227,8 +236,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "koopt",
     "Onvoltooid verleden tijd enkelvoud": "kocht",
     "Onvoltooid verleden tijd meervoud": "kochten",
-    "Voltooid deelwoord": "heeft gekocht",
-    "Tegenwoordig deelwoord": "kopend"
+    "Voltooid deelwoord": "heeft gekocht"
   },
   {
     "en": "to think",
@@ -238,8 +246,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "denkt",
     "Onvoltooid verleden tijd enkelvoud": "dacht",
     "Onvoltooid verleden tijd meervoud": "dachten",
-    "Voltooid deelwoord": "heeft gedacht",
-    "Tegenwoordig deelwoord": "denkend"
+    "Voltooid deelwoord": "heeft gedacht"
   },
   {
     "en": "to bring",
@@ -249,8 +256,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "brengt",
     "Onvoltooid verleden tijd enkelvoud": "bracht",
     "Onvoltooid verleden tijd meervoud": "brachten",
-    "Voltooid deelwoord": "heeft gebracht",
-    "Tegenwoordig deelwoord": "brengend"
+    "Voltooid deelwoord": "heeft gebracht"
   },
   {
     "en": "to search",
@@ -260,8 +266,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zoekt",
     "Onvoltooid verleden tijd enkelvoud": "zocht",
     "Onvoltooid verleden tijd meervoud": "zochten",
-    "Voltooid deelwoord": "heeft gezocht",
-    "Tegenwoordig deelwoord": "zoekend"
+    "Voltooid deelwoord": "heeft gezocht"
   },
   {
     "en": "to eat",
@@ -271,8 +276,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "eet",
     "Onvoltooid verleden tijd enkelvoud": "at",
     "Onvoltooid verleden tijd meervoud": "aten",
-    "Voltooid deelwoord": "heeft gegeten",
-    "Tegenwoordig deelwoord": "etend"
+    "Voltooid deelwoord": "heeft gegeten"
   },
   {
     "en": "to drink",
@@ -282,8 +286,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "drinkt",
     "Onvoltooid verleden tijd enkelvoud": "dronk",
     "Onvoltooid verleden tijd meervoud": "dronken",
-    "Voltooid deelwoord": "heeft gedronken",
-    "Tegenwoordig deelwoord": "drinkend"
+    "Voltooid deelwoord": "heeft gedronken"
   },
   {
     "en": "to see",
@@ -293,8 +296,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "ziet",
     "Onvoltooid verleden tijd enkelvoud": "zag",
     "Onvoltooid verleden tijd meervoud": "zagen",
-    "Voltooid deelwoord": "heeft gezien",
-    "Tegenwoordig deelwoord": "ziend"
+    "Voltooid deelwoord": "heeft gezien"
   },
   {
     "en": "to go",
@@ -304,8 +306,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "gaat",
     "Onvoltooid verleden tijd enkelvoud": "ging",
     "Onvoltooid verleden tijd meervoud": "gingen",
-    "Voltooid deelwoord": "is gegaan",
-    "Tegenwoordig deelwoord": "gaand"
+    "Voltooid deelwoord": "is gegaan"
   },
   {
     "en": "to come",
@@ -315,8 +316,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "komt",
     "Onvoltooid verleden tijd enkelvoud": "kwam",
     "Onvoltooid verleden tijd meervoud": "kwamen",
-    "Voltooid deelwoord": "is gekomen",
-    "Tegenwoordig deelwoord": "komend"
+    "Voltooid deelwoord": "is gekomen"
   },
   {
     "en": "to do",
@@ -326,8 +326,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "doet",
     "Onvoltooid verleden tijd enkelvoud": "deed",
     "Onvoltooid verleden tijd meervoud": "deden",
-    "Voltooid deelwoord": "heeft gedaan",
-    "Tegenwoordig deelwoord": "doend"
+    "Voltooid deelwoord": "heeft gedaan"
   },
   {
     "en": "to give",
@@ -337,8 +336,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "geeft",
     "Onvoltooid verleden tijd enkelvoud": "gaf",
     "Onvoltooid verleden tijd meervoud": "gaven",
-    "Voltooid deelwoord": "heeft gegeven",
-    "Tegenwoordig deelwoord": "gevend"
+    "Voltooid deelwoord": "heeft gegeven"
   },
   {
     "en": "to take",
@@ -348,8 +346,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "neemt",
     "Onvoltooid verleden tijd enkelvoud": "nam",
     "Onvoltooid verleden tijd meervoud": "namen",
-    "Voltooid deelwoord": "heeft genomen",
-    "Tegenwoordig deelwoord": "nemend"
+    "Voltooid deelwoord": "heeft genomen"
   },
   {
     "en": "to read",
@@ -359,8 +356,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "leest",
     "Onvoltooid verleden tijd enkelvoud": "las",
     "Onvoltooid verleden tijd meervoud": "lazen",
-    "Voltooid deelwoord": "heeft gelezen",
-    "Tegenwoordig deelwoord": "lezend"
+    "Voltooid deelwoord": "heeft gelezen"
   },
   {
     "en": "to write",
@@ -370,8 +366,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "schrijft",
     "Onvoltooid verleden tijd enkelvoud": "schreef",
     "Onvoltooid verleden tijd meervoud": "schreven",
-    "Voltooid deelwoord": "heeft geschreven",
-    "Tegenwoordig deelwoord": "schrijvend"
+    "Voltooid deelwoord": "heeft geschreven"
   },
   {
     "en": "to stay (remain)",
@@ -381,8 +376,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "blijft",
     "Onvoltooid verleden tijd enkelvoud": "bleef",
     "Onvoltooid verleden tijd meervoud": "bleven",
-    "Voltooid deelwoord": "is gebleven",
-    "Tegenwoordig deelwoord": "blijvend"
+    "Voltooid deelwoord": "is gebleven"
   },
   {
     "en": "to ride/drive",
@@ -392,8 +386,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "rijdt",
     "Onvoltooid verleden tijd enkelvoud": "reed",
     "Onvoltooid verleden tijd meervoud": "reden",
-    "Voltooid deelwoord": "is gereden",
-    "Tegenwoordig deelwoord": "rijdend"
+    "Voltooid deelwoord": "is gereden"
   },
   {
     "en": "to fly",
@@ -403,8 +396,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vliegt",
     "Onvoltooid verleden tijd enkelvoud": "vloog",
     "Onvoltooid verleden tijd meervoud": "vlogen",
-    "Voltooid deelwoord": "is gevlogen",
-    "Tegenwoordig deelwoord": "vliegend"
+    "Voltooid deelwoord": "is gevlogen"
   },
   {
     "en": "to find",
@@ -414,8 +406,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vindt",
     "Onvoltooid verleden tijd enkelvoud": "vond",
     "Onvoltooid verleden tijd meervoud": "vonden",
-    "Voltooid deelwoord": "heeft gevonden",
-    "Tegenwoordig deelwoord": "vindend"
+    "Voltooid deelwoord": "heeft gevonden"
   },
   {
     "en": "to begin",
@@ -425,8 +416,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "begint",
     "Onvoltooid verleden tijd enkelvoud": "begon",
     "Onvoltooid verleden tijd meervoud": "begonnen",
-    "Voltooid deelwoord": "is begonnen",
-    "Tegenwoordig deelwoord": "beginnend"
+    "Voltooid deelwoord": "is begonnen"
   },
   {
     "en": "to help",
@@ -436,8 +426,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "helpt",
     "Onvoltooid verleden tijd enkelvoud": "hielp",
     "Onvoltooid verleden tijd meervoud": "hielpen",
-    "Voltooid deelwoord": "heeft gehelpen",
-    "Tegenwoordig deelwoord": "helpend"
+    "Voltooid deelwoord": "heeft gehelpen"
   },
   {
     "en": "to sleep",
@@ -447,8 +436,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "slaapt",
     "Onvoltooid verleden tijd enkelvoud": "sliep",
     "Onvoltooid verleden tijd meervoud": "sliepen",
-    "Voltooid deelwoord": "heeft geslapen",
-    "Tegenwoordig deelwoord": "slapend"
+    "Voltooid deelwoord": "heeft geslapen"
   },
   {
     "en": "to fall",
@@ -458,8 +446,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "valt",
     "Onvoltooid verleden tijd enkelvoud": "viel",
     "Onvoltooid verleden tijd meervoud": "vielen",
-    "Voltooid deelwoord": "is gevallen",
-    "Tegenwoordig deelwoord": "vallend"
+    "Voltooid deelwoord": "is gevallen"
   },
   {
     "en": "to hold (to like)",
@@ -469,8 +456,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "houdt",
     "Onvoltooid verleden tijd enkelvoud": "hield",
     "Onvoltooid verleden tijd meervoud": "hielden",
-    "Voltooid deelwoord": "heeft gehouden",
-    "Tegenwoordig deelwoord": "houdend"
+    "Voltooid deelwoord": "heeft gehouden"
   },
   {
     "en": "to stand",
@@ -480,8 +466,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "staat",
     "Onvoltooid verleden tijd enkelvoud": "stond",
     "Onvoltooid verleden tijd meervoud": "stonden",
-    "Voltooid deelwoord": "heeft gestaan",
-    "Tegenwoordig deelwoord": "staand"
+    "Voltooid deelwoord": "heeft gestaan"
   },
   {
     "en": "to sit",
@@ -491,8 +476,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zit",
     "Onvoltooid verleden tijd enkelvoud": "zat",
     "Onvoltooid verleden tijd meervoud": "zaten",
-    "Voltooid deelwoord": "heeft gezeten",
-    "Tegenwoordig deelwoord": "zittend"
+    "Voltooid deelwoord": "heeft gezeten"
   },
   {
     "en": "to lie (recline)",
@@ -502,8 +486,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "ligt",
     "Onvoltooid verleden tijd enkelvoud": "lag",
     "Onvoltooid verleden tijd meervoud": "lagen",
-    "Voltooid deelwoord": "heeft gelegen",
-    "Tegenwoordig deelwoord": "liggend"
+    "Voltooid deelwoord": "heeft gelegen"
   },
   {
     "en": "to hang",
@@ -513,8 +496,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "hangt",
     "Onvoltooid verleden tijd enkelvoud": "hing",
     "Onvoltooid verleden tijd meervoud": "hingen",
-    "Voltooid deelwoord": "heeft gehangen",
-    "Tegenwoordig deelwoord": "hangend"
+    "Voltooid deelwoord": "heeft gehangen"
   },
   {
     "en": "to know (a fact)",
@@ -524,8 +506,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "weet",
     "Onvoltooid verleden tijd enkelvoud": "wist",
     "Onvoltooid verleden tijd meervoud": "wisten",
-    "Voltooid deelwoord": "heeft geweten",
-    "Tegenwoordig deelwoord": "wetend"
+    "Voltooid deelwoord": "heeft geweten"
   },
   {
     "en": "to say",
@@ -535,8 +516,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zegt",
     "Onvoltooid verleden tijd enkelvoud": "zei",
     "Onvoltooid verleden tijd meervoud": "zeiden",
-    "Voltooid deelwoord": "heeft gezegd",
-    "Tegenwoordig deelwoord": "zeggend"
+    "Voltooid deelwoord": "heeft gezegd"
   },
   {
     "en": "to ask",
@@ -546,8 +526,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vraagt",
     "Onvoltooid verleden tijd enkelvoud": "vroeg",
     "Onvoltooid verleden tijd meervoud": "vroegen",
-    "Voltooid deelwoord": "heeft gevraagd",
-    "Tegenwoordig deelwoord": "vragend"
+    "Voltooid deelwoord": "heeft gevraagd"
   },
   {
     "en": "to understand",
@@ -557,8 +536,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "begrijpt",
     "Onvoltooid verleden tijd enkelvoud": "begreep",
     "Onvoltooid verleden tijd meervoud": "begrepen",
-    "Voltooid deelwoord": "heeft begrepen",
-    "Tegenwoordig deelwoord": "begrijpend"
+    "Voltooid deelwoord": "heeft begrepen"
   },
   {
     "en": "to look (watch)",
@@ -568,8 +546,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "kijkt",
     "Onvoltooid verleden tijd enkelvoud": "keek",
     "Onvoltooid verleden tijd meervoud": "keken",
-    "Voltooid deelwoord": "heeft geketen",
-    "Tegenwoordig deelwoord": "kijkend"
+    "Voltooid deelwoord": "heeft geketen"
   },
   {
     "en": "to be",
@@ -579,8 +556,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "bent\nis",
     "Onvoltooid verleden tijd enkelvoud": "was",
     "Onvoltooid verleden tijd meervoud": "waren",
-    "Voltooid deelwoord": "is geweest",
-    "Tegenwoordig deelwoord": "zijnd"
+    "Voltooid deelwoord": "is geweest"
   },
   {
     "en": "to have",
@@ -590,8 +566,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "hebt\nheeft",
     "Onvoltooid verleden tijd enkelvoud": "had",
     "Onvoltooid verleden tijd meervoud": "hadden",
-    "Voltooid deelwoord": "heeft gehad",
-    "Tegenwoordig deelwoord": "hebbend"
+    "Voltooid deelwoord": "heeft gehad"
   },
   {
     "en": "to become",
@@ -601,8 +576,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wordt",
     "Onvoltooid verleden tijd enkelvoud": "werd",
     "Onvoltooid verleden tijd meervoud": "werden",
-    "Voltooid deelwoord": "is geworden",
-    "Tegenwoordig deelwoord": "wordend"
+    "Voltooid deelwoord": "is geworden"
   },
   {
     "en": "can (to be able to)",
@@ -612,8 +586,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "kan / kunt\nkan",
     "Onvoltooid verleden tijd enkelvoud": "kon",
     "Onvoltooid verleden tijd meervoud": "konden",
-    "Voltooid deelwoord": "heeft gekund",
-    "Tegenwoordig deelwoord": "kunnend"
+    "Voltooid deelwoord": "heeft gekund"
   },
   {
     "en": "must (to have to)",
@@ -623,8 +596,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "moet",
     "Onvoltooid verleden tijd enkelvoud": "moest",
     "Onvoltooid verleden tijd meervoud": "moesten",
-    "Voltooid deelwoord": "heeft gemoeten",
-    "Tegenwoordig deelwoord": "moetend"
+    "Voltooid deelwoord": "heeft gemoeten"
   },
   {
     "en": "to want",
@@ -634,8 +606,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wil / wilt\nwil",
     "Onvoltooid verleden tijd enkelvoud": "wilde / wou",
     "Onvoltooid verleden tijd meervoud": "wilden",
-    "Voltooid deelwoord": "heeft gewild",
-    "Tegenwoordig deelwoord": "willend"
+    "Voltooid deelwoord": "heeft gewild"
   },
   {
     "en": "to depend",
@@ -645,8 +616,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "hangt af",
     "Onvoltooid verleden tijd enkelvoud": "hing af",
     "Onvoltooid verleden tijd meervoud": "hingen af",
-    "Voltooid deelwoord": "heeft afgehangen",
-    "Tegenwoordig deelwoord": "afhangend"
+    "Voltooid deelwoord": "heeft afgehangen"
   },
   {
     "en": "to exist",
@@ -656,8 +626,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "bestaat",
     "Onvoltooid verleden tijd enkelvoud": "bestond",
     "Onvoltooid verleden tijd meervoud": "bestonden",
-    "Voltooid deelwoord": "heeft bestaan",
-    "Tegenwoordig deelwoord": "bestaand"
+    "Voltooid deelwoord": "heeft bestaan"
   },
   {
     "en": "to move (physically)",
@@ -667,8 +636,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "beweegt",
     "Onvoltooid verleden tijd enkelvoud": "bewoog",
     "Onvoltooid verleden tijd meervoud": "bewogen",
-    "Voltooid deelwoord": "heeft bewogen",
-    "Tegenwoordig deelwoord": "bewegend"
+    "Voltooid deelwoord": "heeft bewogen"
   },
   {
     "en": "to offer",
@@ -678,8 +646,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "biedt",
     "Onvoltooid verleden tijd enkelvoud": "bood",
     "Onvoltooid verleden tijd meervoud": "boden",
-    "Voltooid deelwoord": "heeft geboden",
-    "Tegenwoordig deelwoord": "biedend"
+    "Voltooid deelwoord": "heeft geboden"
   },
   {
     "en": "to appear (to turn out)",
@@ -689,8 +656,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "blijkt",
     "Onvoltooid verleden tijd enkelvoud": "bleek",
     "Onvoltooid verleden tijd meervoud": "bleken",
-    "Voltooid deelwoord": "is gebleken",
-    "Tegenwoordig deelwoord": "blijkend"
+    "Voltooid deelwoord": "is gebleken"
   },
   {
     "en": "to wear (to carry)",
@@ -700,8 +666,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "draagt",
     "Onvoltooid verleden tijd enkelvoud": "droeg",
     "Onvoltooid verleden tijd meervoud": "droegen",
-    "Voltooid deelwoord": "heeft gedragen",
-    "Tegenwoordig deelwoord": "dragend"
+    "Voltooid deelwoord": "heeft gedragen"
   },
   {
     "en": "to enjoy",
@@ -711,8 +676,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "geniet",
     "Onvoltooid verleden tijd enkelvoud": "genoot",
     "Onvoltooid verleden tijd meervoud": "genoten",
-    "Voltooid deelwoord": "heeft genoten",
-    "Tegenwoordig deelwoord": "genietend"
+    "Voltooid deelwoord": "heeft genoten"
   },
   {
     "en": "to choose",
@@ -722,8 +686,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "kiest",
     "Onvoltooid verleden tijd enkelvoud": "koos",
     "Onvoltooid verleden tijd meervoud": "kozen",
-    "Voltooid deelwoord": "heeft gekozen",
-    "Tegenwoordig deelwoord": "kiezend"
+    "Voltooid deelwoord": "heeft gekozen"
   },
   {
     "en": "to sound",
@@ -733,8 +696,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "klinkt",
     "Onvoltooid verleden tijd enkelvoud": "klonk",
     "Onvoltooid verleden tijd meervoud": "klonken",
-    "Voltooid deelwoord": "heeft geklonken",
-    "Tegenwoordig deelwoord": "klinkend"
+    "Voltooid deelwoord": "heeft geklonken"
   },
   {
     "en": "to get (to receive)",
@@ -744,8 +706,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "krijgt",
     "Onvoltooid verleden tijd enkelvoud": "kreeg",
     "Onvoltooid verleden tijd meervoud": "kregen",
-    "Voltooid deelwoord": "heeft gekregen",
-    "Tegenwoordig deelwoord": "krijgend"
+    "Voltooid deelwoord": "heeft gekregen"
   },
   {
     "en": "to look like (to seem)",
@@ -755,8 +716,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "lijkt",
     "Onvoltooid verleden tijd enkelvoud": "leek",
     "Onvoltooid verleden tijd meervoud": "leken",
-    "Voltooid deelwoord": "heeft geleken",
-    "Tegenwoordig deelwoord": "lijkend"
+    "Voltooid deelwoord": "heeft geleken"
   },
   {
     "en": "may (to be allowed to)",
@@ -766,8 +726,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "mag / moogt\nmag",
     "Onvoltooid verleden tijd enkelvoud": "mocht",
     "Onvoltooid verleden tijd meervoud": "mochten",
-    "Voltooid deelwoord": "heeft gemogen",
-    "Tegenwoordig deelwoord": "mogend"
+    "Voltooid deelwoord": "heeft gemogen"
   },
   {
     "en": "to receive",
@@ -777,8 +736,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "ontvangt",
     "Onvoltooid verleden tijd enkelvoud": "ontving",
     "Onvoltooid verleden tijd meervoud": "ontvingen",
-    "Voltooid deelwoord": "heeft ontvangen",
-    "Tegenwoordig deelwoord": "ontvangend"
+    "Voltooid deelwoord": "heeft ontvangen"
   },
   {
     "en": "to guess (to advise)",
@@ -788,8 +746,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "raadt",
     "Onvoltooid verleden tijd enkelvoud": "raadde",
     "Onvoltooid verleden tijd meervoud": "raadden",
-    "Voltooid deelwoord": "heeft geraden",
-    "Tegenwoordig deelwoord": "radend"
+    "Voltooid deelwoord": "heeft geraden"
   },
   {
     "en": "to separate (to divide)",
@@ -799,8 +756,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "scheidt",
     "Onvoltooid verleden tijd enkelvoud": "scheidde",
     "Onvoltooid verleden tijd meervoud": "scheidden",
-    "Voltooid deelwoord": "is gescheiden",
-    "Tegenwoordig deelwoord": "scheidend"
+    "Voltooid deelwoord": "is gescheiden"
   },
   {
     "en": "to shine (to seem)",
@@ -811,7 +767,6 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "scheen",
     "Onvoltooid verleden tijd meervoud": "schenen",
     "Voltooid deelwoord": "heeft geschenen",
-    "Tegenwoordig deelwoord": "schijnend"
   },
   {
     "en": "to close (to lock)",
@@ -821,8 +776,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "sluit",
     "Onvoltooid verleden tijd enkelvoud": "sloot",
     "Onvoltooid verleden tijd meervoud": "sloten",
-    "Voltooid deelwoord": "heeft gesloten",
-    "Tegenwoordig deelwoord": "sluitend"
+    "Voltooid deelwoord": "heeft gesloten"
   },
   {
     "en": "to cut",
@@ -832,8 +786,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "snijdt",
     "Onvoltooid verleden tijd enkelvoud": "sneed",
     "Onvoltooid verleden tijd meervoud": "sneden",
-    "Voltooid deelwoord": "heeft gesneden",
-    "Tegenwoordig deelwoord": "snijdend"
+    "Voltooid deelwoord": "heeft gesneden"
   },
   {
     "en": "to blow one's nose",
@@ -843,8 +796,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "snuit",
     "Onvoltooid verleden tijd enkelvoud": "snoot",
     "Onvoltooid verleden tijd meervoud": "snoten",
-    "Voltooid deelwoord": "heeft gesnoten",
-    "Tegenwoordig deelwoord": "snuitend"
+    "Voltooid deelwoord": "heeft gesnoten"
   },
   {
     "en": "to regret (to be sorry)",
@@ -854,8 +806,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "spijt",
     "Onvoltooid verleden tijd enkelvoud": "speet",
     "Onvoltooid verleden tijd meervoud": "speten",
-    "Voltooid deelwoord": "heeft gespeten",
-    "Tegenwoordig deelwoord": "spijtend"
+    "Voltooid deelwoord": "heeft gespeten"
   },
   {
     "en": "to speak",
@@ -865,8 +816,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "spreekt",
     "Onvoltooid verleden tijd enkelvoud": "sprak",
     "Onvoltooid verleden tijd meervoud": "spraken",
-    "Voltooid deelwoord": "heeft gesproken",
-    "Tegenwoordig deelwoord": "sprekend"
+    "Voltooid deelwoord": "heeft gesproken"
   },
   {
     "en": "to steal",
@@ -876,8 +826,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "steelt",
     "Onvoltooid verleden tijd enkelvoud": "stal",
     "Onvoltooid verleden tijd meervoud": "stalen",
-    "Voltooid deelwoord": "heeft gestolen",
-    "Tegenwoordig deelwoord": "stelend"
+    "Voltooid deelwoord": "heeft gestolen"
   },
   {
     "en": "to die",
@@ -887,8 +836,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "sterft",
     "Onvoltooid verleden tijd enkelvoud": "stierf",
     "Onvoltooid verleden tijd meervoud": "stierven",
-    "Voltooid deelwoord": "is gestorven",
-    "Tegenwoordig deelwoord": "stervend"
+    "Voltooid deelwoord": "is gestorven"
   },
   {
     "en": "to pull (to draw)",
@@ -898,8 +846,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "trekt",
     "Onvoltooid verleden tijd enkelvoud": "trok",
     "Onvoltooid verleden tijd meervoud": "trokken",
-    "Voltooid deelwoord": "heeft getrokken",
-    "Tegenwoordig deelwoord": "trekkend"
+    "Voltooid deelwoord": "heeft getrokken"
   },
   {
     "en": "to sail (to drive a boat)",
@@ -909,8 +856,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vaart",
     "Onvoltooid verleden tijd enkelvoud": "voer",
     "Onvoltooid verleden tijd meervoud": "voeren",
-    "Voltooid deelwoord": "heeft/is gevaren",
-    "Tegenwoordig deelwoord": "varend"
+    "Voltooid deelwoord": "heeft/is gevaren"
   },
   {
     "en": "to forget",
@@ -920,8 +866,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vergeet",
     "Onvoltooid verleden tijd enkelvoud": "vergat",
     "Onvoltooid verleden tijd meervoud": "vergaten",
-    "Voltooid deelwoord": "heeft/is vergeten",
-    "Tegenwoordig deelwoord": "vergetend"
+    "Voltooid deelwoord": "heeft/is vergeten"
   },
   {
     "en": "to depart (to leave)",
@@ -932,7 +877,6 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "vertrok",
     "Onvoltooid verleden tijd meervoud": "vertrokken",
     "Voltooid deelwoord": "is vertrokken",
-    "Tegenwoordig deelwoord": "vertrekkend"
   },
   {
     "en": "to freeze",
@@ -942,8 +886,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vriest",
     "Onvoltooid verleden tijd enkelvoud": "vroor",
     "Onvoltooid verleden tijd meervoud": "vroren",
-    "Voltooid deelwoord": "heeft gevroren",
-    "Tegenwoordig deelwoord": "vriezend"
+    "Voltooid deelwoord": "heeft gevroren"
   },
   {
     "en": "to weigh",
@@ -953,8 +896,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "weegt",
     "Onvoltooid verleden tijd enkelvoud": "woog",
     "Onvoltooid verleden tijd meervoud": "wogen",
-    "Voltooid deelwoord": "heeft gewogen",
-    "Tegenwoordig deelwoord": "wegend"
+    "Voltooid deelwoord": "heeft gewogen"
   },
   {
     "en": "to point out (to show)",
@@ -964,8 +906,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wijst",
     "Onvoltooid verleden tijd enkelvoud": "wees",
     "Onvoltooid verleden tijd meervoud": "wezen",
-    "Voltooid deelwoord": "heeft gewezen",
-    "Tegenwoordig deelwoord": "wijzend"
+    "Voltooid deelwoord": "heeft gewezen"
   },
   {
     "en": "to sing",
@@ -975,8 +916,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zingt",
     "Onvoltooid verleden tijd enkelvoud": "zong",
     "Onvoltooid verleden tijd meervoud": "zongen",
-    "Voltooid deelwoord": "heeft gezongen",
-    "Tegenwoordig deelwoord": "zingend"
+    "Voltooid deelwoord": "heeft gezongen"
   },
   {
     "en": "to sit",
@@ -986,8 +926,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zit",
     "Onvoltooid verleden tijd enkelvoud": "zat",
     "Onvoltooid verleden tijd meervoud": "zaten",
-    "Voltooid deelwoord": "heeft gezeten",
-    "Tegenwoordig deelwoord": "zittend"
+    "Voltooid deelwoord": "heeft gezeten"
   },
   {
     "en": "to search",
@@ -997,8 +936,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zoekt",
     "Onvoltooid verleden tijd enkelvoud": "zocht",
     "Onvoltooid verleden tijd meervoud": "zochten",
-    "Voltooid deelwoord": "heeft gezocht",
-    "Tegenwoordig deelwoord": "zoekend"
+    "Voltooid deelwoord": "heeft gezocht"
   },
   {
     "en": "shall (will)",
@@ -1008,7 +946,6 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "zal / zult\nzal",
     "Onvoltooid verleden tijd enkelvoud": "zou",
     "Onvoltooid verleden tijd meervoud": "zouden",
-    "Voltooid deelwoord": "-",
-    "Tegenwoordig deelwoord": "zullend"
+    "Voltooid deelwoord": "-"
   }
 ]
