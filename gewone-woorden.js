@@ -76,7 +76,4 @@ const words = [
   { "en": "shall (will)", "nl": "zullen" },
   { "en": "shall (e)", "nl": "zal" },
   { "en": "should (e)", "nl": "zou" },
-  { "en": "", "nl": "" },
-  { "en": "", "nl": "" },
-  { "en": "", "nl": "" },
 ]
