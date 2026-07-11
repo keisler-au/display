@@ -176,7 +176,8 @@ const verbs = [
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "smelt",
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "smelt",
     "Onvoltooid verleden tijd enkelvoud": "smolt",
-    "Onvoltooid verleden tijd meervoud": "smolten"
+    "Onvoltooid verleden tijd meervoud": "smolten",
+    "Voltooid deelwoord": "is gesmolten"
   },
   {
     "en": "to laugh",
@@ -199,7 +200,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft gewassen"
   },
   {
-    "en": "to be called",
+    "en": "to be called (named)",
     "type": "irregular",
     "Infinitief\nMeervoud": "heten",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "heet",
@@ -546,7 +547,7 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "kijkt",
     "Onvoltooid verleden tijd enkelvoud": "keek",
     "Onvoltooid verleden tijd meervoud": "keken",
-    "Voltooid deelwoord": "heeft geketen"
+    "Voltooid deelwoord": "heeft gekeken"
   },
   {
     "en": "to be",
@@ -563,7 +564,7 @@ const verbs = [
     "type": "irregular",
     "Infinitief\nMeervoud": "hebben",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "heb",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "hebt\nheeft",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "hebt / heeft",
     "Onvoltooid verleden tijd enkelvoud": "had",
     "Onvoltooid verleden tijd meervoud": "hadden",
     "Voltooid deelwoord": "heeft gehad"
@@ -603,7 +604,7 @@ const verbs = [
     "type": "irregular",
     "Infinitief\nMeervoud": "willen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "wil",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wil / wilt\nwil",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "wil / wilt",
     "Onvoltooid verleden tijd enkelvoud": "wilde / wou",
     "Onvoltooid verleden tijd meervoud": "wilden",
     "Voltooid deelwoord": "heeft gewild"
@@ -617,6 +618,16 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "hing af",
     "Onvoltooid verleden tijd meervoud": "hingen af",
     "Voltooid deelwoord": "heeft afgehangen"
+  },
+  {
+    "en": "to call (shout out)",
+    "type": "irregular",
+    "Infinitief\nMeervoud": "roepen",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "roep",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "roept",
+    "Onvoltooid verleden tijd enkelvoud": "riep",
+    "Onvoltooid verleden tijd meervoud": "riepen",
+    "Voltooid deelwoord": "heeft geroepen"
   },
   {
     "en": "to exist",
@@ -723,10 +734,10 @@ const verbs = [
     "type": "irregular",
     "Infinitief\nMeervoud": "mogen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "mag",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "mag / moogt\nmag",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "mag / moogt",
     "Onvoltooid verleden tijd enkelvoud": "mocht",
     "Onvoltooid verleden tijd meervoud": "mochten",
-    "Voltooid deelwoord": "heeft gemogen"
+    "Voltooid deelwoord": "-"
   },
   {
     "en": "to receive",
