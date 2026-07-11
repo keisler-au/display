@@ -661,7 +661,7 @@ function renderVerbQuestion() {
             </div>
           `).join("")}
         </div>
-        <input type="text" id="verbField${i}" autocomplete="off" placeholder="…">
+        <input type="text" id="verbField${i}" autocomplete="off" placeholder="…" enterkeyhint="${i === q.fields.length - 1 ? "done" : "next"}">
         <div class="correct-hint" id="verbHint${i}"></div>
       </div>
     `).join("");
@@ -900,17 +900,34 @@ function escapeAttr(str) {
   return String(str).replace(/'/g, "\\'");
 }
 
-// Enter key drives the same action button (check, then next). Buttons
-// (multiple-choice options, type picker) already handle their own Enter
-// press via the browser's default click behavior, so we deliberately
-// don't also fire handleActionButton() when one of those has focus —
-// otherwise selecting an option and submitting the question would both
-// happen on the same keypress. Only text inputs and the action button
-// itself route Enter through to handleActionButton().
+// Enter key behavior:
+//  - Inside a verb-mode field that isn't the last one, Enter moves focus
+//    to the next field instead of submitting, so a phone's "next" key
+//    steps through infinitive / past singular / past plural / perfect.
+//  - On the last verb field (or the single text-answer input in other
+//    modes), Enter drives the same action button (check, then next).
+//  - Buttons (multiple-choice options, the regular/irregular picker)
+//    already handle their own Enter press via the browser's default
+//    click behavior, so we don't also fire handleActionButton() when one
+//    of those has focus — otherwise selecting an option and submitting
+//    the question would both happen on the same keypress.
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Enter") return;
   const target = e.target;
   if (target.tagName === "BUTTON" && target.id !== "actionBtn") return;
+
+  if (!answered && VERB_MODES.has(currentMode) && target.id && target.id.startsWith("verbField")) {
+    const idx = parseInt(target.id.slice("verbField".length), 10);
+    const nextField = document.getElementById(`verbField${idx + 1}`);
+    if (nextField) {
+      e.preventDefault();
+      nextField.focus();
+      nextField.select();
+      return;
+    }
+    // No next field — this was the last one, fall through and submit.
+  }
+
   const btn = document.getElementById("actionBtn");
   if (btn && !btn.disabled) {
     e.preventDefault();
