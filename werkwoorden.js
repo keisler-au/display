@@ -485,9 +485,9 @@ const verbs = [
     "Infinitief\nMeervoud": "liggen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "lig",
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "ligt",
-    "Onvoltooid verleden tijd enkelvoud": "lag",
+    "Onvoltooid verleden tijd enkelvoud": "lag / legt",
     "Onvoltooid verleden tijd meervoud": "lagen",
-    "Voltooid deelwoord": "heeft gelegen"
+    "Voltooid deelwoord": "heeft gelegd"
   },
   {
     "en": "to hang",
