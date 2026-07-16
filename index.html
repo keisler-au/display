@@ -519,6 +519,13 @@ function buildQuestions(mode) {
       promptWord: promptParsed.base,
       promptHint: promptParsed.hint,
       correctAnswer: answerParsed.base,
+      // Full text to show once the answer is revealed (after checking):
+      // the base word plus any bracketed synonym/context, but only for
+      // English → Dutch, since that's where the extra Dutch info lives.
+      // Checking itself still only ever requires the bare base word.
+      correctAnswerDisplay: (direction === "a-to-b" && answerParsed.hint)
+        ? `${answerParsed.base} (${answerParsed.hint})`
+        : answerParsed.base,
       promptLabel,
       answerLabel,
       answerKey
@@ -756,7 +763,7 @@ function handleMcAnswer(btn, chosen) {
     }
   });
 
-  showFeedback(isCorrect, q.correctAnswer);
+  showFeedback(isCorrect, q.correctAnswerDisplay);
 }
 
 function handleTextAnswer() {
@@ -770,7 +777,7 @@ function handleTextAnswer() {
   input.disabled = true;
   input.classList.add(isCorrect ? "correct" : "wrong");
 
-  showFeedback(isCorrect, q.correctAnswer);
+  showFeedback(isCorrect, q.correctAnswerDisplay);
 }
 
 // Checks all four verb fields individually, marks each one, and only
@@ -832,7 +839,7 @@ function showFeedback(isCorrect, correctAnswer) {
   }
   const feedback = document.getElementById("feedback");
   feedback.textContent = isCorrect
-    ? "Correct!"
+    ? `Correct! (${correctAnswer})`
     : `Not quite. Correct answer: ${correctAnswer}`;
   feedback.className = "feedback " + (isCorrect ? "correct-text" : "wrong-text");
 
