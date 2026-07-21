@@ -30,7 +30,27 @@ const verbs = [
     "Voltooid deelwoord": "heeft aangenomen"
   },
   {
-    "en": "to hire",
+    "en": "to hire (to rent)",
+    "type": "regular",
+    "Infinitief\nMeervoud": "huren",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "huur",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "huurt",
+    "Onvoltooid verleden tijd enkelvoud": "huurde",
+    "Onvoltooid verleden tijd meervoud": "huurden",
+    "Voltooid deelwoord": "heeft gehuurd"
+  },
+  {
+    "en": "to hire (employ, temporary contract)",
+    "type": "regular (separable)",
+    "Infinitief\nMeervoud": "inhuren",
+    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "huur in",
+    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "huurt in",
+    "Onvoltooid verleden tijd enkelvoud": "huurde in",
+    "Onvoltooid verleden tijd meervoud": "huurden in",
+    "Voltooid deelwoord": "heeft ingehuurd"
+  },
+  {
+    "en": "to employ",
     "type": "irregular",
     "Infinitief\nMeervoud": "aannemen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "neem aan",

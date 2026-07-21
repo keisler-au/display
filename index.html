@@ -272,6 +272,19 @@
     white-space: nowrap;
     flex: 0;
   }
+  .verb-field-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .verb-field-row input[type="text"] {
+    flex: 1;
+    min-width: 0;
+  }
+  .verb-check-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
   .option-btn.selected {
     border-color: var(--primary);
     background: #eff6ff;
@@ -668,7 +681,10 @@ function renderVerbQuestion() {
             </div>
           `).join("")}
         </div>
-        <input type="text" id="verbField${i}" autocomplete="off" placeholder="…" enterkeyhint="${i === q.fields.length - 1 ? "done" : "next"}">
+        <div class="verb-field-row">
+          <input type="text" id="verbField${i}" autocomplete="off" placeholder="…" enterkeyhint="${i === q.fields.length - 1 ? "done" : "next"}">
+          ${i === 0 ? `<button class="action verb-check-btn" id="verbField0Btn" onclick="handleActionButton()">Check</button>` : ""}
+        </div>
         <div class="correct-hint" id="verbHint${i}"></div>
       </div>
     `).join("");
@@ -828,6 +844,8 @@ function handleVerbCheck() {
 
   const btn = document.getElementById("actionBtn");
   btn.textContent = "Next";
+  const field0Btn = document.getElementById("verbField0Btn");
+  if (field0Btn) field0Btn.textContent = "Next";
 }
 
 function showFeedback(isCorrect, correctAnswer) {
