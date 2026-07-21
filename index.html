@@ -839,7 +839,7 @@ function showFeedback(isCorrect, correctAnswer) {
   }
   const feedback = document.getElementById("feedback");
   feedback.textContent = isCorrect
-    ? `Correct! (${correctAnswer})`
+    ? `Correct! ${correctAnswer}`
     : `Not quite. Correct answer: ${correctAnswer}`;
   feedback.className = "feedback " + (isCorrect ? "correct-text" : "wrong-text");
 

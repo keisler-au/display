@@ -11,7 +11,7 @@ const words = [
 { "en": "have been", "nl": "zijn geweest" },
 { "en": "have (m)", "nl": "hebt / heeft" },
 { "en": "had (m)", "nl": "hadden" },
-{ "en": "disturbed", "type": "adjective", "nl": "verstoord" },
+// { "en": "disturbed", "type": "adjective", "nl": "verstoord" },
 { "en": "suggested (proposed)", "type": "adjective", "nl": "voorgesteld" },
 { "en": "proposal (suggestion)", "type": "noun", "nl": "het voorstel (het plan)" },
 { "en": "proposals (suggestions)", "type": "noun", "nl": "de voorstellen (de plannen)" },
@@ -19,7 +19,6 @@ const words = [
 { "en": "suspected", "type": "adjective", "nl": "vermoed" },
 { "en": "cheerful", "type": "adjective", "nl": "opgewekt" },
 { "en": "brave", "type": "adjective", "nl": "moedig" },
-{ "en": "nephews", "type": "noun", "nl": "de neven (de oomzeggers)" },
 { "en": "once", "type": "adverb", "nl": "eenmaal" },
 { "en": "icy", "type": "adjective", "nl": "ijzig" },
 { "en": "extremely", "type": "adverb", "nl": "uiterst" },
@@ -65,7 +64,24 @@ const words = [
 { "en": "amount", "type": "noun", "nl": "de hoeveelheid" },
 { "en": "amounts", "type": "noun", "nl": "de hoeveelheden" },
 { "en": "a few (some)", "type": "determiner", "nl": "enkele (weinig)" },
-{ "en": "patient", "type": "adjective", "nl": "geduldig" },
-{ "en": "patient", "type": "noun", "nl": "de patiënt" },
+// { "en": "patient ()", "type": "adjective", "nl": "geduldig" },
+// { "en": "patient ()", "type": "noun", "nl": "de patient" },
 { "en": "uncontrolled", "type": "adjective", "nl": "onbeheerst" },
 ];
+
+
+// what is noun in dutch
+// what is adjective in dutch
+// how is aangezien different than sinds?
+// how is fraai different than prachtig or mooi
+// opgewekt?
+// what is the difference between vervallen and verlopen for expired?
+// behaviour - opgevoed
+// excited - not spanning?
+// gekeurd
+// heid - heden
+// ongeldig
+// zicht
+// betreft
+// zien vs zein
+// lieerd
