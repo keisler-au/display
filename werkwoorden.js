@@ -1,6 +1,6 @@
 const verbs = [
   {
-    "en": "to suppose",
+    "en": "to suppose (formal)",
     "type": "regular",
     "Infinitief\nMeervoud": "veronderstellen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "veronderstel",
@@ -10,17 +10,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft verondersteld"
   },
   {
-    "en": "to assume (to suppose)",
-    "type": "irregular",
-    "Infinitief\nMeervoud": "aannemen",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "neem aan",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "neemt aan",
-    "Onvoltooid verleden tijd enkelvoud": "nam aan",
-    "Onvoltooid verleden tijd meervoud": "namen aan",
-    "Voltooid deelwoord": "heeft aangenomen"
-  },
-  {
-    "en": "to accept",
+    "en": "to accept (to assume, to suppose)",
     "type": "irregular",
     "Infinitief\nMeervoud": "aannemen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "neem aan",
@@ -60,18 +50,8 @@ const verbs = [
     "Voltooid deelwoord": "heeft aangenomen"
   },
   {
-    "en": "to imagine",
+    "en": "to imagine (to introduce oneself)",
     "type": "irregular",
-    "Infinitief\nMeervoud": "zich voorstellen",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "stel me/je voor",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "stelt zich voor",
-    "Onvoltooid verleden tijd enkelvoud": "stelde zich voor",
-    "Onvoltooid verleden tijd meervoud": "stelden zich voor",
-    "Voltooid deelwoord": "heeft zich voorgesteld"
-  },
-  {
-    "en": "to introduce oneself",
-    "type": "regular",
     "Infinitief\nMeervoud": "zich voorstellen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "stel me/je voor",
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "stelt zich voor",
@@ -90,7 +70,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft voorgesteld"
   },
   {
-    "en": "to matter (to make a difference)",
+    "en": "to matter (to care, to make a difference)",
     "type": "irregular",
     "Infinitief\nMeervoud": "schelen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "scheel",
@@ -100,17 +80,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft gescheeld"
   },
   {
-    "en": "to care (to mind)",
-    "type": "irregular",
-    "Infinitief\nMeervoud": "schelen",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "scheel",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "scheelt",
-    "Onvoltooid verleden tijd enkelvoud": "scheelde",
-    "Onvoltooid verleden tijd meervoud": "scheelden",
-    "Voltooid deelwoord": "heeft gescheeld"
-  },
-  {
-    "en": "to connect (to join / to plug in)",
+    "en": "to connect (to join)",
     "type": "irregular",
     "Infinitief\nMeervoud": "aansluiten",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "sluit aan",
@@ -128,16 +98,6 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "sloot uit",
     "Onvoltooid verleden tijd meervoud": "sloten uit",
     "Voltooid deelwoord": "heeft uitgesloten"
-  },
-  {
-    "en": "to carry (to bear)",
-    "type": "irregular",
-    "Infinitief\nMeervoud": "dragen",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "draag",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "draagt",
-    "Onvoltooid verleden tijd enkelvoud": "droeg",
-    "Onvoltooid verleden tijd meervoud": "droegen",
-    "Voltooid deelwoord": "heeft gedragen"
   },
   {
     "en": "to behave",
@@ -178,16 +138,6 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "naderde",
     "Onvoltooid verleden tijd meervoud": "naderden",
     "Voltooid deelwoord": "is genaderd"
-  },
-  {
-    "en": "to shoot",
-    "type": "irregular",
-    "Infinitief\nMeervoud": "schieten",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "schiet",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "schiet",
-    "Onvoltooid verleden tijd enkelvoud": "schoot",
-    "Onvoltooid verleden tijd meervoud": "schoten",
-    "Voltooid deelwoord": "heeft geschoten"
   },
   {
     "en": "to control (to master)",
