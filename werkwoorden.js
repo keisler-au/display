@@ -30,7 +30,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft gehuurd"
   },
   {
-    "en": "to hire (employ, temporary contract)",
+    "en": "to hire (employ, temp contract)",
     "type": "regular (separable)",
     "Infinitief\nMeervoud": "inhuren",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "huur in",
@@ -207,6 +207,6 @@ const verbs = [
     "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "vervaagt",
     "Onvoltooid verleden tijd enkelvoud": "vervaagde",
     "Onvoltooid verleden tijd meervoud": "vervaagden",
-    "Voltooid deelwoord": "is/heeft vervaagd"
+    "Voltooid deelwoord": "heeft/is vervaagd"
   }
 ]
