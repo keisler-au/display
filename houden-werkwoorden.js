@@ -682,3 +682,10 @@ const verbs = [
 ]
 
 // to disturb
+// opvoeden (to raise / to bring up / to educate)
+// to excite
+// keuren
+// inspecteren
+// to realise (to make into reality) - Verwezenlijkt
+// to realise (be aware of) - beseffen
+// to realise (awareness, make reality) - zich realiseren

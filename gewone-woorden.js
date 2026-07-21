@@ -11,26 +11,28 @@ const words = [
 { "en": "have been", "nl": "zijn geweest" },
 { "en": "have (m)", "nl": "hebt / heeft" },
 { "en": "had (m)", "nl": "hadden" },
-// { "en": "disturbed", "type": "adjective", "nl": "verstoord" },
+{ "en": "disturbed (bijvoeglijk naamwoord)", "type": "adjective", "nl": "verstoord" },
 { "en": "suggested (proposed)", "type": "adjective", "nl": "voorgesteld" },
 { "en": "proposal (suggestion)", "type": "noun", "nl": "het voorstel (het plan)" },
 { "en": "proposals (suggestions)", "type": "noun", "nl": "de voorstellen (de plannen)" },
 { "en": "presumably", "type": "adverb", "nl": "vermoedelijk" },
 { "en": "suspected", "type": "adjective", "nl": "vermoed" },
-{ "en": "cheerful", "type": "adjective", "nl": "opgewekt" },
+{ "en": "cheerful (outlook)", "type": "adjective", "nl": "opgewekt" },
+{ "en": "cheerful (expression)", "type": "adjective", "nl": "vrolijk" },
 { "en": "brave", "type": "adjective", "nl": "moedig" },
 { "en": "once", "type": "adverb", "nl": "eenmaal" },
 { "en": "icy", "type": "adjective", "nl": "ijzig" },
 { "en": "extremely", "type": "adverb", "nl": "uiterst" },
 { "en": "words", "type": "noun", "nl": "de woorden" },
 { "en": "since (because)", "type": "conjunction", "nl": "aangezien" },
+{ "en": "since (time)", "type": "conjunction", "nl": "sinds" },
 { "en": "saved (rescued)", "type": "adjective", "nl": "gered" },
 { "en": "organised", "type": "adjective", "nl": "georganiseerd (ordelijk)" },
 { "en": "regular", "type": "adjective", "nl": "regelmatig" },
 { "en": "regular customer", "type": "noun", "nl": "de vaste klant" },
 { "en": "connected (joined/member)", "type": "adjective", "nl": "aangesloten" },
 { "en": "connected (linked)", "type": "adjective", "nl": "verbonden" },
-{ "en": "affiliated (formally associated)", "type": "adjective", "nl": "gelieerd" },
+{ "en": "ally", "type": "noun", "nl": "de bondgenoot" },
 { "en": "conclusion (decision)", "type": "noun", "nl": "het besluit" },
 { "en": "conclusions", "type": "noun", "nl": "de besluiten" },
 { "en": "excluded", "type": "adjective", "nl": "uitgesloten" },
@@ -52,36 +54,24 @@ const words = [
 { "en": "attitudes", "type": "noun", "nl": "de houdingen" },
 { "en": "regarding", "type": "preposition", "nl": "wat betreft" },
 { "en": "entertained (amused)", "type": "adjective", "nl": "vermaakt" },
-{ "en": "expired", "type": "adjective", "nl": "verlopen (vervallen)" },
+{ "en": "expired", "type": "adjective", "nl": "verlopen" },
 { "en": "dilapidated", "type": "adjective", "nl": "bouwvallig (vervallen)" },
 { "en": "lapsed", "type": "adjective", "nl": "vervallen (ongeldig geworden)" },
+{ "en": "invalid", "type": "adjective", "nl": "ongeldig" },
 { "en": "damp", "type": "adjective", "nl": "vochtig" },
 { "en": "dampness", "type": "noun", "nl": "de vochtigheid" },
-{ "en": "beautiful", "type": "adjective", "nl": "fraai" },
+{ "en": "handsome (elegant, fine)", "type": "adjective", "nl": "fraai" },
+{ "en": "gorgeous", "type": "adjective", "nl": "prachtig" },
 { "en": "missing (absent)", "type": "adjective", "nl": "ontbrekend" },
 { "en": "missing (lost)", "type": "adjective", "nl": "vermist" },
 { "en": "curved (bent)", "type": "adjective", "nl": "gebogen" },
 { "en": "amount", "type": "noun", "nl": "de hoeveelheid" },
 { "en": "amounts", "type": "noun", "nl": "de hoeveelheden" },
 { "en": "a few (some)", "type": "determiner", "nl": "enkele (weinig)" },
-// { "en": "patient ()", "type": "adjective", "nl": "geduldig" },
-// { "en": "patient ()", "type": "noun", "nl": "de patient" },
+{ "en": "patient (bijvoeglijk naamwoord)", "type": "adjective", "nl": "geduldig" },
+{ "en": "patient (naamwoord)", "type": "noun", "nl": "de patient" },
 { "en": "uncontrolled", "type": "adjective", "nl": "onbeheerst" },
+{ "en": "behaviour", "type": "noun", "nl": "het gedrag" },
+{ "en": "tension", "type": "noun", "nl": "de spanning" },
+{ "en": "view (visibility)", "type": "noun", "nl": "het zicht" },
 ];
-
-
-// what is noun in dutch
-// what is adjective in dutch
-// how is aangezien different than sinds?
-// how is fraai different than prachtig or mooi
-// opgewekt?
-// what is the difference between vervallen and verlopen for expired?
-// behaviour - opgevoed
-// excited - not spanning?
-// gekeurd
-// heid - heden
-// ongeldig
-// zicht
-// betreft
-// zien vs zein
-// lieerd
