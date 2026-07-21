@@ -10,7 +10,7 @@ const verbs = [
     "Voltooid deelwoord": "heeft verondersteld"
   },
   {
-    "en": "to accept (to assume, to suppose)",
+    "en": "to accept (to assume, to employ)",
     "type": "irregular",
     "Infinitief\nMeervoud": "aannemen",
     "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "neem aan",
@@ -38,16 +38,6 @@ const verbs = [
     "Onvoltooid verleden tijd enkelvoud": "huurde in",
     "Onvoltooid verleden tijd meervoud": "huurden in",
     "Voltooid deelwoord": "heeft ingehuurd"
-  },
-  {
-    "en": "to employ",
-    "type": "irregular",
-    "Infinitief\nMeervoud": "aannemen",
-    "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs": "neem aan",
-    "Tweede persoon enkelvoud\nDerde persoon enkelvoud": "neemt aan",
-    "Onvoltooid verleden tijd enkelvoud": "nam aan",
-    "Onvoltooid verleden tijd meervoud": "namen aan",
-    "Voltooid deelwoord": "heeft aangenomen"
   },
   {
     "en": "to imagine (to introduce oneself)",
