@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary Quiz</title>
+<style>
+  :root {
+    --bg: #f4f6f8;
+    --card: #ffffff;
+    --text: #1f2933;
+    --muted: #6b7280;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --correct: #16a34a;
+    --correct-bg: #dcfce7;
+    --wrong: #dc2626;
+    --wrong-bg: #fee2e2;
+    --border: #e5e7eb;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    padding: 20px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 640px;
+    padding: 32px;
+  }
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+  }
+  .lang-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--primary);
+    background: #eff6ff;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .prompt-block {
+    margin-bottom: 28px;
+  }
+  .prompt-word {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    word-break: break-word;
+  }
+  .prompt-hint {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 4px 0 0 0;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .option-btn {
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    color: var(--text);
+    touch-action: manipulation;
+  }
+  .option-btn:hover:not(:disabled) {
+    border-color: var(--primary);
+  }
+  .option-btn:disabled { cursor: default; }
+  .option-btn.correct {
+    border-color: var(--correct);
+    background: var(--correct-bg);
+    color: var(--correct);
+    font-weight: 600;
+  }
+  
+  .option-btn.wrong {
+    border-color: var(--wrong);
+    background: var(--wrong-bg);
+    color: var(--wrong);
+    font-weight: 600;
+  }
+  .text-input-row {
+    display: flex;
+    gap: 10px;
+  }
+  input[type="text"] {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    touch-action: manipulation;
+  }
+  input[type="text"]:focus { border-color: var(--primary); }
+  input[type="text"].correct { border-color: var(--correct); background: var(--correct-bg); color: var(--correct); }
+  input[type="text"].wrong { border-color: var(--wrong); background: var(--wrong-bg); color: var(--wrong); }
+  button.action {
+    padding: 14px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  button.action:hover:not(:disabled) { background: var(--primary-dark); }
+  button.action:disabled { background: var(--border); cursor: default; }
+  .feedback {
+    margin-top: 16px;
+    font-size: 15px;
+    min-height: 22px;
+  }
+  .feedback.correct-text { color: var(--correct); }
+  .feedback.wrong-text { color: var(--wrong); }
+  .next-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .end-screen { text-align: center; }
+  .end-score {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--primary);
+    margin: 10px 0;
+  }
+  .end-sub { color: var(--muted); margin-bottom: 24px; }
+  .restart-btn {
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+  }
+  .restart-btn:hover { background: var(--primary-dark); }
+  .secondary-btn {
+    padding: 14px 28px;
+    font-size: 15px;
+    font-weight: 600;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  .secondary-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+  .mode-select h1 {
+    font-size: 22px;
+    margin: 0 0 6px 0;
+  }
+  .mode-select p.sub {
+    color: var(--muted);
+    margin: 0 0 24px 0;
+    font-size: 14px;
+  }
+  .mode-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 16px 18px;
+    border: 2px solid var(--border);
+    background: var(--card);
+    border-radius: 12px;
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .mode-btn:hover { border-color: var(--primary); background: #eff6ff; }
+  .mode-btn .mode-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 2px 0;
+  }
+  .mode-btn .mode-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* Verb conjugation mode */
+  .verb-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .verb-field .correct-hint {
+    font-size: 13px;
+    margin-top: 4px;
+    color: var(--wrong);
+  }
+  .verb-field-terms {
+    margin-bottom: 6px;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 2px 10px;
+  }
+  .verb-term-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .verb-term-row:last-child {
+    border-bottom: none;
+  }
+  .verb-term {
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex: 1;
+  }
+  .verb-pronouns {
+    color: var(--text);
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+    flex: 0;
+  }
+  .verb-field-row {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .verb-field-row input[type="text"] {
+    flex: 1;
+    min-width: 0;
+  }
+  .verb-check-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .option-btn.selected {
+    border-color: var(--primary);
+    background: #eff6ff;
+  }
+  .verb-type-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    margin: 0 0 8px 0;
+  }
+  .verb-type-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .verb-type-options .option-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 0;
+      align-items: stretch;
+    }
+    .card {
+      border-radius: 0;
+      box-shadow: none;
+      max-width: none;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 20px 18px;
+      padding-top: max(20px, env(safe-area-inset-top));
+      padding-bottom: max(20px, env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+    }
+    .top-row { font-size: 13px; }
+    .prompt-word { font-size: 26px; }
+    .option-btn { padding: 16px; font-size: 16px; }
+    .text-input-row {
+      flex-direction: column;
+    }
+    input[type="text"] {
+      width: 100%;
+      font-size: 16px;
+    }
+    .next-row {
+      justify-content: stretch;
+    }
+    .next-row button.action {
+      width: 100%;
+    }
+    .end-score { font-size: 40px; }
+    .restart-btn { width: 100%; }
+    .secondary-btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card" id="app"></div>
+
+<script>
+/* ============================================================
+   YOUR WORD LIST
+   Replace the contents of this array with your own words.
+   Format: { en: "english word", nl: "dutch translation" }
+   You can rename the keys (e.g. "fr" for French) as long as
+   you also update LANG_A_KEY / LANG_B_KEY / LANG_A_LABEL /
+   LANG_B_LABEL below to match.
+   ============================================================ */
+
+const LANG_A_KEY = "en";
+const LANG_B_KEY = "nl";
+const LANG_A_LABEL = "English";
+const LANG_B_LABEL = "Dutch";
+const VERB_FORM_CATEGORIES = [
+  {
+    key: "Infinitief\nMeervoud",
+    rows: [
+      { term: "Infinitief", pronouns: "–" },
+      { term: "Meervoud", pronouns: "wij · we · jullie · zij · ze" }
+    ]
+  },
+  {
+    key: "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs",
+    rows: [
+      { term: "Eerste persoon enkelvoud", pronouns: "ik" },
+      { term: "Tweede persoon enkelvoud met inversie informeel (e.g., een vraag)", pronouns: "jij · je" },
+      { term: "Gebiedende wijs", pronouns: "jij · je (impliciet)" }
+    ]
+  },
+  {
+    key: "Tweede persoon enkelvoud\nDerde persoon enkelvoud",
+    rows: [
+      { term: "Tweede persoon enkelvoud", pronouns: "jij · je · u" },
+      { term: "Derde persoon enkelvoud", pronouns: "hij · zij · ze · het" }
+    ]
+  },
+  {
+    key: "Onvoltooid verleden tijd enkelvoud",
+    rows: [{ term: "Onvoltooid verleden tijd enkelvoud", pronouns: "ik · jij · je · u · hij · zij · ze · het" }]
+  },
+  {
+    key: "Onvoltooid verleden tijd meervoud",
+    rows: [{ term: "Onvoltooid verleden tijd meervoud", pronouns: "wij · we · jullie · zij · ze" }]
+  },
+  {
+    key: "Voltooid deelwoord",
+    rows: [{ term: "Voltooid deelwoord", pronouns: "–" }]
+  }
+];
+
+/* ============================================================
+   VERB CONJUGATION LIST
+   Each entry: english meaning, infinitive, past tense singular
+   (ik/jij/hij/zij/het), past tense plural (wij/jullie/zij),
+   and the perfect tense written out with its auxiliary
+   ("heeft"/"is"/"heeft/is") + past participle — e.g.
+   { en: "to bake", infinitive: "bakken", pastSingular: "bakte",
+     pastPlural: "bakten", perfect: "heeft gebakken", type: "irregular" }
+   Add/replace entries here to practice your own verb list.
+   ============================================================ */
+/* ============================================================
+   QUIZ MODES
+   ============================================================ */
+const MODES = {
+  // mc: {
+  //   title: "Multiple Choice",
+  //   desc: "All questions are multiple choice, either direction."
+  // },
+  "a-to-b": {
+    title: `${LANG_A_LABEL} → ${LANG_B_LABEL} (typed)`,
+    desc: `Type the ${LANG_B_LABEL} translation for each ${LANG_A_LABEL} word.`
+  },
+  // "b-to-a": {
+  //   title: `${LANG_B_LABEL} → ${LANG_A_LABEL} (typed)`,
+  //   desc: `Type the ${LANG_A_LABEL} translation for each ${LANG_B_LABEL} word.`
+  // },
+  // mixed: {
+  //   title: "Mixed",
+  //   desc: "Random mix of multiple choice and typed, both directions."
+  // },
+  verbs: {
+    title: "Verb Conjugations",
+    desc: "Given the English meaning, type the infinitive, past singular, past plural, and perfect tense."
+  },
+  // "verb-infinitives": {
+  //   title: "Verb Infinitives",
+  //   desc: "Given the English meaning, type just the Dutch infinitive."
+  // }
+};
+
+// Modes that use the verb dataset (verbs.js) rather than the plain
+// word list, and are rendered/scored via the verb-question code path.
+const VERB_MODES = new Set(["verbs", "verb-infinitives"]);
+
+// Which VERB_FORM_CATEGORIES keys each verb mode should quiz on.
+// "verbs" uses all of them; "verb-infinitives" uses only the first
+// (infinitive / meervoud) field.
+const VERB_MODE_CATEGORY_KEYS = {
+  verbs: VERB_FORM_CATEGORIES.map((cat) => cat.key),
+  "verb-infinitives": [VERB_FORM_CATEGORIES[0].key]
+};
+
+/* ============================================================
+   APP LOGIC
+   ============================================================ */
+
+const QUESTIONS_PER_SET = 15;
+
+let currentMode = "mixed";
+let questions = [];
+let currentIndex = 0;
+let score = 0;
+let setScore = 0;
+let answered = false;
+let selectedVerbType = null;
+
+// Running totals used to compute accuracy, and a "snapshot" that only
+// gets refreshed at the end of each 15-question block, so the accuracy
+// shown during a block reflects the last completed block, not the
+// in-progress one.
+let totalAnswered = 0;
+let totalCorrect = 0;
+let displayedAccuracy = null;
+
+function snapshotAccuracy() {
+  displayedAccuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : null;
+}
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Splits a word like "rather (quite)" into { base: "rather", hint: "quite" }.
+// Hints are for on-screen context only and are never part of a correct answer.
+function parseWord(str) {
+  const match = str.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
+  if (match) {
+    return { base: match[1].trim(), hint: match[2].trim() };
+  }
+  return { base: str.trim(), hint: null };
+}
+
+function buildQuestions(mode) {
+  const shuffledWords = shuffle(words);
+  return shuffledWords.map((pair) => {
+    let type;
+    let direction;
+
+    if (mode === "mc") {
+      type = "mc";
+      direction = Math.random() < 0.5 ? "a-to-b" : "b-to-a";
+    } else if (mode === "a-to-b") {
+      type = "text";
+      direction = "a-to-b";
+    } else if (mode === "b-to-a") {
+      type = "text";
+      direction = "b-to-a";
+    } else {
+      // mixed: random type and random direction, independently per word
+      type = Math.random() < 0.35 ? "mc" : "text";
+      direction = Math.random() < 0.5 ? "a-to-b" : "b-to-a";
+    }
+
+    const promptKey = direction === "a-to-b" ? LANG_A_KEY : LANG_B_KEY;
+    const answerKey = direction === "a-to-b" ? LANG_B_KEY : LANG_A_KEY;
+    const promptLabel = direction === "a-to-b" ? LANG_A_LABEL : LANG_B_LABEL;
+    const answerLabel = direction === "a-to-b" ? LANG_B_LABEL : LANG_A_LABEL;
+
+    const promptParsed = parseWord(pair[promptKey]);
+    const answerParsed = parseWord(pair[answerKey]);
+
+    const question = {
+      pair,
+      type,
+      direction,
+      promptWord: promptParsed.base,
+      promptHint: promptParsed.hint,
+      correctAnswer: answerParsed.base,
+      // Full text to show once the answer is revealed (after checking):
+      // the base word plus any bracketed synonym/context, but only for
+      // English → Dutch, since that's where the extra Dutch info lives.
+      // Checking itself still only ever requires the bare base word.
+      correctAnswerDisplay: (direction === "a-to-b" && answerParsed.hint)
+        ? `${answerParsed.base} (${answerParsed.hint})`
+        : answerParsed.base,
+      promptLabel,
+      answerLabel,
+      answerKey
+    };
+
+    if (type === "mc") {
+      const distractorPool = words
+        .filter((w) => w !== pair)
+        .map((w) => parseWord(w[answerKey]).base)
+        .filter((val) => val !== question.correctAnswer);
+      const distractors = shuffle([...new Set(distractorPool)]).slice(0, 3);
+      question.options = shuffle([question.correctAnswer, ...distractors]);
+    }
+
+    return question;
+  });
+}
+
+// Verb-mode questions are simpler: one entry per verb, requiring one
+// typed field per relevant category. "verbs" quizzes every form
+// (infinitive, past singular, past plural, perfect); "verb-infinitives"
+// quizzes only the infinitive.
+function buildVerbQuestions(mode) {
+  const categoryKeys = VERB_MODE_CATEGORY_KEYS[mode] || VERB_FORM_CATEGORIES.map((cat) => cat.key);
+  const categories = VERB_FORM_CATEGORIES.filter((cat) => categoryKeys.includes(cat.key));
+  return shuffle(verbs).map((v) => ({
+    verb: v,
+    fields: categories.map((cat) => ({
+      rows: cat.rows,
+      value: v[cat.key]
+    }))
+  }));
+}
+
+function renderModeSelect() {
+  const app = document.getElementById("app");
+  app.innerHTML = `
+    <div class="mode-select">
+      <h1>Vocabulary Quiz</h1>
+      <p class="sub">Choose how you'd like to practice:</p>
+      ${Object.entries(MODES).map(([key, m]) => `
+        <button class="mode-btn" onclick="startQuiz('${key}')">
+          <p class="mode-title">${escapeHtml(m.title)}</p>
+          <p class="mode-desc">${escapeHtml(m.desc)}</p>
+        </button>
+      `).join("")}
+    </div>
+  `;
+}
+
+function startQuiz(mode) {
+  currentMode = mode || currentMode;
+  questions = VERB_MODES.has(currentMode) ? buildVerbQuestions(currentMode) : buildQuestions(currentMode);
+  currentIndex = 0;
+  score = 0;
+  setScore = 0;
+  answered = false;
+  totalAnswered = 0;
+  totalCorrect = 0;
+  displayedAccuracy = null;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  if (VERB_MODES.has(currentMode)) {
+    renderVerbQuestion();
+    return;
+  }
+
+  const app = document.getElementById("app");
+  const q = questions[currentIndex];
+  answered = false;
+
+  const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
+  const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET) + 1;
+  const setStart = (setNumber - 1) * QUESTIONS_PER_SET;
+  const setLength = Math.min(QUESTIONS_PER_SET, questions.length - setStart);
+  const posInSet = currentIndex - setStart + 1;
+  const progressPct = Math.round((posInSet - 1) / setLength * 100);
+
+  let optionsHtml = "";
+  if (q.type === "mc") {
+    optionsHtml = `<div class="options">` +
+      q.options.map((opt, i) =>
+        `<button class="option-btn" data-value="${escapeHtml(opt)}" onclick="handleMcAnswer(this, '${escapeAttr(opt)}')">${escapeHtml(opt)}</button>`
+      ).join("") +
+      `</div>`;
+  } else {
+    optionsHtml = `
+      <div class="text-input-row">
+        <input type="text" id="textAnswer" autocomplete="off" placeholder="Type the ${q.answerLabel} translation">
+      </div>`;
+  }
+
+  app.innerHTML = `
+    <div class="top-row">
+      <span>Set ${setNumber} / ${totalSets} — Question ${posInSet} / ${setLength}</span>
+      <span>${displayedAccuracy !== null ? `Accuracy: ${displayedAccuracy}%` : ""}</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
+    <span class="lang-tag">${q.promptLabel} → ${q.answerLabel}</span>
+    <div class="prompt-block">
+      <p class="prompt-word">${escapeHtml(q.promptWord)}</p>
+      ${q.promptHint ? `<p class="prompt-hint">(${escapeHtml(q.promptHint)})</p>` : ""}
+    </div>
+    ${optionsHtml}
+    <div class="feedback" id="feedback"></div>
+    <div class="next-row">
+      <button class="action" id="actionBtn" onclick="handleActionButton()" ${q.type === "mc" ? "disabled" : ""}>${q.type === "mc" ? "Next" : "Check"}</button>
+    </div>
+  `;
+
+  if (q.type === "text") {
+    document.getElementById("textAnswer").focus();
+  }
+}
+
+function renderVerbQuestion() {
+  const app = document.getElementById("app");
+  const q = questions[currentIndex];
+  answered = false;
+  selectedVerbType = null;
+
+  const isInfinitivesMode = currentMode === "verb-infinitives";
+
+  const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
+  const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET) + 1;
+  const setStart = (setNumber - 1) * QUESTIONS_PER_SET;
+  const setLength = Math.min(QUESTIONS_PER_SET, questions.length - setStart);
+  const posInSet = currentIndex - setStart + 1;
+  const progressPct = Math.round((posInSet - 1) / setLength * 100);
+
+  const fieldsHtml = q.fields.map((f, i) => `
+      <div class="verb-field">
+        <div class="verb-field-terms">
+          ${f.rows.map(r => `
+            <div class="verb-term-row">
+              <span class="verb-term">${escapeHtml(r.term)}</span>
+              <span class="verb-pronouns">${escapeHtml(r.pronouns)}</span>
+            </div>
+          `).join("")}
+        </div>
+        <div class="verb-field-row">
+          <input type="text" id="verbField${i}" autocomplete="off" placeholder="…" enterkeyhint="${i === q.fields.length - 1 ? "done" : "next"}">
+          ${i === 0 ? `<button class="action verb-check-btn" id="verbField0Btn" onclick="handleActionButton()">Check</button>` : ""}
+        </div>
+        <div class="correct-hint" id="verbHint${i}"></div>
+      </div>
+    `).join("");
+
+  const typePickerHtml = isInfinitivesMode ? `
+    <p class="verb-type-label">Is this verb regular or irregular?</p>
+    <div class="verb-type-options" id="typeOptions">
+      <button class="option-btn" data-type="regular" onclick="handleTypeChoice(this, 'regular')">Regular</button>
+      <button class="option-btn" data-type="irregular" onclick="handleTypeChoice(this, 'irregular')">Irregular</button>
+    </div>
+  ` : "";
+
+  app.innerHTML = `
+    <div class="top-row">
+      <span>Set ${setNumber} / ${totalSets} — Question ${posInSet} / ${setLength}</span>
+      <span>${displayedAccuracy !== null ? `Accuracy: ${displayedAccuracy}%` : ""}</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:${progressPct}%"></div></div>
+    ${isInfinitivesMode ? "" : `<span class="lang-tag">${q.verb.type === "irregular" ? "Irregular verb" : "Regular verb"}</span>`}
+    <div class="prompt-block">
+      <p class="prompt-word">${escapeHtml(q.verb.en)}</p>
+    </div>
+    ${typePickerHtml}
+    <div class="verb-fields">
+      ${fieldsHtml}
+    </div>
+    <div class="feedback" id="feedback"></div>
+    <div class="next-row">
+      <button class="action" id="actionBtn" onclick="handleActionButton()">Check</button>
+    </div>
+  `;
+
+  if (isInfinitivesMode) {
+    document.querySelector("#typeOptions .option-btn").focus();
+  } else {
+    document.getElementById("verbField0").focus();
+  }
+}
+
+function handleTypeChoice(btn, chosen) {
+  if (answered) return;
+  selectedVerbType = chosen;
+  document.querySelectorAll("#typeOptions .option-btn").forEach((b) => {
+    b.classList.toggle("selected", b === btn);
+  });
+  // Move straight to the text field so a keyboard-only flow (Tab, Enter
+  // to pick a type, type the answer, Enter to check) never needs a mouse.
+  const firstField = document.getElementById("verbField0");
+  if (firstField) firstField.focus();
+}
+
+function normalize(str) {
+  return str.trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+// Single button drives both "check" and "next": before an answer is
+// given it checks (text questions only — multiple choice checks itself
+// when an option is clicked); after an answer is given it advances.
+function handleActionButton() {
+  const q = questions[currentIndex];
+  if (!q) return;
+  if (VERB_MODES.has(currentMode)) {
+    if (!answered) {
+      handleVerbCheck();
+    } else {
+      nextQuestion();
+    }
+    return;
+  }
+  if (!answered) {
+    if (q.type === "text") {
+      handleTextAnswer();
+    }
+  } else {
+    nextQuestion();
+  }
+}
+
+function handleMcAnswer(btn, chosen) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentIndex];
+  const buttons = document.querySelectorAll(".option-btn");
+  const isCorrect = normalize(chosen) === normalize(q.correctAnswer);
+
+  buttons.forEach((b) => {
+    b.disabled = true;
+    if (normalize(b.dataset.value) === normalize(q.correctAnswer)) {
+      b.classList.add("correct");
+    } else if (b === btn && !isCorrect) {
+      b.classList.add("wrong");
+    }
+  });
+
+  showFeedback(isCorrect, q.correctAnswerDisplay);
+}
+
+function handleTextAnswer() {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentIndex];
+  const input = document.getElementById("textAnswer");
+  const value = input.value;
+  const isCorrect = normalize(value) === normalize(q.correctAnswer);
+
+  input.disabled = true;
+  input.classList.add(isCorrect ? "correct" : "wrong");
+
+  showFeedback(isCorrect, q.correctAnswerDisplay);
+}
+
+// Checks all four verb fields individually, marks each one, and only
+// counts the whole question correct if every field matches.
+function handleVerbCheck() {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentIndex];
+  let allCorrect = true;
+
+  q.fields.forEach((f, i) => {
+    const input = document.getElementById(`verbField${i}`);
+    const hint = document.getElementById(`verbHint${i}`);
+    const isCorrect = normalize(input.value) === normalize(f.value);
+    input.disabled = true;
+    input.classList.add(isCorrect ? "correct" : "wrong");
+    if (!isCorrect) {
+      allCorrect = false;
+      hint.textContent = `Correct: ${f.value}`;
+    }
+  });
+
+  if (currentMode === "verb-infinitives") {
+    const typeCorrect = selectedVerbType === q.verb.type;
+    const typeButtons = document.querySelectorAll("#typeOptions .option-btn");
+    typeButtons.forEach((b) => {
+      b.disabled = true;
+      b.classList.remove("selected");
+      if (b.dataset.type === q.verb.type) {
+        b.classList.add("correct");
+      } else if (b.dataset.type === selectedVerbType) {
+        b.classList.add("wrong");
+      }
+    });
+    if (!typeCorrect) allCorrect = false;
+  }
+
+  totalAnswered++;
+  if (allCorrect) {
+    score++;
+    setScore++;
+    totalCorrect++;
+  }
+
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = allCorrect ? "All correct!" : "Some forms were off — check the hints above.";
+  feedback.className = "feedback " + (allCorrect ? "correct-text" : "wrong-text");
+
+  const btn = document.getElementById("actionBtn");
+  btn.textContent = "Next";
+  const field0Btn = document.getElementById("verbField0Btn");
+  if (field0Btn) field0Btn.textContent = "Next";
+}
+
+function showFeedback(isCorrect, correctAnswer) {
+  totalAnswered++;
+  if (isCorrect) {
+    score++;
+    setScore++;
+    totalCorrect++;
+  }
+  const feedback = document.getElementById("feedback");
+  feedback.textContent = isCorrect
+    ? `Correct! ${correctAnswer}`
+    : `Not quite. Correct answer: ${correctAnswer}`;
+  feedback.className = "feedback " + (isCorrect ? "correct-text" : "wrong-text");
+
+  const btn = document.getElementById("actionBtn");
+  btn.textContent = "Next";
+  btn.disabled = false;
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= questions.length) {
+    snapshotAccuracy();
+    renderEndScreen();
+  } else if (currentIndex % QUESTIONS_PER_SET === 0) {
+    snapshotAccuracy();
+    renderSetCompleteScreen();
+  } else {
+    renderQuestion();
+  }
+}
+
+function renderSetCompleteScreen() {
+  const app = document.getElementById("app");
+  const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
+  const setNumber = Math.floor(currentIndex / QUESTIONS_PER_SET);
+  const setStart = (setNumber - 1) * QUESTIONS_PER_SET;
+  const setLength = Math.min(QUESTIONS_PER_SET, questions.length - setStart);
+  const pct = Math.round((setScore / setLength) * 100);
+
+  app.innerHTML = `
+    <div class="end-screen">
+      <p class="lang-tag">Set ${setNumber} of ${totalSets} complete</p>
+      <div class="end-score">${setScore} / ${setLength}</div>
+      <p class="end-sub">${pct}% correct on this set &nbsp;·&nbsp; ${displayedAccuracy}% overall</p>
+      <button class="restart-btn" onclick="continueToNextSet()">Continue to Set ${setNumber + 1}</button>
+    </div>
+  `;
+}
+
+function continueToNextSet() {
+  setScore = 0;
+  renderQuestion();
+}
+
+function renderEndScreen() {
+  const app = document.getElementById("app");
+  const pct = Math.round((score / questions.length) * 100);
+  app.innerHTML = `
+    <div class="end-screen">
+      <p class="lang-tag">Quiz complete</p>
+      <div class="end-score">${score} / ${questions.length}</div>
+      <p class="end-sub">${pct}% correct — ${escapeHtml(MODES[currentMode].title)}</p>
+      <button class="restart-btn" onclick="startQuiz(currentMode)">Try again</button>
+      <button class="secondary-btn" onclick="renderModeSelect()">Change quiz type</button>
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+function escapeAttr(str) {
+  return String(str).replace(/'/g, "\\'");
+}
+
+// Enter key behavior:
+//  - Inside a verb-mode field that isn't the last one, Enter moves focus
+//    to the next field instead of submitting, so a phone's "next" key
+//    steps through infinitive / past singular / past plural / perfect.
+//  - On the last verb field (or the single text-answer input in other
+//    modes), Enter drives the same action button (check, then next).
+//  - Buttons (multiple-choice options, the regular/irregular picker)
+//    already handle their own Enter press via the browser's default
+//    click behavior, so we don't also fire handleActionButton() when one
+//    of those has focus — otherwise selecting an option and submitting
+//    the question would both happen on the same keypress.
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Enter") return;
+  const target = e.target;
+  if (target.tagName === "BUTTON" && target.id !== "actionBtn") return;
+
+  if (!answered && VERB_MODES.has(currentMode) && target.id && target.id.startsWith("verbField")) {
+    const idx = parseInt(target.id.slice("verbField".length), 10);
+    const nextField = document.getElementById(`verbField${idx + 1}`);
+    if (nextField) {
+      e.preventDefault();
+      nextField.focus();
+      nextField.select();
+      return;
+    }
+    // No next field — this was the last one, fall through and submit.
+  }
+
+  const btn = document.getElementById("actionBtn");
+  if (btn && !btn.disabled) {
+    e.preventDefault();
+    handleActionButton();
+  }
+});
+
+renderModeSelect();
+</script>
+<script src="woordenschat/gewone-woorden.js"></script>
+<script src="woordenschat/werkwoorden.js"></script>
+</body>
+</html>

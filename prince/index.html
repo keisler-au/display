@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRINCE2 Foundation — Self-Test Register</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE6;
+    --paper-line:#C9C1AE;
+    --ink:#1B2432;
+    --ink-soft:#4A5266;
+    --red:#B23A2E;
+    --green:#2F6F62;
+    --amber:#B8862B;
+    --card:#FBF9F3;
+    --shadow: 0 1px 0 rgba(27,36,50,0.06), 0 8px 24px rgba(27,36,50,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px);
+    background-size: 100% 42px;
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    min-height:100vh;
+    padding:32px 16px 64px;
+  }
+  .wrap{max-width:760px;margin:0 auto;}
+
+  header.masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:14px;
+    margin-bottom:28px;
+  }
+  header.masthead h1{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.7rem;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  header.masthead .sub{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+  header.masthead .doc-id{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    text-align:right;
+    line-height:1.5;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--paper-line);
+    box-shadow:var(--shadow);
+    border-radius:2px;
+    padding:28px 28px 24px;
+    position:relative;
+    margin-bottom:20px;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:4px;
+    background:var(--ink);
+  }
+
+  .field-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    display:block;
+  }
+
+  #setupError{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--red);
+    margin-bottom:14px;
+  }
+
+  button.primary{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.82rem;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    padding:13px 22px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:transform .12s ease, opacity .12s ease;
+  }
+  button.primary:hover{opacity:0.88;}
+  button.primary:active{transform:scale(0.98);}
+  button.primary:disabled{opacity:0.35; cursor:not-allowed;}
+
+  button.ghost{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    font-size:0.78rem;
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--ink);
+    padding:10px 16px;
+    border-radius:2px;
+    cursor:pointer;
+  }
+  button.ghost:hover{background:rgba(27,36,50,0.06);}
+  button.ghost:disabled{opacity:0.35; cursor:not-allowed;}
+
+  /* ---------- Progress ---------- */
+  .progress-bar{
+    display:flex;
+    gap:3px;
+    margin-bottom:18px;
+  }
+  .tick{
+    flex:1;
+    height:6px;
+    background:var(--paper-line);
+    border-radius:1px;
+  }
+  .tick.done{background:var(--ink);}
+  .tick.correct{background:var(--green);}
+  .tick.incorrect{background:var(--red);}
+
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:16px;
+  }
+
+  .question-text{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    line-height:1.4;
+    margin:0 0 18px;
+  }
+
+  textarea#answerInput{
+    width:100%;
+    min-height:130px;
+    resize:vertical;
+    font-family:'Inter', sans-serif;
+    font-size:0.95rem;
+    line-height:1.5;
+    padding:12px 14px;
+    border:1px solid var(--paper-line);
+    border-radius:2px;
+    background:#fff;
+    color:var(--ink);
+    margin-bottom:16px;
+  }
+  textarea#answerInput:focus{
+    outline:none;
+    border-color:var(--ink);
+  }
+
+  /* ---------- Stamp reveals ---------- */
+  .stamp{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    padding:3px 9px;
+    border:1.5px solid currentColor;
+    border-radius:2px;
+    transform:rotate(-2deg);
+  }
+  .reveal-box{
+    margin-top:14px;
+    padding:14px 16px;
+    border-left:3px solid var(--amber);
+    background:rgba(184,134,43,0.08);
+    border-radius:2px;
+    animation:pop .18s ease-out;
+  }
+  .reveal-box.answer{
+    border-left-color:var(--green);
+    background:rgba(47,111,98,0.08);
+  }
+  .reveal-box .stamp{color:var(--amber);}
+  .reveal-box.answer .stamp{color:var(--green);}
+  .reveal-box p{margin:8px 0 0; font-size:0.92rem; line-height:1.5;}
+  @keyframes pop{
+    from{opacity:0; transform:translateY(-4px) scale(0.98);}
+    to{opacity:1; transform:translateY(0) scale(1);}
+  }
+
+  .action-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+  }
+
+  .self-mark{display:flex; gap:10px; margin-top:16px;}
+  .self-mark button{flex:1;}
+  .self-mark .correct-btn{border-color:var(--green); color:var(--green);}
+  .self-mark .correct-btn:hover{background:rgba(47,111,98,0.1);}
+  .self-mark .correct-btn.active{background:var(--green); color:#fff;}
+  .self-mark .incorrect-btn{border-color:var(--red); color:var(--red);}
+  .self-mark .incorrect-btn:hover{background:rgba(178,58,46,0.1);}
+  .self-mark .incorrect-btn.active{background:var(--red); color:#fff;}
+
+  .nav-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:22px;
+  }
+
+  /* ---------- Results ---------- */
+  .score-hero{
+    text-align:center;
+    padding:20px 0 8px;
+  }
+  .score-hero .pct{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:3.4rem;
+    line-height:1;
+  }
+  .score-hero .pct.pass{color:var(--green);}
+  .score-hero .pct.fail{color:var(--red);}
+  .score-hero .verdict{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-top:6px;
+  }
+
+  .review-item{
+    border:1px solid var(--paper-line);
+    border-radius:2px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    background:#fff;
+  }
+  .review-item .q{font-weight:600; margin-bottom:6px; font-size:0.92rem;}
+  .review-item .your-a{font-size:0.88rem; color:var(--red); line-height:1.5; margin-bottom:4px;}
+  .review-item .a{font-size:0.88rem; color:var(--ink-soft); line-height:1.5;}
+  .review-item .a b{color:var(--ink);}
+
+  .hidden{display:none !important;}
+
+  footer{
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--ink-soft);
+    margin-top:30px;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:480px){
+    header.masthead{flex-direction:column; align-items:flex-start; gap:6px;}
+    header.masthead .doc-id{text-align:left;}
+    .score-hero .pct{font-size:2.6rem;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <h1>Self-Test Register</h1>
+      <div class="sub">PRINCE2® Foundation — revision log</div>
+    </div>
+    <div class="doc-id">DOC REF: P2-ST-01<br>STATUS: <span id="docStatus">Loading</span></div>
+  </header>
+
+  <div id="setupError"></div>
+
+  <!-- ===================== QUIZ SCREEN ===================== -->
+  <section id="quizScreen" class="card hidden">
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="meta-row">
+      <span id="metaCounter">Question 1 / 1</span>
+      <span id="metaTopic">Topic</span>
+    </div>
+
+    <p class="question-text" id="questionText"></p>
+
+    <textarea id="answerInput" placeholder="Type your answer here…"></textarea>
+
+    <div id="hintBox" class="reveal-box hidden">
+      <span class="stamp">Hint</span>
+      <p id="hintText"></p>
+    </div>
+    <div id="answerBox" class="reveal-box answer hidden">
+      <span class="stamp">Answer</span>
+      <p id="answerText"></p>
+    </div>
+
+    <div class="action-row" id="recallActions">
+      <button class="ghost" id="hintBtn">Show hint</button>
+      <button class="ghost" id="answerBtn">Reveal answer</button>
+    </div>
+
+    <div class="self-mark hidden" id="selfMarkRow">
+      <button class="ghost correct-btn" id="markCorrectBtn">I had this right</button>
+      <button class="ghost incorrect-btn" id="markIncorrectBtn">I got this wrong</button>
+    </div>
+
+    <div class="nav-row">
+      <!-- <button class="ghost" id="prevBtn">← Previous</button> -->
+      <button class="ghost" id="nextBtn">Next →</button>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS SCREEN ===================== -->
+  <section id="resultsScreen" class="card hidden">
+    <div class="score-hero">
+      <div class="pct" id="scorePct">0%</div>
+      <div class="verdict" id="scoreVerdict">—</div>
+    </div>
+
+    <div class="action-row">
+      <button class="primary" id="retryAllBtn">Retry all</button>
+      <button class="ghost" id="retryMissedBtn">Retry missed only</button>
+    </div>
+
+    <div id="reviewList" style="margin-top:24px;"></div>
+  </section>
+
+  <footer>PRINCE2® is a registered trademark of PeopleCert. This tool is an independent revision aid.</footer>
+</div>
+
+<script src="questions.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  const RAW = (typeof QUESTIONS !== "undefined" && Array.isArray(QUESTIONS)) ? QUESTIONS : null;
+  const setupError = document.getElementById("setupError");
+  const docStatus = document.getElementById("docStatus");
+
+  const PASS_MARK = 0.55; // PRINCE2 Foundation pass mark is 55%
+
+  // ---- State ----
+  let pool = [];
+  let idx = 0;
+  let results = []; // { question, correct, userAnswer, hintShown, answerShown }
+
+  // ---- Elements ----
+  const quizScreen = document.getElementById("quizScreen");
+  const resultsScreen = document.getElementById("resultsScreen");
+
+  const progressBar = document.getElementById("progressBar");
+  const metaCounter = document.getElementById("metaCounter");
+  const metaTopic = document.getElementById("metaTopic");
+  const questionText = document.getElementById("questionText");
+  const answerInput = document.getElementById("answerInput");
+  const hintBox = document.getElementById("hintBox");
+  const hintText = document.getElementById("hintText");
+  const answerBox = document.getElementById("answerBox");
+  const answerText = document.getElementById("answerText");
+  const hintBtn = document.getElementById("hintBtn");
+  const answerBtn = document.getElementById("answerBtn");
+  const selfMarkRow = document.getElementById("selfMarkRow");
+  const markCorrectBtn = document.getElementById("markCorrectBtn");
+  const markIncorrectBtn = document.getElementById("markIncorrectBtn");
+  // const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  const scorePct = document.getElementById("scorePct");
+  const scoreVerdict = document.getElementById("scoreVerdict");
+  const reviewList = document.getElementById("reviewList");
+  const retryAllBtn = document.getElementById("retryAllBtn");
+  const retryMissedBtn = document.getElementById("retryMissedBtn");
+
+  function escapeHtml(str){
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function shuffle(arr){
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  // ---- Boot straight into the quiz ----
+  function boot(){
+    if (!RAW || RAW.length === 0) {
+      setupError.textContent = "No questions found. Make sure questions.js defines a global array called QUESTIONS and sits next to this HTML file.";
+      docStatus.textContent = "Error";
+      return;
+    }
+    pool = shuffle(RAW);
+    idx = 0;
+    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
+    docStatus.textContent = "In progress";
+    quizScreen.classList.remove("hidden");
+    renderQuestion();
+  }
+
+  // ---- Quiz rendering ----
+  function renderProgress(){
+    progressBar.innerHTML = "";
+    results.forEach((r, i) => {
+      const tick = document.createElement("div");
+      tick.className = "tick";
+      if (i === idx) tick.classList.add("done");
+      else if (r.correct === true) tick.classList.add("correct");
+      else if (r.correct === false) tick.classList.add("incorrect");
+      progressBar.appendChild(tick);
+    });
+  }
+
+  function saveCurrentAnswer(){
+    if (results[idx]) results[idx].userAnswer = answerInput.value;
+  }
+
+  function renderQuestion(){
+    const q = pool[idx];
+    const r = results[idx];
+    renderProgress();
+    metaCounter.textContent = `Question ${idx + 1} / ${pool.length}`;
+    metaTopic.textContent = q.topic || "General";
+    questionText.textContent = q.question;
+
+    answerInput.value = r.userAnswer || "";
+
+    hintBox.classList.add("hidden");
+    answerBox.classList.add("hidden");
+    selfMarkRow.classList.add("hidden");
+
+    hintBtn.disabled = !q.hint;
+
+    if (r.hintShown) showHint(false);
+    if (r.answerShown) showAnswer(false);
+
+    updateSelfMarkButtons();
+
+    // prevBtn.disabled = idx === 0;
+    nextBtn.textContent = idx === pool.length - 1 ? "Finish →" : "Next →";
+  }
+
+  function updateSelfMarkButtons(){
+    const r = results[idx];
+    markCorrectBtn.classList.toggle("active", r.correct === true);
+    markIncorrectBtn.classList.toggle("active", r.correct === false);
+  }
+
+  function showHint(recordFlag){
+    const q = pool[idx];
+    if (!q.hint) return;
+    hintText.textContent = q.hint;
+    hintBox.classList.remove("hidden");
+    if (recordFlag !== false) results[idx].hintShown = true;
+  }
+
+  function showAnswer(recordFlag){
+    const q = pool[idx];
+    answerText.textContent = q.answer + (q.explanation ? " — " + q.explanation : "");
+    answerBox.classList.remove("hidden");
+    if (recordFlag !== false) results[idx].answerShown = true;
+    selfMarkRow.classList.remove("hidden");
+  }
+
+  hintBtn.addEventListener("click", () => showHint(true));
+  answerBtn.addEventListener("click", () => showAnswer(true));
+
+  markCorrectBtn.addEventListener("click", () => {
+    results[idx].correct = true;
+    updateSelfMarkButtons();
+    renderProgress();
+  });
+  markIncorrectBtn.addEventListener("click", () => {
+    results[idx].correct = false;
+    updateSelfMarkButtons();
+    renderProgress();
+  });
+
+  // prevBtn.addEventListener("click", () => {
+  //   saveCurrentAnswer();
+  //   if (idx > 0) { idx--; renderQuestion(); }
+  // });
+  nextBtn.addEventListener("click", () => {
+    saveCurrentAnswer();
+    if (idx < pool.length - 1) { idx++; renderQuestion(); }
+    else { showResults(); }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (quizScreen.classList.contains("hidden")) return;
+    if (document.activeElement === answerInput) return; // don't hijack typing
+    if (e.key === "ArrowRight") nextBtn.click();
+    // if (e.key === "ArrowLeft") prevBtn.click();
+  });
+
+  // ---- Results ----
+  function showResults(){
+    quizScreen.classList.add("hidden");
+    resultsScreen.classList.remove("hidden");
+    docStatus.textContent = "Closed";
+
+    const answered = results.filter(r => r.correct !== null);
+    const correctCount = results.filter(r => r.correct === true).length;
+    const pct = answered.length ? Math.round((correctCount / answered.length) * 100) : 0;
+    scorePct.textContent = pct + "%";
+    const passed = pct / 100 >= PASS_MARK;
+    scorePct.className = "pct " + (passed ? "pass" : "fail");
+    scoreVerdict.textContent = `${correctCount} / ${answered.length} correct — ${passed ? "Above" : "Below"} the 55% pass mark`;
+
+    // review list of missed
+    reviewList.innerHTML = "";
+    const missed = results.filter(r => r.correct === false);
+    if (missed.length) {
+      const label = document.createElement("div");
+      label.className = "field-label";
+      label.textContent = `Review — missed questions (${missed.length})`;
+      reviewList.appendChild(label);
+      missed.forEach(r => {
+        const item = document.createElement("div");
+        item.className = "review-item";
+        let html = `<div class="q">${escapeHtml(r.question.question)}</div>`;
+        if (r.userAnswer && r.userAnswer.trim()) {
+          html += `<div class="your-a"><b>Your answer:</b> ${escapeHtml(r.userAnswer)}</div>`;
+        }
+        html += `<div class="a"><b>Answer:</b> ${escapeHtml(String(r.question.answer))}${r.question.explanation ? " — " + escapeHtml(r.question.explanation) : ""}</div>`;
+        item.innerHTML = html;
+        reviewList.appendChild(item);
+      });
+    }
+  }
+
+  retryAllBtn.addEventListener("click", () => {
+    pool = shuffle(pool);
+    idx = 0;
+    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
+    resultsScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    docStatus.textContent = "In progress";
+    renderQuestion();
+  });
+
+  retryMissedBtn.addEventListener("click", () => {
+    const missedQuestions = results.filter(r => r.correct === false).map(r => r.question);
+    if (!missedQuestions.length) return;
+    pool = missedQuestions;
+    idx = 0;
+    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
+    resultsScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    docStatus.textContent = "In progress";
+    renderQuestion();
+  });
+
+  boot();
+})();
+</script>
+</body>
+</html>
