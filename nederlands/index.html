@@ -305,6 +305,77 @@
     text-align: center;
   }
 
+  /* Wrong-answer review list shown at the end of each set */
+  .wrong-review {
+    text-align: left;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .wrong-review-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 12px 0;
+  }
+  .wrong-review-empty {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 0;
+  }
+  .wrong-item {
+    background: var(--wrong-bg);
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+  .wrong-item-word {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 2px 0;
+  }
+  .wrong-item-answer {
+    font-size: 13px;
+    color: var(--wrong);
+    margin: 0;
+  }
+  .wrong-item-given {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 2px 0 0 0;
+  }
+  .wrong-item-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+    padding: 4px 0;
+    border-top: 1px dashed #fecaca;
+  }
+  .wrong-item-detail-row:first-of-type {
+    border-top: none;
+  }
+  .wrong-item-detail-label {
+    color: var(--muted);
+    flex: 1;
+  }
+  .wrong-item-detail-value {
+    color: var(--text);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .wrong-item-detail-value .given {
+    color: var(--wrong);
+    text-decoration: line-through;
+    margin-right: 6px;
+  }
+  .wrong-item-detail-value .correct {
+    color: var(--correct);
+    font-weight: 600;
+  }
+
   @media (max-width: 480px) {
     body {
       padding: 0;
@@ -365,6 +436,7 @@ const LANG_B_LABEL = "Dutch";
 const VERB_FORM_CATEGORIES = [
   {
     key: "Infinitief\nMeervoud",
+    label: "Infinitief / Meervoud",
     rows: [
       { term: "Infinitief", pronouns: "–" },
       { term: "Meervoud", pronouns: "wij · we · jullie · zij · ze" }
@@ -372,6 +444,7 @@ const VERB_FORM_CATEGORIES = [
   },
   {
     key: "Eerste persoon enkelvoud\nTweede persoon enkelvoud met inversie informeel (e.g., een vraag)\nGebiedende wijs",
+    label: "Ik-vorm / Vraagvorm / Gebiedende wijs",
     rows: [
       { term: "Eerste persoon enkelvoud", pronouns: "ik" },
       { term: "Tweede persoon enkelvoud met inversie informeel (e.g., een vraag)", pronouns: "jij · je" },
@@ -380,6 +453,7 @@ const VERB_FORM_CATEGORIES = [
   },
   {
     key: "Tweede persoon enkelvoud\nDerde persoon enkelvoud",
+    label: "Jij-vorm / Hij-Zij-Het-vorm",
     rows: [
       { term: "Tweede persoon enkelvoud", pronouns: "jij · je · u" },
       { term: "Derde persoon enkelvoud", pronouns: "hij · zij · ze · het" }
@@ -387,14 +461,17 @@ const VERB_FORM_CATEGORIES = [
   },
   {
     key: "Onvoltooid verleden tijd enkelvoud",
+    label: "OVT enkelvoud",
     rows: [{ term: "Onvoltooid verleden tijd enkelvoud", pronouns: "ik · jij · je · u · hij · zij · ze · het" }]
   },
   {
     key: "Onvoltooid verleden tijd meervoud",
+    label: "OVT meervoud",
     rows: [{ term: "Onvoltooid verleden tijd meervoud", pronouns: "wij · we · jullie · zij · ze" }]
   },
   {
     key: "Voltooid deelwoord",
+    label: "Voltooid deelwoord",
     rows: [{ term: "Voltooid deelwoord", pronouns: "–" }]
   }
 ];
@@ -472,6 +549,11 @@ let selectedVerbType = null;
 let totalAnswered = 0;
 let totalCorrect = 0;
 let displayedAccuracy = null;
+
+// Every question answered incorrectly within the current set, so it can
+// be reviewed on the set-complete / quiz-complete screen. Reset whenever
+// a new set starts (continueToNextSet) or a quiz restarts (startQuiz).
+let setWrongItems = [];
 
 function snapshotAccuracy() {
   displayedAccuracy = totalAnswered > 0 ? Math.round((totalCorrect / totalAnswered) * 100) : null;
@@ -567,6 +649,7 @@ function buildVerbQuestions(mode) {
   return shuffle(verbs).map((v) => ({
     verb: v,
     fields: categories.map((cat) => ({
+      label: cat.label,
       rows: cat.rows,
       value: v[cat.key]
     }))
@@ -599,6 +682,7 @@ function startQuiz(mode) {
   totalAnswered = 0;
   totalCorrect = 0;
   displayedAccuracy = null;
+  setWrongItems = [];
   renderQuestion();
 }
 
@@ -779,7 +863,7 @@ function handleMcAnswer(btn, chosen) {
     }
   });
 
-  showFeedback(isCorrect, q.correctAnswerDisplay);
+  showFeedback(isCorrect, q.correctAnswerDisplay, chosen);
 }
 
 function handleTextAnswer() {
@@ -793,7 +877,7 @@ function handleTextAnswer() {
   input.disabled = true;
   input.classList.add(isCorrect ? "correct" : "wrong");
 
-  showFeedback(isCorrect, q.correctAnswerDisplay);
+  showFeedback(isCorrect, q.correctAnswerDisplay, value);
 }
 
 // Checks all four verb fields individually, marks each one, and only
@@ -803,6 +887,7 @@ function handleVerbCheck() {
   answered = true;
   const q = questions[currentIndex];
   let allCorrect = true;
+  const wrongFields = [];
 
   q.fields.forEach((f, i) => {
     const input = document.getElementById(`verbField${i}`);
@@ -813,9 +898,11 @@ function handleVerbCheck() {
     if (!isCorrect) {
       allCorrect = false;
       hint.textContent = `Correct: ${f.value}`;
+      wrongFields.push({ label: f.label, correct: f.value, given: input.value });
     }
   });
 
+  let typeWrongInfo = null;
   if (currentMode === "verb-infinitives") {
     const typeCorrect = selectedVerbType === q.verb.type;
     const typeButtons = document.querySelectorAll("#typeOptions .option-btn");
@@ -828,7 +915,10 @@ function handleVerbCheck() {
         b.classList.add("wrong");
       }
     });
-    if (!typeCorrect) allCorrect = false;
+    if (!typeCorrect) {
+      allCorrect = false;
+      typeWrongInfo = { correct: q.verb.type, given: selectedVerbType || "(none)" };
+    }
   }
 
   totalAnswered++;
@@ -836,6 +926,13 @@ function handleVerbCheck() {
     score++;
     setScore++;
     totalCorrect++;
+  } else {
+    setWrongItems.push({
+      kind: "verb",
+      word: q.verb.en,
+      fields: wrongFields,
+      type: typeWrongInfo
+    });
   }
 
   const feedback = document.getElementById("feedback");
@@ -848,12 +945,20 @@ function handleVerbCheck() {
   if (field0Btn) field0Btn.textContent = "Next";
 }
 
-function showFeedback(isCorrect, correctAnswer) {
+function showFeedback(isCorrect, correctAnswer, givenAnswer) {
   totalAnswered++;
+  const q = questions[currentIndex];
   if (isCorrect) {
     score++;
     setScore++;
     totalCorrect++;
+  } else {
+    setWrongItems.push({
+      kind: "word",
+      word: q.promptWord,
+      correct: correctAnswer,
+      given: (givenAnswer || "").trim()
+    });
   }
   const feedback = document.getElementById("feedback");
   feedback.textContent = isCorrect
@@ -879,6 +984,63 @@ function nextQuestion() {
   }
 }
 
+// Builds the HTML for the review list of words/verbs answered
+// incorrectly in the set that was just completed.
+function renderWrongReviewHtml() {
+  if (setWrongItems.length === 0) {
+    return `
+      <div class="wrong-review">
+        <p class="wrong-review-title">Missed answers</p>
+        <p class="wrong-review-empty">None — perfect set!</p>
+      </div>
+    `;
+  }
+
+  const itemsHtml = setWrongItems.map((item) => {
+    if (item.kind === "verb") {
+      const detailRows = item.fields.map((f) => `
+        <div class="wrong-item-detail-row">
+          <span class="wrong-item-detail-label">${escapeHtml(f.label)}</span>
+          <span class="wrong-item-detail-value">
+            ${f.given ? `<span class="given">${escapeHtml(f.given)}</span>` : ""}
+            <span class="correct">${escapeHtml(f.correct)}</span>
+          </span>
+        </div>
+      `).join("");
+      const typeRow = item.type ? `
+        <div class="wrong-item-detail-row">
+          <span class="wrong-item-detail-label">Regular / irregular</span>
+          <span class="wrong-item-detail-value">
+            <span class="given">${escapeHtml(item.type.given)}</span>
+            <span class="correct">${escapeHtml(item.type.correct)}</span>
+          </span>
+        </div>
+      ` : "";
+      return `
+        <div class="wrong-item">
+          <p class="wrong-item-word">${escapeHtml(item.word)}</p>
+          ${detailRows}${typeRow}
+        </div>
+      `;
+    }
+
+    return `
+      <div class="wrong-item">
+        <p class="wrong-item-word">${escapeHtml(item.word)}</p>
+        <p class="wrong-item-answer">Correct: ${escapeHtml(item.correct)}</p>
+        ${item.given ? `<p class="wrong-item-given">You wrote: ${escapeHtml(item.given)}</p>` : `<p class="wrong-item-given">You left this blank</p>`}
+      </div>
+    `;
+  }).join("");
+
+  return `
+    <div class="wrong-review">
+      <p class="wrong-review-title">Missed answers (${setWrongItems.length})</p>
+      ${itemsHtml}
+    </div>
+  `;
+}
+
 function renderSetCompleteScreen() {
   const app = document.getElementById("app");
   const totalSets = Math.ceil(questions.length / QUESTIONS_PER_SET);
@@ -894,11 +1056,13 @@ function renderSetCompleteScreen() {
       <p class="end-sub">${pct}% correct on this set &nbsp;·&nbsp; ${displayedAccuracy}% overall</p>
       <button class="restart-btn" onclick="continueToNextSet()">Continue to Set ${setNumber + 1}</button>
     </div>
+    ${renderWrongReviewHtml()}
   `;
 }
 
 function continueToNextSet() {
   setScore = 0;
+  setWrongItems = [];
   renderQuestion();
 }
 
@@ -913,6 +1077,7 @@ function renderEndScreen() {
       <button class="restart-btn" onclick="startQuiz(currentMode)">Try again</button>
       <button class="secondary-btn" onclick="renderModeSelect()">Change quiz type</button>
     </div>
+    ${renderWrongReviewHtml()}
   `;
 }
 
