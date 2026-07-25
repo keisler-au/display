@@ -689,3 +689,6 @@ const verbs = [
 // to realise (to make into reality) - Verwezenlijkt
 // to realise (be aware of) - beseffen
 // to realise (awareness, make reality) - zich realiseren
+// vertonen (-> vertoon (naamwoordelijk))
+// weergeven (-> weergave (naamwoordelijk))
+// tentoonstellen (-> tentoonstelling (naamwoordelijk))

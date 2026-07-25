@@ -63,6 +63,7 @@ const words = [
 { "en": "support", "type": "noun", "nl": "de steun" },
 { "en": "insult", "type": "noun", "nl": "de belediging" },
 { "en": "insults", "type": "noun", "nl": "de beledigingen" },
-{ "en": "display (presentation)", "type": "noun", "nl": "de weergave (de vertoning)" },
-{ "en": "display (ostentation)", "type": "noun", "nl": "het vertoon" },
+{ "en": "display (rendering)", "type": "noun", "nl": "de weergave" },
+{ "en": "display (performance)", "type": "noun", "nl": "de vertoning" },
+{ "en": "display (ostentatious)", "type": "noun", "nl": "het vertoon" },
 ];

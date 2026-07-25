@@ -207,7 +207,7 @@
   }
   .reveal-box .stamp{color:var(--amber);}
   .reveal-box.answer .stamp{color:var(--green);}
-  .reveal-box p{margin:8px 0 0; font-size:0.92rem; line-height:1.5;}
+  .reveal-box p{margin:8px 0 0; font-size:0.92rem; line-height:1.5; white-space:pre-line;}
   @keyframes pop{
     from{opacity:0; transform:translateY(-4px) scale(0.98);}
     to{opacity:1; transform:translateY(0) scale(1);}
@@ -266,7 +266,8 @@
   }
   .review-item .q{font-weight:600; margin-bottom:6px; font-size:0.92rem;}
   .review-item .your-a{font-size:0.88rem; color:var(--red); line-height:1.5; margin-bottom:4px;}
-  .review-item .a{font-size:0.88rem; color:var(--ink-soft); line-height:1.5;}
+  .review-item .a{font-size:0.88rem; color:var(--ink-soft); line-height:1.5; white-space:pre-line;}
+  .review-item .your-a{white-space:pre-line;}
   .review-item .a b{color:var(--ink);}
 
   .hidden{display:none !important;}
@@ -468,12 +469,31 @@
 
     // prevBtn.disabled = idx === 0;
     nextBtn.textContent = idx === pool.length - 1 ? "Finish →" : "Next →";
+    updateNextButton();
+
+    // Autofocus the answer box so typing can start immediately.
+    // requestAnimationFrame ensures this runs after the browser has
+    // finished painting/unhiding the section, which makes focus reliable
+    // across browsers (including right after boot()).
+    requestAnimationFrame(() => {
+      answerInput.focus();
+      // Put the cursor at the end of any restored answer text instead of
+      // selecting it all, so resuming a question doesn't wipe your draft.
+      const len = answerInput.value.length;
+      answerInput.setSelectionRange(len, len);
+    });
   }
 
   function updateSelfMarkButtons(){
     const r = results[idx];
     markCorrectBtn.classList.toggle("active", r.correct === true);
     markIncorrectBtn.classList.toggle("active", r.correct === false);
+  }
+
+  function updateNextButton(){
+    const r = results[idx];
+    // Must self-mark (correct/incorrect) before moving on.
+    nextBtn.disabled = r.correct === null;
   }
 
   function showHint(recordFlag){
@@ -498,11 +518,13 @@
   markCorrectBtn.addEventListener("click", () => {
     results[idx].correct = true;
     updateSelfMarkButtons();
+    updateNextButton();
     renderProgress();
   });
   markIncorrectBtn.addEventListener("click", () => {
     results[idx].correct = false;
     updateSelfMarkButtons();
+    updateNextButton();
     renderProgress();
   });
 
