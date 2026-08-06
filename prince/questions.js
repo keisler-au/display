@@ -517,5 +517,133 @@ const QUESTIONS = [
         question: "Where are management products listed alphabetically?",
         hint: "Appendix",
         answer: "Appendix A."
+    },
+
+    // Additional leaf-level notes from the index
+    {
+        topic: "Practice chapters",
+        question: "Which five project contexts are represented by D-O-C-S-S when applying a practice?",
+        hint: "Delivery, organisation, commercial, scale, sustainability",
+        answer: "Delivery method\nOrganisational context\nCommercial context\nScale\nSustainability requirements"
+    },
+    {
+        topic: "Ch 4 · Organisation",
+        question: "Which core concept is indexed under the Purpose section of Organisation?",
+        hint: "What a person is assigned",
+        answer: "Role."
+    },
+    {
+        topic: "Ch 4 · Organisation",
+        question: "What eight-entry mnemonic is recorded for the roles in Organisation guidance?",
+        hint: "Three S/P entries begin the sequence",
+        answer: "P-S-S-P-P-T-P-P. The index records only these initials, without expanding them."
+    },
+    {
+        topic: "Ch 4 · Organisation",
+        question: "What five-entry mnemonic is recorded for the Organisation techniques?",
+        hint: "U, two Ds, M, T",
+        answer: "U-D-D-M-T. The index records only these initials, without expanding them."
+    },
+    {
+        topic: "Ch 5 · Plans",
+        question: "Which three performance targets are specifically indexed under planning tolerances?",
+        hint: "T-C-S",
+        answer: "Time, cost, and scope."
+    },
+    {
+        topic: "Ch 5 · Plans",
+        question: "What three details are recorded under the ‘Organising work packages’ technique?",
+        hint: "Dependencies, WPD, WBS",
+        answer: "Dependencies may be internal or external.\nThe Work Package Description records dependencies.\nThe Work Breakdown Structure helps develop Team Plans."
+    },
+    {
+        topic: "Ch 5 · Plans",
+        question: "Where is a resource described as the things required to complete a plan?",
+        hint: "Plans → Techniques → budget",
+        answer: "Chapter 5, Plans — Techniques → Preparing the budget."
+    },
+    {
+        topic: "Ch 5 · Plans",
+        question: "Where does the index connect the delivery method context with agile and iterative planning?",
+        hint: "Plans → Applying",
+        answer: "Chapter 5, Plans — section 4, Applying the practice."
+    },
+    {
+        topic: "Ch 6 · Quality",
+        question: "Which quality orientation is highlighted in the Purpose section of the Quality chapter?",
+        hint: "Products",
+        answer: "Product-based quality."
+    },
+    {
+        topic: "Ch 6 · Quality",
+        question: "Which two management products appear under ‘Describing products’ in Quality planning?",
+        hint: "Descriptions and register",
+        answer: "Product Descriptions and the Product Register."
+    },
+    {
+        topic: "Ch 6 · Quality",
+        question: "What requirements warning appears under subordinate quality plans such as testing?",
+        hint: "Traceability",
+        answer: "Project managers should not introduce new requirements that cannot be traced back to the Product Descriptions and Project Product Description."
+    },
+    {
+        topic: "Ch 6 · Quality",
+        question: "Which register is associated with quality-control procedures in Quality guidance?",
+        hint: "Quality → Guidance → Quality control",
+        answer: "The Quality Register."
+    },
+    {
+        topic: "Ch 6 · Quality",
+        question: "What three elements are listed beneath the Quality planning technique?",
+        hint: "Inputs, descriptions, approach",
+        answer: "Gather user inputs\nProduct Descriptions\nQuality Management Approach"
+    },
+    {
+        topic: "Ch 7 · Risk",
+        question: "What details sit beneath the Identify and Assess techniques in the Risk chapter?",
+        hint: "Identify has four; Assess has two",
+        answer: "Identify: context, objectives, threats, and opportunities.\nAssess: prioritise and consider the combined risk profile."
+    },
+    {
+        topic: "Ch 7 · Risk",
+        question: "What four contextual tailoring notes are recorded under Applying the Risk practice?",
+        hint: "Delivery, organisation, commercial, scale",
+        answer: "Delivery method: risk management is adaptable; reviews can occur in daily stand-ups rather than on a fixed monthly cycle.\nOrganisational context: align with organisational protocols.\nCommercial context: there may be more than one Risk Register.\nScale: smaller projects typically need less risk management."
+    },
+    {
+        topic: "Ch 8 · Issues",
+        question: "Which three questions guide the Assessing technique in the Issues chapter?",
+        hint: "W-I-H",
+        answer: "What?\nWhat is the impact?\nHow should it be addressed?"
+    },
+    {
+        topic: "Ch 8 · Issues",
+        question: "What four contextual tailoring notes are recorded under Applying the Issues practice?",
+        hint: "Delivery, organisation, commercial, scale",
+        answer: "Delivery method: changes are easier to implement early in a sequential method, and tolerances should become stricter as stages progress.\nOrganisational context: align with organisational protocols.\nCommercial context: the index notes that there may be more than one Risk Register.\nScale: mature, well-understood product designs will probably involve fewer changes and issues."
+    },
+    {
+        topic: "Ch 9 · Progress",
+        question: "What three options are indexed when deciding on an Exception Report?",
+        hint: "Tolerances, plan, report",
+        answer: "Reallocate tolerances\nRequest an Exception Plan\nImplement the Exception Report"
+    },
+    {
+        topic: "Ch 9 · Progress",
+        question: "What three options are indexed when deciding on an Exception Plan?",
+        hint: "Two reject options and one approval",
+        answer: "Reject and request amendments\nReject and continue with the stage\nApprove"
+    },
+    {
+        topic: "Process chapters",
+        question: "Which two process chapters contain a context image reference in the index?",
+        hint: "The processes immediately before and after Directing",
+        answer: "Starting (chapter 11) and Initiating (chapter 13)."
+    },
+    {
+        topic: "Appendices",
+        question: "Which appendix is named after Appendix A but has no contents recorded in the index?",
+        hint: "The next letter",
+        answer: "Appendix B."
     }
 ];
