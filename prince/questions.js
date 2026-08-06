@@ -374,12 +374,6 @@ const QUESTIONS = [
     // Chapter 11 — Starting
     {
         topic: "Ch 11 · Starting",
-        question: "What is distinctive about the opening structure of the Starting process chapter?",
-        hint: "Before Objectives",
-        answer: "It begins with prerequisites, before the usual process sections of Objectives, Context, Activities, Applying, Responsibilities, and Practices."
-    },
-    {
-        topic: "Ch 11 · Starting",
         question: "What are the six activities in the Starting process, in order?",
         hint: "Appoint, assess, prepare, appoint, plan, request",
         answer: "Appoint the Project Executive and Project Manager\nAssess previous lessons\nPrepare the Outline Business Case\nAppoint the project team\nPlan the initiation stage\nRequest project initiation"
