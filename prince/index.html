@@ -96,6 +96,38 @@
     margin-bottom:14px;
   }
 
+  .intro-copy{
+    color:var(--ink-soft);
+    font-size:0.94rem;
+    line-height:1.6;
+    margin:0 0 22px;
+  }
+  .mode-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+  }
+  .mode-option{
+    border:1px solid var(--paper-line);
+    background:#fff;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+  }
+  .mode-option h2{
+    font-family:'Fraunces', serif;
+    font-size:1.18rem;
+    margin:0;
+  }
+  .mode-option p{
+    color:var(--ink-soft);
+    font-size:0.86rem;
+    line-height:1.5;
+    margin:0 0 auto;
+  }
+
   button.primary{
     font-family:'IBM Plex Mono', monospace;
     text-transform:uppercase;
@@ -153,6 +185,20 @@
     text-transform:uppercase;
     letter-spacing:0.06em;
     margin-bottom:16px;
+  }
+  .score-strip{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:9px 11px;
+    margin:-4px 0 18px;
+    border:1px solid var(--paper-line);
+    background:rgba(27,36,50,0.035);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
   }
 
   .question-text{
@@ -270,6 +316,22 @@
   .review-item .your-a{white-space:pre-line;}
   .review-item .a b{color:var(--ink);}
 
+  .section-heading{
+    font-family:'Fraunces', serif;
+    font-size:1.45rem;
+    line-height:1.3;
+    text-align:center;
+    margin:0 0 4px;
+  }
+  .section-progress{
+    font-family:'IBM Plex Mono', monospace;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
+
   .hidden{display:none !important;}
 
   footer{
@@ -285,6 +347,8 @@
     header.masthead{flex-direction:column; align-items:flex-start; gap:6px;}
     header.masthead .doc-id{text-align:left;}
     .score-hero .pct{font-size:2.6rem;}
+    .mode-grid{grid-template-columns:1fr;}
+    .score-strip{flex-direction:column; gap:4px;}
   }
 </style>
 </head>
@@ -301,12 +365,35 @@
 
   <div id="setupError"></div>
 
+  <!-- ===================== MODE SCREEN ===================== -->
+  <section id="modeScreen" class="card hidden">
+    <span class="field-label">Choose a study format</span>
+    <p class="intro-copy">Both versions use all questions. Every new attempt reshuffles the material.</p>
+    <div class="mode-grid">
+      <div class="mode-option">
+        <h2>Complete quiz</h2>
+        <p>All questions mixed into one shuffled run, with one score at the end.</p>
+        <button class="primary" id="fullModeBtn">Play complete quiz</button>
+      </div>
+      <div class="mode-option">
+        <h2>Sectioned quiz</h2>
+        <p>Related questions stay together. Section order and questions within each section are shuffled, with a score after every section.</p>
+        <button class="primary" id="sectionModeBtn">Play by section</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== QUIZ SCREEN ===================== -->
   <section id="quizScreen" class="card hidden">
     <div class="progress-bar" id="progressBar"></div>
     <div class="meta-row">
       <span id="metaCounter">Question 1 / 1</span>
       <span id="metaTopic">Topic</span>
+    </div>
+
+    <div class="score-strip">
+      <span id="runContext">Complete quiz</span>
+      <span id="runningScore">Overall: 0 answered</span>
     </div>
 
     <p class="question-text" id="questionText"></p>
@@ -338,6 +425,25 @@
     </div>
   </section>
 
+  <!-- ===================== SECTION SCORE SCREEN ===================== -->
+  <section id="sectionResultsScreen" class="card hidden">
+    <div class="section-progress" id="sectionProgress">Section 1 / 1 complete</div>
+    <h2 class="section-heading" id="sectionHeading">Section complete</h2>
+    <div class="score-hero">
+      <div class="pct" id="sectionScorePct">0%</div>
+      <div class="verdict" id="sectionScoreVerdict">—</div>
+    </div>
+    <div class="score-strip">
+      <span>Running overall score</span>
+      <span id="sectionOverallScore">0 / 0 correct</span>
+    </div>
+    <div class="action-row">
+      <button class="primary" id="continueSectionBtn">Next section →</button>
+      <button class="ghost" id="sectionChangeModeBtn">Change quiz mode</button>
+    </div>
+    <div id="sectionReviewList" style="margin-top:24px;"></div>
+  </section>
+
   <!-- ===================== RESULTS SCREEN ===================== -->
   <section id="resultsScreen" class="card hidden">
     <div class="score-hero">
@@ -348,6 +454,7 @@
     <div class="action-row">
       <button class="primary" id="retryAllBtn">Retry all</button>
       <button class="ghost" id="retryMissedBtn">Retry missed only</button>
+      <button class="ghost" id="changeModeBtn">Change quiz mode</button>
     </div>
 
     <div id="reviewList" style="margin-top:24px;"></div>
@@ -367,18 +474,44 @@
 
   const PASS_MARK = 0.55; // PRINCE2 Foundation pass mark is 55%
 
+  const SECTION_DEFINITIONS = [
+    { name: "Manual orientation", topics: ["Manual map", "Practice chapters", "Process chapters", "Appendices", "Ch 2 · Practices intro", "Ch 10 · Processes intro"] },
+    { name: "People", topics: ["Ch 1 · People"] },
+    { name: "Business Case and Organisation", topics: ["Ch 3 · Business Case", "Ch 4 · Organisation"] },
+    { name: "Plans", topics: ["Ch 5 · Plans"] },
+    { name: "Quality", topics: ["Ch 6 · Quality"] },
+    { name: "Risk", topics: ["Ch 7 · Risk"] },
+    { name: "Issues", topics: ["Ch 8 · Issues"] },
+    { name: "Progress", topics: ["Ch 9 · Progress"] },
+    { name: "Starting and Directing", topics: ["Ch 11 · Starting", "Ch 12 · Directing"] },
+    { name: "Initiating and Controlling a Stage", topics: ["Ch 13 · Initiating", "Ch 14 · Controlling a Stage"] },
+    { name: "Delivery, Stage Boundaries, and Closure", topics: ["Ch 15 · Managing Product Delivery", "Ch 16 · Managing a Stage Boundary", "Ch 17 · Closing a Project"] }
+  ];
+
   // ---- State ----
+  let mode = null;
   let pool = [];
   let idx = 0;
   let results = []; // { question, correct, userAnswer, hintShown, answerShown }
+  let allResults = [];
+  let sections = [];
+  let sectionIdx = 0;
+  let retrySource = [];
 
   // ---- Elements ----
+  const modeScreen = document.getElementById("modeScreen");
   const quizScreen = document.getElementById("quizScreen");
+  const sectionResultsScreen = document.getElementById("sectionResultsScreen");
   const resultsScreen = document.getElementById("resultsScreen");
+
+  const fullModeBtn = document.getElementById("fullModeBtn");
+  const sectionModeBtn = document.getElementById("sectionModeBtn");
 
   const progressBar = document.getElementById("progressBar");
   const metaCounter = document.getElementById("metaCounter");
   const metaTopic = document.getElementById("metaTopic");
+  const runContext = document.getElementById("runContext");
+  const runningScore = document.getElementById("runningScore");
   const questionText = document.getElementById("questionText");
   const answerInput = document.getElementById("answerInput");
   const hintBox = document.getElementById("hintBox");
@@ -393,11 +526,21 @@
   // const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
 
+  const sectionProgress = document.getElementById("sectionProgress");
+  const sectionHeading = document.getElementById("sectionHeading");
+  const sectionScorePct = document.getElementById("sectionScorePct");
+  const sectionScoreVerdict = document.getElementById("sectionScoreVerdict");
+  const sectionOverallScore = document.getElementById("sectionOverallScore");
+  const continueSectionBtn = document.getElementById("continueSectionBtn");
+  const sectionChangeModeBtn = document.getElementById("sectionChangeModeBtn");
+  const sectionReviewList = document.getElementById("sectionReviewList");
+
   const scorePct = document.getElementById("scorePct");
   const scoreVerdict = document.getElementById("scoreVerdict");
   const reviewList = document.getElementById("reviewList");
   const retryAllBtn = document.getElementById("retryAllBtn");
   const retryMissedBtn = document.getElementById("retryMissedBtn");
+  const changeModeBtn = document.getElementById("changeModeBtn");
 
   function escapeHtml(str){
     const div = document.createElement("div");
@@ -414,20 +557,81 @@
     return a;
   }
 
-  // ---- Boot straight into the quiz ----
+  function makeResult(question){
+    return { question, correct: null, userAnswer: "", hintShown: false, answerShown: false };
+  }
+
+  function hideScreens(){
+    [modeScreen, quizScreen, sectionResultsScreen, resultsScreen].forEach(screen => screen.classList.add("hidden"));
+  }
+
+  function buildSections(questions){
+    const assignedTopics = new Set(SECTION_DEFINITIONS.flatMap(section => section.topics));
+    const built = SECTION_DEFINITIONS.map(definition => ({
+      name: definition.name,
+      questions: questions.filter(question => definition.topics.includes(question.topic))
+    })).filter(section => section.questions.length > 0);
+    const unassigned = questions.filter(question => !assignedTopics.has(question.topic));
+    if (unassigned.length) built.push({ name: "Additional material", questions: unassigned });
+    return shuffle(built).map(section => ({
+      name: section.name,
+      results: shuffle(section.questions).map(makeResult)
+    }));
+  }
+
+  function startPool(newResults){
+    results = newResults;
+    pool = results.map(result => result.question);
+    idx = 0;
+    hideScreens();
+    quizScreen.classList.remove("hidden");
+    docStatus.textContent = "In progress";
+    renderQuestion();
+  }
+
+  function startFullQuiz(questions, label = "Complete quiz"){
+    mode = "full";
+    retrySource = questions.slice();
+    sections = [];
+    allResults = shuffle(questions).map(makeResult);
+    runContext.textContent = label;
+    startPool(allResults);
+  }
+
+  function startSectionedQuiz(){
+    mode = "sectioned";
+    retrySource = RAW.slice();
+    sections = buildSections(RAW);
+    sectionIdx = 0;
+    allResults = sections.flatMap(section => section.results);
+    startCurrentSection();
+  }
+
+  function startCurrentSection(){
+    const section = sections[sectionIdx];
+    runContext.textContent = `Section ${sectionIdx + 1} / ${sections.length} · ${section.name}`;
+    startPool(section.results);
+  }
+
+  function showModeScreen(){
+    mode = null;
+    hideScreens();
+    modeScreen.classList.remove("hidden");
+    docStatus.textContent = "Ready";
+  }
+
+  // ---- Boot into the mode chooser ----
   function boot(){
     if (!RAW || RAW.length === 0) {
       setupError.textContent = "No questions found. Make sure questions.js defines a global array called QUESTIONS and sits next to this HTML file.";
       docStatus.textContent = "Error";
       return;
     }
-    pool = shuffle(RAW);
-    idx = 0;
-    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
-    docStatus.textContent = "In progress";
-    quizScreen.classList.remove("hidden");
-    renderQuestion();
+    showModeScreen();
   }
+
+  fullModeBtn.addEventListener("click", () => startFullQuiz(RAW));
+  sectionModeBtn.addEventListener("click", startSectionedQuiz);
 
   // ---- Quiz rendering ----
   function renderProgress(){
@@ -446,10 +650,25 @@
     if (results[idx]) results[idx].userAnswer = answerInput.value;
   }
 
+  function scoreOf(resultSet){
+    const answered = resultSet.filter(result => result.correct !== null).length;
+    const correct = resultSet.filter(result => result.correct === true).length;
+    const pct = answered ? Math.round((correct / answered) * 100) : 0;
+    return { answered, correct, pct };
+  }
+
+  function updateRunningScore(){
+    const score = scoreOf(allResults);
+    runningScore.textContent = score.answered
+      ? `Overall: ${score.correct} / ${score.answered} correct · ${score.pct}%`
+      : "Overall: 0 answered";
+  }
+
   function renderQuestion(){
     const q = pool[idx];
     const r = results[idx];
     renderProgress();
+    updateRunningScore();
     metaCounter.textContent = `Question ${idx + 1} / ${pool.length}`;
     metaTopic.textContent = q.topic || "General";
     questionText.textContent = q.question;
@@ -468,7 +687,9 @@
     updateSelfMarkButtons();
 
     // prevBtn.disabled = idx === 0;
-    nextBtn.textContent = idx === pool.length - 1 ? "Finish →" : "Next →";
+    nextBtn.textContent = idx === pool.length - 1
+      ? (mode === "sectioned" ? "Finish section →" : "Finish →")
+      : "Next →";
     updateNextButton();
 
     // Autofocus the answer box so typing can start immediately.
@@ -520,12 +741,14 @@
     updateSelfMarkButtons();
     updateNextButton();
     renderProgress();
+    updateRunningScore();
   });
   markIncorrectBtn.addEventListener("click", () => {
     results[idx].correct = false;
     updateSelfMarkButtons();
     updateNextButton();
     renderProgress();
+    updateRunningScore();
   });
 
   // prevBtn.addEventListener("click", () => {
@@ -535,6 +758,7 @@
   nextBtn.addEventListener("click", () => {
     saveCurrentAnswer();
     if (idx < pool.length - 1) { idx++; renderQuestion(); }
+    else if (mode === "sectioned") { showSectionResults(); }
     else { showResults(); }
   });
 
@@ -546,62 +770,86 @@
   });
 
   // ---- Results ----
+  function renderReview(container, resultSet){
+    container.innerHTML = "";
+    const missed = resultSet.filter(result => result.correct === false);
+    if (!missed.length) return;
+
+    const label = document.createElement("div");
+    label.className = "field-label";
+    label.textContent = `Review — missed questions (${missed.length})`;
+    container.appendChild(label);
+
+    missed.forEach(result => {
+      const item = document.createElement("div");
+      item.className = "review-item";
+      let html = `<div class="q">${escapeHtml(result.question.question)}</div>`;
+      if (result.userAnswer && result.userAnswer.trim()) {
+        html += `<div class="your-a"><b>Your answer:</b> ${escapeHtml(result.userAnswer)}</div>`;
+      }
+      html += `<div class="a"><b>Answer:</b> ${escapeHtml(String(result.question.answer))}${result.question.explanation ? " — " + escapeHtml(result.question.explanation) : ""}</div>`;
+      item.innerHTML = html;
+      container.appendChild(item);
+    });
+  }
+
+  function applyScoreStyle(element, pct){
+    element.className = "pct " + (pct / 100 >= PASS_MARK ? "pass" : "fail");
+  }
+
+  function showSectionResults(){
+    const section = sections[sectionIdx];
+    const sectionScore = scoreOf(section.results);
+    const overall = scoreOf(allResults);
+    hideScreens();
+    sectionResultsScreen.classList.remove("hidden");
+    docStatus.textContent = "Section complete";
+
+    sectionProgress.textContent = `Section ${sectionIdx + 1} / ${sections.length} complete`;
+    sectionHeading.textContent = section.name;
+    sectionScorePct.textContent = sectionScore.pct + "%";
+    applyScoreStyle(sectionScorePct, sectionScore.pct);
+    sectionScoreVerdict.textContent = `${sectionScore.correct} / ${sectionScore.answered} correct in this section`;
+    sectionOverallScore.textContent = `${overall.correct} / ${overall.answered} correct · ${overall.pct}%`;
+    continueSectionBtn.textContent = sectionIdx === sections.length - 1 ? "See final results →" : "Next section →";
+    renderReview(sectionReviewList, section.results);
+  }
+
+  continueSectionBtn.addEventListener("click", () => {
+    if (sectionIdx === sections.length - 1) showResults();
+    else {
+      sectionIdx++;
+      startCurrentSection();
+    }
+  });
+
   function showResults(){
-    quizScreen.classList.add("hidden");
+    hideScreens();
     resultsScreen.classList.remove("hidden");
     docStatus.textContent = "Closed";
 
-    const answered = results.filter(r => r.correct !== null);
-    const correctCount = results.filter(r => r.correct === true).length;
-    const pct = answered.length ? Math.round((correctCount / answered.length) * 100) : 0;
-    scorePct.textContent = pct + "%";
-    const passed = pct / 100 >= PASS_MARK;
-    scorePct.className = "pct " + (passed ? "pass" : "fail");
-    scoreVerdict.textContent = `${correctCount} / ${answered.length} correct — ${passed ? "Above" : "Below"} the 55% pass mark`;
-
-    // review list of missed
-    reviewList.innerHTML = "";
-    const missed = results.filter(r => r.correct === false);
-    if (missed.length) {
-      const label = document.createElement("div");
-      label.className = "field-label";
-      label.textContent = `Review — missed questions (${missed.length})`;
-      reviewList.appendChild(label);
-      missed.forEach(r => {
-        const item = document.createElement("div");
-        item.className = "review-item";
-        let html = `<div class="q">${escapeHtml(r.question.question)}</div>`;
-        if (r.userAnswer && r.userAnswer.trim()) {
-          html += `<div class="your-a"><b>Your answer:</b> ${escapeHtml(r.userAnswer)}</div>`;
-        }
-        html += `<div class="a"><b>Answer:</b> ${escapeHtml(String(r.question.answer))}${r.question.explanation ? " — " + escapeHtml(r.question.explanation) : ""}</div>`;
-        item.innerHTML = html;
-        reviewList.appendChild(item);
-      });
-    }
+    const score = scoreOf(allResults);
+    scorePct.textContent = score.pct + "%";
+    applyScoreStyle(scorePct, score.pct);
+    const passed = score.pct / 100 >= PASS_MARK;
+    scoreVerdict.textContent = `${score.correct} / ${score.answered} correct — ${passed ? "Above" : "Below"} the 55% pass mark`;
+    renderReview(reviewList, allResults);
+    retryMissedBtn.disabled = !allResults.some(result => result.correct === false);
   }
 
   retryAllBtn.addEventListener("click", () => {
-    pool = shuffle(pool);
-    idx = 0;
-    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
-    resultsScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
-    docStatus.textContent = "In progress";
-    renderQuestion();
+    if (mode === "sectioned") startSectionedQuiz();
+    else startFullQuiz(retrySource.length ? retrySource : RAW);
   });
 
   retryMissedBtn.addEventListener("click", () => {
-    const missedQuestions = results.filter(r => r.correct === false).map(r => r.question);
+    const missedQuestions = allResults.filter(result => result.correct === false).map(result => result.question);
     if (!missedQuestions.length) return;
-    pool = missedQuestions;
-    idx = 0;
-    results = pool.map(q => ({ question: q, correct: null, userAnswer: "", hintShown: false, answerShown: false }));
-    resultsScreen.classList.add("hidden");
-    quizScreen.classList.remove("hidden");
-    docStatus.textContent = "In progress";
-    renderQuestion();
+    startFullQuiz(missedQuestions, "Missed questions");
   });
+
+  changeModeBtn.addEventListener("click", showModeScreen);
+  sectionChangeModeBtn.addEventListener("click", showModeScreen);
 
   boot();
 })();
