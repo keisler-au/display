@@ -266,6 +266,21 @@
     margin-top:20px;
   }
 
+  .quiz-control-stage{
+    display:grid;
+    margin-top:20px;
+    min-height:52px;
+  }
+  .quiz-control-stage .action-row,
+  .quiz-control-stage .self-mark{
+    grid-area:1 / 1;
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:10px;
+    margin:0;
+  }
+  .quiz-control-stage button{min-height:52px;}
+
   .self-mark{display:flex; gap:10px; margin-top:16px;}
   .self-mark button{flex:1;}
   .self-mark .correct-btn{border-color:var(--green); color:var(--green);}
@@ -349,6 +364,9 @@
     .score-hero .pct{font-size:2.6rem;}
     .mode-grid{grid-template-columns:1fr;}
     .score-strip{flex-direction:column; gap:4px;}
+    .quiz-control-stage{min-height:114px;}
+    .quiz-control-stage .action-row,
+    .quiz-control-stage .self-mark{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -400,6 +418,23 @@
 
     <textarea id="answerInput" placeholder="Type your answer here…"></textarea>
 
+    <div class="quiz-control-stage">
+      <div class="action-row" id="recallActions">
+        <button class="ghost" id="hintBtn">Show hint</button>
+        <button class="ghost" id="answerBtn">Reveal answer</button>
+      </div>
+
+      <div class="self-mark hidden" id="selfMarkRow">
+        <button class="ghost correct-btn" id="markCorrectBtn">I had this right</button>
+        <button class="ghost incorrect-btn" id="markIncorrectBtn">I got this wrong</button>
+      </div>
+    </div>
+
+    <div class="nav-row">
+      <!-- <button class="ghost" id="prevBtn">← Previous</button> -->
+      <button class="ghost" id="nextBtn">Next →</button>
+    </div>
+
     <div id="hintBox" class="reveal-box hidden">
       <span class="stamp">Hint</span>
       <p id="hintText"></p>
@@ -407,21 +442,6 @@
     <div id="answerBox" class="reveal-box answer hidden">
       <span class="stamp">Answer</span>
       <p id="answerText"></p>
-    </div>
-
-    <div class="action-row" id="recallActions">
-      <button class="ghost" id="hintBtn">Show hint</button>
-      <button class="ghost" id="answerBtn">Reveal answer</button>
-    </div>
-
-    <div class="self-mark hidden" id="selfMarkRow">
-      <button class="ghost correct-btn" id="markCorrectBtn">I had this right</button>
-      <button class="ghost incorrect-btn" id="markIncorrectBtn">I got this wrong</button>
-    </div>
-
-    <div class="nav-row">
-      <!-- <button class="ghost" id="prevBtn">← Previous</button> -->
-      <button class="ghost" id="nextBtn">Next →</button>
     </div>
   </section>
 
@@ -520,6 +540,7 @@
   const answerText = document.getElementById("answerText");
   const hintBtn = document.getElementById("hintBtn");
   const answerBtn = document.getElementById("answerBtn");
+  const recallActions = document.getElementById("recallActions");
   const selfMarkRow = document.getElementById("selfMarkRow");
   const markCorrectBtn = document.getElementById("markCorrectBtn");
   const markIncorrectBtn = document.getElementById("markIncorrectBtn");
@@ -677,6 +698,7 @@
 
     hintBox.classList.add("hidden");
     answerBox.classList.add("hidden");
+    recallActions.classList.remove("hidden");
     selfMarkRow.classList.add("hidden");
 
     hintBtn.disabled = !q.hint;
@@ -730,6 +752,7 @@
     answerText.textContent = q.answer + (q.explanation ? " — " + q.explanation : "");
     answerBox.classList.remove("hidden");
     if (recordFlag !== false) results[idx].answerShown = true;
+    recallActions.classList.add("hidden");
     selfMarkRow.classList.remove("hidden");
   }
 
