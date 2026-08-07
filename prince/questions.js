@@ -64,12 +64,6 @@ const QUESTIONS = [
         hint: "People → ...",
         answer: "Chapter 1, People — section 4, Communication. It contains the Communication Management Approach."
     },
-    {
-        topic: "Ch 1 · People",
-        question: "What does the final ‘People +’ section connect people to?",
-        hint: "Three elements",
-        answer: "Principles, practices, and processes."
-    },
 
     // Chapter 2 — Practices Introduction
     {
@@ -196,21 +190,15 @@ const QUESTIONS = [
     // Chapter 6 — Quality
     {
         topic: "Ch 6 · Quality",
-        question: "Which chapter contains user quality expectations, requirements, acceptance criteria, and quality specifications?",
-        hint: "Practice chapter",
-        answer: "Chapter 6, Quality — especially the Purpose and Guidance sections."
-    },
-    {
-        topic: "Ch 6 · Quality",
         question: "What are the three top-level subjects under Quality guidance?",
         hint: "Plan, control, assure",
         answer: "Quality planning\nQuality control — the procedures\nQuality assurance — validation that the quality-control procedures worked"
     },
     {
         topic: "Ch 6 · Quality",
-        question: "What six items are indexed beneath Quality planning?",
-        hint: "Expectations, tolerances, products, sustainability, responsibilities, subordinate plans",
-        answer: "User's quality expectations\nQuality tolerances\nDescribing products\nProduct sustainability requirements\nQuality responsibilities\nSubordinate plans (for example, testing)"
+        question: "What are the sub-sections of Quality planning guidance?",
+        hint: "E-T-P-S-Q-S",
+        answer: "User's quality expectations\nQuality tolerances\nDescribing products\nProduct sustainability requirements\nQuality responsibilities\nSubordinate plans (e.g., testing)"
     },
     {
         topic: "Ch 6 · Quality",
@@ -222,7 +210,7 @@ const QUESTIONS = [
         topic: "Ch 6 · Quality",
         question: "What four technique areas are in the Quality practice?",
         hint: "P-C-A-S",
-        answer: "Planning\nControlling quality\nAccepting products\nSupporting techniques, such as testing and prototyping"
+        answer: "Planning\nControlling quality\nAccepting products\nSupporting techniques (testing, prototyping)"
     },
     {
         topic: "Ch 6 · Quality",
@@ -276,12 +264,6 @@ const QUESTIONS = [
     },
 
     // Chapter 8 — Issues
-    {
-        topic: "Ch 8 · Issues",
-        question: "Which chapter contains the definitions of issue, change, and project baseline, and what is its stated purpose?",
-        hint: "Practice chapter",
-        answer: "Chapter 8, Issues. Its purpose is to control change."
-    },
     {
         topic: "Ch 8 · Issues",
         question: "What are the five main topics under Issues guidance?",
@@ -364,12 +346,6 @@ const QUESTIONS = [
     },
 
     // Chapter 10 — Processes Introduction
-    {
-        topic: "Ch 10 · Processes intro",
-        question: "Which three terms are introduced in the Processes Introduction?",
-        hint: "P-T-PD",
-        answer: "Process, trigger, and project definition."
-    },
 
     // Chapter 11 — Starting
     {
@@ -433,21 +409,21 @@ const QUESTIONS = [
     {
         topic: "Ch 13 · Initiating",
         question: "What are the seven activities in the Initiating process?",
-        hint: "Tailor, approaches, controls, plan, case, PID, authorise",
+        hint: "T-A-C-P-C-P-A",
         answer: "Agree tailoring requirements\nAgree management approaches\nEstablish project controls\nPrepare the Project Plan\nPrepare the Full Business Case\nAssemble the Project Initiation Document\nRequest project authorisation"
     },
     {
         topic: "Ch 13 · Initiating",
-        question: "In which process are the Full Business Case and assembled Project Initiation Document prepared?",
+        question: "In which process and activities are the Full Business Case and assembled Project Initiation Document prepared?",
         hint: "Chapter 13",
-        answer: "Initiating a Project — activities 5 and 6 respectively."
+        answer: "Initiating a Project — activities 5 and 6 respectively out of 7."
     },
 
     // Chapter 14 — Controlling a Stage
     {
         topic: "Ch 14 · Controlling a Stage",
         question: "What are the eight activities in Controlling a Stage?",
-        hint: "Authorise, evaluate WP, capture, correct, receive, evaluate stage, report, escalate",
+        hint: "A-E-C-T-R-E-R-E",
         answer: "Authorise a work package\nEvaluate work package status\nCapture issues and risks\nTake corrective action\nReceive completed work package\nEvaluate stage status\nReport highlights\nEscalate issues and risks"
     },
     {
@@ -458,9 +434,9 @@ const QUESTIONS = [
     },
     {
         topic: "Ch 14 · Controlling a Stage",
-        question: "Where should you look for evaluating both work-package status and overall stage status?",
+        question: "Where in the manual would you look for evaluating work-package status and overall stage status?",
         hint: "Same process, activities 2 and 6",
-        answer: "Chapter 14, Controlling a Stage — activities 2 and 6."
+        answer: "Chapter 16, Controlling a Stage — activities 2 and 6."
     },
 
     // Chapter 15 — Managing Product Delivery
@@ -505,14 +481,6 @@ const QUESTIONS = [
         answer: "Chapter 17, Closing a Project — activity 1, Prepare planned/premature closure."
     },
 
-    // Appendices
-    {
-        topic: "Appendices",
-        question: "Where are management products listed alphabetically?",
-        hint: "Appendix",
-        answer: "Appendix A."
-    },
-
     // Additional leaf-level notes from the index
     {
         topic: "Practice chapters",
@@ -528,15 +496,15 @@ const QUESTIONS = [
     },
     {
         topic: "Ch 4 · Organisation",
-        question: "What eight-entry mnemonic is recorded for the roles in Organisation guidance?",
-        hint: "Three S/P entries begin the sequence",
-        answer: "P-S-S-P-P-T-P-P. The index records only these initials, without expanding them."
+        question: "What eight entries are recorded for the roles in Organisation guidance?",
+        hint: "P-S-S-P-P-T-P-P",
+        answer: "Project executive\nSenior supplier\nSenior user\nProject board\nProject manager\nTeam manager\nProject assurance\nProject support"
     },
     {
         topic: "Ch 4 · Organisation",
-        question: "What five-entry mnemonic is recorded for the Organisation techniques?",
-        hint: "U, two Ds, M, T",
-        answer: "U-D-D-M-T. The index records only these initials, without expanding them."
+        question: "What five entries are recorded for the Organisation techniques?",
+        hint: "U-D-D-M-T",
+        answer: "Understand organisation ecosystem\nDesign project ecosystem\nDevelop project ecosystem\nManage changes to project ecosystem\nTransition project into organisation ecosystem"
     },
     {
         topic: "Ch 5 · Plans",
@@ -582,14 +550,8 @@ const QUESTIONS = [
     },
     {
         topic: "Ch 6 · Quality",
-        question: "Which register is associated with quality-control procedures in Quality guidance?",
-        hint: "Quality → Guidance → Quality control",
-        answer: "The Quality Register."
-    },
-    {
-        topic: "Ch 6 · Quality",
         question: "What three elements are listed beneath the Quality planning technique?",
-        hint: "Inputs, descriptions, approach",
+        hint: "I-D-A",
         answer: "Gather user inputs\nProduct Descriptions\nQuality Management Approach"
     },
     {
@@ -614,7 +576,7 @@ const QUESTIONS = [
         topic: "Ch 8 · Issues",
         question: "What four contextual tailoring notes are recorded under Applying the Issues practice?",
         hint: "Delivery, organisation, commercial, scale",
-        answer: "Delivery method: changes are easier to implement early in a sequential method, and tolerances should become stricter as stages progress.\nOrganisational context: align with organisational protocols.\nCommercial context: the index notes that there may be more than one Risk Register.\nScale: mature, well-understood product designs will probably involve fewer changes and issues."
+        answer: "Delivery method: changes are easier to implement early in a sequential method, and tolerances should become stricter as stages progress.\nOrganisational context: align with organisational protocols.\nCommercial context: there may be more than one Risk Register.\nScale: mature, well-understood product designs will probably involve fewer changes and issues."
     },
     {
         topic: "Ch 9 · Progress",
@@ -627,17 +589,5 @@ const QUESTIONS = [
         question: "What three options are indexed when deciding on an Exception Plan?",
         hint: "Two reject options and one approval",
         answer: "Reject and request amendments\nReject and continue with the stage\nApprove"
-    },
-    {
-        topic: "Process chapters",
-        question: "Which two process chapters contain a context image reference in the index?",
-        hint: "The processes immediately before and after Directing",
-        answer: "Starting (chapter 11) and Initiating (chapter 13)."
-    },
-    {
-        topic: "Appendices",
-        question: "Which appendix is named after Appendix A but has no contents recorded in the index?",
-        hint: "The next letter",
-        answer: "Appendix B."
     }
 ];

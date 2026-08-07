@@ -70,23 +70,23 @@
         3. Team structure
         4. Roles
             - -
-            1. P
-            2. S
-            3. S
-            4. P
-            5. P
-            6. T
-            7. P
-            8. P
+            1. Project executive
+            2. Senior supplier
+            3. Senior user
+            4. Project board
+            5. Project manager
+            6. Team manager
+            7. Project assurance
+            8. Project support
         5. Work Breakdown Structure
             - Product breakdown structure → Work breakdown structure → Work packages
     3. Techniques
         - -
-        1. U
-        2. D
-        3. D
-        4. M
-        5. T
+        1. Understand organisation ecosystem
+        2. Design project ecosystem
+        3. Develop project ecosystem
+        4. Manage changes to project ecosystem
+        5. Transition project into organisation ecosystem
     4. Applying
         - Within each context (D-O-C-S-S)
         - Project board can establish a Change Authority

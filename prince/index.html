@@ -161,6 +161,39 @@
   button.ghost:disabled{opacity:0.35; cursor:not-allowed;}
 
   /* ---------- Progress ---------- */
+  .quiz-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:16px;
+  }
+  .quiz-details-toggle{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    min-height:36px;
+    padding:6px 0;
+    border:0;
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .quiz-details-toggle:hover{color:var(--ink);}
+  .quiz-details-toggle[aria-expanded="true"] .compact-counter{display:none;}
+  .quiz-details-toggle .chevron{
+    font-size:1rem;
+    line-height:1;
+    transition:transform .15s ease;
+  }
+  .quiz-details-toggle[aria-expanded="true"] .chevron{transform:rotate(180deg);}
+  .compact-counter{color:var(--ink-soft);}
+  .quiz-topbar #skipSectionBtn{padding:8px 12px;}
+
   .progress-bar{
     display:flex;
     gap:3px;
@@ -293,8 +326,10 @@
   .nav-row{
     display:flex;
     justify-content:space-between;
+    gap:10px;
     margin-top:22px;
   }
+  .nav-row #nextBtn{margin-left:auto;}
 
   /* ---------- Results ---------- */
   .score-hero{
@@ -359,14 +394,21 @@
   }
 
   @media (max-width:480px){
+    body{padding:16px 10px 40px;}
     header.masthead{flex-direction:column; align-items:flex-start; gap:6px;}
     header.masthead .doc-id{text-align:left;}
+    header.masthead{margin-bottom:18px;}
+    #quizScreen.card{padding:20px 16px 18px;}
     .score-hero .pct{font-size:2.6rem;}
     .mode-grid{grid-template-columns:1fr;}
     .score-strip{flex-direction:column; gap:4px;}
-    .quiz-control-stage{min-height:114px;}
-    .quiz-control-stage .action-row,
-    .quiz-control-stage .self-mark{grid-template-columns:1fr;}
+    .quiz-topbar{margin-bottom:10px;}
+    .quiz-details-toggle[aria-expanded="false"] .details-label{display:none;}
+    .question-text{font-size:1.2rem; margin-bottom:12px;}
+    textarea#answerInput{min-height:105px; margin-bottom:10px;}
+    .quiz-control-stage{margin-top:12px;}
+    .nav-row{flex-direction:column;}
+    .nav-row button{width:100%;}
   }
 </style>
 </head>
@@ -403,15 +445,26 @@
 
   <!-- ===================== QUIZ SCREEN ===================== -->
   <section id="quizScreen" class="card hidden">
-    <div class="progress-bar" id="progressBar"></div>
-    <div class="meta-row">
-      <span id="metaCounter">Question 1 / 1</span>
-      <span id="metaTopic">Topic</span>
+    <div class="quiz-topbar">
+      <button class="quiz-details-toggle" id="quizDetailsToggle" type="button" aria-label="Toggle quiz details" aria-expanded="true" aria-controls="quizInfo">
+        <span class="chevron" aria-hidden="true">⌄</span>
+        <span class="details-label">Quiz details</span>
+        <span class="compact-counter" id="compactCounter">Question 1 / 1</span>
+      </button>
+      <button class="ghost hidden" id="skipSectionBtn">Skip section</button>
     </div>
 
-    <div class="score-strip">
-      <span id="runContext">Complete quiz</span>
-      <span id="runningScore">Overall: 0 answered</span>
+    <div id="quizInfo">
+      <div class="progress-bar" id="progressBar"></div>
+      <div class="meta-row">
+        <span id="metaCounter">Question 1 / 1</span>
+        <span id="metaTopic">Topic</span>
+      </div>
+
+      <div class="score-strip">
+        <span id="runContext">Complete quiz</span>
+        <span id="runningScore">Overall: 0 answered</span>
+      </div>
     </div>
 
     <p class="question-text" id="questionText"></p>
@@ -523,6 +576,9 @@
   const quizScreen = document.getElementById("quizScreen");
   const sectionResultsScreen = document.getElementById("sectionResultsScreen");
   const resultsScreen = document.getElementById("resultsScreen");
+  const quizDetailsToggle = document.getElementById("quizDetailsToggle");
+  const quizInfo = document.getElementById("quizInfo");
+  const compactCounter = document.getElementById("compactCounter");
 
   const fullModeBtn = document.getElementById("fullModeBtn");
   const sectionModeBtn = document.getElementById("sectionModeBtn");
@@ -545,6 +601,7 @@
   const markCorrectBtn = document.getElementById("markCorrectBtn");
   const markIncorrectBtn = document.getElementById("markIncorrectBtn");
   // const prevBtn = document.getElementById("prevBtn");
+  const skipSectionBtn = document.getElementById("skipSectionBtn");
   const nextBtn = document.getElementById("nextBtn");
 
   const sectionProgress = document.getElementById("sectionProgress");
@@ -562,6 +619,7 @@
   const retryAllBtn = document.getElementById("retryAllBtn");
   const retryMissedBtn = document.getElementById("retryMissedBtn");
   const changeModeBtn = document.getElementById("changeModeBtn");
+  let quizInfoExpanded = !window.matchMedia("(max-width: 480px)").matches;
 
   function escapeHtml(str){
     const div = document.createElement("div");
@@ -584,6 +642,11 @@
 
   function hideScreens(){
     [modeScreen, quizScreen, sectionResultsScreen, resultsScreen].forEach(screen => screen.classList.add("hidden"));
+  }
+
+  function updateQuizInfoVisibility(){
+    quizInfo.classList.toggle("hidden", !quizInfoExpanded);
+    quizDetailsToggle.setAttribute("aria-expanded", String(quizInfoExpanded));
   }
 
   function buildSections(questions){
@@ -648,6 +711,7 @@
       docStatus.textContent = "Error";
       return;
     }
+    updateQuizInfoVisibility();
     showModeScreen();
   }
 
@@ -691,6 +755,7 @@
     renderProgress();
     updateRunningScore();
     metaCounter.textContent = `Question ${idx + 1} / ${pool.length}`;
+    compactCounter.textContent = `Question ${idx + 1} / ${pool.length}`;
     metaTopic.textContent = q.topic || "General";
     questionText.textContent = q.question;
 
@@ -709,6 +774,10 @@
     updateSelfMarkButtons();
 
     // prevBtn.disabled = idx === 0;
+    skipSectionBtn.classList.toggle("hidden", mode !== "sectioned");
+    skipSectionBtn.textContent = sectionIdx === sections.length - 1
+      ? "Skip to results"
+      : "Skip section";
     nextBtn.textContent = idx === pool.length - 1
       ? (mode === "sectioned" ? "Finish section →" : "Finish →")
       : "Next →";
@@ -758,6 +827,10 @@
 
   hintBtn.addEventListener("click", () => showHint(true));
   answerBtn.addEventListener("click", () => showAnswer(true));
+  quizDetailsToggle.addEventListener("click", () => {
+    quizInfoExpanded = !quizInfoExpanded;
+    updateQuizInfoVisibility();
+  });
 
   markCorrectBtn.addEventListener("click", () => {
     results[idx].correct = true;
@@ -778,6 +851,14 @@
   //   saveCurrentAnswer();
   //   if (idx > 0) { idx--; renderQuestion(); }
   // });
+  skipSectionBtn.addEventListener("click", () => {
+    saveCurrentAnswer();
+    if (sectionIdx === sections.length - 1) showResults();
+    else {
+      sectionIdx++;
+      startCurrentSection();
+    }
+  });
   nextBtn.addEventListener("click", () => {
     saveCurrentAnswer();
     if (idx < pool.length - 1) { idx++; renderQuestion(); }

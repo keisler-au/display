@@ -50,7 +50,7 @@ const words = [
 { "en": "invitations", "type": "noun", "nl": "de uitnodigingen" },
 { "en": "matching (corresponding)", "type": "adjective", "nl": "overeenkomend" },
 { "en": "shallow", "type": "adjective", "nl": "ondiep" },
-{ "en": "superficial", "type": "adjective", "nl": "oppervlakkig" },
+{ "en": "superficial (shallow)", "type": "adjective", "nl": "oppervlakkig" },
 { "en": "deduction", "type": "noun", "nl": "de aftrek" },
 { "en": "deduction (inference)", "type": "noun", "nl": "de gevolgtrekking" },
 { "en": "comparable", "type": "adjective", "nl": "vergelijkbaar" },
