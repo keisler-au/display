@@ -27,7 +27,7 @@ const words = [
 { "en": "business (matters or affairs)", "type": "noun", "nl": "de zaken" },
 { "en": "completely", "type": "adverb", "nl": "volkomen" },
 { "en": "to come into view", "type": "adverbial phrase", "nl": "tevoorschijn komen (De kat kwam onder het bed tevoorschijn)" },
-{ "en": "to produce (bring out)", "nl": "tevoorschijn halen (Hij haalde een sleutel tevoorschijn)"},
+{ "en": "to bring out (to reveal, to fetch out)", "type": "verb", "nl": "tevoorschijn halen (Hij haalde een sleutel tevoorschijn)"},
 { "en": "accident", "type": "noun", "nl": "het ongeluk (het ongeval - formeel)" },
 { "en": "accidents", "type": "noun", "nl": "de ongelukken (de ongevallen - formeel)" },
 { "en": "as a result of which", "type": "conjunction", "nl": "waardoor" },
@@ -45,7 +45,7 @@ const words = [
 { "en": "expectation", "type": "noun", "nl": "de verwachting" },
 { "en": "expectations", "type": "noun", "nl": "de verwachtingen" },
 { "en": "prepared", "type": "adjective", "nl": "voorbereid" },
-{ "en": "willing", "type": "adjective", "nl": "bereid" },
+{ "en": "willing", "type": "adjective", "nl": "bereid om" },
 { "en": "invitation", "type": "noun", "nl": "de uitnodiging" },
 { "en": "invitations", "type": "noun", "nl": "de uitnodigingen" },
 { "en": "to agree", "type": "verb", "nl": "overeenkomen (het eens zijn)" },
@@ -106,5 +106,9 @@ const words = [
 { "en": "strong (substantial, considerable)", "type": "adjective", "nl": "flink" },
 { "en": "to insult", "type": "verb", "nl": "beledigen" },
 { "en": "worst", "type": "adjective", "nl": "slechtste" },
-{ "en": "worse", "type": "adjective", "nl": "erger" }
+{ "en": "worse", "type": "adjective", "nl": "erger"},
+{ "en": "the favour", "type": "noun phrase", "nl": "het gunst" },
+{ "en": "the advantage", "type": "noun phrase", "nl": "het voordeel" },
+{ "en": "to produce", "type": "verb", "nl": "produceren"  },
+{ "en": "to fetch", "type": "verb", "nl": "ophalen" }
 ];
