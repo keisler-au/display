@@ -312,7 +312,7 @@ const QUESTIONS = [
         topic: "Ch 9 · Progress",
         question: "What are the seven topics under Progress guidance?",
         hint: "T-C-R-R-F-E-D",
-        answer: "Tolerances and performance targets\nTypes of control\nReviewing progress and lessons\nReporting progress and lessons\nForecasting\nEscalating\nData and systems"
+        answer: "Management levels and tolerances\nTypes of control\nReviewing progress and lessons\nReporting progress and lessons (reports: checkpoint, highlight, lessons, issue, exception, end-of-stage, end-of-project)\nForecasting (helps with escalating, and knowing what data to collect)\nEscalating\nData and systems"
     },
     {
         topic: "Ch 9 · Progress",
@@ -330,7 +330,7 @@ const QUESTIONS = [
         topic: "Ch 9 · Progress",
         question: "What is the seven-step technique sequence in the Progress chapter?",
         hint: "Issue → exception → decisions → plan → decision → implement → support",
-        answer: "Raising an issue\nEscalating an exception\nDeciding on an exception report\nCreating an exception plan\nDeciding on an exception plan\nImplementing an exception plan\nSupporting techniques"
+        answer: "Raising an issue (issue report, handed within tolerances, added to highlight report)\nEscalating an exception (exception report)\nDeciding on an exception report (reallocate tolerances, request exception plan, implement report)\nCreating an exception plan\nDeciding on an exception plan (approve, reject c, reject req am)\nImplementing an exception plan\nSupporting techniques (dashbaord, burn chart, daily stand ups)"
     },
     {
         topic: "Ch 9 · Progress",
@@ -424,7 +424,7 @@ const QUESTIONS = [
         topic: "Ch 14 · Controlling a Stage",
         question: "What are the eight activities in Controlling a Stage?",
         hint: "A-E-C-T-R-E-R-E",
-        answer: "Authorise a work package\nEvaluate work package status\nCapture issues and risks\nTake corrective action\nReceive completed work package\nEvaluate stage status\nReport highlights\nEscalate issues and risks"
+        answer: "Authorise a work package\nEvaluate work package status\nReceive completed work package\nEvaluate stage status\nCapture issues and risks\nTake corrective action\nEscalate issues and risks\nReport highlights"
     },
     {
         topic: "Ch 14 · Controlling a Stage",
@@ -435,8 +435,8 @@ const QUESTIONS = [
     {
         topic: "Ch 14 · Controlling a Stage",
         question: "Where in the manual would you look for evaluating work-package status and overall stage status?",
-        hint: "Same process, activities 2 and 6",
-        answer: "Chapter 16, Controlling a Stage — activities 2 and 6."
+        hint: "",
+        answer: "Chapter 16, Controlling a Stage — activities 2 and 4."
     },
 
     // Chapter 15 — Managing Product Delivery

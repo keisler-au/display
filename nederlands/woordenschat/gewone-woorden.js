@@ -55,8 +55,6 @@ const words = [
 { "en": "to subtract", "type": "verb", "nl": "aftrekken" },
 { "en": "inference (conclusion)", "type": "noun", "nl": "de gevolgtrekking" },
 { "en": "comparable", "type": "adjective", "nl": "vergelijkbaar" },
-{ "en": "literal", "type": "adjective", "nl": "letterlijk" },
-{ "en": "literally", "type": "adverb", "nl": "letterlijk" },
 { "en": "actually", "type": "adverb", "nl": "eigenlijk (daadwerkelijk)" },
 { "en": "weight", "type": "noun", "nl": "het gewicht" },
 { "en": "weights", "type": "noun", "nl": "de gewichten" },
@@ -110,5 +108,8 @@ const words = [
 { "en": "the favour", "type": "noun phrase", "nl": "het gunst" },
 { "en": "the advantage", "type": "noun phrase", "nl": "het voordeel" },
 { "en": "to produce", "type": "verb", "nl": "produceren"  },
-{ "en": "to fetch", "type": "verb", "nl": "ophalen" }
+{ "en": "to fetch", "type": "verb", "nl": "ophalen" },
+{ "en": "you couldn't do that back then", "type": "phrase", "nl": "je kon dat toen niet doen" },
+{ "en": "it will take a long time to build that with only your hands", "type": "phrase", "nl": "het zal lang duren om dat alleen met je handen te bouwen" },
+{ "en": "I am actually quite good at making people do what I want", "type": "phrase", "nl": "ik ben eigenlijk best goed in mensen laten doen wat ik wil" }
 ];
