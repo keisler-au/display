@@ -111,5 +111,10 @@ const words = [
 { "en": "to fetch", "type": "verb", "nl": "ophalen" },
 { "en": "you couldn't do that back then", "type": "phrase", "nl": "je kon dat toen niet doen" },
 { "en": "it will take a long time to build that with only your hands", "type": "phrase", "nl": "het zal lang duren om dat alleen met je handen te bouwen" },
-{ "en": "I am actually quite good at making people do what I want", "type": "phrase", "nl": "ik ben eigenlijk best goed in mensen laten doen wat ik wil" }
+{ "en": "I am actually quite good at making people do what I want", "type": "phrase", "nl": "ik ben eigenlijk best goed in mensen laten doen wat ik wil" },
+{ "en": "Watching him get slapped in the face was very satisfying", "type": "phrase", "nl": "Hem een klap in zijn gezicht zien krijgen was heel bevredigend"},
+{ "en": "I think that your argument is invalid, he doesn't always behave like that", "type": "phrase", "nl": "Ik denk dat je argument ongeldig is, hij gedraagt zich niet altijd zo" },
+{ "en": "himself, herself, itself", "type": "pronoun", "nl": "zich (zichzelf)" },
+{ "en": "like this (like that)", "type": "adverb", "nl": "zo" },
+{ "en": "If you want to work here, there is an expectation that you arrive on time", "type": "phrase", "nl": "Als je hier wilt werken, is er een verwachting dat je op tijd aankomt" }
 ];
