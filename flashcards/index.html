@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>Flashcard Desk</title>
+  <link rel="stylesheet" href="/assets/study.css">
+</head>
+<body class="flashcards-page">
+  <main class="shell">
+    <header class="site-nav">
+      <a class="site-home" href="/"><span class="site-mark">S/</span><span>Study Room</span></a>
+      <nav aria-label="Study tools">
+        <a href="/flashcards/" aria-current="page">Cards</a>
+        <a href="/nederlands/">Nederlands</a>
+        <a href="/prince/">PRINCE2</a>
+      </nav>
+    </header>
+    <header class="topbar">
+      <div class="brand">
+        <a href="/" aria-label="Back to Study Hub"><h1>Flashcard Desk</h1></a>
+        <span>local study file</span>
+      </div>
+      <div class="header-actions" id="libraryActions">
+        <button class="button" id="importButton" type="button">Import</button>
+        <button class="button" id="exportButton" type="button">Export backup</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+    </header>
+
+    <div class="status-row" aria-live="polite">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="saveStatus">Stored in this browser</span>
+      <button class="link-button" id="protectButton" type="button">Protect storage</button>
+      <button class="link-button" id="undoButton" type="button" hidden>Undo last change</button>
+    </div>
+
+    <section id="libraryView">
+      <div class="deck-bar panel">
+        <div class="deck-select-wrap">
+          <label for="deckSelect">Current deck</label>
+          <select id="deckSelect" aria-label="Current flashcard deck"></select>
+        </div>
+        <div class="deck-actions">
+          <button class="button" id="newDeckButton" type="button">New deck</button>
+          <button class="button" id="renameDeckButton" type="button">Rename</button>
+          <button class="button danger" id="deleteDeckButton" type="button">Delete</button>
+        </div>
+      </div>
+      <div class="workspace">
+        <form class="panel editor" id="cardForm">
+          <h2 id="formTitle">Create a card</h2>
+          <p class="helper">Every card is saved on this device as soon as you add it.</p>
+          <label for="frontInput">Question or prompt</label>
+          <textarea id="frontInput" maxlength="4000" required placeholder="What do you want to remember?"></textarea>
+          <label for="backInput">Answer</label>
+          <textarea id="backInput" maxlength="8000" required placeholder="Write the answer in your own words…"></textarea>
+          <div class="form-actions">
+            <button class="button primary" id="saveCardButton" type="submit">Add card</button>
+            <button class="button" id="cancelEditButton" type="button" hidden>Cancel</button>
+          </div>
+        </form>
+
+        <div class="library">
+          <div class="library-head">
+            <div class="library-title">
+              <h2>Your cards</h2>
+              <span class="count" id="cardCount">0 cards</span>
+            </div>
+            <button class="button accent" id="studyButton" type="button" disabled>Study</button>
+          </div>
+          <div class="filter-bar" aria-label="Filter cards by difficulty">
+            <span class="filter-label">Practice set</span>
+            <div class="filter-options" role="group">
+              <button class="filter-chip" type="button" data-filter="all" aria-pressed="true">All</button>
+              <button class="filter-chip hard" type="button" data-filter="hard" aria-pressed="false">Hard</button>
+              <button class="filter-chip medium" type="button" data-filter="medium" aria-pressed="false">Medium</button>
+              <button class="filter-chip easy" type="button" data-filter="easy" aria-pressed="false">Easy</button>
+              <button class="filter-chip unrated" type="button" data-filter="unrated" aria-pressed="false">Unrated</button>
+            </div>
+          </div>
+          <div class="cards" id="cardList"></div>
+          <div class="panel empty" id="emptyState">
+            <div class="empty-mark">?</div>
+            <h2 id="emptyTitle">Your first card starts here</h2>
+            <p class="helper" id="emptyCopy">Add a question and answer. No account and no setup needed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="study" id="studyView" hidden>
+      <div class="study-head">
+        <button class="link-button" id="leaveStudyButton" type="button">← Back to cards</button>
+        <span id="studyCounter">Card 1 of 1</span>
+      </div>
+      <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+      <div id="studyStage"></div>
+    </section>
+  </main>
+
+  <div class="notice" id="notice" role="status"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEY = "flashcard-desk.cards.v1";
+      const RECOVERY_KEY = "flashcard-desk.recovery.v1";
+      const EXPORT_KEY = "flashcard-desk.last-export";
+      const VERSION = 3;
+      const DIFFICULTIES = ["unrated", "easy", "medium", "hard"];
+
+      const $ = (selector) => document.querySelector(selector);
+      const elements = {
+        form: $("#cardForm"), front: $("#frontInput"), back: $("#backInput"),
+        formTitle: $("#formTitle"), saveCard: $("#saveCardButton"), cancelEdit: $("#cancelEditButton"),
+        deckSelect: $("#deckSelect"), newDeck: $("#newDeckButton"), renameDeck: $("#renameDeckButton"),
+        deleteDeck: $("#deleteDeckButton"),
+        list: $("#cardList"), empty: $("#emptyState"), emptyTitle: $("#emptyTitle"),
+        emptyCopy: $("#emptyCopy"), count: $("#cardCount"), study: $("#studyButton"),
+        filters: [...document.querySelectorAll("[data-filter]")],
+        libraryView: $("#libraryView"), studyView: $("#studyView"), stage: $("#studyStage"),
+        counter: $("#studyCounter"), progress: $("#progressFill"), leaveStudy: $("#leaveStudyButton"),
+        importButton: $("#importButton"), importFile: $("#importFile"), exportButton: $("#exportButton"),
+        status: $("#saveStatus"), statusDot: $("#statusDot"), protect: $("#protectButton"),
+        undo: $("#undoButton"), notice: $("#notice")
+      };
+
+      const firstDeck = { id: makeId(), name: "General", createdAt: new Date().toISOString() };
+      let state = { version: VERSION, decks: [firstDeck], activeDeckId: firstDeck.id, cards: [], updatedAt: null };
+      let editingId = null;
+      let session = null;
+      let noticeTimer = null;
+      let activeFilter = "all";
+
+      function validCard(card) {
+        return card && typeof card.id === "string" && typeof card.front === "string" &&
+          typeof card.back === "string" && card.front.trim() && card.back.trim();
+      }
+
+      function validDeck(deck) {
+        return deck && typeof deck.id === "string" && typeof deck.name === "string" && deck.name.trim();
+      }
+
+      function parseData(raw) {
+        const data = JSON.parse(raw);
+        const cards = Array.isArray(data) ? data : data.cards;
+        if (!Array.isArray(cards) || !cards.every(validCard)) throw new Error("Invalid flashcard file");
+        const now = new Date().toISOString();
+        const seenDeckIds = new Set();
+        const importedDecks = Array.isArray(data.decks) ? data.decks : [];
+        const decks = importedDecks.filter(validDeck).filter(deck => {
+          if (seenDeckIds.has(deck.id)) return false;
+          seenDeckIds.add(deck.id);
+          return true;
+        }).map(deck => ({
+          id: deck.id,
+          name: deck.name.trim().slice(0, 80),
+          createdAt: deck.createdAt || now
+        }));
+        if (!decks.length) {
+          const generalDeck = { id: makeId(), name: "General", createdAt: now };
+          decks.push(generalDeck);
+          seenDeckIds.add(generalDeck.id);
+        }
+        const fallbackDeckId = decks[0].id;
+        return {
+          version: VERSION,
+          decks,
+          activeDeckId: seenDeckIds.has(data.activeDeckId) ? data.activeDeckId : fallbackDeckId,
+          cards: cards.map(card => ({
+            id: card.id,
+            front: card.front.trim(),
+            back: card.back.trim(),
+            difficulty: DIFFICULTIES.includes(card.difficulty) ? card.difficulty : "unrated",
+            deckId: seenDeckIds.has(card.deckId) ? card.deckId : fallbackDeckId,
+            createdAt: card.createdAt || new Date().toISOString(),
+            updatedAt: card.updatedAt || card.createdAt || new Date().toISOString()
+          })),
+          updatedAt: data.updatedAt || new Date().toISOString()
+        };
+      }
+
+      function load() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        try {
+          state = parseData(raw);
+        } catch (error) {
+          const recovery = localStorage.getItem(RECOVERY_KEY);
+          try {
+            if (!recovery) throw error;
+            state = parseData(recovery);
+            setStatus("Recovered the previous saved copy", true);
+          } catch (_) {
+            setStatus("Saved data could not be read — import your backup", true);
+          }
+        }
+      }
+
+      function save(cards, message, decks = state.decks, activeDeckId = state.activeDeckId) {
+        const next = { version: VERSION, decks, activeDeckId, cards, updatedAt: new Date().toISOString() };
+        try {
+          const previous = localStorage.getItem(STORAGE_KEY);
+          if (previous) localStorage.setItem(RECOVERY_KEY, previous);
+          const serialized = JSON.stringify(next);
+          localStorage.setItem(STORAGE_KEY, serialized);
+          if (localStorage.getItem(STORAGE_KEY) !== serialized) throw new Error("Save verification failed");
+          state = next;
+          elements.undo.hidden = !previous;
+          setStatus(`Saved locally at ${formatTime(next.updatedAt)}`);
+          renderLibrary();
+          announce(message);
+          return true;
+        } catch (_) {
+          setStatus("Could not save — export your cards now", true);
+          announce("Save failed. Please export a backup.");
+          return false;
+        }
+      }
+
+      function makeId() {
+        return globalThis.crypto?.randomUUID?.() || `card-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+      }
+
+      function formatTime(value) {
+        return new Intl.DateTimeFormat([], { hour: "2-digit", minute: "2-digit" }).format(new Date(value));
+      }
+
+      function setStatus(message, error = false) {
+        elements.status.textContent = message;
+        elements.statusDot.classList.toggle("error", error);
+      }
+
+      function announce(message) {
+        clearTimeout(noticeTimer);
+        elements.notice.textContent = message;
+        elements.notice.classList.add("show");
+        noticeTimer = setTimeout(() => elements.notice.classList.remove("show"), 2400);
+      }
+
+      function resetForm() {
+        editingId = null;
+        elements.form.reset();
+        elements.formTitle.textContent = "Create a card";
+        elements.saveCard.textContent = "Add card";
+        elements.cancelEdit.hidden = true;
+      }
+
+      function difficultyLabel(difficulty) {
+        return difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+      }
+
+      function activeDeck() {
+        return state.decks.find(deck => deck.id === state.activeDeckId) || state.decks[0];
+      }
+
+      function cardsInActiveDeck() {
+        return state.cards.filter(card => card.deckId === state.activeDeckId);
+      }
+
+      function filteredCards() {
+        const deckCards = cardsInActiveDeck();
+        return activeFilter === "all"
+          ? deckCards
+          : deckCards.filter(card => card.difficulty === activeFilter);
+      }
+
+      function renderDeckSelector() {
+        elements.deckSelect.replaceChildren();
+        state.decks.forEach(deck => {
+          const option = document.createElement("option");
+          option.value = deck.id;
+          option.textContent = deck.name;
+          option.selected = deck.id === state.activeDeckId;
+          elements.deckSelect.append(option);
+        });
+        elements.renameDeck.disabled = !state.decks.length;
+        elements.deleteDeck.disabled = state.decks.length <= 1;
+      }
+
+      function renderLibrary() {
+        renderDeckSelector();
+        const deck = activeDeck();
+        const deckCards = cardsInActiveDeck();
+        const visibleCards = filteredCards();
+        elements.list.replaceChildren();
+        elements.empty.hidden = visibleCards.length > 0;
+        elements.study.disabled = visibleCards.length === 0;
+        elements.exportButton.disabled = false;
+        elements.count.textContent = activeFilter === "all"
+          ? `${deckCards.length} ${deckCards.length === 1 ? "card" : "cards"}`
+          : `${visibleCards.length} of ${deckCards.length}`;
+        elements.study.textContent = activeFilter === "all"
+          ? `Study all (${visibleCards.length})`
+          : `Study ${activeFilter} (${visibleCards.length})`;
+
+        const counts = deckCards.reduce((result, card) => {
+          result[card.difficulty] += 1;
+          return result;
+        }, { easy: 0, medium: 0, hard: 0, unrated: 0 });
+        elements.filters.forEach(button => {
+          const filter = button.dataset.filter;
+          const count = filter === "all" ? deckCards.length : counts[filter];
+          button.textContent = `${difficultyLabel(filter)} ${count}`;
+          button.setAttribute("aria-pressed", String(filter === activeFilter));
+        });
+
+        if (!deckCards.length) {
+          elements.emptyTitle.textContent = `${deck.name} is ready`;
+          elements.emptyCopy.textContent = "Add the first question for this deck using the form.";
+        } else if (!visibleCards.length) {
+          elements.emptyTitle.textContent = `No ${activeFilter} cards yet`;
+          elements.emptyCopy.textContent = "Choose another practice set or rate cards while studying.";
+        }
+
+        [...visibleCards].reverse().forEach(card => {
+          const index = deckCards.findIndex(item => item.id === card.id) + 1;
+          const article = document.createElement("article");
+          article.className = "panel card-row";
+
+          const meta = document.createElement("div");
+          meta.className = "card-meta";
+          const label = document.createElement("div");
+          label.className = "card-label";
+          label.textContent = `Card ${index}`;
+          const badge = document.createElement("span");
+          badge.className = `difficulty-badge ${card.difficulty}`;
+          badge.textContent = difficultyLabel(card.difficulty);
+          meta.append(label, badge);
+          const front = document.createElement("div");
+          front.className = "card-front";
+          front.textContent = card.front;
+          const back = document.createElement("p");
+          back.className = "card-back";
+          back.textContent = card.back;
+          const tools = document.createElement("div");
+          tools.className = "card-tools";
+          const difficulty = document.createElement("select");
+          difficulty.className = `difficulty-select ${card.difficulty}`;
+          difficulty.setAttribute("aria-label", `Difficulty for ${card.front.slice(0, 80)}`);
+          DIFFICULTIES.forEach(value => {
+            const option = document.createElement("option");
+            option.value = value;
+            option.textContent = difficultyLabel(value);
+            option.selected = value === card.difficulty;
+            difficulty.append(option);
+          });
+          difficulty.addEventListener("change", () => setDifficulty(card.id, difficulty.value));
+          const edit = document.createElement("button");
+          edit.className = "button";
+          edit.type = "button";
+          edit.textContent = "Edit";
+          edit.addEventListener("click", () => startEdit(card.id));
+          const remove = document.createElement("button");
+          remove.className = "button danger";
+          remove.type = "button";
+          remove.textContent = "Delete";
+          remove.addEventListener("click", () => deleteCard(card.id));
+          tools.append(difficulty, edit, remove);
+          article.append(meta, front, back, tools);
+          elements.list.append(article);
+        });
+      }
+
+      function setDifficulty(id, difficulty) {
+        if (!DIFFICULTIES.includes(difficulty)) return false;
+        const card = state.cards.find(item => item.id === id);
+        if (!card || card.difficulty === difficulty) return true;
+        const cards = state.cards.map(item => item.id === id
+          ? { ...item, difficulty, updatedAt: new Date().toISOString() }
+          : item);
+        return save(cards, `Card rated ${difficultyLabel(difficulty)}`);
+      }
+
+      function normalizedDeckName(value) {
+        return String(value || "").trim().replace(/\s+/g, " ").slice(0, 80);
+      }
+
+      function deckNameExists(name, ignoredId = null) {
+        return state.decks.some(deck => deck.id !== ignoredId && deck.name.toLowerCase() === name.toLowerCase());
+      }
+
+      function createDeck() {
+        const name = normalizedDeckName(prompt("Name this deck:", ""));
+        if (!name) return;
+        if (deckNameExists(name)) { announce("A deck with that name already exists"); return; }
+        const deck = { id: makeId(), name, createdAt: new Date().toISOString() };
+        activeFilter = "all";
+        resetForm();
+        save(state.cards, `Created ${name}`, [...state.decks, deck], deck.id);
+      }
+
+      function renameDeck() {
+        const deck = activeDeck();
+        const name = normalizedDeckName(prompt("Rename this deck:", deck.name));
+        if (!name || name === deck.name) return;
+        if (deckNameExists(name, deck.id)) { announce("A deck with that name already exists"); return; }
+        const decks = state.decks.map(item => item.id === deck.id ? { ...item, name } : item);
+        save(state.cards, `Renamed deck to ${name}`, decks);
+      }
+
+      function deleteDeck() {
+        if (state.decks.length <= 1) return;
+        const deck = activeDeck();
+        const cardCount = state.cards.filter(card => card.deckId === deck.id).length;
+        const warning = cardCount
+          ? `Delete “${deck.name}” and its ${cardCount} ${cardCount === 1 ? "card" : "cards"}? You can undo once afterward.`
+          : `Delete the empty deck “${deck.name}”?`;
+        if (!confirm(warning)) return;
+        const decks = state.decks.filter(item => item.id !== deck.id);
+        const cards = state.cards.filter(card => card.deckId !== deck.id);
+        activeFilter = "all";
+        resetForm();
+        save(cards, `${deck.name} deleted`, decks, decks[0].id);
+      }
+
+      function switchDeck(deckId) {
+        if (!state.decks.some(deck => deck.id === deckId)) return;
+        state = { ...state, activeDeckId: deckId };
+        activeFilter = "all";
+        resetForm();
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          setStatus(`Saved locally at ${formatTime(state.updatedAt || new Date())}`);
+        } catch (_) {
+          setStatus("Could not remember the selected deck", true);
+        }
+        renderLibrary();
+      }
+
+      function startEdit(id) {
+        const card = state.cards.find(item => item.id === id);
+        if (!card) return;
+        editingId = id;
+        elements.front.value = card.front;
+        elements.back.value = card.back;
+        elements.formTitle.textContent = "Edit card";
+        elements.saveCard.textContent = "Save changes";
+        elements.cancelEdit.hidden = false;
+        elements.front.focus();
+        elements.form.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function deleteCard(id) {
+        const card = state.cards.find(item => item.id === id);
+        if (!card || !confirm(`Delete “${card.front.slice(0, 80)}”?`)) return;
+        if (save(state.cards.filter(item => item.id !== id), "Card deleted")) {
+          if (editingId === id) resetForm();
+        }
+      }
+
+      function shuffle(cards) {
+        const copy = [...cards];
+        for (let i = copy.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
+      }
+
+      function startStudy(cards = filteredCards()) {
+        if (!cards.length) return;
+        session = {
+          cards: shuffle(cards),
+          index: 0,
+          flipped: false,
+          deckName: activeDeck().name,
+          filterName: activeFilter,
+          ratings: { easy: 0, medium: 0, hard: 0 }
+        };
+        elements.libraryView.hidden = true;
+        elements.studyView.hidden = false;
+        renderStudy();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderStudy() {
+        if (!session) return;
+        if (session.index >= session.cards.length) {
+          elements.counter.textContent = "Session complete";
+          elements.progress.style.width = "100%";
+          const finish = document.createElement("div");
+          finish.className = "panel finish";
+          const heading = document.createElement("h2");
+          heading.textContent = "Study round complete";
+          const score = document.createElement("div");
+          score.className = "finish-score";
+          score.textContent = `${session.cards.length} cards`;
+          const copy = document.createElement("p");
+          copy.className = "session-breakdown";
+          copy.textContent = `Easy ${session.ratings.easy} · Medium ${session.ratings.medium} · Hard ${session.ratings.hard}`;
+          const again = document.createElement("button");
+          again.className = "button accent";
+          again.type = "button";
+          again.textContent = "Study this set again";
+          const sessionIds = session.cards.map(card => card.id);
+          again.addEventListener("click", () => {
+            const sameCards = sessionIds.map(id => state.cards.find(card => card.id === id)).filter(Boolean);
+            startStudy(sameCards);
+          });
+          finish.append(heading, score, copy, again);
+          elements.stage.replaceChildren(finish);
+          return;
+        }
+
+        const card = session.cards[session.index];
+        const group = session.filterName === "all" ? "All cards" : `${difficultyLabel(session.filterName)} cards`;
+        elements.counter.textContent = `${session.deckName} · ${group} · ${session.index + 1} of ${session.cards.length}`;
+        elements.progress.style.width = `${(session.index / session.cards.length) * 100}%`;
+
+        const studyCard = document.createElement("article");
+        studyCard.className = "panel study-card";
+        studyCard.tabIndex = 0;
+        studyCard.setAttribute("role", "button");
+        const side = document.createElement("div");
+        side.className = "study-side";
+        side.textContent = session.flipped ? "Answer" : "Question";
+        const text = document.createElement("div");
+        text.className = "study-text";
+        text.textContent = session.flipped ? card.back : card.front;
+        const hint = document.createElement("div");
+        hint.className = "flip-hint";
+        hint.textContent = session.flipped ? "Rate how difficult this card felt" : "Click the card or press Space to reveal";
+        studyCard.append(side, text, hint);
+        studyCard.addEventListener("click", flipCard);
+        studyCard.addEventListener("keydown", event => {
+          if (event.key === " " || event.key === "Enter") { event.preventDefault(); flipCard(); }
+        });
+
+        const actions = document.createElement("div");
+        actions.className = "study-actions";
+        if (session.flipped) {
+          ["hard", "medium", "easy"].forEach(difficulty => {
+            const rating = document.createElement("button");
+            rating.className = `button rating-button ${difficulty}`;
+            rating.type = "button";
+            rating.textContent = difficultyLabel(difficulty);
+            rating.addEventListener("click", () => rateCard(difficulty));
+            actions.append(rating);
+          });
+        } else {
+          const reveal = document.createElement("button");
+          reveal.className = "button primary";
+          reveal.type = "button";
+          reveal.textContent = "Show answer";
+          reveal.addEventListener("click", flipCard);
+          actions.append(reveal);
+        }
+        elements.stage.replaceChildren(studyCard, actions);
+      }
+
+      function flipCard() {
+        if (!session || session.flipped) return;
+        session.flipped = true;
+        renderStudy();
+      }
+
+      function rateCard(difficulty) {
+        if (!session) return;
+        const card = session.cards[session.index];
+        if (!setDifficulty(card.id, difficulty)) return;
+        session.ratings[difficulty] += 1;
+        session.index += 1;
+        session.flipped = false;
+        renderStudy();
+      }
+
+      function leaveStudy() {
+        session = null;
+        elements.studyView.hidden = true;
+        elements.libraryView.hidden = false;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function exportBackup() {
+        const backup = {
+          format: "flashcard-desk-backup",
+          version: VERSION,
+          exportedAt: new Date().toISOString(),
+          activeDeckId: state.activeDeckId,
+          decks: state.decks,
+          cards: state.cards
+        };
+        const blob = new Blob([JSON.stringify(backup, null, 2)], { type: "application/json" });
+        const link = document.createElement("a");
+        const date = new Date().toISOString().slice(0, 10);
+        link.href = URL.createObjectURL(blob);
+        link.download = `flashcard-decks-backup-${date}.json`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+        localStorage.setItem(EXPORT_KEY, backup.exportedAt);
+        announce("Backup downloaded");
+      }
+
+      async function importBackup(file) {
+        try {
+          const imported = parseData(await file.text());
+          const question = `Replace your current collection with ${imported.decks.length} ${imported.decks.length === 1 ? "deck" : "decks"} and ${imported.cards.length} ${imported.cards.length === 1 ? "card" : "cards"} from this backup? You can undo once afterward.`;
+          if (!confirm(question)) return;
+          activeFilter = "all";
+          if (save(imported.cards, `${imported.decks.length} decks imported`, imported.decks, imported.activeDeckId)) resetForm();
+        } catch (_) {
+          announce("That file is not a valid flashcard backup");
+        } finally {
+          elements.importFile.value = "";
+        }
+      }
+
+      async function updatePersistence() {
+        if (!navigator.storage?.persisted) { elements.protect.hidden = true; return; }
+        if (await navigator.storage.persisted()) {
+          elements.protect.textContent = "Storage protected";
+          elements.protect.disabled = true;
+        }
+      }
+
+      elements.form.addEventListener("submit", event => {
+        event.preventDefault();
+        const front = elements.front.value.trim();
+        const back = elements.back.value.trim();
+        if (!front || !back) return;
+        const now = new Date().toISOString();
+        let cards;
+        if (editingId) {
+          cards = state.cards.map(card => card.id === editingId ? { ...card, front, back, updatedAt: now } : card);
+        } else {
+          cards = [...state.cards, {
+            id: makeId(), front, back, difficulty: "unrated", deckId: state.activeDeckId,
+            createdAt: now, updatedAt: now
+          }];
+        }
+        const message = editingId ? "Card updated" : "Card saved";
+        if (save(cards, message)) { resetForm(); elements.front.focus(); }
+      });
+
+      elements.cancelEdit.addEventListener("click", resetForm);
+      elements.deckSelect.addEventListener("change", () => switchDeck(elements.deckSelect.value));
+      elements.newDeck.addEventListener("click", createDeck);
+      elements.renameDeck.addEventListener("click", renameDeck);
+      elements.deleteDeck.addEventListener("click", deleteDeck);
+      elements.study.addEventListener("click", () => startStudy());
+      elements.filters.forEach(button => button.addEventListener("click", () => {
+        activeFilter = button.dataset.filter;
+        renderLibrary();
+      }));
+      elements.leaveStudy.addEventListener("click", leaveStudy);
+      elements.exportButton.addEventListener("click", exportBackup);
+      elements.importButton.addEventListener("click", () => elements.importFile.click());
+      elements.importFile.addEventListener("change", () => elements.importFile.files[0] && importBackup(elements.importFile.files[0]));
+      elements.undo.addEventListener("click", () => {
+        const recovery = localStorage.getItem(RECOVERY_KEY);
+        if (!recovery) return;
+        try {
+          const previous = parseData(recovery);
+          const current = localStorage.getItem(STORAGE_KEY);
+          localStorage.setItem(STORAGE_KEY, recovery);
+          if (current) localStorage.setItem(RECOVERY_KEY, current);
+          state = previous;
+          resetForm();
+          renderLibrary();
+          setStatus(`Restored locally at ${formatTime(new Date())}`);
+          announce("Last change undone");
+        } catch (_) { announce("The recovery copy could not be read"); }
+      });
+      elements.protect.addEventListener("click", async () => {
+        if (!navigator.storage?.persist) return;
+        const granted = await navigator.storage.persist();
+        if (granted) {
+          elements.protect.textContent = "Storage protected";
+          elements.protect.disabled = true;
+          announce("Browser storage protection enabled");
+        } else {
+          announce("Your browser did not grant storage protection — keep exporting backups");
+        }
+      });
+      window.addEventListener("storage", event => {
+        if (event.key === STORAGE_KEY) { load(); resetForm(); renderLibrary(); announce("Cards updated in another tab"); }
+      });
+      window.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !elements.studyView.hidden) leaveStudy();
+      });
+
+      load();
+      renderLibrary();
+      elements.undo.hidden = !localStorage.getItem(RECOVERY_KEY);
+      if (state.updatedAt) setStatus(`Saved locally at ${formatTime(state.updatedAt)}`);
+      updatePersistence().catch(() => { elements.protect.hidden = true; });
+    })();
+  </script>
+</body>
+</html>

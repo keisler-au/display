@@ -4,52 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Study Hub</title>
-<style>
-  /*
-    Just edit the two href values below to match your actual filenames:
-    - PRINCE2 link currently points to "index.html" (this project's quiz file)
-    - Dutch link currently points to "dutch.html" — change to whatever
-      your Dutch vocab page is actually called.
-  */
-  body{
-    margin:0;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#F3EFE6;
-    font-family:sans-serif;
-  }
-  .buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  a.tile{
-    display:block;
-    width:220px;
-    padding:40px 20px;
-    text-align:center;
-    text-decoration:none;
-    color:#1B2432;
-    background:#FBF9F3;
-    border:1px solid #C9C1AE;
-    border-radius:4px;
-    font-size:1.1rem;
-    font-weight:600;
-    transition:transform .12s ease, border-color .12s ease;
-  }
-  a.tile:hover{
-    border-color:#1B2432;
-    transform:translateY(-2px);
-  }
-</style>
+<link rel="stylesheet" href="/assets/study.css">
 </head>
-<body>
-  <div class="buttons">
-    <a class="tile" href="/prince/">PRINCE2</a>
-    <a class="tile" href="/nederlands/">Nederlands</a>
-  </div>
+<body class="home-page">
+  <main class="home-shell">
+    <header class="site-nav">
+      <a class="site-home" href="/" aria-current="page"><span class="site-mark">S/</span><span>Study Room</span></a>
+      <nav aria-label="Study tools">
+        <a href="/flashcards/">Cards</a>
+        <a href="/nederlands/">Nederlands</a>
+        <a href="/prince/">PRINCE2</a>
+      </nav>
+    </header>
+    <section class="home-hero">
+      <p class="eyebrow">Your study desk</p>
+      <h1>Choose a focus.</h1>
+      <p>Build your own recall deck, practise Dutch vocabulary, or work through PRINCE2 questions.</p>
+    </section>
+    <div class="buttons">
+      <a class="tile" href="/flashcards/"><span class="tile-number">01</span><span class="tile-title">Flashcards</span><span class="tile-copy">Create, back up, and study your own cards.</span></a>
+      <a class="tile" href="/nederlands/"><span class="tile-number">02</span><span class="tile-title">Nederlands</span><span class="tile-copy">Vocabulary and verb practice in focused sets.</span></a>
+      <a class="tile" href="/prince/"><span class="tile-number">03</span><span class="tile-title">PRINCE2</span><span class="tile-copy">Recall-based Foundation exam revision.</span></a>
+    </div>
+  </main>
 </body>
-</html>     
+</html>
