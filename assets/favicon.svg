@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Study Room</title>
+  <rect width="64" height="64" rx="18" fill="#ffc85c"/>
+  <g fill="none" stroke="#211707" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M33 20H23a7 7 0 0 0 0 14h4a7 7 0 0 1 0 14H17"/>
+    <path d="m48 18-9 30"/>
+  </g>
+</svg>

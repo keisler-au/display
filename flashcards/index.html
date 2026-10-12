@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0b1020">
   <title>Flashcard Desk</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="stylesheet" href="/assets/study.css">
 </head>
 <body class="flashcards-page">
@@ -96,6 +97,9 @@
         <span id="studyCounter">Card 1 of 1</span>
       </div>
       <div class="progress" aria-hidden="true"><div id="progressFill"></div></div>
+      <div class="study-navigation">
+        <button class="button" id="previousCardButton" type="button" disabled>← Previous card</button>
+      </div>
       <div id="studyStage"></div>
     </section>
   </main>
@@ -123,6 +127,7 @@
         filters: [...document.querySelectorAll("[data-filter]")],
         libraryView: $("#libraryView"), studyView: $("#studyView"), stage: $("#studyStage"),
         counter: $("#studyCounter"), progress: $("#progressFill"), leaveStudy: $("#leaveStudyButton"),
+        previousCard: $("#previousCardButton"),
         importButton: $("#importButton"), importFile: $("#importFile"), exportButton: $("#exportButton"),
         status: $("#saveStatus"), statusDot: $("#statusDot"), protect: $("#protectButton"),
         undo: $("#undoButton"), notice: $("#notice")
@@ -469,6 +474,7 @@
           flipped: false,
           deckName: activeDeck().name,
           filterName: activeFilter,
+          cardRatings: {},
           ratings: { easy: 0, medium: 0, hard: 0 }
         };
         elements.libraryView.hidden = true;
@@ -479,6 +485,7 @@
 
       function renderStudy() {
         if (!session) return;
+        elements.previousCard.disabled = session.index === 0;
         if (session.index >= session.cards.length) {
           elements.counter.textContent = "Session complete";
           elements.progress.style.width = "100%";
@@ -519,11 +526,11 @@
         side.className = "study-side";
         side.textContent = session.flipped ? "Answer" : "Question";
         const text = document.createElement("div");
-        text.className = "study-text";
+        text.className = session.flipped ? "study-text answer" : "study-text";
         text.textContent = session.flipped ? card.back : card.front;
         const hint = document.createElement("div");
         hint.className = "flip-hint";
-        hint.textContent = session.flipped ? "Rate how difficult this card felt" : "Click the card or press Space to reveal";
+        hint.textContent = session.flipped ? "Click or press Space to show the question · Rate below to continue" : "Click the card or press Space to reveal";
         studyCard.append(side, text, hint);
         studyCard.addEventListener("click", flipCard);
         studyCard.addEventListener("keydown", event => {
@@ -553,15 +560,27 @@
       }
 
       function flipCard() {
-        if (!session || session.flipped) return;
-        session.flipped = true;
+        if (!session || session.index >= session.cards.length) return;
+        const hadFocus = document.activeElement === elements.stage.querySelector(".study-card");
+        session.flipped = !session.flipped;
+        renderStudy();
+        if (hadFocus) elements.stage.querySelector(".study-card").focus();
+      }
+
+      function previousCard() {
+        if (!session || session.index === 0) return;
+        session.index -= 1;
+        session.flipped = false;
         renderStudy();
       }
 
       function rateCard(difficulty) {
-        if (!session) return;
+        if (!session || !session.flipped || session.index >= session.cards.length) return;
         const card = session.cards[session.index];
         if (!setDifficulty(card.id, difficulty)) return;
+        const previousRating = session.cardRatings[card.id];
+        if (previousRating) session.ratings[previousRating] -= 1;
+        session.cardRatings[card.id] = difficulty;
         session.ratings[difficulty] += 1;
         session.index += 1;
         session.flipped = false;
@@ -684,6 +703,8 @@
       window.addEventListener("keydown", event => {
         if (event.key === "Escape" && !elements.studyView.hidden) leaveStudy();
       });
+
+      elements.previousCard.addEventListener("click", previousCard);
 
       load();
       renderLibrary();

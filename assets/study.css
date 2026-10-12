@@ -311,11 +311,13 @@ a.tile:hover { transform: translateY(-4px); border-color: #53617b; }
 .empty h2 { margin-top: 16px; }
 .study { width: min(760px, 100%); margin: 34px auto 0; }
 .study-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 14px; color: var(--muted); font-size: .78rem; }
+.study-navigation { display: flex; margin-bottom: 14px; }
 .progress { height: 7px; margin-bottom: 18px; border-radius: 8px; background: var(--surface-soft); overflow: hidden; }
 .progress > div { height: 100%; background: linear-gradient(90deg, var(--accent), var(--correct)); transition: width .2s ease; }
 .study-card { display: grid; align-content: center; min-height: 400px; padding: clamp(28px, 7vw, 66px); text-align: center; cursor: pointer; user-select: none; }
 .study-side { color: var(--accent); font-size: .69rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .study-text { margin: 18px 0; font: 700 clamp(1.6rem, 5vw, 2.6rem)/1.35 var(--display); white-space: pre-wrap; overflow-wrap: anywhere; }
+.study-text.answer { font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.55; }
 .flip-hint { color: var(--muted); font-size: .78rem; }
 .study-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 14px; }
 .study-actions .button { min-height: 52px; }
