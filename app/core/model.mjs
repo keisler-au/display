@@ -1,10 +1,10 @@
 import {fail, object, text, list, unique, count} from './validation.mjs';
 import {difficulty} from './difficulty.mjs';
-import {TYPES, typeFor} from '../types/index.mjs';
+import {TYPES} from '../types/index.mjs';
 
-export const VERSION = 1;
+const VERSION = 1;
 export const BACKUP_FORMAT = 'study-room-backup';
-export const DECK_FORMAT = 'study-room-decks';
+const DECK_FORMAT = 'study-room-decks';
 export const emptyCollection = () => ({format:BACKUP_FORMAT, version:VERSION, decks:[], activeDeckId:null});
 
 export function parseCollection(raw) {
@@ -18,7 +18,7 @@ export function parseCollection(raw) {
     const adapter = TYPES[valueObject.type];
     const deck = {
       id:text(valueObject.id,`${path}.id`), name:text(valueObject.name,`${path}.name`), type:valueObject.type,
-      ...adapter.normalizeDeck(valueObject,path)
+      ...(adapter.normalizeDeck?.(valueObject,path) ?? {})
     };
     deck.questions = unique(list(valueObject.questions,`${path}.questions`).map((value, qi) => {
       const qp = `${path}.questions[${qi}]`;
@@ -98,4 +98,3 @@ export function applyImport(current, imported) {
 export function updateQuestion(collection, deckId, questionId, update) {
   return {...collection, decks:collection.decks.map(deck => deck.id === deckId ? {...deck,questions:deck.questions.map(question => question.id === questionId ? update(question) : question)} : deck)};
 }
-export function questionAnswers(deck, question) { return typeFor(deck).answers(deck,question); }

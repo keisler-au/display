@@ -25,9 +25,8 @@
 .link-button:hover { color: var(--text); }
 .panel { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(150deg, var(--surface-raised), var(--surface)); box-shadow: var(--shadow); }
 .eyebrow { display: block; margin-bottom: 8px; color: var(--accent); font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.helper, .field-help { margin-bottom: 16px; color: var(--muted); font-size: .84rem; }
+.helper { margin-bottom: 16px; color: var(--muted); font-size: .84rem; }
 .helper:empty, .message:empty { display: none; }
-.field-help { margin: 7px 0 0; font-size: .76rem; }
 .form-field { margin-bottom: 20px; }
 .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
 .actions.centered { justify-content: center; }

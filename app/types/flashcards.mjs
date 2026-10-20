@@ -3,18 +3,16 @@ import {node, button, field} from '../ui/dom.mjs';
 
 export default {
   id: 'flashcard', name: 'Flashcards',
-  normalizeDeck() { return {}; },
   normalizeQuestion(question, path) { return {answer:text(question.answer, `${path}.answer`)}; },
-  createDeck() { return {}; },
-  editor(deck, question) {
+  editor(question) {
     const answer = field('Answer', 'edit-answer', {value:question?.answer, multiline:true, required:true});
     return {element:answer.group, read:() => ({answer:answer.input.value.trim()})};
   },
-  answers(deck, question) { return [{label:'Answer', value:question.answer}]; },
-  study({question, entry, reveal, saveDraft}) {
+  answers(question) { return [{label:'Answer', value:question.answer}]; },
+  study({question, entry, reveal, render}) {
     const card = button('', () => {
       if (!entry.revealed) reveal();
-      else { entry.showPrompt = !entry.showPrompt; saveDraft(); }
+      else { entry.showPrompt = !entry.showPrompt; render(); }
     }, 'recall-card');
     const showingAnswer = entry.revealed && !entry.showPrompt;
     card.append(node('span', showingAnswer ? 'Answer' : 'Question', 'eyebrow'),

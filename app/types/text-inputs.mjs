@@ -7,7 +7,7 @@ function normalize(value, matching = {}) {
   if (matching.ignoreDiacritics) result = result.normalize('NFD').replace(/\p{M}/gu, '');
   return result;
 }
-export const checkAnswer = (given, expected, matching) => normalize(given, matching) === normalize(expected, matching);
+const checkAnswer = (given, expected, matching) => normalize(given, matching) === normalize(expected, matching);
 const answerLabel = (index, length) => length === 1 ? 'Answer' : `Answer ${index+1}`;
 
 export default {
@@ -29,8 +29,7 @@ export default {
     if (notes.length > answers.length) fail(`${path}.notes`, 'notes must correspond to answers');
     return {hint:text(question.hint, `${path}.hint`, true), answers, notes:answers.map((_,index) => text(notes[index], `${path}.notes[${index}]`, true))};
   },
-  createDeck() { return {}; },
-  editor(deck, question) {
+  editor(question) {
     const element = node('div');
     const hint = field('Prompt hint (optional)', 'edit-hint', {value:question?.hint});
     const rows = node('div');
@@ -64,7 +63,7 @@ export default {
       notes:entries.map(entry => entry.note)
     })};
   },
-  answers(deck, question) { return question.answers.map((value,index) => ({label:answerLabel(index,question.answers.length),value,note:question.notes[index]})); },
+  answers(question) { return question.answers.map((value,index) => ({label:answerLabel(index,question.answers.length),value,note:question.notes[index]})); },
   study({deck, question, entry, reveal}) {
     const form = node('form', undefined, 'typed-question');
     const inputs = [];

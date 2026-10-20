@@ -46,14 +46,12 @@
   .deck-heading .actions > .button { flex: 1; }
   .deck-bar .actions > .button { flex: 1; }
   .question-row, .question-editor { padding: 18px; }
-  input, textarea, select, .difficulty-select { font-size: 1rem; }
-  .row-tools .button { min-height: 44px; }
   .row-tools .difficulty-select { flex-basis: 100%; max-width: none; }
   .question-editor > .actions > .button { flex: 1; }
   dialog { top: var(--viewport-offset-top, 0px); bottom: auto; margin-block: 12px; padding: 20px; }
   dialog .actions > .button { flex: 1; }
 }
-@media (pointer: coarse) {
+@media (max-width: 680px), (pointer: coarse) {
   .row-tools .button { min-height: 44px; }
   input, textarea, select, .difficulty-select { font-size: 1rem; }
 }

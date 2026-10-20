@@ -12,6 +12,8 @@ const $ = id => document.getElementById(id);
 // Accessing localStorage itself may throw in browsers that block storage.
 const storage = {getItem:key => localStorage.getItem(key),setItem:(key,value) => localStorage.setItem(key,value)};
 const store = createStore(storage);
+// Keep undo available internally while its UI is undecided.
+const SHOW_UNDO_BUTTON = false;
 let route = currentRoute();
 let activeFilter = 'all';
 let editingId = null;
@@ -22,10 +24,14 @@ const updateNavigation = mountApp($('app'),navigate);
 const visibleDecks = () => store.state.decks.filter(deck => deck.type === route.type);
 const activeDeck = () => visibleDecks().find(deck => deck.id === store.state.activeDeckId) ?? visibleDecks()[0];
 const tell = message => { $('message').textContent = message; };
+function updateHeaderActions() {
+  $('deckActions').hidden = !route.type || !!session;
+  $('undoButton').hidden = !SHOW_UNDO_BUTTON || !store.canUndo;
+}
 function save(next, message, options) {
   try {
     store.save(next,options);
-    $('undoButton').hidden = !store.canUndo;
+    updateHeaderActions();
     if (store.warning || message) tell(store.warning || message);
     if (!$('deckView').hidden) renderDecks();
     return true;
@@ -57,10 +63,9 @@ function render() {
   $('pageTitle').textContent = session ? session.deck.name : route.title;
   $('pageTitle').classList.toggle('dashboard-title',!route.type);
   $('dashboardView').hidden = !!route.type;
-  $('deckActions').hidden = !route.type;
   $('deckView').hidden = !route.type || !!session;
   $('studyView').hidden = !session;
-  $('undoButton').hidden = !store.canUndo;
+  updateHeaderActions();
   if (route.type) renderDecks();
 }
 function renderDecks() {
@@ -104,7 +109,7 @@ function openEditor(question) {
   form.hidden = false;
   $('workspace').classList.add('is-editing');
   const prompt = field('Question or prompt','edit-prompt',{value:question?.prompt,multiline:deck.type === 'flashcard',required:true});
-  editor = typeFor(deck).editor(deck,question);
+  editor = typeFor(deck).editor(question);
   const actions = node('div',undefined,'actions');
   const submit = node('button','Save question','button primary');
   submit.type = 'submit';
@@ -139,7 +144,7 @@ $('deleteDeckButton').addEventListener('click',() => {
   if (!confirm(`Delete “${deck.name}” and its ${deck.questions.length} questions? You can undo this change.`)) return;
   closeEditor(); activeFilter = 'all';
   const decks = store.state.decks.filter(item => item.id !== deck.id);
-  save({...store.state,decks,activeDeckId:decks.find(item => !route.type || item.type === route.type)?.id ?? null},'Deck deleted');
+  save({...store.state,decks,activeDeckId:decks.find(item => item.type === route.type)?.id ?? null},'Deck deleted');
 });
 function openDeckDialog() {
   const dialog = $('deckDialog');
@@ -161,7 +166,7 @@ function openDeckDialog() {
   form.append(heading,name.group,typeGroup,error,actions);
   form.addEventListener('submit',event => {
     event.preventDefault();
-    const deck = {id:makeId(),name:name.input.value.trim(),type:type.value,questions:[],...TYPES[type.value].createDeck()};
+    const deck = {id:makeId(),name:name.input.value.trim(),type:type.value,questions:[]};
     try { parseCollection({...store.state,decks:[...store.state.decks,deck]}); }
     catch (problem) { error.textContent = problem.message; return; }
     closeEditor(); activeFilter = 'all';
@@ -176,14 +181,15 @@ function openDeckDialog() {
 }
 $('newDeckButton').addEventListener('click',openDeckDialog);
 
-function download(data,name) {
+function exportBackup() {
+  const data = {...store.state,format:BACKUP_FORMAT,exportedAt:new Date().toISOString()};
   const url = URL.createObjectURL(new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json'}));
-  const anchor = link('',url); anchor.download = `${name}-${new Date().toISOString().slice(0,10)}.json`;
+  const anchor = link('',url); anchor.download = `study-room-backup-${new Date().toISOString().slice(0,10)}.json`;
   document.body.append(anchor); anchor.click(); anchor.remove();
   setTimeout(() => URL.revokeObjectURL(url),1000);
   tell('Download started. Keep the file as a portable copy of your study data.');
 }
-$('exportButton').addEventListener('click',() => download({...store.state,format:BACKUP_FORMAT,exportedAt:new Date().toISOString()},'study-room-backup'));
+$('exportButton').addEventListener('click',exportBackup);
 $('importButton').addEventListener('click',() => $('importFile').click());
 $('importFile').addEventListener('change',async () => {
   const file = $('importFile').files[0];
@@ -226,6 +232,7 @@ function startStudy(deck = activeDeck(), questions = filterQuestions(deck?.quest
   if (!deck || !questions.length) return;
   if (store.state.activeDeckId !== deck.id) save({...store.state,activeDeckId:deck.id},'',{undo:false});
   session = createSession(deck,questions,filter);
+  updateHeaderActions();
   closeEditor();
   $('deckView').hidden = true;
   $('studyView').hidden = false;
@@ -248,7 +255,6 @@ function reveal() {
   // A completed question is persisted once. Revisiting it only changes its difficulty.
   save(updateQuestion(store.state,session.deck.id,question.id,item => ({...item,progress:{attempts:item.progress.attempts+1,correct:item.progress.correct+Number(entry.result?.correct ?? false)}})));
   renderStudy();
-  $('studyStage').querySelector('.rating-button')?.focus();
 }
 function rateAndAdvance(rating) {
   if (!session || session.summary) return;
@@ -276,7 +282,7 @@ function renderStudy() {
   const panel = node('article',undefined,'panel study-panel');
   if (deck.type !== 'flashcard') panel.append(node('h2',question.prompt,'question-prompt'));
   if (deck.type === 'text' && question.hint) panel.append(node('p',question.hint,'prompt-hint'));
-  panel.append(typeFor(deck).study({deck,question,entry,reveal,saveDraft:renderStudy}));
+  panel.append(typeFor(deck).study({deck,question,entry,reveal,render:renderStudy}));
   if (entry.revealed) {
     const controls = node('section',undefined,'study-controls');
     controls.append(ratingActions(rateAndAdvance));

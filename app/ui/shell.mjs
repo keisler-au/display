@@ -7,8 +7,7 @@ export const ROUTES = [
   {path:'/text-inputs/',label:'Text Inputs',type:'text',title:'Text Inputs'}
 ];
 export function currentRoute() {
-  let path = location.pathname.replace(/\/?$/, '/');
-  if (['/nederlands/','/text-tests/'].includes(path)) path = '/text-inputs/';
+  const path = location.pathname.replace(/\/?$/, '/');
   return ROUTES.find(route => route.path === path) ?? ROUTES[0];
 }
 function bindNavigation(container, navigate) {
@@ -19,7 +18,7 @@ function bindNavigation(container, navigate) {
     if (route) { event.preventDefault(); navigate(route); }
   });
 }
-export function mountNavigation(container, navigate) {
+function mountNavigation(container, navigate) {
   const header = node('header',undefined,'site-nav');
   const home = link('', '/');
   home.className = 'site-home';
@@ -30,7 +29,7 @@ export function mountNavigation(container, navigate) {
   for (const route of ROUTES.filter(route => route.type)) nav.append(link(route.label,route.path));
   header.append(home,nav);
   container.replaceChildren(header);
-  if (navigate) bindNavigation(header,navigate);
+  bindNavigation(header,navigate);
   return () => {
     header.querySelectorAll('a').forEach(anchor => {
       if (anchor.getAttribute('href') === location.pathname) anchor.setAttribute('aria-current','page');
@@ -45,7 +44,7 @@ export function mountApp(root, navigate) {
     <div id="navigation"></div>
     <header class="page-header">
       <h1 id="pageTitle"></h1>
-      <div class="actions" id="deckActions"><button class="button" id="undoButton" type="button" hidden>Undo last change</button><button class="button" id="importButton" type="button">Import</button><button class="button" id="exportButton" type="button">Export backup</button><input id="importFile" type="file" accept="application/json,.json" hidden></div>
+      <div class="actions" id="deckActions"><button class="button" id="undoButton" type="button" hidden>Undo Last Change</button><button class="button" id="importButton" type="button">Import</button><button class="button" id="exportButton" type="button">Export</button><input id="importFile" type="file" accept="application/json,.json" hidden></div>
     </header>
     <p class="message" id="message" role="status"></p>
     <section class="dashboard" id="dashboardView" aria-label="Choose a study type"></section>

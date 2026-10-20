@@ -1,6 +1,6 @@
 import {node, button} from './dom.mjs';
 import {DIFFICULTIES, FILTERS, label, difficultyCounts} from '../core/difficulty.mjs';
-import {questionAnswers} from '../core/model.mjs';
+import {typeFor} from '../types/index.mjs';
 
 export function ratingSelect(question, onChange) {
   const select = node('select',undefined,`difficulty-select ${question.difficulty}`);
@@ -40,7 +40,7 @@ export function questionRow(deck, question, {edit,remove,rate}) {
   if (deck.type === 'text' && question.hint) row.append(node('p',question.hint,'helper'));
   const details = node('details');
   details.append(node('summary','View answer'));
-  questionAnswers(deck,question).forEach(answer => {
+  typeFor(deck).answers(question).forEach(answer => {
     const line = node('p',undefined,'answer-line');
     line.append(node('strong',`${answer.label}: `),node('span',answer.value));
     if (answer.note) line.append(node('span',` (${answer.note})`,'helper'));
@@ -63,7 +63,7 @@ export function reviewList(results, deck) {
       entry.result.fields.filter(field => !field.correct).forEach(field => {
         item.append(node('p',`${field.label}: ${field.expected}`,'is-correct'),node('p',`You entered: ${field.given || '(blank)'}`,'is-wrong'));
       });
-    } else questionAnswers(deck,entry.question).forEach(answer => item.append(node('p',`${answer.label}: ${answer.value}`)));
+    } else typeFor(deck).answers(entry.question).forEach(answer => item.append(node('p',`${answer.label}: ${answer.value}`)));
     item.append(node('span',label(entry.rating ?? entry.question.difficulty),`difficulty-badge ${entry.rating ?? entry.question.difficulty}`));
     container.append(item);
   });

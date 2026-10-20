@@ -10,13 +10,12 @@ export function button(text, action, className = 'button') {
   element.addEventListener('click', action);
   return element;
 }
-export function link(text, href, download = false) {
+export function link(text, href) {
   const element = node('a', text);
   element.href = href;
-  if (download) element.download = '';
   return element;
 }
-export function field(labelText, id, {value = '', multiline = false, required = false, help = ''} = {}) {
+export function field(labelText, id, {value = '', multiline = false, required = false} = {}) {
   const group = node('div', undefined, 'form-field');
   const label = node('label', labelText);
   label.htmlFor = id;
@@ -27,12 +26,6 @@ export function field(labelText, id, {value = '', multiline = false, required = 
   input.maxLength = 8000;
   input.required = required;
   group.append(label, input);
-  if (help) {
-    const hint = node('p', help, 'field-help');
-    hint.id = `${id}-help`;
-    input.setAttribute('aria-describedby', hint.id);
-    group.append(hint);
-  }
   return {group, input};
 }
 export function focusHeading(container) {
