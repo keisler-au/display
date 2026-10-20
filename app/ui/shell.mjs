@@ -59,6 +59,8 @@ export function mountApp(root, navigate) {
       </div>
       <div class="deck-heading"><h2 id="deckTitle">Your questions</h2><div class="actions"><button class="button" id="addQuestionButton" type="button">Add question</button><button class="button primary" id="studyButton" type="button">Study</button></div></div>
       <div class="filter-bar"><span class="eyebrow">Practice set</span><div class="filter-options" id="filters" role="group" aria-label="Filter questions by difficulty"></div></div>
+      <div class="question-search form-field"><label for="questionSearch">Search questions</label><div class="actions"><input id="questionSearch" type="search" placeholder="Search prompts and answers…" aria-controls="questionList" aria-describedby="questionSearchHelp" autocomplete="off"><button class="button" id="clearSearchButton" type="button" hidden>Clear search</button></div><p class="helper" id="questionSearchStatus" role="status"></p></div>
+      <nav class="question-pagination actions" id="questionPagination" aria-label="Question pages" hidden><button class="button" id="previousPageButton" type="button" aria-controls="questionList">← Previous</button><span class="helper" id="questionPageStatus" role="status"></span><button class="button" id="nextPageButton" type="button" aria-controls="questionList">Next →</button></nav>
       <div class="workspace" id="workspace"><form class="panel question-editor" id="questionForm" hidden></form><div><div class="question-list" id="questionList"></div><div class="panel empty" id="emptyState"></div></div></div>
     </section>
     <section class="study-view" id="studyView" aria-label="Study session" hidden>

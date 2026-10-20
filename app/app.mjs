@@ -4,6 +4,8 @@ import {filters, questionRow, ratingActions, reviewList} from './ui/components.m
 import {TYPES, typeFor} from './types/index.mjs';
 import {makeId} from './core/validation.mjs';
 import {filterQuestions} from './core/difficulty.mjs';
+import {questionPage} from './core/pagination.mjs';
+import {searchQuestions} from './core/search.mjs';
 import {BACKUP_FORMAT, parseCollection, readImport, applyImport, updateQuestion} from './core/model.mjs';
 import {createStore, STORAGE_KEY} from './core/storage.mjs';
 import {SET_SIZE, createSession, currentEntry, previous, advance, roundResults, sessionTotals} from './core/session.mjs';
@@ -16,6 +18,9 @@ const store = createStore(storage);
 const SHOW_UNDO_BUTTON = false;
 let route = currentRoute();
 let activeFilter = 'all';
+let pageIndex = 0;
+let pageContext = '';
+let searchDeckId = null;
 let editingId = null;
 let session = null;
 let editor = null;
@@ -53,6 +58,8 @@ function navigate(next, push = true) {
   if (push && location.pathname !== next.path) history.pushState(null,'',next.path);
   route = next;
   activeFilter = 'all';
+  pageIndex = 0;
+  $('questionSearch').value = '';
   session = null;
   closeEditor();
   render();
@@ -78,6 +85,23 @@ function renderDecks() {
   const deck = activeDeck();
   const questions = deck?.questions ?? [];
   const selected = filterQuestions(questions,activeFilter);
+  if (searchDeckId !== deck?.id) $('questionSearch').value = '';
+  searchDeckId = deck?.id;
+  const query = $('questionSearch').value;
+  const searching = !!query.trim();
+  const matches = searching ? searchQuestions(deck,selected,query) : selected;
+  $('questionSearch').disabled = !deck;
+  $('clearSearchButton').hidden = !query;
+  $('questionSearchStatus').textContent = searching ? `${matches.length} matching ${matches.length === 1 ? 'question' : 'questions'} in the selected difficulty` : '';
+  const context = JSON.stringify([deck?.id,activeFilter,query]);
+  if (context !== pageContext) pageIndex = 0;
+  pageContext = context;
+  const page = questionPage(matches,pageIndex);
+  pageIndex = page.page;
+  $('questionPagination').hidden = page.pageCount === 1;
+  $('questionPageStatus').textContent = `Questions ${page.first}–${page.last} of ${matches.length}`;
+  $('previousPageButton').disabled = pageIndex === 0;
+  $('nextPageButton').disabled = pageIndex === page.pageCount - 1;
   $('deckSelect').replaceChildren(...decks.map(item => {
     const option = node('option',item.name);
     option.value = item.id;
@@ -90,7 +114,7 @@ function renderDecks() {
   $('studyButton').textContent = `Study ${activeFilter === 'all' ? 'all' : activeFilter} (${selected.length})`;
   $('deckTitle').textContent = deck?.name ?? 'Your questions';
   $('filters').replaceChildren(...filters(questions,activeFilter,value => { activeFilter = value; renderDecks(); }));
-  $('questionList').replaceChildren(...[...selected].reverse().map(question => questionRow(deck,question,{
+  $('questionList').replaceChildren(...page.questions.map(question => questionRow(deck,question,{
     edit:() => openEditor(question),
     remove:() => {
       if (!confirm(`Delete “${question.prompt.slice(0,100)}”? You can undo this change.`)) return;
@@ -99,9 +123,23 @@ function renderDecks() {
     },
     rate:value => rateQuestion(deck.id,question.id,value)
   })));
-  $('emptyState').hidden = !!selected.length;
-  $('emptyState').replaceChildren(node('h3',questions.length ? `No ${activeFilter} questions yet` : deck ? 'This deck is ready for its first question' : 'Make room for something new'),
-    node('p',questions.length ? 'Choose another practice set or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a deck or import a JSON study file.','helper'));
+  $('emptyState').hidden = !!matches.length;
+  $('emptyState').replaceChildren(node('h3',searching ? 'No matching questions' : questions.length ? `No ${activeFilter} questions yet` : deck ? 'This deck is ready for its first question' : 'Make room for something new'),
+    node('p',searching ? 'Try another search, clear the search, or choose a different difficulty.' : questions.length ? 'Choose another practice set or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a deck or import a JSON study file.','helper'));
+}
+$('questionSearch').addEventListener('input',() => { pageIndex = 0; renderDecks(); });
+$('clearSearchButton').addEventListener('click',() => {
+  $('questionSearch').value = '';
+  pageIndex = 0;
+  renderDecks();
+  $('questionSearch').focus();
+});
+for (const [id,step] of [['previousPageButton',-1],['nextPageButton',1]]) {
+  $(id).addEventListener('click',() => {
+    closeEditor();
+    pageIndex += step;
+    renderDecks();
+  });
 }
 function rateQuestion(deckId,questionId,value) {
   return save(updateQuestion(store.state,deckId,questionId,question => ({...question,difficulty:value})));
@@ -131,11 +169,13 @@ $('questionForm').addEventListener('submit',event => {
   const question = {...previousQuestion,id:editingId ?? makeId(),prompt:$('edit-prompt').value.trim(),
     difficulty:previousQuestion?.difficulty ?? 'unrated',progress:{attempts:0,correct:0},...editor.read()};
   const questions = previousQuestion ? deck.questions.map(item => item.id === question.id ? question : item) : [...deck.questions,question];
+  if (!previousQuestion) pageIndex = 0;
   if (save({...store.state,decks:store.state.decks.map(item => item.id === deck.id ? {...item,questions} : item)},'Question saved')) closeEditor();
 });
 $('addQuestionButton').addEventListener('click',() => openEditor());
 $('deckSelect').addEventListener('change',() => {
   closeEditor(); activeFilter = 'all';
+  pageIndex = 0;
   save({...store.state,activeDeckId:$('deckSelect').value},'',{undo:false});
 });
 $('renameDeckButton').addEventListener('click',() => {
@@ -210,7 +250,7 @@ $('importFile').addEventListener('change',async () => {
       if (duplicates.length && !confirm(`Replace ${duplicates.length} decks with matching IDs, including their saved results and ratings? Other decks will be kept. You can undo this change.`)) return;
     }
     const next = applyImport(store.state,imported);
-    closeEditor(); leaveStudy(); activeFilter = 'all';
+    closeEditor(); pageIndex = 0; leaveStudy(); activeFilter = 'all';
     if (save(next,`${imported.collection.decks.length} decks imported`)) {
       const selected = store.state.decks.find(deck => deck.id === store.state.activeDeckId);
       if (selected && selected.type !== route.type) navigate(ROUTES.find(item => item.type === selected.type));
