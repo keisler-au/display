@@ -1,0 +1,7238 @@
+{
+  "format": "study-room-decks",
+  "version": 1,
+  "decks": [
+    {
+      "id": "dutch",
+      "name": "Dutch vocabulary and conjugations",
+      "type": "text",
+      "answerLanguage": "nl",
+      "questions": [
+        {
+          "id": "gewone-woorden-1",
+          "prompt": "disrupted",
+          "hint": "disturbed, bijvoeglijk naamwoord",
+          "answers": [
+            "verstoord"
+          ]
+        },
+        {
+          "id": "gewone-woorden-2",
+          "prompt": "icy",
+          "answers": [
+            "ijzig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-3",
+          "prompt": "since",
+          "hint": "because",
+          "answers": [
+            "aangezien"
+          ]
+        },
+        {
+          "id": "gewone-woorden-4",
+          "prompt": "since",
+          "hint": "time",
+          "answers": [
+            "sinds"
+          ]
+        },
+        {
+          "id": "gewone-woorden-5",
+          "prompt": "ally",
+          "answers": [
+            "de bondgenoot"
+          ]
+        },
+        {
+          "id": "gewone-woorden-6",
+          "prompt": "decision",
+          "answers": [
+            "het besluit"
+          ]
+        },
+        {
+          "id": "gewone-woorden-7",
+          "prompt": "decisions",
+          "answers": [
+            "de besluiten"
+          ]
+        },
+        {
+          "id": "gewone-woorden-8",
+          "prompt": "excluded",
+          "answers": [
+            "uitgesloten"
+          ]
+        },
+        {
+          "id": "gewone-woorden-9",
+          "prompt": "destroyed",
+          "answers": [
+            "verwoest"
+          ]
+        },
+        {
+          "id": "gewone-woorden-10",
+          "prompt": "approved",
+          "answers": [
+            "goedgekeurd"
+          ]
+        },
+        {
+          "id": "gewone-woorden-11",
+          "prompt": "regarding",
+          "answers": [
+            "wat betreft"
+          ]
+        },
+        {
+          "id": "gewone-woorden-12",
+          "prompt": "expired",
+          "answers": [
+            "verlopen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-13",
+          "prompt": "lapsed",
+          "answers": [
+            "vervallen"
+          ],
+          "notes": [
+            "ongeldig geworden"
+          ]
+        },
+        {
+          "id": "gewone-woorden-14",
+          "prompt": "invalid",
+          "answers": [
+            "ongeldig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-15",
+          "prompt": "patient",
+          "hint": "bijvoeglijk naamwoord",
+          "answers": [
+            "geduldig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-16",
+          "prompt": "behaviour",
+          "answers": [
+            "het gedrag"
+          ]
+        },
+        {
+          "id": "gewone-woorden-17",
+          "prompt": "view",
+          "hint": "visibility",
+          "answers": [
+            "het zicht"
+          ]
+        },
+        {
+          "id": "gewone-woorden-18",
+          "prompt": "gust",
+          "answers": [
+            "de vlaag"
+          ]
+        },
+        {
+          "id": "gewone-woorden-19",
+          "prompt": "gusts",
+          "answers": [
+            "de vlagen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-20",
+          "prompt": "dropped",
+          "hint": "descended",
+          "answers": [
+            "gezakt"
+          ],
+          "notes": [
+            "gedaald"
+          ]
+        },
+        {
+          "id": "gewone-woorden-21",
+          "prompt": "sunk",
+          "answers": [
+            "gezonken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-22",
+          "prompt": "pocket",
+          "answers": [
+            "de zak"
+          ],
+          "notes": [
+            "de broekzak"
+          ]
+        },
+        {
+          "id": "gewone-woorden-23",
+          "prompt": "pockets",
+          "answers": [
+            "de zakken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-24",
+          "prompt": "bag",
+          "answers": [
+            "de tas"
+          ],
+          "notes": [
+            "de zak"
+          ]
+        },
+        {
+          "id": "gewone-woorden-25",
+          "prompt": "bags",
+          "answers": [
+            "de tassen"
+          ],
+          "notes": [
+            "de zakken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-26",
+          "prompt": "business",
+          "hint": "matters or affairs",
+          "answers": [
+            "de zaken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-27",
+          "prompt": "completely",
+          "answers": [
+            "volkomen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-28",
+          "prompt": "to come into view",
+          "answers": [
+            "tevoorschijn komen"
+          ],
+          "notes": [
+            "De kat kwam onder het bed tevoorschijn"
+          ]
+        },
+        {
+          "id": "gewone-woorden-29",
+          "prompt": "to bring out",
+          "hint": "to reveal, to fetch out",
+          "answers": [
+            "tevoorschijn halen"
+          ],
+          "notes": [
+            "Hij haalde een sleutel tevoorschijn"
+          ]
+        },
+        {
+          "id": "gewone-woorden-30",
+          "prompt": "accident",
+          "answers": [
+            "het ongeluk"
+          ],
+          "notes": [
+            "het ongeval - formeel"
+          ]
+        },
+        {
+          "id": "gewone-woorden-31",
+          "prompt": "accidents",
+          "answers": [
+            "de ongelukken"
+          ],
+          "notes": [
+            "de ongevallen - formeel"
+          ]
+        },
+        {
+          "id": "gewone-woorden-32",
+          "prompt": "as a result of which",
+          "answers": [
+            "waardoor"
+          ]
+        },
+        {
+          "id": "gewone-woorden-33",
+          "prompt": "grown",
+          "hint": "cultivated",
+          "answers": [
+            "gekweekt"
+          ]
+        },
+        {
+          "id": "gewone-woorden-34",
+          "prompt": "complaints",
+          "answers": [
+            "de klachten"
+          ]
+        },
+        {
+          "id": "gewone-woorden-35",
+          "prompt": "misconduct",
+          "hint": "malpractice",
+          "answers": [
+            "de misstanden"
+          ]
+        },
+        {
+          "id": "gewone-woorden-36",
+          "prompt": "case",
+          "hint": "situation",
+          "answers": [
+            "het geval"
+          ]
+        },
+        {
+          "id": "gewone-woorden-37",
+          "prompt": "cases",
+          "hint": "situations",
+          "answers": [
+            "de gevallen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-38",
+          "prompt": "section",
+          "answers": [
+            "het gedeelte"
+          ]
+        },
+        {
+          "id": "gewone-woorden-39",
+          "prompt": "sections",
+          "answers": [
+            "de gedeelten"
+          ],
+          "notes": [
+            "de gedeeltes"
+          ]
+        },
+        {
+          "id": "gewone-woorden-40",
+          "prompt": "down",
+          "answers": [
+            "neer"
+          ],
+          "notes": [
+            "omlaag"
+          ]
+        },
+        {
+          "id": "gewone-woorden-41",
+          "prompt": "similar",
+          "answers": [
+            "soortgelijk"
+          ],
+          "notes": [
+            "vergelijkbaar"
+          ]
+        },
+        {
+          "id": "gewone-woorden-42",
+          "prompt": "enemy",
+          "answers": [
+            "de vijand"
+          ]
+        },
+        {
+          "id": "gewone-woorden-43",
+          "prompt": "enemies",
+          "answers": [
+            "de vijanden"
+          ]
+        },
+        {
+          "id": "gewone-woorden-44",
+          "prompt": "expectation",
+          "answers": [
+            "de verwachting"
+          ]
+        },
+        {
+          "id": "gewone-woorden-45",
+          "prompt": "expectations",
+          "answers": [
+            "de verwachtingen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-46",
+          "prompt": "prepared",
+          "answers": [
+            "voorbereid"
+          ]
+        },
+        {
+          "id": "gewone-woorden-47",
+          "prompt": "willing",
+          "answers": [
+            "bereid om"
+          ]
+        },
+        {
+          "id": "gewone-woorden-48",
+          "prompt": "invitation",
+          "answers": [
+            "de uitnodiging"
+          ]
+        },
+        {
+          "id": "gewone-woorden-49",
+          "prompt": "invitations",
+          "answers": [
+            "de uitnodigingen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-50",
+          "prompt": "to agree",
+          "answers": [
+            "overeenkomen"
+          ],
+          "notes": [
+            "het eens zijn"
+          ]
+        },
+        {
+          "id": "gewone-woorden-51",
+          "prompt": "to match",
+          "hint": "to correspond",
+          "answers": [
+            "overeenkomen met"
+          ]
+        },
+        {
+          "id": "gewone-woorden-52",
+          "prompt": "shallow",
+          "answers": [
+            "ondiep"
+          ]
+        },
+        {
+          "id": "gewone-woorden-53",
+          "prompt": "superficial",
+          "hint": "shallow",
+          "answers": [
+            "oppervlakkig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-54",
+          "prompt": "to subtract",
+          "answers": [
+            "aftrekken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-55",
+          "prompt": "inference",
+          "hint": "conclusion",
+          "answers": [
+            "de gevolgtrekking"
+          ]
+        },
+        {
+          "id": "gewone-woorden-56",
+          "prompt": "comparable",
+          "answers": [
+            "vergelijkbaar"
+          ]
+        },
+        {
+          "id": "gewone-woorden-57",
+          "prompt": "actually",
+          "answers": [
+            "eigenlijk"
+          ],
+          "notes": [
+            "daadwerkelijk"
+          ]
+        },
+        {
+          "id": "gewone-woorden-58",
+          "prompt": "weight",
+          "answers": [
+            "het gewicht"
+          ]
+        },
+        {
+          "id": "gewone-woorden-59",
+          "prompt": "weights",
+          "answers": [
+            "de gewichten"
+          ]
+        },
+        {
+          "id": "gewone-woorden-60",
+          "prompt": "to owe",
+          "answers": [
+            "verschuldigd zijn"
+          ]
+        },
+        {
+          "id": "gewone-woorden-61",
+          "prompt": "support",
+          "answers": [
+            "de steun"
+          ]
+        },
+        {
+          "id": "gewone-woorden-62",
+          "prompt": "insult",
+          "answers": [
+            "de belediging"
+          ]
+        },
+        {
+          "id": "gewone-woorden-63",
+          "prompt": "insults",
+          "answers": [
+            "de beledigingen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-64",
+          "prompt": "display",
+          "hint": "rendering",
+          "answers": [
+            "de weergave"
+          ]
+        },
+        {
+          "id": "gewone-woorden-65",
+          "prompt": "display",
+          "hint": "performance",
+          "answers": [
+            "de voorstelling"
+          ]
+        },
+        {
+          "id": "gewone-woorden-66",
+          "prompt": "display",
+          "hint": "ostentatious",
+          "answers": [
+            "het vertoon"
+          ],
+          "notes": [
+            "vertoning"
+          ]
+        },
+        {
+          "id": "gewone-woorden-67",
+          "prompt": "useless",
+          "hint": "without a purpose",
+          "answers": [
+            "nutteloos"
+          ]
+        },
+        {
+          "id": "gewone-woorden-68",
+          "prompt": "useless",
+          "hint": "unusable",
+          "answers": [
+            "onbruikbaar"
+          ]
+        },
+        {
+          "id": "gewone-woorden-69",
+          "prompt": "pointless",
+          "answers": [
+            "zinloos"
+          ]
+        },
+        {
+          "id": "gewone-woorden-70",
+          "prompt": "to use",
+          "answers": [
+            "gebruiken"
+          ]
+        },
+        {
+          "id": "gewone-woorden-71",
+          "prompt": "to respond",
+          "hint": "react",
+          "answers": [
+            "reageren op"
+          ]
+        },
+        {
+          "id": "gewone-woorden-72",
+          "prompt": "issue",
+          "hint": "matter",
+          "answers": [
+            "de kwestie"
+          ]
+        },
+        {
+          "id": "gewone-woorden-73",
+          "prompt": "subject",
+          "hint": "topic",
+          "answers": [
+            "het onderwerp"
+          ]
+        },
+        {
+          "id": "gewone-woorden-74",
+          "prompt": "it is about",
+          "hint": "the point is",
+          "answers": [
+            "het gaat erom"
+          ]
+        },
+        {
+          "id": "gewone-woorden-75",
+          "prompt": "about it",
+          "answers": [
+            "erover"
+          ]
+        },
+        {
+          "id": "gewone-woorden-76",
+          "prompt": "satisfying",
+          "hint": "satisfied",
+          "answers": [
+            "bevredigend"
+          ]
+        },
+        {
+          "id": "gewone-woorden-77",
+          "prompt": "satisfied",
+          "hint": "content",
+          "answers": [
+            "tevreden"
+          ]
+        },
+        {
+          "id": "gewone-woorden-78",
+          "prompt": "to long for",
+          "answers": [
+            "verlangen naar"
+          ]
+        },
+        {
+          "id": "gewone-woorden-79",
+          "prompt": "rarely",
+          "answers": [
+            "zelden"
+          ]
+        },
+        {
+          "id": "gewone-woorden-80",
+          "prompt": "curious",
+          "answers": [
+            "nieuwsgierig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-81",
+          "prompt": "barely",
+          "answers": [
+            "nauwelijks"
+          ],
+          "notes": [
+            "bijna niet"
+          ]
+        },
+        {
+          "id": "gewone-woorden-82",
+          "prompt": "could",
+          "hint": "verleden tijd",
+          "answers": [
+            "kon"
+          ]
+        },
+        {
+          "id": "gewone-woorden-83",
+          "prompt": "could",
+          "hint": "hypothetically",
+          "answers": [
+            "zou kunnen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-84",
+          "prompt": "evil",
+          "hint": "malicious, malevolent",
+          "answers": [
+            "kwaadaardig"
+          ]
+        },
+        {
+          "id": "gewone-woorden-85",
+          "prompt": "it is only a matter of time",
+          "answers": [
+            "het is slechts een kwestie van tijd"
+          ]
+        },
+        {
+          "id": "gewone-woorden-86",
+          "prompt": "I wonder",
+          "answers": [
+            "ik vraag me af"
+          ]
+        },
+        {
+          "id": "gewone-woorden-87",
+          "prompt": "another one",
+          "hint": "one more",
+          "answers": [
+            "nog een"
+          ]
+        },
+        {
+          "id": "gewone-woorden-88",
+          "prompt": "reviews",
+          "answers": [
+            "de recensies"
+          ]
+        },
+        {
+          "id": "gewone-woorden-89",
+          "prompt": "it's none of your business",
+          "answers": [
+            "het gaat je niets aan"
+          ]
+        },
+        {
+          "id": "gewone-woorden-90",
+          "prompt": "this dish",
+          "answers": [
+            "dit gerecht"
+          ]
+        },
+        {
+          "id": "gewone-woorden-91",
+          "prompt": "to solve",
+          "answers": [
+            "oplossen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-92",
+          "prompt": "incredible",
+          "hint": "unbelievable",
+          "answers": [
+            "ongelooflijk"
+          ]
+        },
+        {
+          "id": "gewone-woorden-93",
+          "prompt": "to show something",
+          "answers": [
+            "iets laten zien"
+          ]
+        },
+        {
+          "id": "gewone-woorden-94",
+          "prompt": "hope",
+          "answers": [
+            "de hoop"
+          ]
+        },
+        {
+          "id": "gewone-woorden-95",
+          "prompt": "a heap",
+          "hint": "a lot",
+          "answers": [
+            "een hoop"
+          ]
+        },
+        {
+          "id": "gewone-woorden-96",
+          "prompt": "abuse",
+          "hint": "mistreatment, especially physical",
+          "answers": [
+            "de mishandeling"
+          ]
+        },
+        {
+          "id": "gewone-woorden-97",
+          "prompt": "to abuse",
+          "hint": "to mistreat, especially physically",
+          "answers": [
+            "mishandelen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-98",
+          "prompt": "to chase",
+          "hint": "physically pursue",
+          "answers": [
+            "achtervolgen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-99",
+          "prompt": "to pursue",
+          "hint": "work towards",
+          "answers": [
+            "nastreven"
+          ]
+        },
+        {
+          "id": "gewone-woorden-100",
+          "prompt": "to pursue",
+          "hint": "ambitiously chase after",
+          "answers": [
+            "najagen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-101",
+          "prompt": "you are right",
+          "answers": [
+            "je hebt gelijk"
+          ]
+        },
+        {
+          "id": "gewone-woorden-102",
+          "prompt": "will take a long time",
+          "hint": "will last a long time",
+          "answers": [
+            "zal lang duren"
+          ]
+        },
+        {
+          "id": "gewone-woorden-103",
+          "prompt": "strong",
+          "hint": "substantial, considerable",
+          "answers": [
+            "flink"
+          ]
+        },
+        {
+          "id": "gewone-woorden-104",
+          "prompt": "to insult",
+          "answers": [
+            "beledigen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-105",
+          "prompt": "worst",
+          "answers": [
+            "slechtste"
+          ]
+        },
+        {
+          "id": "gewone-woorden-106",
+          "prompt": "worse",
+          "answers": [
+            "erger"
+          ]
+        },
+        {
+          "id": "gewone-woorden-107",
+          "prompt": "the favour",
+          "answers": [
+            "het gunst"
+          ]
+        },
+        {
+          "id": "gewone-woorden-108",
+          "prompt": "the advantage",
+          "answers": [
+            "het voordeel"
+          ]
+        },
+        {
+          "id": "gewone-woorden-109",
+          "prompt": "to produce",
+          "answers": [
+            "produceren"
+          ]
+        },
+        {
+          "id": "gewone-woorden-110",
+          "prompt": "to fetch",
+          "answers": [
+            "ophalen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-111",
+          "prompt": "you couldn't do that back then",
+          "answers": [
+            "je kon dat toen niet doen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-112",
+          "prompt": "it will take a long time to build that with only your hands",
+          "answers": [
+            "het zal lang duren om dat alleen met je handen te bouwen"
+          ]
+        },
+        {
+          "id": "gewone-woorden-113",
+          "prompt": "I am actually quite good at making people do what I want",
+          "answers": [
+            "ik ben eigenlijk best goed in mensen laten doen wat ik wil"
+          ]
+        },
+        {
+          "id": "gewone-woorden-114",
+          "prompt": "Watching him get slapped in the face was very satisfying",
+          "answers": [
+            "Hem een klap in zijn gezicht zien krijgen was heel bevredigend"
+          ]
+        },
+        {
+          "id": "gewone-woorden-115",
+          "prompt": "I think that your argument is invalid, he doesn't always behave like that",
+          "answers": [
+            "Ik denk dat je argument ongeldig is, hij gedraagt zich niet altijd zo"
+          ]
+        },
+        {
+          "id": "gewone-woorden-116",
+          "prompt": "himself, herself, itself",
+          "answers": [
+            "zich"
+          ],
+          "notes": [
+            "zichzelf"
+          ]
+        },
+        {
+          "id": "gewone-woorden-117",
+          "prompt": "like this",
+          "hint": "like that",
+          "answers": [
+            "zo"
+          ]
+        },
+        {
+          "id": "gewone-woorden-118",
+          "prompt": "If you want to work here, there is an expectation that you arrive on time",
+          "answers": [
+            "Als je hier wilt werken, is er een verwachting dat je op tijd aankomt"
+          ]
+        },
+        {
+          "id": "werkwoorden-1",
+          "prompt": "to suppose",
+          "hint": "formal",
+          "answers": [
+            "veronderstellen",
+            "veronderstel",
+            "veronderstelt",
+            "veronderstelde",
+            "veronderstelden",
+            "heeft verondersteld"
+          ]
+        },
+        {
+          "id": "werkwoorden-2",
+          "prompt": "to accept",
+          "hint": "to assume, to employ",
+          "answers": [
+            "aannemen",
+            "neem aan",
+            "neemt aan",
+            "nam aan",
+            "namen aan",
+            "heeft aangenomen"
+          ]
+        },
+        {
+          "id": "werkwoorden-3",
+          "prompt": "to hire",
+          "hint": "to rent",
+          "answers": [
+            "huren",
+            "huur",
+            "huurt",
+            "huurde",
+            "huurden",
+            "heeft gehuurd"
+          ]
+        },
+        {
+          "id": "werkwoorden-4",
+          "prompt": "to hire",
+          "hint": "employ, temp contract",
+          "answers": [
+            "inhuren",
+            "huur in",
+            "huurt in",
+            "huurde in",
+            "huurden in",
+            "heeft ingehuurd"
+          ]
+        },
+        {
+          "id": "werkwoorden-5",
+          "prompt": "to imagine",
+          "hint": "to introduce oneself",
+          "answers": [
+            "zich voorstellen",
+            "stel me/je voor",
+            "stelt zich voor",
+            "stelde zich voor",
+            "stelden zich voor",
+            "heeft zich voorgesteld"
+          ]
+        },
+        {
+          "id": "werkwoorden-6",
+          "prompt": "to suggest",
+          "hint": "to propose",
+          "answers": [
+            "voorstellen",
+            "stel voor",
+            "stelt voor",
+            "stelde voor",
+            "stelden voor",
+            "heeft voorgesteld"
+          ]
+        },
+        {
+          "id": "werkwoorden-7",
+          "prompt": "to matter",
+          "hint": "to care, to make a difference",
+          "answers": [
+            "schelen",
+            "scheel",
+            "scheelt",
+            "scheelde",
+            "scheelden",
+            "heeft gescheeld"
+          ]
+        },
+        {
+          "id": "werkwoorden-8",
+          "prompt": "to connect",
+          "hint": "to join",
+          "answers": [
+            "aansluiten",
+            "sluit aan",
+            "sluit aan",
+            "sloot aan",
+            "sloten aan",
+            "heeft aangesloten"
+          ]
+        },
+        {
+          "id": "werkwoorden-9",
+          "prompt": "to exclude",
+          "answers": [
+            "uitsluiten",
+            "sluit uit",
+            "sluit uit",
+            "sloot uit",
+            "sloten uit",
+            "heeft uitgesloten"
+          ]
+        },
+        {
+          "id": "werkwoorden-10",
+          "prompt": "to behave",
+          "answers": [
+            "zich gedragen",
+            "gedraag me/je",
+            "gedraagt zich",
+            "gedroeg zich",
+            "gedroegen zich",
+            "heeft zich gedragen"
+          ]
+        },
+        {
+          "id": "werkwoorden-11",
+          "prompt": "to deliver",
+          "answers": [
+            "bezorgen",
+            "bezorg",
+            "bezorgt",
+            "bezorgde",
+            "bezorgden",
+            "heeft bezorgd"
+          ]
+        },
+        {
+          "id": "werkwoorden-12",
+          "prompt": "to harass",
+          "hint": "to bother",
+          "answers": [
+            "lastigvallen",
+            "val lastig",
+            "valt lastig",
+            "viel lastig",
+            "vielen lastig",
+            "heeft lastiggevallen"
+          ]
+        },
+        {
+          "id": "werkwoorden-13",
+          "prompt": "to approach",
+          "answers": [
+            "naderen",
+            "nader",
+            "nadert",
+            "naderde",
+            "naderden",
+            "is genaderd"
+          ]
+        },
+        {
+          "id": "werkwoorden-14",
+          "prompt": "to control",
+          "hint": "to master",
+          "answers": [
+            "beheersen",
+            "beheers",
+            "beheerst",
+            "beheerste",
+            "beheersten",
+            "heeft beheerst"
+          ]
+        },
+        {
+          "id": "werkwoorden-15",
+          "prompt": "to pinch",
+          "answers": [
+            "knijpen",
+            "knijp",
+            "knijpt",
+            "kneep",
+            "knepen",
+            "heeft geknepen"
+          ]
+        },
+        {
+          "id": "werkwoorden-16",
+          "prompt": "to stand out",
+          "hint": "to be noticeable",
+          "answers": [
+            "opvallen",
+            "val op",
+            "valt op",
+            "viel op",
+            "vielen op",
+            "is opgevallen"
+          ]
+        },
+        {
+          "id": "werkwoorden-17",
+          "prompt": "to lose weight",
+          "hint": "to fall off",
+          "answers": [
+            "afvallen",
+            "val af",
+            "valt af",
+            "viel af",
+            "vielen af",
+            "is afgevallen"
+          ]
+        },
+        {
+          "id": "werkwoorden-18",
+          "prompt": "to be disappointing",
+          "hint": "to be worse than expected",
+          "answers": [
+            "tegenvallen",
+            "val tegen",
+            "valt tegen",
+            "viel tegen",
+            "vielen tegen",
+            "is tegengevallen"
+          ]
+        },
+        {
+          "id": "werkwoorden-19",
+          "prompt": "to disappoint",
+          "answers": [
+            "teleurstellen",
+            "teleurstel",
+            "teleurstelt",
+            "teleurstelde",
+            "teleurstelden",
+            "heeft teleurgesteld"
+          ]
+        },
+        {
+          "id": "werkwoorden-20",
+          "prompt": "to turn out better than expected",
+          "answers": [
+            "meevallen",
+            "val mee",
+            "valt mee",
+            "viel mee",
+            "vielen mee",
+            "is meegevallen"
+          ]
+        },
+        {
+          "id": "werkwoorden-21",
+          "prompt": "to fade",
+          "answers": [
+            "vervagen",
+            "vervaag",
+            "vervaagt",
+            "vervaagde",
+            "vervaagden",
+            "heeft/is vervaagd"
+          ]
+        },
+        {
+          "id": "houden-woorden-1",
+          "prompt": "gust",
+          "answers": [
+            "de vlaag"
+          ]
+        },
+        {
+          "id": "houden-woorden-2",
+          "prompt": "gusts",
+          "answers": [
+            "de vlagen"
+          ]
+        },
+        {
+          "id": "houden-woorden-3",
+          "prompt": "dropped",
+          "hint": "descended",
+          "answers": [
+            "gezakt"
+          ],
+          "notes": [
+            "gedaald"
+          ]
+        },
+        {
+          "id": "houden-woorden-4",
+          "prompt": "sunk",
+          "answers": [
+            "gezonken"
+          ]
+        },
+        {
+          "id": "houden-woorden-5",
+          "prompt": "pocket",
+          "answers": [
+            "de zak"
+          ],
+          "notes": [
+            "de broekzak"
+          ]
+        },
+        {
+          "id": "houden-woorden-6",
+          "prompt": "pockets",
+          "answers": [
+            "de zakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-7",
+          "prompt": "bag",
+          "answers": [
+            "de tas"
+          ],
+          "notes": [
+            "de zak"
+          ]
+        },
+        {
+          "id": "houden-woorden-8",
+          "prompt": "bags",
+          "answers": [
+            "de tassen"
+          ],
+          "notes": [
+            "de zakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-9",
+          "prompt": "business",
+          "hint": "matters or affairs",
+          "answers": [
+            "de zaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-10",
+          "prompt": "completely",
+          "answers": [
+            "volkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-11",
+          "prompt": "into view",
+          "answers": [
+            "tevoorschijn komen"
+          ],
+          "notes": [
+            "De kat kwam onder het bed tevoorschijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-12",
+          "prompt": "to produce",
+          "hint": "to take out",
+          "answers": [
+            "tevoorschijn halen"
+          ],
+          "notes": [
+            "Hij haalde een sleutel tevoorschijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-13",
+          "prompt": "accident",
+          "answers": [
+            "het ongeval"
+          ],
+          "notes": [
+            "het ongeluk"
+          ]
+        },
+        {
+          "id": "houden-woorden-14",
+          "prompt": "accidents",
+          "answers": [
+            "de ongevallen"
+          ],
+          "notes": [
+            "de ongelukken"
+          ]
+        },
+        {
+          "id": "houden-woorden-15",
+          "prompt": "as a result of which",
+          "answers": [
+            "waardoor"
+          ]
+        },
+        {
+          "id": "houden-woorden-16",
+          "prompt": "grown",
+          "hint": "cultivated",
+          "answers": [
+            "gekweekt"
+          ]
+        },
+        {
+          "id": "houden-woorden-17",
+          "prompt": "complaints",
+          "answers": [
+            "de klachten"
+          ]
+        },
+        {
+          "id": "houden-woorden-18",
+          "prompt": "abuses",
+          "hint": "misconduct",
+          "answers": [
+            "de misstanden"
+          ]
+        },
+        {
+          "id": "houden-woorden-19",
+          "prompt": "case",
+          "hint": "situation",
+          "answers": [
+            "het geval"
+          ]
+        },
+        {
+          "id": "houden-woorden-20",
+          "prompt": "cases",
+          "hint": "situations",
+          "answers": [
+            "de gevallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-21",
+          "prompt": "part",
+          "hint": "section",
+          "answers": [
+            "het gedeelte"
+          ]
+        },
+        {
+          "id": "houden-woorden-22",
+          "prompt": "parts",
+          "hint": "sections",
+          "answers": [
+            "de gedeelten"
+          ],
+          "notes": [
+            "de gedeeltes"
+          ]
+        },
+        {
+          "id": "houden-woorden-23",
+          "prompt": "down",
+          "answers": [
+            "neer"
+          ],
+          "notes": [
+            "omlaag"
+          ]
+        },
+        {
+          "id": "houden-woorden-24",
+          "prompt": "similar",
+          "answers": [
+            "soortgelijk"
+          ],
+          "notes": [
+            "vergelijkbaar"
+          ]
+        },
+        {
+          "id": "houden-woorden-25",
+          "prompt": "enemy",
+          "answers": [
+            "de vijand"
+          ]
+        },
+        {
+          "id": "houden-woorden-26",
+          "prompt": "enemies",
+          "answers": [
+            "de vijanden"
+          ]
+        },
+        {
+          "id": "houden-woorden-27",
+          "prompt": "expectation",
+          "answers": [
+            "de verwachting"
+          ]
+        },
+        {
+          "id": "houden-woorden-28",
+          "prompt": "expectations",
+          "answers": [
+            "de verwachtingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-29",
+          "prompt": "prepared",
+          "hint": "ready",
+          "answers": [
+            "voorbereid"
+          ],
+          "notes": [
+            "klaar"
+          ]
+        },
+        {
+          "id": "houden-woorden-30",
+          "prompt": "willing",
+          "answers": [
+            "bereid"
+          ]
+        },
+        {
+          "id": "houden-woorden-31",
+          "prompt": "invitation",
+          "answers": [
+            "de uitnodiging"
+          ]
+        },
+        {
+          "id": "houden-woorden-32",
+          "prompt": "invitations",
+          "answers": [
+            "de uitnodigingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-33",
+          "prompt": "matching",
+          "hint": "corresponding",
+          "answers": [
+            "overeenkomend"
+          ]
+        },
+        {
+          "id": "houden-woorden-34",
+          "prompt": "shallow",
+          "answers": [
+            "ondiep"
+          ]
+        },
+        {
+          "id": "houden-woorden-35",
+          "prompt": "superficial",
+          "answers": [
+            "oppervlakkig"
+          ]
+        },
+        {
+          "id": "houden-woorden-36",
+          "prompt": "deduction",
+          "answers": [
+            "de aftrek"
+          ]
+        },
+        {
+          "id": "houden-woorden-37",
+          "prompt": "deduction",
+          "hint": "inference",
+          "answers": [
+            "de gevolgtrekking"
+          ]
+        },
+        {
+          "id": "houden-woorden-38",
+          "prompt": "comparable",
+          "answers": [
+            "vergelijkbaar"
+          ]
+        },
+        {
+          "id": "houden-woorden-39",
+          "prompt": "literal",
+          "answers": [
+            "letterlijk"
+          ]
+        },
+        {
+          "id": "houden-woorden-40",
+          "prompt": "literally",
+          "answers": [
+            "letterlijk"
+          ]
+        },
+        {
+          "id": "houden-woorden-41",
+          "prompt": "actually",
+          "answers": [
+            "eigenlijk"
+          ],
+          "notes": [
+            "daadwerkelijk"
+          ]
+        },
+        {
+          "id": "houden-woorden-42",
+          "prompt": "weight",
+          "answers": [
+            "het gewicht"
+          ]
+        },
+        {
+          "id": "houden-woorden-43",
+          "prompt": "weights",
+          "answers": [
+            "de gewichten"
+          ]
+        },
+        {
+          "id": "houden-woorden-44",
+          "prompt": "owed",
+          "hint": "due",
+          "answers": [
+            "verschuldigd"
+          ]
+        },
+        {
+          "id": "houden-woorden-45",
+          "prompt": "support",
+          "answers": [
+            "de steun"
+          ]
+        },
+        {
+          "id": "houden-woorden-46",
+          "prompt": "insult",
+          "answers": [
+            "de belediging"
+          ]
+        },
+        {
+          "id": "houden-woorden-47",
+          "prompt": "insults",
+          "answers": [
+            "de beledigingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-48",
+          "prompt": "display",
+          "hint": "presentation",
+          "answers": [
+            "de weergave"
+          ],
+          "notes": [
+            "de vertoning"
+          ]
+        },
+        {
+          "id": "houden-woorden-49",
+          "prompt": "display",
+          "hint": "ostentation",
+          "answers": [
+            "het vertoon"
+          ]
+        },
+        {
+          "id": "houden-woorden-50",
+          "prompt": "banks",
+          "hint": "of a river",
+          "answers": [
+            "de oevers"
+          ]
+        },
+        {
+          "id": "houden-woorden-51",
+          "prompt": "unobstructed",
+          "answers": [
+            "onbelemmerd"
+          ],
+          "notes": [
+            "ongehinderd"
+          ]
+        },
+        {
+          "id": "houden-woorden-52",
+          "prompt": "attempt",
+          "answers": [
+            "de poging"
+          ]
+        },
+        {
+          "id": "houden-woorden-53",
+          "prompt": "attempts",
+          "answers": [
+            "de pogingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-54",
+          "prompt": "obedient",
+          "answers": [
+            "gehoorzaam"
+          ]
+        },
+        {
+          "id": "houden-woorden-55",
+          "prompt": "disobedient",
+          "answers": [
+            "ongehoorzaam"
+          ]
+        },
+        {
+          "id": "houden-woorden-56",
+          "prompt": "restored",
+          "hint": "repaired",
+          "answers": [
+            "hersteld"
+          ],
+          "notes": [
+            "gerepareerd"
+          ]
+        },
+        {
+          "id": "houden-woorden-57",
+          "prompt": "recovered",
+          "answers": [
+            "hersteld"
+          ],
+          "notes": [
+            "genezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-58",
+          "prompt": "defence",
+          "answers": [
+            "de verdediging"
+          ]
+        },
+        {
+          "id": "houden-woorden-59",
+          "prompt": "defences",
+          "answers": [
+            "de verdedigingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-60",
+          "prompt": "loss",
+          "answers": [
+            "het verlies"
+          ]
+        },
+        {
+          "id": "houden-woorden-61",
+          "prompt": "losses",
+          "answers": [
+            "de verliezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-62",
+          "prompt": "submitted",
+          "answers": [
+            "voorgelegd"
+          ],
+          "notes": [
+            "ingediend"
+          ]
+        },
+        {
+          "id": "houden-woorden-63",
+          "prompt": "cancelled",
+          "answers": [
+            "afgelast"
+          ],
+          "notes": [
+            "geannuleerd"
+          ]
+        },
+        {
+          "id": "houden-woorden-64",
+          "prompt": "quite",
+          "answers": [
+            "behoorlijk"
+          ],
+          "notes": [
+            "tamelijk"
+          ]
+        },
+        {
+          "id": "houden-woorden-65",
+          "prompt": "properly",
+          "answers": [
+            "behoorlijk"
+          ],
+          "notes": [
+            "naar behoren"
+          ]
+        },
+        {
+          "id": "houden-woorden-66",
+          "prompt": "proper",
+          "hint": "decent",
+          "answers": [
+            "behoorlijk"
+          ],
+          "notes": [
+            "netjes"
+          ]
+        },
+        {
+          "id": "houden-woorden-67",
+          "prompt": "inspired",
+          "answers": [
+            "geïnspireerd"
+          ],
+          "notes": [
+            "bezield"
+          ]
+        },
+        {
+          "id": "houden-woorden-68",
+          "prompt": "noticeable",
+          "answers": [
+            "opvallend"
+          ]
+        },
+        {
+          "id": "houden-woorden-69",
+          "prompt": "when",
+          "answers": [
+            "wanneer"
+          ]
+        },
+        {
+          "id": "houden-woorden-70",
+          "prompt": "emphasised",
+          "answers": [
+            "benadrukt"
+          ]
+        },
+        {
+          "id": "houden-woorden-71",
+          "prompt": "finish",
+          "hint": "complete",
+          "answers": [
+            "afwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-72",
+          "prompt": "update",
+          "hint": "catch up on",
+          "answers": [
+            "bijwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-73",
+          "prompt": "continue working",
+          "answers": [
+            "doorwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-74",
+          "prompt": "train",
+          "hint": "familiarise",
+          "answers": [
+            "inwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-75",
+          "prompt": "cooperate",
+          "hint": "participate",
+          "answers": [
+            "meewerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-76",
+          "prompt": "have an after-effect",
+          "answers": [
+            "nawerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-77",
+          "prompt": "work overtime",
+          "answers": [
+            "overwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-78",
+          "prompt": "collaborate",
+          "answers": [
+            "samenwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-79",
+          "prompt": "obstruct",
+          "hint": "work against",
+          "answers": [
+            "tegenwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-80",
+          "prompt": "develop",
+          "hint": "work out",
+          "answers": [
+            "uitwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-81",
+          "prompt": "get rid of",
+          "hint": "work through",
+          "answers": [
+            "wegwerken"
+          ]
+        },
+        {
+          "id": "houden-woorden-82",
+          "prompt": "create",
+          "hint": "produce",
+          "answers": [
+            "aanmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-83",
+          "prompt": "finish",
+          "answers": [
+            "afmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-84",
+          "prompt": "go through",
+          "hint": "experience",
+          "answers": [
+            "doormaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-85",
+          "prompt": "make up for",
+          "answers": [
+            "goedmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-86",
+          "prompt": "prepare",
+          "hint": "get ready",
+          "answers": [
+            "klaarmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-87",
+          "prompt": "loosen",
+          "hint": "detach",
+          "answers": [
+            "losmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-88",
+          "prompt": "experience",
+          "answers": [
+            "meemaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-89",
+          "prompt": "imitate",
+          "hint": "reproduce",
+          "answers": [
+            "namaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-90",
+          "prompt": "use up",
+          "hint": "make up, prepare",
+          "answers": [
+            "opmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-91",
+          "prompt": "transfer money",
+          "answers": [
+            "overmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-92",
+          "prompt": "clean",
+          "answers": [
+            "schoonmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-93",
+          "prompt": "break",
+          "answers": [
+            "stukmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-94",
+          "prompt": "matter",
+          "hint": "switch off, break up",
+          "answers": [
+            "uitmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-95",
+          "prompt": "fasten",
+          "answers": [
+            "vastmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-96",
+          "prompt": "free",
+          "hint": "make available",
+          "answers": [
+            "vrijmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-97",
+          "prompt": "fulfil",
+          "hint": "prove true",
+          "answers": [
+            "waarmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-98",
+          "prompt": "remove",
+          "answers": [
+            "wegmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-99",
+          "prompt": "attend",
+          "answers": [
+            "bijwonen"
+          ]
+        },
+        {
+          "id": "houden-woorden-100",
+          "prompt": "live with someone",
+          "answers": [
+            "inwonen"
+          ]
+        },
+        {
+          "id": "houden-woorden-101",
+          "prompt": "live together",
+          "answers": [
+            "samenwonen"
+          ]
+        },
+        {
+          "id": "houden-woorden-102",
+          "prompt": "teach",
+          "hint": "acquire",
+          "answers": [
+            "aanleren"
+          ]
+        },
+        {
+          "id": "houden-woorden-103",
+          "prompt": "unlearn",
+          "hint": "break a habit",
+          "answers": [
+            "afleren"
+          ]
+        },
+        {
+          "id": "houden-woorden-104",
+          "prompt": "learn more",
+          "answers": [
+            "bijleren"
+          ]
+        },
+        {
+          "id": "houden-woorden-105",
+          "prompt": "continue studying",
+          "answers": [
+            "doorleren"
+          ]
+        },
+        {
+          "id": "houden-woorden-106",
+          "prompt": "play",
+          "hint": "take place",
+          "answers": [
+            "afspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-107",
+          "prompt": "keep playing",
+          "hint": "pass on",
+          "answers": [
+            "doorspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-108",
+          "prompt": "respond to",
+          "hint": "play in",
+          "answers": [
+            "inspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-109",
+          "prompt": "play along",
+          "hint": "take part",
+          "answers": [
+            "meespelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-110",
+          "prompt": "reenact",
+          "answers": [
+            "naspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-111",
+          "prompt": "flare up",
+          "hint": "act up",
+          "answers": [
+            "opspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-112",
+          "prompt": "transfer",
+          "hint": "dub",
+          "answers": [
+            "overspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-113",
+          "prompt": "play together",
+          "answers": [
+            "samenspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-114",
+          "prompt": "play off",
+          "hint": "exploit",
+          "answers": [
+            "uitspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-115",
+          "prompt": "play for someone",
+          "answers": [
+            "voorspelen"
+          ]
+        },
+        {
+          "id": "houden-woorden-116",
+          "prompt": "agree",
+          "hint": "arrange",
+          "answers": [
+            "afpraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-117",
+          "prompt": "catch up",
+          "answers": [
+            "bijpraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-118",
+          "prompt": "keep talking",
+          "answers": [
+            "doorpraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-119",
+          "prompt": "join the discussion",
+          "answers": [
+            "meepraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-120",
+          "prompt": "talk afterwards",
+          "hint": "imitate",
+          "answers": [
+            "napraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-121",
+          "prompt": "persuade",
+          "answers": [
+            "ompraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-122",
+          "prompt": "finish talking",
+          "hint": "talk out",
+          "answers": [
+            "uitpraten"
+          ]
+        },
+        {
+          "id": "houden-woorden-123",
+          "prompt": "eavesdrop",
+          "hint": "listen to",
+          "answers": [
+            "afluisteren"
+          ]
+        },
+        {
+          "id": "houden-woorden-124",
+          "prompt": "listen in",
+          "answers": [
+            "meeluisteren"
+          ]
+        },
+        {
+          "id": "houden-woorden-125",
+          "prompt": "listen back",
+          "answers": [
+            "terugluisteren"
+          ]
+        },
+        {
+          "id": "houden-woorden-126",
+          "prompt": "keep cycling",
+          "answers": [
+            "doorfietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-127",
+          "prompt": "cycle along",
+          "answers": [
+            "meefietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-128",
+          "prompt": "take a detour by bike",
+          "answers": [
+            "omfietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-129",
+          "prompt": "cycle around",
+          "answers": [
+            "rondfietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-130",
+          "prompt": "cycle back",
+          "answers": [
+            "terugfietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-131",
+          "prompt": "cycle away",
+          "answers": [
+            "wegfietsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-132",
+          "prompt": "travel to",
+          "hint": "depart for",
+          "answers": [
+            "afreizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-133",
+          "prompt": "travel on",
+          "answers": [
+            "doorreizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-134",
+          "prompt": "travel along",
+          "answers": [
+            "meereizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-135",
+          "prompt": "follow later",
+          "answers": [
+            "nareizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-136",
+          "prompt": "travel around",
+          "answers": [
+            "rondreizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-137",
+          "prompt": "travel back",
+          "answers": [
+            "terugreizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-138",
+          "prompt": "graduate",
+          "answers": [
+            "afstuderen"
+          ]
+        },
+        {
+          "id": "houden-woorden-139",
+          "prompt": "continue studying",
+          "answers": [
+            "doorstuderen"
+          ]
+        },
+        {
+          "id": "houden-woorden-140",
+          "prompt": "seal off",
+          "answers": [
+            "afdichten"
+          ]
+        },
+        {
+          "id": "houden-woorden-141",
+          "prompt": "close",
+          "hint": "seal",
+          "answers": [
+            "dichtmaken"
+          ]
+        },
+        {
+          "id": "houden-woorden-142",
+          "prompt": "boil down",
+          "hint": "parboil",
+          "answers": [
+            "afkoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-143",
+          "prompt": "continue boiling",
+          "answers": [
+            "doorkoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-144",
+          "prompt": "reduce by boiling",
+          "answers": [
+            "inkoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-145",
+          "prompt": "cook along",
+          "answers": [
+            "meekoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-146",
+          "prompt": "boil over",
+          "answers": [
+            "overkoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-147",
+          "prompt": "pre-cook",
+          "answers": [
+            "voorkoken"
+          ]
+        },
+        {
+          "id": "houden-woorden-148",
+          "prompt": "move along with",
+          "answers": [
+            "meeverhuizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-149",
+          "prompt": "move back",
+          "answers": [
+            "terugverhuizen"
+          ]
+        },
+        {
+          "id": "houden-woorden-150",
+          "prompt": "keep swimming",
+          "hint": "swim through",
+          "answers": [
+            "doorzwemmen"
+          ]
+        },
+        {
+          "id": "houden-woorden-151",
+          "prompt": "swim along",
+          "answers": [
+            "meezwemmen"
+          ]
+        },
+        {
+          "id": "houden-woorden-152",
+          "prompt": "swim back",
+          "answers": [
+            "terugzwemmen"
+          ]
+        },
+        {
+          "id": "houden-woorden-153",
+          "prompt": "swim away",
+          "answers": [
+            "wegzwemmen"
+          ]
+        },
+        {
+          "id": "houden-woorden-154",
+          "prompt": "challenge",
+          "hint": "contest",
+          "answers": [
+            "aanvechten"
+          ]
+        },
+        {
+          "id": "houden-woorden-155",
+          "prompt": "keep fighting",
+          "answers": [
+            "doorvechten"
+          ]
+        },
+        {
+          "id": "houden-woorden-156",
+          "prompt": "fight alongside",
+          "answers": [
+            "meevechten"
+          ]
+        },
+        {
+          "id": "houden-woorden-157",
+          "prompt": "fight back",
+          "answers": [
+            "terugvechten"
+          ]
+        },
+        {
+          "id": "houden-woorden-158",
+          "prompt": "fight out",
+          "hint": "settle",
+          "answers": [
+            "uitvechten"
+          ]
+        },
+        {
+          "id": "houden-woorden-159",
+          "prompt": "melt away",
+          "answers": [
+            "afsmelten"
+          ]
+        },
+        {
+          "id": "houden-woorden-160",
+          "prompt": "merge",
+          "hint": "fuse",
+          "answers": [
+            "samensmelten"
+          ]
+        },
+        {
+          "id": "houden-woorden-161",
+          "prompt": "melt away",
+          "answers": [
+            "wegsmelten"
+          ]
+        },
+        {
+          "id": "houden-woorden-162",
+          "prompt": "laugh along",
+          "answers": [
+            "meelachen"
+          ]
+        },
+        {
+          "id": "houden-woorden-163",
+          "prompt": "smile at",
+          "answers": [
+            "toelachen"
+          ]
+        },
+        {
+          "id": "houden-woorden-164",
+          "prompt": "laugh at",
+          "answers": [
+            "uitlachen"
+          ]
+        },
+        {
+          "id": "houden-woorden-165",
+          "prompt": "laugh off",
+          "answers": [
+            "weglachen"
+          ]
+        },
+        {
+          "id": "houden-woorden-166",
+          "prompt": "wash the dishes",
+          "answers": [
+            "afwassen"
+          ]
+        },
+        {
+          "id": "houden-woorden-167",
+          "prompt": "wash out",
+          "answers": [
+            "uitwassen"
+          ]
+        },
+        {
+          "id": "houden-woorden-168",
+          "prompt": "wash away",
+          "answers": [
+            "wegwassen"
+          ]
+        },
+        {
+          "id": "houden-woorden-169",
+          "prompt": "finish baking",
+          "answers": [
+            "afbakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-170",
+          "prompt": "bake through",
+          "answers": [
+            "doorbakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-171",
+          "prompt": "bake along",
+          "answers": [
+            "meebakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-172",
+          "prompt": "fry up",
+          "hint": "reheat",
+          "answers": [
+            "opbakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-173",
+          "prompt": "walk up to",
+          "hint": "incur",
+          "answers": [
+            "aanlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-174",
+          "prompt": "end",
+          "hint": "expire, walk down",
+          "answers": [
+            "aflopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-175",
+          "prompt": "walk in",
+          "hint": "come in",
+          "answers": [
+            "binnenlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-176",
+          "prompt": "continue walking",
+          "hint": "go through",
+          "answers": [
+            "doorlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-177",
+          "prompt": "catch up",
+          "hint": "walk in",
+          "answers": [
+            "inlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-178",
+          "prompt": "walk along",
+          "answers": [
+            "meelopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-179",
+          "prompt": "miss out on",
+          "hint": "go wrong",
+          "answers": [
+            "mislopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-180",
+          "prompt": "walk around",
+          "hint": "take a detour",
+          "answers": [
+            "omlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-181",
+          "prompt": "flood",
+          "answers": [
+            "onderlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-182",
+          "prompt": "increase",
+          "hint": "sustain, walk up",
+          "answers": [
+            "oplopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-183",
+          "prompt": "overflow",
+          "hint": "defect",
+          "answers": [
+            "overlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-184",
+          "prompt": "walk around",
+          "answers": [
+            "rondlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-185",
+          "prompt": "coincide",
+          "hint": "converge",
+          "answers": [
+            "samenlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-186",
+          "prompt": "walk back",
+          "hint": "decrease",
+          "answers": [
+            "teruglopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-187",
+          "prompt": "run over",
+          "hint": "end up, walk out",
+          "answers": [
+            "uitlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-188",
+          "prompt": "get stuck",
+          "answers": [
+            "vastlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-189",
+          "prompt": "be ahead",
+          "answers": [
+            "voorlopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-190",
+          "prompt": "walk away",
+          "hint": "run away",
+          "answers": [
+            "weglopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-191",
+          "prompt": "buy off",
+          "hint": "settle",
+          "answers": [
+            "afkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-192",
+          "prompt": "buy more",
+          "answers": [
+            "bijkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-193",
+          "prompt": "purchase",
+          "hint": "buy in",
+          "answers": [
+            "inkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-194",
+          "prompt": "buy along",
+          "answers": [
+            "meekopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-195",
+          "prompt": "buy up",
+          "answers": [
+            "opkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-196",
+          "prompt": "buy back",
+          "answers": [
+            "terugkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-197",
+          "prompt": "buy out",
+          "answers": [
+            "uitkopen"
+          ]
+        },
+        {
+          "id": "houden-woorden-198",
+          "prompt": "think through",
+          "answers": [
+            "doordenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-199",
+          "prompt": "think along",
+          "hint": "contribute ideas",
+          "answers": [
+            "meedenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-200",
+          "prompt": "think about",
+          "answers": [
+            "nadenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-201",
+          "prompt": "reframe",
+          "answers": [
+            "omdenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-202",
+          "prompt": "think back",
+          "answers": [
+            "terugdenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-203",
+          "prompt": "think ahead",
+          "answers": [
+            "vooruitdenken"
+          ]
+        },
+        {
+          "id": "houden-woorden-204",
+          "prompt": "apply",
+          "hint": "install, introduce",
+          "answers": [
+            "aanbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-205",
+          "prompt": "dissuade",
+          "hint": "take off",
+          "answers": [
+            "afbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-206",
+          "prompt": "teach",
+          "hint": "revive",
+          "answers": [
+            "bijbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-207",
+          "prompt": "bring in",
+          "answers": [
+            "binnenbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-208",
+          "prompt": "spend time",
+          "hint": "bring through",
+          "answers": [
+            "doorbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-209",
+          "prompt": "contribute",
+          "hint": "insert",
+          "answers": [
+            "inbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-210",
+          "prompt": "bring along",
+          "answers": [
+            "meebrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-211",
+          "prompt": "accommodate",
+          "hint": "place",
+          "answers": [
+            "onderbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-212",
+          "prompt": "raise",
+          "hint": "yield, summon",
+          "answers": [
+            "opbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-213",
+          "prompt": "transfer",
+          "hint": "convey",
+          "answers": [
+            "overbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-214",
+          "prompt": "deliver around",
+          "answers": [
+            "rondbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-215",
+          "prompt": "bring together",
+          "answers": [
+            "samenbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-216",
+          "prompt": "bring back",
+          "hint": "reduce",
+          "answers": [
+            "terugbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-217",
+          "prompt": "release",
+          "hint": "publish",
+          "answers": [
+            "uitbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-218",
+          "prompt": "take away",
+          "hint": "bring somewhere",
+          "answers": [
+            "wegbrengen"
+          ]
+        },
+        {
+          "id": "houden-woorden-219",
+          "prompt": "search thoroughly",
+          "answers": [
+            "afzoeken"
+          ]
+        },
+        {
+          "id": "houden-woorden-220",
+          "prompt": "search through",
+          "answers": [
+            "doorzoeken"
+          ]
+        },
+        {
+          "id": "houden-woorden-221",
+          "prompt": "look up",
+          "hint": "visit",
+          "answers": [
+            "opzoeken"
+          ]
+        },
+        {
+          "id": "houden-woorden-222",
+          "prompt": "sort out",
+          "hint": "choose, investigate",
+          "answers": [
+            "uitzoeken"
+          ]
+        },
+        {
+          "id": "houden-woorden-223",
+          "prompt": "keep eating",
+          "answers": [
+            "dooreten"
+          ]
+        },
+        {
+          "id": "houden-woorden-224",
+          "prompt": "eat along",
+          "hint": "join for a meal",
+          "answers": [
+            "mee-eten"
+          ]
+        },
+        {
+          "id": "houden-woorden-225",
+          "prompt": "eat up",
+          "answers": [
+            "opeten"
+          ]
+        },
+        {
+          "id": "houden-woorden-226",
+          "prompt": "eat out",
+          "answers": [
+            "uiteten"
+          ]
+        },
+        {
+          "id": "houden-woorden-227",
+          "prompt": "keep drinking",
+          "answers": [
+            "doordrinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-228",
+          "prompt": "drink beforehand",
+          "answers": [
+            "indrinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-229",
+          "prompt": "drink along",
+          "answers": [
+            "meedrinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-230",
+          "prompt": "drink up",
+          "answers": [
+            "opdrinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-231",
+          "prompt": "finish drinking",
+          "answers": [
+            "uitdrinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-232",
+          "prompt": "regard",
+          "hint": "watch",
+          "answers": [
+            "aanzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-233",
+          "prompt": "refrain from",
+          "hint": "suffer",
+          "answers": [
+            "afzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-234",
+          "prompt": "see through",
+          "hint": "understand",
+          "answers": [
+            "doorzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-235",
+          "prompt": "realise",
+          "hint": "inspect",
+          "answers": [
+            "inzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-236",
+          "prompt": "look back",
+          "hint": "care for",
+          "answers": [
+            "omzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-237",
+          "prompt": "oversee",
+          "hint": "survey",
+          "answers": [
+            "overzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-238",
+          "prompt": "see again",
+          "answers": [
+            "terugzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-239",
+          "prompt": "look out",
+          "hint": "look forward to, appear",
+          "answers": [
+            "uitzien"
+          ]
+        },
+        {
+          "id": "houden-woorden-240",
+          "prompt": "enter into",
+          "hint": "concern, switch on",
+          "answers": [
+            "aangaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-241",
+          "prompt": "go off",
+          "hint": "fail, approach",
+          "answers": [
+            "afgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-242",
+          "prompt": "continue",
+          "answers": [
+            "doorgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-243",
+          "prompt": "enter",
+          "hint": "take effect, address",
+          "answers": [
+            "ingaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-244",
+          "prompt": "go along",
+          "answers": [
+            "meegaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-245",
+          "prompt": "deal with",
+          "hint": "socialise, go around",
+          "answers": [
+            "omgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-246",
+          "prompt": "undergo",
+          "hint": "set",
+          "answers": [
+            "ondergaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-247",
+          "prompt": "rise",
+          "hint": "be absorbed, apply",
+          "answers": [
+            "opgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-248",
+          "prompt": "switch",
+          "hint": "pass, transfer",
+          "answers": [
+            "overgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-249",
+          "prompt": "go around",
+          "answers": [
+            "rondgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-250",
+          "prompt": "go together",
+          "hint": "merge",
+          "answers": [
+            "samengaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-251",
+          "prompt": "go back",
+          "answers": [
+            "teruggaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-252",
+          "prompt": "go out",
+          "hint": "assume",
+          "answers": [
+            "uitgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-253",
+          "prompt": "precede",
+          "hint": "lead",
+          "answers": [
+            "voorgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-254",
+          "prompt": "improve",
+          "hint": "move forward",
+          "answers": [
+            "vooruitgaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-255",
+          "prompt": "leave",
+          "answers": [
+            "weggaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-256",
+          "prompt": "arrive",
+          "hint": "gain weight",
+          "answers": [
+            "aankomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-257",
+          "prompt": "come off",
+          "hint": "approach",
+          "answers": [
+            "afkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-258",
+          "prompt": "come in",
+          "hint": "arrive",
+          "answers": [
+            "binnenkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-259",
+          "prompt": "get through",
+          "hint": "come through",
+          "answers": [
+            "doorkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-260",
+          "prompt": "come in",
+          "hint": "income",
+          "answers": [
+            "inkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-261",
+          "prompt": "come along",
+          "answers": [
+            "meekomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-262",
+          "prompt": "comply with",
+          "hint": "come later",
+          "answers": [
+            "nakomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-263",
+          "prompt": "come down",
+          "hint": "amount to",
+          "answers": [
+            "neerkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-264",
+          "prompt": "die",
+          "hint": "perish",
+          "answers": [
+            "omkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-265",
+          "prompt": "arise",
+          "hint": "come up",
+          "answers": [
+            "opkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-266",
+          "prompt": "happen to",
+          "hint": "come across",
+          "answers": [
+            "overkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-267",
+          "prompt": "make ends meet",
+          "answers": [
+            "rondkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-268",
+          "prompt": "come together",
+          "answers": [
+            "samenkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-269",
+          "prompt": "encounter",
+          "answers": [
+            "tegenkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-270",
+          "prompt": "come back",
+          "answers": [
+            "terugkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-271",
+          "prompt": "intervene",
+          "answers": [
+            "tussenkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-272",
+          "prompt": "come out",
+          "hint": "work out, be published",
+          "answers": [
+            "uitkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-273",
+          "prompt": "occur",
+          "hint": "prevent",
+          "answers": [
+            "voorkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-274",
+          "prompt": "make progress",
+          "answers": [
+            "vooruitkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-275",
+          "prompt": "get away",
+          "answers": [
+            "wegkomen"
+          ]
+        },
+        {
+          "id": "houden-woorden-276",
+          "prompt": "put on",
+          "hint": "switch on, affect",
+          "answers": [
+            "aandoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-277",
+          "prompt": "take off",
+          "hint": "dismiss, deal with",
+          "answers": [
+            "afdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-278",
+          "prompt": "take part",
+          "answers": [
+            "meedoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-279",
+          "prompt": "imitate",
+          "answers": [
+            "nadoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-280",
+          "prompt": "put around",
+          "hint": "fasten",
+          "answers": [
+            "omdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-281",
+          "prompt": "gain",
+          "hint": "acquire, put on",
+          "answers": [
+            "opdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-282",
+          "prompt": "do again",
+          "hint": "hand over",
+          "answers": [
+            "overdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-283",
+          "prompt": "close",
+          "hint": "add",
+          "answers": [
+            "toedoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-284",
+          "prompt": "switch off",
+          "hint": "take off",
+          "answers": [
+            "uitdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-285",
+          "prompt": "demonstrate",
+          "hint": "occur",
+          "answers": [
+            "voordoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-286",
+          "prompt": "throw away",
+          "hint": "get rid of",
+          "answers": [
+            "wegdoen"
+          ]
+        },
+        {
+          "id": "houden-woorden-287",
+          "prompt": "indicate",
+          "hint": "hand over, report",
+          "answers": [
+            "aangeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-288",
+          "prompt": "hand in",
+          "hint": "give off",
+          "answers": [
+            "afgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-289",
+          "prompt": "pass on",
+          "answers": [
+            "doorgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-290",
+          "prompt": "give along",
+          "hint": "advise",
+          "answers": [
+            "meegeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-291",
+          "prompt": "admit",
+          "hint": "yield",
+          "answers": [
+            "nageven"
+          ]
+        },
+        {
+          "id": "houden-woorden-292",
+          "prompt": "give up",
+          "hint": "submit, state",
+          "answers": [
+            "opgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-293",
+          "prompt": "hand over",
+          "hint": "vomit",
+          "answers": [
+            "overgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-294",
+          "prompt": "give back",
+          "answers": [
+            "teruggeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-295",
+          "prompt": "admit",
+          "hint": "concede",
+          "answers": [
+            "toegeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-296",
+          "prompt": "spend",
+          "hint": "publish, issue",
+          "answers": [
+            "uitgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-297",
+          "prompt": "pretend",
+          "hint": "claim",
+          "answers": [
+            "voorgeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-298",
+          "prompt": "give away",
+          "answers": [
+            "weggeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-299",
+          "prompt": "display",
+          "hint": "represent",
+          "answers": [
+            "weergeven"
+          ]
+        },
+        {
+          "id": "houden-woorden-300",
+          "prompt": "accept",
+          "hint": "assume, hire",
+          "answers": [
+            "aannemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-301",
+          "prompt": "decrease",
+          "hint": "take away, administer",
+          "answers": [
+            "afnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-302",
+          "prompt": "review",
+          "hint": "go through",
+          "answers": [
+            "doornemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-303",
+          "prompt": "take in",
+          "hint": "occupy, take medicine",
+          "answers": [
+            "innemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-304",
+          "prompt": "take along",
+          "answers": [
+            "meenemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-305",
+          "prompt": "take over",
+          "answers": [
+            "overnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-306",
+          "prompt": "record",
+          "hint": "include, answer",
+          "answers": [
+            "opnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-307",
+          "prompt": "take back",
+          "answers": [
+            "terugnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-308",
+          "prompt": "increase",
+          "answers": [
+            "toenemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-309",
+          "prompt": "remove",
+          "hint": "take out",
+          "answers": [
+            "uitnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-310",
+          "prompt": "intend",
+          "answers": [
+            "voornemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-311",
+          "prompt": "observe",
+          "hint": "perceive, deputise",
+          "answers": [
+            "waarnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-312",
+          "prompt": "remove",
+          "answers": [
+            "wegnemen"
+          ]
+        },
+        {
+          "id": "houden-woorden-313",
+          "prompt": "read off",
+          "answers": [
+            "aflezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-314",
+          "prompt": "read through",
+          "answers": [
+            "doorlezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-315",
+          "prompt": "read up on",
+          "hint": "import",
+          "answers": [
+            "inlezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-316",
+          "prompt": "read along",
+          "answers": [
+            "meelezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-317",
+          "prompt": "check",
+          "hint": "proofread",
+          "answers": [
+            "nalezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-318",
+          "prompt": "read aloud",
+          "answers": [
+            "oplezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-319",
+          "prompt": "read out",
+          "hint": "finish reading",
+          "answers": [
+            "uitlezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-320",
+          "prompt": "read aloud to",
+          "answers": [
+            "voorlezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-321",
+          "prompt": "write to",
+          "hint": "address",
+          "answers": [
+            "aanschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-322",
+          "prompt": "write off",
+          "hint": "copy",
+          "answers": [
+            "afschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-323",
+          "prompt": "credit",
+          "hint": "add in writing",
+          "answers": [
+            "bijschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-324",
+          "prompt": "register",
+          "hint": "enrol",
+          "answers": [
+            "inschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-325",
+          "prompt": "write along",
+          "hint": "take notes",
+          "answers": [
+            "meeschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-326",
+          "prompt": "copy",
+          "answers": [
+            "naschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-327",
+          "prompt": "write down",
+          "answers": [
+            "opschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-328",
+          "prompt": "copy",
+          "hint": "transfer",
+          "answers": [
+            "overschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-329",
+          "prompt": "attribute",
+          "answers": [
+            "toeschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-330",
+          "prompt": "deregister",
+          "hint": "write out",
+          "answers": [
+            "uitschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-331",
+          "prompt": "prescribe",
+          "answers": [
+            "voorschrijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-332",
+          "prompt": "stay behind",
+          "hint": "lag",
+          "answers": [
+            "achterblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-333",
+          "prompt": "keep up",
+          "answers": [
+            "bijblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-334",
+          "prompt": "stay inside",
+          "answers": [
+            "binnenblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-335",
+          "prompt": "remain",
+          "answers": [
+            "overblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-336",
+          "prompt": "stay together",
+          "answers": [
+            "samenblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-337",
+          "prompt": "stay home",
+          "answers": [
+            "thuisblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-338",
+          "prompt": "fail to appear",
+          "hint": "be delayed",
+          "answers": [
+            "uitblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-339",
+          "prompt": "stay away",
+          "answers": [
+            "wegblijven"
+          ]
+        },
+        {
+          "id": "houden-woorden-340",
+          "prompt": "hit with a vehicle",
+          "hint": "drive up",
+          "answers": [
+            "aanrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-341",
+          "prompt": "drive off",
+          "hint": "take a driving test",
+          "answers": [
+            "afrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-342",
+          "prompt": "drive in",
+          "answers": [
+            "binnenrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-343",
+          "prompt": "keep driving",
+          "hint": "drive through",
+          "answers": [
+            "doorrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-344",
+          "prompt": "drive in",
+          "hint": "run in",
+          "answers": [
+            "inrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-345",
+          "prompt": "ride along",
+          "answers": [
+            "meerijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-346",
+          "prompt": "take a detour",
+          "answers": [
+            "omrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-347",
+          "prompt": "drive up",
+          "hint": "use up",
+          "answers": [
+            "oprijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-348",
+          "prompt": "run over",
+          "answers": [
+            "overrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-349",
+          "prompt": "drive around",
+          "answers": [
+            "rondrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-350",
+          "prompt": "drive back",
+          "answers": [
+            "terugrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-351",
+          "prompt": "drive out",
+          "hint": "complete a race",
+          "answers": [
+            "uitrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-352",
+          "prompt": "get stuck",
+          "hint": "jam",
+          "answers": [
+            "vastrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-353",
+          "prompt": "pull up",
+          "hint": "drive up",
+          "answers": [
+            "voorrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-354",
+          "prompt": "drive away",
+          "answers": [
+            "wegrijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-355",
+          "prompt": "fly at",
+          "hint": "approach by air",
+          "answers": [
+            "aanvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-356",
+          "prompt": "fly in",
+          "answers": [
+            "binnenvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-357",
+          "prompt": "fly on",
+          "answers": [
+            "doorvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-358",
+          "prompt": "fly in",
+          "hint": "bring by air",
+          "answers": [
+            "invliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-359",
+          "prompt": "fly along",
+          "answers": [
+            "meevliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-360",
+          "prompt": "fly up",
+          "hint": "flare up",
+          "answers": [
+            "opvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-361",
+          "prompt": "fly over",
+          "answers": [
+            "overvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-362",
+          "prompt": "fly around",
+          "answers": [
+            "rondvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-363",
+          "prompt": "fly back",
+          "answers": [
+            "terugvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-364",
+          "prompt": "fly out",
+          "hint": "leave the nest",
+          "answers": [
+            "uitvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-365",
+          "prompt": "fly away",
+          "answers": [
+            "wegvliegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-366",
+          "prompt": "take place",
+          "answers": [
+            "plaatsvinden"
+          ]
+        },
+        {
+          "id": "houden-woorden-367",
+          "prompt": "find again",
+          "answers": [
+            "terugvinden"
+          ]
+        },
+        {
+          "id": "houden-woorden-368",
+          "prompt": "invent",
+          "hint": "find out",
+          "answers": [
+            "uitvinden"
+          ]
+        },
+        {
+          "id": "houden-woorden-369",
+          "prompt": "rediscover",
+          "answers": [
+            "weervinden"
+          ]
+        },
+        {
+          "id": "houden-woorden-370",
+          "prompt": "help out",
+          "answers": [
+            "meehelpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-371",
+          "prompt": "help forward",
+          "answers": [
+            "vooruithelpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-372",
+          "prompt": "sleep through",
+          "hint": "oversleep",
+          "answers": [
+            "doorslapen"
+          ]
+        },
+        {
+          "id": "houden-woorden-373",
+          "prompt": "fall asleep",
+          "answers": [
+            "inslapen"
+          ]
+        },
+        {
+          "id": "houden-woorden-374",
+          "prompt": "sleep over/along",
+          "answers": [
+            "meeslapen"
+          ]
+        },
+        {
+          "id": "houden-woorden-375",
+          "prompt": "oversleep",
+          "answers": [
+            "overslapen"
+          ]
+        },
+        {
+          "id": "houden-woorden-376",
+          "prompt": "sleep in",
+          "answers": [
+            "uitslapen"
+          ]
+        },
+        {
+          "id": "houden-woorden-377",
+          "prompt": "attack",
+          "answers": [
+            "aanvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-378",
+          "prompt": "lose weight",
+          "hint": "drop off",
+          "answers": [
+            "afvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-379",
+          "prompt": "invade",
+          "hint": "drop in",
+          "answers": [
+            "binnenvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-380",
+          "prompt": "fall through",
+          "answers": [
+            "doorvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-381",
+          "prompt": "occur to",
+          "hint": "substitute, fall in",
+          "answers": [
+            "invallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-382",
+          "prompt": "be better than expected",
+          "answers": [
+            "meevallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-383",
+          "prompt": "fall down",
+          "answers": [
+            "neervallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-384",
+          "prompt": "fall over",
+          "answers": [
+            "omvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-385",
+          "prompt": "stand out",
+          "hint": "notice",
+          "answers": [
+            "opvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-386",
+          "prompt": "rob",
+          "hint": "overwhelm",
+          "answers": [
+            "overvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-387",
+          "prompt": "coincide",
+          "answers": [
+            "samenvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-388",
+          "prompt": "disappoint",
+          "answers": [
+            "tegenvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-389",
+          "prompt": "fall back",
+          "hint": "relapse",
+          "answers": [
+            "terugvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-390",
+          "prompt": "fail",
+          "hint": "drop out, lash out",
+          "answers": [
+            "uitvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-391",
+          "prompt": "fall apart",
+          "answers": [
+            "uiteenvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-392",
+          "prompt": "drop out",
+          "hint": "disappear",
+          "answers": [
+            "wegvallen"
+          ]
+        },
+        {
+          "id": "houden-woorden-393",
+          "prompt": "continue",
+          "hint": "arrest, keep on",
+          "answers": [
+            "aanhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-394",
+          "prompt": "keep off",
+          "hint": "dissuade",
+          "answers": [
+            "afhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-395",
+          "prompt": "keep track of",
+          "hint": "keep up",
+          "answers": [
+            "bijhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-396",
+          "prompt": "persist",
+          "answers": [
+            "doorhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-397",
+          "prompt": "contain",
+          "hint": "involve, withhold",
+          "answers": [
+            "inhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-398",
+          "prompt": "stop",
+          "hint": "hold up",
+          "answers": [
+            "ophouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-399",
+          "prompt": "have left",
+          "answers": [
+            "overhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-400",
+          "prompt": "stop",
+          "hint": "hold back",
+          "answers": [
+            "tegenhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-401",
+          "prompt": "hold back",
+          "answers": [
+            "terughouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-402",
+          "prompt": "endure",
+          "answers": [
+            "uithouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-403",
+          "prompt": "hold on to",
+          "answers": [
+            "vasthouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-404",
+          "prompt": "present",
+          "hint": "pretend",
+          "answers": [
+            "voorhouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-405",
+          "prompt": "keep away",
+          "answers": [
+            "weghouden"
+          ]
+        },
+        {
+          "id": "houden-woorden-406",
+          "prompt": "be on",
+          "hint": "appeal to",
+          "answers": [
+            "aanstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-407",
+          "prompt": "give up",
+          "hint": "hand over",
+          "answers": [
+            "afstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-408",
+          "prompt": "assist",
+          "answers": [
+            "bijstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-409",
+          "prompt": "stand inside",
+          "answers": [
+            "binnenstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-410",
+          "prompt": "endure",
+          "answers": [
+            "doorstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-411",
+          "prompt": "guarantee",
+          "hint": "be responsible",
+          "answers": [
+            "instaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-412",
+          "prompt": "be ready",
+          "answers": [
+            "klaarstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-413",
+          "prompt": "stand up",
+          "hint": "get up",
+          "answers": [
+            "opstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-414",
+          "prompt": "be open to",
+          "answers": [
+            "openstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-415",
+          "prompt": "stand still",
+          "hint": "reflect on",
+          "answers": [
+            "stilstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-416",
+          "prompt": "displease",
+          "hint": "oppose",
+          "answers": [
+            "tegenstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-417",
+          "prompt": "stand trial",
+          "answers": [
+            "terechtstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-418",
+          "prompt": "allow",
+          "answers": [
+            "toestaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-419",
+          "prompt": "be switched off",
+          "hint": "endure",
+          "answers": [
+            "uitstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-420",
+          "prompt": "be certain",
+          "hint": "be fixed",
+          "answers": [
+            "vaststaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-421",
+          "prompt": "advocate",
+          "hint": "be ahead",
+          "answers": [
+            "voorstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-422",
+          "prompt": "stand in the way",
+          "answers": [
+            "wegstaan"
+          ]
+        },
+        {
+          "id": "houden-woorden-423",
+          "prompt": "be after",
+          "hint": "pursue",
+          "answers": [
+            "achterzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-424",
+          "prompt": "be in",
+          "hint": "worry",
+          "answers": [
+            "inzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-425",
+          "prompt": "sit ready",
+          "answers": [
+            "klaarzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-426",
+          "prompt": "go well",
+          "answers": [
+            "meezitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-427",
+          "prompt": "be on",
+          "hint": "wear out",
+          "answers": [
+            "opzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-428",
+          "prompt": "sit still",
+          "answers": [
+            "stilzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-429",
+          "prompt": "go badly",
+          "answers": [
+            "tegenzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-430",
+          "prompt": "sit out",
+          "hint": "serve",
+          "answers": [
+            "uitzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-431",
+          "prompt": "be stuck",
+          "answers": [
+            "vastzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-432",
+          "prompt": "chair",
+          "hint": "preside",
+          "answers": [
+            "voorzitten"
+          ]
+        },
+        {
+          "id": "houden-woorden-433",
+          "prompt": "be behind",
+          "answers": [
+            "achterliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-434",
+          "prompt": "be alongside",
+          "answers": [
+            "bijliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-435",
+          "prompt": "be ready",
+          "answers": [
+            "klaarliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-436",
+          "prompt": "lie open",
+          "answers": [
+            "openliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-437",
+          "prompt": "be in conflict",
+          "answers": [
+            "overhoopliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-438",
+          "prompt": "be before",
+          "hint": "lie ahead",
+          "answers": [
+            "voorliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-439",
+          "prompt": "be fixed",
+          "hint": "be stuck",
+          "answers": [
+            "vastliggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-440",
+          "prompt": "support",
+          "hint": "adhere to",
+          "answers": [
+            "aanhangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-441",
+          "prompt": "depend on",
+          "hint": "hang down",
+          "answers": [
+            "afhangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-442",
+          "prompt": "hang up",
+          "answers": [
+            "ophangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-443",
+          "prompt": "lean over",
+          "hint": "overhang",
+          "answers": [
+            "overhangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-444",
+          "prompt": "be connected",
+          "answers": [
+            "samenhangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-445",
+          "prompt": "hang out",
+          "hint": "act like",
+          "answers": [
+            "uithangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-446",
+          "prompt": "be attached",
+          "answers": [
+            "vasthangen"
+          ]
+        },
+        {
+          "id": "houden-woorden-447",
+          "prompt": "know about",
+          "answers": [
+            "afweten"
+          ]
+        },
+        {
+          "id": "houden-woorden-448",
+          "prompt": "know about too",
+          "answers": [
+            "meeweten"
+          ]
+        },
+        {
+          "id": "houden-woorden-449",
+          "prompt": "announce formally",
+          "answers": [
+            "aanzeggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-450",
+          "prompt": "cancel",
+          "answers": [
+            "afzeggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-451",
+          "prompt": "repeat",
+          "answers": [
+            "nazeggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-452",
+          "prompt": "cancel",
+          "hint": "recite, quit",
+          "answers": [
+            "opzeggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-453",
+          "prompt": "promise",
+          "answers": [
+            "toezeggen"
+          ]
+        },
+        {
+          "id": "houden-woorden-454",
+          "prompt": "apply for",
+          "hint": "request",
+          "answers": [
+            "aanvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-455",
+          "prompt": "wonder",
+          "answers": [
+            "afvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-456",
+          "prompt": "ask further",
+          "answers": [
+            "doorvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-457",
+          "prompt": "check by asking",
+          "answers": [
+            "navragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-458",
+          "prompt": "request",
+          "hint": "retrieve",
+          "answers": [
+            "opvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-459",
+          "prompt": "ask around",
+          "answers": [
+            "rondvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-460",
+          "prompt": "ask back",
+          "hint": "reclaim",
+          "answers": [
+            "terugvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-461",
+          "prompt": "question thoroughly",
+          "answers": [
+            "uitvragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-462",
+          "prompt": "look at",
+          "hint": "face",
+          "answers": [
+            "aankijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-463",
+          "prompt": "copy",
+          "hint": "watch to the end",
+          "answers": [
+            "afkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-464",
+          "prompt": "look inside",
+          "answers": [
+            "binnenkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-465",
+          "prompt": "look through",
+          "hint": "keep watching",
+          "answers": [
+            "doorkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-466",
+          "prompt": "watch along",
+          "answers": [
+            "meekijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-467",
+          "prompt": "check",
+          "hint": "look after",
+          "answers": [
+            "nakijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-468",
+          "prompt": "look back",
+          "hint": "care for",
+          "answers": [
+            "omkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-469",
+          "prompt": "look up",
+          "hint": "admire",
+          "answers": [
+            "opkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-470",
+          "prompt": "look around",
+          "answers": [
+            "rondkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-471",
+          "prompt": "look back",
+          "answers": [
+            "terugkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-472",
+          "prompt": "watch",
+          "answers": [
+            "toekijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-473",
+          "prompt": "watch out",
+          "hint": "look forward to",
+          "answers": [
+            "uitkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-474",
+          "prompt": "look ahead",
+          "answers": [
+            "vooruitkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-475",
+          "prompt": "look away",
+          "answers": [
+            "wegkijken"
+          ]
+        },
+        {
+          "id": "houden-woorden-476",
+          "prompt": "be there",
+          "hint": "be involved",
+          "answers": [
+            "erbij zijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-477",
+          "prompt": "be out",
+          "hint": "have figured it out",
+          "answers": [
+            "eruit zijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-478",
+          "prompt": "be back",
+          "answers": [
+            "terug zijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-479",
+          "prompt": "be away",
+          "answers": [
+            "weg zijn"
+          ]
+        },
+        {
+          "id": "houden-woorden-480",
+          "prompt": "be wearing",
+          "hint": "have switched on",
+          "answers": [
+            "aanhebben"
+          ]
+        },
+        {
+          "id": "houden-woorden-481",
+          "prompt": "realise",
+          "hint": "see through",
+          "answers": [
+            "doorhebben"
+          ]
+        },
+        {
+          "id": "houden-woorden-482",
+          "prompt": "have with you",
+          "hint": "be lucky",
+          "answers": [
+            "meehebben"
+          ]
+        },
+        {
+          "id": "houden-woorden-483",
+          "prompt": "have left",
+          "hint": "be willing to sacrifice",
+          "answers": [
+            "overhebben"
+          ]
+        },
+        {
+          "id": "houden-woorden-484",
+          "prompt": "intend",
+          "hint": "have in mind",
+          "answers": [
+            "voorhebben"
+          ]
+        },
+        {
+          "id": "houden-woorden-485",
+          "prompt": "be able to handle",
+          "answers": [
+            "aankunnen"
+          ]
+        },
+        {
+          "id": "houden-woorden-486",
+          "prompt": "be able to come along",
+          "answers": [
+            "meekunnen"
+          ]
+        },
+        {
+          "id": "houden-woorden-487",
+          "prompt": "announce",
+          "hint": "invoke",
+          "answers": [
+            "afroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-488",
+          "prompt": "call in",
+          "answers": [
+            "binnenroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-489",
+          "prompt": "announce",
+          "hint": "broadcast",
+          "answers": [
+            "omroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-490",
+          "prompt": "call up",
+          "hint": "summon",
+          "answers": [
+            "oproepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-491",
+          "prompt": "call out to",
+          "answers": [
+            "toeroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-492",
+          "prompt": "exclaim",
+          "hint": "proclaim",
+          "answers": [
+            "uitroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-493",
+          "prompt": "call back",
+          "hint": "recall",
+          "answers": [
+            "terugroepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-494",
+          "prompt": "move along",
+          "hint": "adapt",
+          "answers": [
+            "meebewegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-495",
+          "prompt": "move forward",
+          "answers": [
+            "voortbewegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-496",
+          "prompt": "offer",
+          "answers": [
+            "aanbieden"
+          ]
+        },
+        {
+          "id": "houden-woorden-497",
+          "prompt": "bid up",
+          "hint": "compete",
+          "answers": [
+            "opbieden"
+          ]
+        },
+        {
+          "id": "houden-woorden-498",
+          "prompt": "make a counterbid",
+          "answers": [
+            "tegenbieden"
+          ]
+        },
+        {
+          "id": "houden-woorden-499",
+          "prompt": "put forward",
+          "hint": "carry in",
+          "answers": [
+            "aandragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-500",
+          "prompt": "pay",
+          "hint": "hand over, wear out",
+          "answers": [
+            "afdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-501",
+          "prompt": "contribute",
+          "answers": [
+            "bijdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-502",
+          "prompt": "carry along",
+          "answers": [
+            "meedragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-503",
+          "prompt": "assign",
+          "hint": "dedicate",
+          "answers": [
+            "opdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-504",
+          "prompt": "transfer",
+          "answers": [
+            "overdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-505",
+          "prompt": "promote",
+          "hint": "carry out",
+          "answers": [
+            "uitdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-506",
+          "prompt": "nominate",
+          "hint": "recite",
+          "answers": [
+            "voordragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-507",
+          "prompt": "carry away",
+          "answers": [
+            "wegdragen"
+          ]
+        },
+        {
+          "id": "houden-woorden-508",
+          "prompt": "savour afterwards",
+          "answers": [
+            "nagenieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-509",
+          "prompt": "choose",
+          "hint": "select",
+          "answers": [
+            "uitkiezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-510",
+          "prompt": "resonate",
+          "hint": "be audible",
+          "answers": [
+            "doorklinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-511",
+          "prompt": "sound along",
+          "answers": [
+            "meeklinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-512",
+          "prompt": "reverberate",
+          "answers": [
+            "naklinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-513",
+          "prompt": "sound out",
+          "hint": "rise",
+          "answers": [
+            "opklinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-514",
+          "prompt": "get inside",
+          "hint": "receive",
+          "answers": [
+            "binnenkrijgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-515",
+          "prompt": "realise",
+          "hint": "get through",
+          "answers": [
+            "doorkrijgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-516",
+          "prompt": "receive",
+          "hint": "understand, take along",
+          "answers": [
+            "meekrijgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-517",
+          "prompt": "get back",
+          "answers": [
+            "terugkrijgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-518",
+          "prompt": "recommend",
+          "answers": [
+            "aanraden"
+          ]
+        },
+        {
+          "id": "houden-woorden-519",
+          "prompt": "advise against",
+          "answers": [
+            "afraden"
+          ]
+        },
+        {
+          "id": "houden-woorden-520",
+          "prompt": "separate",
+          "hint": "secrete",
+          "answers": [
+            "afscheiden"
+          ]
+        },
+        {
+          "id": "houden-woorden-521",
+          "prompt": "stop",
+          "hint": "excrete",
+          "answers": [
+            "uitscheiden"
+          ]
+        },
+        {
+          "id": "houden-woorden-522",
+          "prompt": "shine through",
+          "answers": [
+            "doorschijnen"
+          ]
+        },
+        {
+          "id": "houden-woorden-523",
+          "prompt": "connect",
+          "hint": "join",
+          "answers": [
+            "aansluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-524",
+          "prompt": "close",
+          "hint": "conclude, disconnect",
+          "answers": [
+            "afsluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-525",
+          "prompt": "lock in",
+          "answers": [
+            "binnensluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-526",
+          "prompt": "exclude",
+          "hint": "lock out",
+          "answers": [
+            "buitensluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-527",
+          "prompt": "enclose",
+          "hint": "include",
+          "answers": [
+            "insluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-528",
+          "prompt": "lock up",
+          "answers": [
+            "opsluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-529",
+          "prompt": "exclude",
+          "hint": "rule out",
+          "answers": [
+            "uitsluiten"
+          ]
+        },
+        {
+          "id": "houden-woorden-530",
+          "prompt": "cut into",
+          "hint": "raise a topic",
+          "answers": [
+            "aansnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-531",
+          "prompt": "cut off",
+          "answers": [
+            "afsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-532",
+          "prompt": "trim",
+          "answers": [
+            "bijsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-533",
+          "prompt": "cut through",
+          "answers": [
+            "doorsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-534",
+          "prompt": "incise",
+          "answers": [
+            "insnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-535",
+          "prompt": "slice up",
+          "hint": "boast",
+          "answers": [
+            "opsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-536",
+          "prompt": "cut out",
+          "answers": [
+            "uitsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-537",
+          "prompt": "pre-slice",
+          "hint": "carve",
+          "answers": [
+            "voorsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-538",
+          "prompt": "cut away",
+          "answers": [
+            "wegsnijden"
+          ]
+        },
+        {
+          "id": "houden-woorden-539",
+          "prompt": "address",
+          "hint": "appeal to",
+          "answers": [
+            "aanspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-540",
+          "prompt": "arrange",
+          "hint": "agree",
+          "answers": [
+            "afspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-541",
+          "prompt": "discuss thoroughly",
+          "answers": [
+            "doorspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-542",
+          "prompt": "record",
+          "hint": "speak into",
+          "answers": [
+            "inspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-543",
+          "prompt": "have a say",
+          "answers": [
+            "meespreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-544",
+          "prompt": "contradict",
+          "answers": [
+            "tegenspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-545",
+          "prompt": "address",
+          "hint": "speak to",
+          "answers": [
+            "toespreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-546",
+          "prompt": "pronounce",
+          "hint": "express",
+          "answers": [
+            "uitspreken"
+          ]
+        },
+        {
+          "id": "houden-woorden-547",
+          "prompt": "die off",
+          "answers": [
+            "afsterven"
+          ]
+        },
+        {
+          "id": "houden-woorden-548",
+          "prompt": "become extinct",
+          "answers": [
+            "uitsterven"
+          ]
+        },
+        {
+          "id": "houden-woorden-549",
+          "prompt": "fade away",
+          "answers": [
+            "wegsterven"
+          ]
+        },
+        {
+          "id": "houden-woorden-550",
+          "prompt": "put on",
+          "hint": "attract",
+          "answers": [
+            "aantrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-551",
+          "prompt": "subtract",
+          "hint": "pull off",
+          "answers": [
+            "aftrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-552",
+          "prompt": "pull/enter inside",
+          "answers": [
+            "binnentrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-553",
+          "prompt": "pull through",
+          "hint": "continue",
+          "answers": [
+            "doortrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-554",
+          "prompt": "withdraw",
+          "hint": "move in",
+          "answers": [
+            "intrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-555",
+          "prompt": "drag along",
+          "answers": [
+            "meetrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-556",
+          "prompt": "check",
+          "hint": "trace",
+          "answers": [
+            "natrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-557",
+          "prompt": "pull around",
+          "hint": "encircle",
+          "answers": [
+            "omtrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-558",
+          "prompt": "pull up",
+          "hint": "accelerate, associate",
+          "answers": [
+            "optrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-559",
+          "prompt": "pull over",
+          "hint": "cover, redraw",
+          "answers": [
+            "overtrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-560",
+          "prompt": "contract",
+          "hint": "bring together",
+          "answers": [
+            "samentrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-561",
+          "prompt": "withdraw",
+          "answers": [
+            "terugtrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-562",
+          "prompt": "take off",
+          "hint": "pull out",
+          "answers": [
+            "uittrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-563",
+          "prompt": "move onward",
+          "answers": [
+            "voorttrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-564",
+          "prompt": "leave",
+          "hint": "pull away",
+          "answers": [
+            "wegtrekken"
+          ]
+        },
+        {
+          "id": "houden-woorden-565",
+          "prompt": "collide with",
+          "hint": "sail toward",
+          "answers": [
+            "aanvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-566",
+          "prompt": "depart by boat",
+          "answers": [
+            "afvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-567",
+          "prompt": "sail in",
+          "answers": [
+            "binnenvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-568",
+          "prompt": "sail on",
+          "answers": [
+            "doorvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-569",
+          "prompt": "sail into",
+          "answers": [
+            "invaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-570",
+          "prompt": "sail along",
+          "answers": [
+            "meevaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-571",
+          "prompt": "sail around",
+          "answers": [
+            "omvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-572",
+          "prompt": "sail across",
+          "hint": "run over by boat",
+          "answers": [
+            "overvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-573",
+          "prompt": "sail around",
+          "answers": [
+            "rondvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-574",
+          "prompt": "sail back",
+          "answers": [
+            "terugvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-575",
+          "prompt": "sail out",
+          "answers": [
+            "uitvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-576",
+          "prompt": "sail away",
+          "answers": [
+            "wegvaren"
+          ]
+        },
+        {
+          "id": "houden-woorden-577",
+          "prompt": "freeze onto",
+          "answers": [
+            "aanvriezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-578",
+          "prompt": "freeze shut",
+          "answers": [
+            "dichtvriezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-579",
+          "prompt": "freeze",
+          "hint": "freeze in",
+          "answers": [
+            "invriezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-580",
+          "prompt": "freeze solid/stuck",
+          "answers": [
+            "vastvriezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-581",
+          "prompt": "freeze away",
+          "answers": [
+            "wegvriezen"
+          ]
+        },
+        {
+          "id": "houden-woorden-582",
+          "prompt": "weigh",
+          "hint": "consider",
+          "answers": [
+            "afwegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-583",
+          "prompt": "weigh in",
+          "answers": [
+            "inwegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-584",
+          "prompt": "weigh in",
+          "hint": "count",
+          "answers": [
+            "meewegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-585",
+          "prompt": "outweigh",
+          "hint": "balance",
+          "answers": [
+            "opwegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-586",
+          "prompt": "point out",
+          "hint": "appoint",
+          "answers": [
+            "aanwijzen"
+          ]
+        },
+        {
+          "id": "houden-woorden-587",
+          "prompt": "reject",
+          "answers": [
+            "afwijzen"
+          ]
+        },
+        {
+          "id": "houden-woorden-588",
+          "prompt": "allocate",
+          "hint": "assign",
+          "answers": [
+            "toewijzen"
+          ]
+        },
+        {
+          "id": "houden-woorden-589",
+          "prompt": "show",
+          "hint": "expel",
+          "answers": [
+            "uitwijzen"
+          ]
+        },
+        {
+          "id": "houden-woorden-590",
+          "prompt": "point ahead",
+          "answers": [
+            "vooruitwijzen"
+          ]
+        },
+        {
+          "id": "houden-woorden-591",
+          "prompt": "warm up singing",
+          "hint": "sing in",
+          "answers": [
+            "inzingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-592",
+          "prompt": "sing along",
+          "answers": [
+            "meezingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-593",
+          "prompt": "sing after",
+          "hint": "echo",
+          "answers": [
+            "nazingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-594",
+          "prompt": "sing to",
+          "answers": [
+            "toezingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-595",
+          "prompt": "finish singing",
+          "hint": "sing out",
+          "answers": [
+            "uitzingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-596",
+          "prompt": "sing for someone",
+          "answers": [
+            "voorzingen"
+          ]
+        },
+        {
+          "id": "houden-woorden-597",
+          "prompt": "deliver to the home",
+          "answers": [
+            "thuisbezorgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-598",
+          "prompt": "deliver around",
+          "answers": [
+            "rondbezorgen"
+          ]
+        },
+        {
+          "id": "houden-woorden-599",
+          "prompt": "put on quickly",
+          "hint": "shoot at, approach",
+          "answers": [
+            "aanschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-600",
+          "prompt": "shoot down",
+          "hint": "fire",
+          "answers": [
+            "afschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-601",
+          "prompt": "rush/shoot inside",
+          "answers": [
+            "binnenschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-602",
+          "prompt": "shoot through",
+          "hint": "go too far",
+          "answers": [
+            "doorschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-603",
+          "prompt": "shoot in",
+          "hint": "practise",
+          "answers": [
+            "inschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-604",
+          "prompt": "shoot along",
+          "answers": [
+            "meeschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-605",
+          "prompt": "shoot down",
+          "answers": [
+            "neerschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-606",
+          "prompt": "hurry up",
+          "hint": "make progress",
+          "answers": [
+            "opschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-607",
+          "prompt": "remain",
+          "hint": "shoot over",
+          "answers": [
+            "overschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-608",
+          "prompt": "hit the target",
+          "answers": [
+            "raakschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-609",
+          "prompt": "rush over",
+          "hint": "shoot toward",
+          "answers": [
+            "toeschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-610",
+          "prompt": "shoot out",
+          "hint": "slip",
+          "answers": [
+            "uitschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-611",
+          "prompt": "advance money",
+          "hint": "shoot ahead",
+          "answers": [
+            "voorschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-612",
+          "prompt": "shoot away",
+          "answers": [
+            "wegschieten"
+          ]
+        },
+        {
+          "id": "houden-woorden-613",
+          "prompt": "squeeze shut",
+          "answers": [
+            "dichtknijpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-614",
+          "prompt": "crush",
+          "answers": [
+            "fijnknijpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-615",
+          "prompt": "squeeze together",
+          "answers": [
+            "samenknijpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-616",
+          "prompt": "squeeze out",
+          "hint": "exploit",
+          "answers": [
+            "uitknijpen"
+          ]
+        },
+        {
+          "id": "houden-woorden-617",
+          "prompt": "tow away",
+          "answers": [
+            "afslepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-618",
+          "prompt": "drag in",
+          "hint": "secure",
+          "answers": [
+            "binnenslepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-619",
+          "prompt": "drag along",
+          "answers": [
+            "meeslepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-620",
+          "prompt": "drag on",
+          "answers": [
+            "voortslepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-621",
+          "prompt": "drag away",
+          "answers": [
+            "wegslepen"
+          ]
+        },
+        {
+          "id": "houden-woorden-622",
+          "prompt": "attach",
+          "hint": "add",
+          "answers": [
+            "bijvoegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-623",
+          "prompt": "insert",
+          "hint": "merge into traffic",
+          "answers": [
+            "invoegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-624",
+          "prompt": "merge",
+          "answers": [
+            "samenvoegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-625",
+          "prompt": "add",
+          "answers": [
+            "toevoegen"
+          ]
+        },
+        {
+          "id": "houden-woorden-626",
+          "prompt": "listen to",
+          "answers": [
+            "aanhoren"
+          ]
+        },
+        {
+          "id": "houden-woorden-627",
+          "prompt": "interrogate",
+          "hint": "test orally",
+          "answers": [
+            "afhoren"
+          ]
+        },
+        {
+          "id": "houden-woorden-628",
+          "prompt": "belong with",
+          "answers": [
+            "bijhoren"
+          ]
+        },
+        {
+          "id": "houden-woorden-629",
+          "prompt": "belong",
+          "answers": [
+            "thuishoren"
+          ]
+        },
+        {
+          "id": "houden-woorden-630",
+          "prompt": "rent exclusively",
+          "answers": [
+            "afhuren"
+          ]
+        },
+        {
+          "id": "houden-woorden-631",
+          "prompt": "rent extra",
+          "answers": [
+            "bijhuren"
+          ]
+        },
+        {
+          "id": "houden-woorden-632",
+          "prompt": "hire",
+          "answers": [
+            "inhuren"
+          ]
+        },
+        {
+          "id": "houden-woorden-633",
+          "prompt": "sublet",
+          "answers": [
+            "onderhuren"
+          ]
+        },
+        {
+          "id": "houden-woorden-634",
+          "prompt": "begin",
+          "hint": "tackle",
+          "answers": [
+            "aanvatten"
+          ]
+        },
+        {
+          "id": "houden-woorden-635",
+          "prompt": "interpret",
+          "hint": "pick up",
+          "answers": [
+            "opvatten"
+          ]
+        },
+        {
+          "id": "houden-woorden-636",
+          "prompt": "summarise",
+          "answers": [
+            "samenvatten"
+          ]
+        },
+        {
+          "id": "houden-woorden-637",
+          "prompt": "descend",
+          "hint": "sag, drop by",
+          "answers": [
+            "afzakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-638",
+          "prompt": "collapse",
+          "hint": "continue drinking",
+          "answers": [
+            "doorzakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-639",
+          "prompt": "collapse",
+          "hint": "subside",
+          "answers": [
+            "inzakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-640",
+          "prompt": "sag",
+          "hint": "sink down",
+          "answers": [
+            "uitzakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-641",
+          "prompt": "sink away",
+          "hint": "fade",
+          "answers": [
+            "wegzakken"
+          ]
+        },
+        {
+          "id": "houden-woorden-642",
+          "prompt": "hurl away",
+          "answers": [
+            "wegslingeren"
+          ]
+        },
+        {
+          "id": "houden-woorden-643",
+          "prompt": "quote",
+          "hint": "tighten, bring up",
+          "answers": [
+            "aanhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-644",
+          "prompt": "pick up",
+          "hint": "remove",
+          "answers": [
+            "afhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-645",
+          "prompt": "bring in",
+          "hint": "secure",
+          "answers": [
+            "binnenhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-646",
+          "prompt": "cross out",
+          "hint": "pull through",
+          "answers": [
+            "doorhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-647",
+          "prompt": "overtake",
+          "hint": "catch up, make up",
+          "answers": [
+            "inhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-648",
+          "prompt": "bring down",
+          "answers": [
+            "neerhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-649",
+          "prompt": "pull down",
+          "hint": "persuade",
+          "answers": [
+            "omhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-650",
+          "prompt": "pick up",
+          "hint": "retrieve",
+          "answers": [
+            "ophalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-651",
+          "prompt": "persuade",
+          "hint": "pull over",
+          "answers": [
+            "overhalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-652",
+          "prompt": "bring back",
+          "hint": "recall",
+          "answers": [
+            "terughalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-653",
+          "prompt": "lash out",
+          "hint": "pull out",
+          "answers": [
+            "uithalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-654",
+          "prompt": "remove",
+          "hint": "take away",
+          "answers": [
+            "weghalen"
+          ]
+        },
+        {
+          "id": "houden-woorden-655",
+          "prompt": "flare up",
+          "answers": [
+            "oplaaien"
+          ]
+        },
+        {
+          "id": "houden-woorden-656",
+          "prompt": "chew thoroughly",
+          "hint": "dwell on",
+          "answers": [
+            "doorkauwen"
+          ]
+        },
+        {
+          "id": "houden-woorden-657",
+          "prompt": "chew finely",
+          "answers": [
+            "fijnkauwen"
+          ]
+        },
+        {
+          "id": "houden-woorden-658",
+          "prompt": "collide with",
+          "hint": "run up against",
+          "answers": [
+            "opbotsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-659",
+          "prompt": "collide",
+          "answers": [
+            "samenbotsen"
+          ]
+        },
+        {
+          "id": "houden-woorden-660",
+          "prompt": "finish with carpentry",
+          "hint": "board off",
+          "answers": [
+            "aftimmeren"
+          ]
+        },
+        {
+          "id": "houden-woorden-661",
+          "prompt": "board up",
+          "answers": [
+            "dichttimmeren"
+          ]
+        },
+        {
+          "id": "houden-woorden-662",
+          "prompt": "nail down",
+          "answers": [
+            "vasttimmeren"
+          ]
+        },
+        {
+          "id": "houden-woorden-663",
+          "prompt": "bend away",
+          "hint": "deflect",
+          "answers": [
+            "afbuigen"
+          ]
+        },
+        {
+          "id": "houden-woorden-664",
+          "prompt": "bend through",
+          "hint": "sag",
+          "answers": [
+            "doorbuigen"
+          ]
+        },
+        {
+          "id": "houden-woorden-665",
+          "prompt": "bend along",
+          "hint": "adapt",
+          "answers": [
+            "meebuigen"
+          ]
+        },
+        {
+          "id": "houden-woorden-666",
+          "prompt": "bend",
+          "hint": "redirect",
+          "answers": [
+            "ombuigen"
+          ]
+        },
+        {
+          "id": "houden-woorden-667",
+          "prompt": "bend back",
+          "answers": [
+            "terugbuigen"
+          ]
+        },
+        {
+          "id": "houden-woorden-668",
+          "prompt": "sink",
+          "hint": "lower",
+          "answers": [
+            "afzinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-669",
+          "prompt": "sink further",
+          "answers": [
+            "doorzinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-670",
+          "prompt": "sink away",
+          "answers": [
+            "wegzinken"
+          ]
+        },
+        {
+          "id": "houden-woorden-671",
+          "prompt": "cultivate",
+          "hint": "develop",
+          "answers": [
+            "aankweken"
+          ]
+        },
+        {
+          "id": "houden-woorden-672",
+          "prompt": "raise",
+          "hint": "cultivate",
+          "answers": [
+            "opkweken"
+          ]
+        },
+        {
+          "id": "houden-woorden-673",
+          "prompt": "lean on",
+          "answers": [
+            "opsteunen"
+          ]
+        },
+        {
+          "id": "houden-woorden-674",
+          "prompt": "throw shut",
+          "hint": "fill in",
+          "answers": [
+            "dichtgooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-675",
+          "prompt": "knock over",
+          "hint": "overhaul",
+          "answers": [
+            "omgooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-676",
+          "prompt": "throw up",
+          "hint": "raise",
+          "answers": [
+            "opgooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-677",
+          "prompt": "throw across",
+          "answers": [
+            "overgooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-678",
+          "prompt": "throw together",
+          "hint": "pool",
+          "answers": [
+            "samengooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-679",
+          "prompt": "throw out",
+          "hint": "cast out",
+          "answers": [
+            "uitgooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-680",
+          "prompt": "throw away",
+          "answers": [
+            "weggooien"
+          ]
+        },
+        {
+          "id": "houden-woorden-681",
+          "prompt": "touch",
+          "answers": [
+            "aanraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-682",
+          "prompt": "get rid of",
+          "hint": "finish",
+          "answers": [
+            "afgeraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-683",
+          "prompt": "lose",
+          "answers": [
+            "kwijtraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-684",
+          "prompt": "come loose",
+          "answers": [
+            "losraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-685",
+          "prompt": "manage to come along",
+          "answers": [
+            "meegeraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-686",
+          "prompt": "run out",
+          "answers": [
+            "opraken"
+          ]
+        },
+        {
+          "id": "houden-woorden-687",
+          "prompt": "get lost",
+          "answers": [
+            "zoekraken"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-1",
+          "prompt": "to view",
+          "hint": "to look at",
+          "answers": [
+            "bekijken",
+            "bekijk",
+            "bekijkt",
+            "bekeek",
+            "bekeken",
+            "heeft bekeken"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-2",
+          "prompt": "to tow",
+          "hint": "to pull",
+          "answers": [
+            "slepen",
+            "sleep",
+            "sleept",
+            "sleepte",
+            "sleepten",
+            "heeft gesleept"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-3",
+          "prompt": "to drag",
+          "answers": [
+            "slepen",
+            "sleep",
+            "sleept",
+            "sleepte",
+            "sleepten",
+            "heeft gesleept"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-4",
+          "prompt": "to expire",
+          "hint": "to lapse / to progress",
+          "answers": [
+            "verlopen",
+            "verloop",
+            "verloopt",
+            "verliep",
+            "verliepen",
+            "is verlopen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-5",
+          "prompt": "to bypass",
+          "hint": "to associate with",
+          "answers": [
+            "omgaan",
+            "ga om",
+            "gaat om",
+            "ging om",
+            "gingen om",
+            "is omgegaan"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-6",
+          "prompt": "to undergo",
+          "hint": "to experience",
+          "answers": [
+            "ondergaan",
+            "onderga",
+            "ondergaat",
+            "onderging",
+            "ondergingen",
+            "heeft ondergaan"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-7",
+          "prompt": "to take place",
+          "answers": [
+            "plaatsvinden",
+            "vind plaats",
+            "vindt plaats",
+            "vond plaats",
+            "vonden plaats",
+            "heeft plaatsgevonden"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-8",
+          "prompt": "to add",
+          "answers": [
+            "toevoegen",
+            "voeg toe",
+            "voegt toe",
+            "voegde toe",
+            "voegden toe",
+            "heeft toegevoegd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-9",
+          "prompt": "to join",
+          "answers": [
+            "zich voegen",
+            "voeg me/je",
+            "voegt zich",
+            "voegde zich",
+            "voegden zich",
+            "heeft zich gevoegd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-10",
+          "prompt": "to expect",
+          "answers": [
+            "verwachten",
+            "verwacht",
+            "verwacht",
+            "verwachtte",
+            "verwachtten",
+            "heeft verwacht"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-11",
+          "prompt": "to hear",
+          "hint": "to perceive",
+          "answers": [
+            "horen",
+            "hoor",
+            "hoort",
+            "hoorde",
+            "hoorden",
+            "heeft gehoord"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-12",
+          "prompt": "to belong to",
+          "answers": [
+            "horen",
+            "hoor",
+            "hoort",
+            "hoorde",
+            "hoorden",
+            "heeft gehoord"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-13",
+          "prompt": "to rent",
+          "answers": [
+            "huren",
+            "huur",
+            "huurt",
+            "huurde",
+            "huurden",
+            "heeft gehuurd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-14",
+          "prompt": "to obey",
+          "answers": [
+            "gehoorzamen",
+            "gehoorzaam",
+            "gehoorzaamt",
+            "gehoorzaamde",
+            "gehoorzaamden",
+            "heeft gehoorzaamd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-15",
+          "prompt": "to grasp",
+          "hint": "to comprehend",
+          "answers": [
+            "vatten",
+            "vat",
+            "vat",
+            "vatte",
+            "vatten",
+            "heeft gevat"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-16",
+          "prompt": "to contain",
+          "answers": [
+            "bevatten",
+            "bevat",
+            "bevat",
+            "bevatte",
+            "bevatten",
+            "heeft bevat"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-17",
+          "prompt": "to be",
+          "answers": [
+            "zijn",
+            "ben",
+            "is",
+            "was",
+            "waren",
+            "is geweest"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-18",
+          "prompt": "to have",
+          "answers": [
+            "hebben",
+            "heb",
+            "heeft",
+            "had",
+            "hadden",
+            "heeft gehad"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-19",
+          "prompt": "to sink",
+          "hint": "to fail an exam / to fall",
+          "answers": [
+            "zakken",
+            "zak",
+            "zakt",
+            "zakte",
+            "zakten",
+            "is gezakt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-20",
+          "prompt": "to fling",
+          "answers": [
+            "slingeren",
+            "slinger",
+            "slingert",
+            "slingerde",
+            "slingerden",
+            "heeft geslingerd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-21",
+          "prompt": "to disturb",
+          "answers": [
+            "verstoren",
+            "verstoor",
+            "verstoort",
+            "verstoorde",
+            "verstoorden",
+            "heeft verstoord"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-22",
+          "prompt": "to suspect",
+          "answers": [
+            "vermoeden",
+            "vermoed",
+            "vermoedt",
+            "vermoedde",
+            "vermoedden",
+            "heeft vermoed"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-23",
+          "prompt": "to fetch",
+          "answers": [
+            "halen",
+            "haal",
+            "haalt",
+            "haalde",
+            "haalden",
+            "heeft gehaald"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-24",
+          "prompt": "to blaze",
+          "answers": [
+            "laaien",
+            "laai",
+            "laait",
+            "laaide",
+            "laaiden",
+            "heeft gelaaid"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-25",
+          "prompt": "to chew",
+          "answers": [
+            "kauwen",
+            "kauw",
+            "kauwt",
+            "kauwde",
+            "kauwden",
+            "heeft gekauwd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-26",
+          "prompt": "to save",
+          "hint": "to rescue",
+          "answers": [
+            "redden",
+            "red",
+            "redt",
+            "redde",
+            "redden",
+            "heeft gered"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-27",
+          "prompt": "to conceal oneself",
+          "hint": "to hide",
+          "answers": [
+            "zich verschuilen",
+            "verschuil me/je",
+            "verschuilt zich",
+            "verschuilde zich",
+            "verschuilden zich",
+            "heeft zich verschuild"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-28",
+          "prompt": "to organise",
+          "hint": "to arrange",
+          "answers": [
+            "organiseren",
+            "organiseer",
+            "organiseert",
+            "organiseerde",
+            "organiseerden",
+            "heeft georganiseerd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-29",
+          "prompt": "to destroy",
+          "answers": [
+            "verwoesten",
+            "verwoest",
+            "verwoest",
+            "verwoestte",
+            "verwoestten",
+            "heeft verwoest"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-30",
+          "prompt": "to collide",
+          "answers": [
+            "botsen",
+            "bots",
+            "botst",
+            "botste",
+            "botsten",
+            "is gebotst"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-31",
+          "prompt": "to approve",
+          "answers": [
+            "goedkeuren",
+            "keur goed",
+            "keurt goed",
+            "keurde goed",
+            "keurden goed",
+            "heeft goedgekeurd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-32",
+          "prompt": "to regard",
+          "hint": "to consider",
+          "answers": [
+            "beschouwen",
+            "beschouw",
+            "beschouwt",
+            "beschouwde",
+            "beschouwden",
+            "heeft beschouwd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-33",
+          "prompt": "to entertain",
+          "hint": "to amuse",
+          "answers": [
+            "vermaken",
+            "vermaak",
+            "vermaakt",
+            "vermaakte",
+            "vermaakten",
+            "heeft vermaakt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-34",
+          "prompt": "to survive",
+          "answers": [
+            "overleven",
+            "overleef",
+            "overleeft",
+            "overleefde",
+            "overleefden",
+            "heeft overleefd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-35",
+          "prompt": "to dispute",
+          "hint": "to doubt",
+          "answers": [
+            "betwijfelen",
+            "betwijfel",
+            "betwijfelt",
+            "betwijfelde",
+            "betwijfelden",
+            "heeft betwijfeld"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-36",
+          "prompt": "to lapse",
+          "answers": [
+            "vervallen",
+            "verval",
+            "vervalt",
+            "verviel",
+            "vervielen",
+            "is vervallen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-37",
+          "prompt": "to be missing",
+          "hint": "to be absent",
+          "answers": [
+            "ontbreken",
+            "ontbreek",
+            "ontbreekt",
+            "ontbrak",
+            "ontbraken",
+            "heeft ontbroken"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-38",
+          "prompt": "to miss",
+          "answers": [
+            "missen",
+            "mis",
+            "mist",
+            "miste",
+            "misten",
+            "heeft gemist"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-39",
+          "prompt": "to timber",
+          "hint": "to build with timber",
+          "answers": [
+            "timmeren",
+            "timmer",
+            "timmert",
+            "timmerde",
+            "timmerden",
+            "heeft getimmerd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-40",
+          "prompt": "to curve",
+          "hint": "to bend",
+          "answers": [
+            "buigen",
+            "buig",
+            "buigt",
+            "boog",
+            "bogen",
+            "heeft gebogen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-41",
+          "prompt": "to amount to",
+          "answers": [
+            "neerkomen op",
+            "kom neer op",
+            "komt neer op",
+            "kwam neer op",
+            "kwamen neer op",
+            "is neergekomen op"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-42",
+          "prompt": "to drop something",
+          "answers": [
+            "iets laten vallen",
+            "laat iets vallen",
+            "laat iets vallen",
+            "liet iets vallen",
+            "lieten iets vallen",
+            "heeft iets laten vallen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-43",
+          "prompt": "to sink",
+          "answers": [
+            "zinken",
+            "zink",
+            "zinkt",
+            "zonk",
+            "zonken",
+            "is gezonken"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-44",
+          "prompt": "to grow",
+          "hint": "to cultivate",
+          "answers": [
+            "kweken",
+            "kweek",
+            "kweekt",
+            "kweekte",
+            "kweekten",
+            "heeft gekweekt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-45",
+          "prompt": "to examine",
+          "answers": [
+            "onderzoeken",
+            "onderzoek",
+            "onderzoekt",
+            "onderzocht",
+            "onderzochten",
+            "heeft onderzocht"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-46",
+          "prompt": "to reach",
+          "answers": [
+            "bereiken",
+            "bereik",
+            "bereikt",
+            "bereikte",
+            "bereikten",
+            "heeft bereikt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-47",
+          "prompt": "to achieve",
+          "answers": [
+            "bereiken",
+            "bereik",
+            "bereikt",
+            "bereikte",
+            "bereikten",
+            "heeft bereikt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-48",
+          "prompt": "to prepare",
+          "answers": [
+            "voorbereiden",
+            "bereid voor",
+            "bereidt voor",
+            "bereidde voor",
+            "bereidden voor",
+            "heeft voorbereid"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-49",
+          "prompt": "to match",
+          "hint": "to correspond",
+          "answers": [
+            "overeenkomen",
+            "kom overeen",
+            "komt overeen",
+            "kwam overeen",
+            "kwamen overeen",
+            "is overeengekomen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-50",
+          "prompt": "to compare",
+          "answers": [
+            "vergelijken",
+            "vergelijk",
+            "vergelijkt",
+            "vergeleek",
+            "vergeleken",
+            "heeft vergeleken"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-51",
+          "prompt": "to owe",
+          "answers": [
+            "verschuldigd zijn",
+            "ben / wees verschuldigd",
+            "is verschuldigd",
+            "was verschuldigd",
+            "waren verschuldigd",
+            "is verschuldigd geweest"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-52",
+          "prompt": "to support",
+          "answers": [
+            "steunen",
+            "steun",
+            "steunt",
+            "steunde",
+            "steunden",
+            "heeft gesteund"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-53",
+          "prompt": "to recoil",
+          "answers": [
+            "terugdeinzen",
+            "deins terug",
+            "deinst terug",
+            "deinsde terug",
+            "deinsden terug",
+            "is teruggedeinsd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-54",
+          "prompt": "to insult",
+          "answers": [
+            "beledigen",
+            "beledig",
+            "beledigt",
+            "beledigde",
+            "beledigden",
+            "heeft beledigd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-55",
+          "prompt": "to display",
+          "hint": "to represent",
+          "answers": [
+            "weergeven",
+            "geef weer",
+            "geeft weer",
+            "gaf weer",
+            "gaven weer",
+            "heeft weergegeven"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-56",
+          "prompt": "to throw",
+          "answers": [
+            "gooien",
+            "gooi",
+            "gooit",
+            "gooide",
+            "gooiden",
+            "heeft gegooid"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-57",
+          "prompt": "to understand",
+          "answers": [
+            "begrijpen",
+            "begrijp",
+            "begrijpt",
+            "begreep",
+            "begrepen",
+            "heeft begrepen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-58",
+          "prompt": "to restore",
+          "hint": "repair, recover, heal",
+          "answers": [
+            "herstellen",
+            "herstel",
+            "herstelt",
+            "herstelde",
+            "herstelden",
+            "is/heeft hersteld"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-59",
+          "prompt": "to submit",
+          "hint": "to present",
+          "answers": [
+            "voorleggen",
+            "leg voor",
+            "legt voor",
+            "legde voor",
+            "legden voor",
+            "heeft voorgelegd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-60",
+          "prompt": "to disappear",
+          "answers": [
+            "verdwijnen",
+            "verdwijn",
+            "verdwijnt",
+            "verdween",
+            "verdwenen",
+            "is verdwenen"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-61",
+          "prompt": "to cancel",
+          "hint": "event",
+          "answers": [
+            "afgelasten",
+            "gelast af",
+            "gelast af",
+            "gelastte af",
+            "gelastten af",
+            "heeft afgelast"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-62",
+          "prompt": "to cancel",
+          "hint": "arrangement",
+          "answers": [
+            "annuleren",
+            "annuleer",
+            "annuleert",
+            "annuleerde",
+            "annuleerden",
+            "heeft geannuleerd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-63",
+          "prompt": "to inspire",
+          "answers": [
+            "inspireren",
+            "inspireer",
+            "inspireert",
+            "inspireerde",
+            "inspireerden",
+            "heeft geïnspireerd"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-64",
+          "prompt": "to notice",
+          "answers": [
+            "opmerken",
+            "merk op",
+            "merkt op",
+            "merkte op",
+            "merkten op",
+            "heeft opgemerkt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-65",
+          "prompt": "to touch",
+          "answers": [
+            "aanraken",
+            "raak aan",
+            "raakt aan",
+            "raakte aan",
+            "raakten aan",
+            "heeft aangeraakt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-66",
+          "prompt": "to hit",
+          "answers": [
+            "raken",
+            "raak",
+            "raakt",
+            "raakte",
+            "raakten",
+            "heeft geraakt"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-67",
+          "prompt": "to become",
+          "answers": [
+            "worden",
+            "word",
+            "wordt",
+            "werd",
+            "werden",
+            "is geworden"
+          ]
+        },
+        {
+          "id": "houden-werkwoorden-68",
+          "prompt": "to emphasise",
+          "answers": [
+            "benadrukken",
+            "benadruk",
+            "benadrukt",
+            "benadrukte",
+            "benadrukten",
+            "heeft benadrukt"
+          ]
+        }
+      ]
+    }
+  ]
+}

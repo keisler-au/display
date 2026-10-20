@@ -1,0 +1,30 @@
+.study-view { width: min(760px, 100%); margin: 30px auto 0; }
+.study-header, .study-navigation { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.study-header { color: var(--muted); font-size: .8rem; }
+.study-navigation .helper { margin: 0; }
+.progress { height: 7px; margin-bottom: 18px; border-radius: 8px; background: var(--surface-soft); overflow: hidden; }
+.progress > div { height: 100%; background: linear-gradient(90deg,var(--accent),var(--correct)); transition: width .2s; }
+.study-panel { padding: clamp(22px,5vw,36px); }
+.question-prompt { display: block; margin: 8px 0 20px; font: 700 clamp(1.7rem,5vw,2.6rem)/1.3 var(--display); white-space: pre-wrap; overflow-wrap: anywhere; }
+.prompt-hint { margin: 0 0 22px; color: var(--muted); font-size: .88rem; }
+.recall-card { display: flex; flex-direction: column; justify-content: center; width: 100%; min-height: 300px; padding: 20px 12px; border: 0; border-radius: var(--radius-small); color: var(--text); background: transparent; text-align: center; }
+.recall-answer { display: block; margin: 20px 0; font-size: 1.2rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
+.answer-feedback { margin: 7px 0 0; font-size: .8rem; overflow-wrap: anywhere; }
+.study-controls { margin-top: 16px; }
+.rating-actions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+.rating-button { min-height: 48px; }
+.rating-button.hard { color: var(--wrong); border-color: var(--wrong); background: var(--wrong-soft); }
+.rating-button.medium { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.rating-button.easy { color: var(--correct); border-color: var(--correct); background: var(--correct-soft); }
+.session-summary { text-align: center; }
+.summary-number { margin: 16px 0 0; color: var(--accent); font: 700 3.5rem var(--display); }
+.review-list { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); }
+.review-item { margin-bottom: 12px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius-small); background: var(--bg); overflow-wrap: anywhere; }
+.review-item p { margin-bottom: 8px; font-size: .84rem; white-space: pre-wrap; }
+@media (max-width: 480px) {
+  .study-navigation { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .study-navigation > .button { width: 100%; }
+  .rating-actions { gap: 7px; }
+  .rating-actions .button { padding-inline: 8px; }
+  .recall-card { min-height: 250px; padding-inline: 0; }
+}

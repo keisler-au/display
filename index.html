@@ -1,30 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Hub</title>
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="stylesheet" href="/assets/study.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="theme-color" content="#0b1020">
+  <title>Study Room</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="/app/styles/index.css">
 </head>
-<body class="home-page">
-  <main class="home-shell">
-    <header class="site-nav">
-      <a class="site-home" href="/" aria-current="page"><span class="site-mark">S/</span><span>Study Room</span></a>
-      <nav aria-label="Study tools">
-        <a href="/flashcards/">Cards</a>
-        <a href="/nederlands/">Nederlands</a>
-      </nav>
-    </header>
-    <section class="home-hero">
-      <p class="eyebrow">Your study desk</p>
-      <h1>Choose a focus.</h1>
-      <p>Build your own recall deck, practise Dutch vocabulary, or work through PRINCE2 questions.</p>
-    </section>
-    <div class="buttons">
-      <a class="tile" href="/flashcards/"><span class="tile-number">01</span><span class="tile-title">Flashcards</span><span class="tile-copy">Create, back up, and study your own cards.</span></a>
-      <a class="tile" href="/nederlands/"><span class="tile-number">02</span><span class="tile-title">Nederlands</span><span class="tile-copy">Vocabulary and verb practice in focused sets.</span></a>
-    </div>
-  </main>
+<body>
+  <main class="app-shell" id="app"><p class="helper">Loading Study Room…</p></main>
+  <noscript><p class="app-shell">Enable JavaScript to open Study Room.</p></noscript>
+  <script type="module" src="/app/app.mjs"></script>
 </body>
 </html>
