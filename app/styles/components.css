@@ -51,6 +51,17 @@ input.is-correct { border-color: var(--correct); background: var(--correct-soft)
 input.is-wrong { border-color: var(--wrong); background: var(--wrong-soft); }
 .answer-editor-row { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
 .answer-editor-row .form-field { margin-bottom: 10px; }
+.choice-group { min-width: 0; margin: 0 0 20px; padding: 0; border: 0; }
+.choice-group legend { margin-bottom: 12px; color: var(--muted); font-size: .84rem; font-weight: 700; }
+.choice-selection { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
+.choice-selection input, .choice-option input { flex: 0 0 auto; width: 20px; height: 20px; min-height: 0; margin: 0; padding: 0; accent-color: var(--accent); }
+.guide-view { max-width: 800px; }
+.guide-card { margin-top: 18px; padding: 20px; box-shadow: none; }
+.guide-card-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.guide-card-header h2 { margin: 0; font-size: 1.35rem; }
+.guide-card-header .button { flex-shrink: 0; }
+.guide-code { max-height: 24rem; margin: 0; padding: 16px; overflow: auto; border: 1px solid var(--line); border-radius: var(--radius-small); background: var(--input); white-space: pre-wrap; overflow-wrap: anywhere; font: .82rem/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; tab-size: 2; }
+.guide-copy-status { margin: 10px 0 0; }
 @media (max-width: 680px), (pointer: coarse) {
   .filter-chip, .link-button { min-height: 44px; }
   summary { min-height: 44px; padding-block: 10px; }

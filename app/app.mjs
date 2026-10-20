@@ -25,7 +25,9 @@ const visibleDecks = () => store.state.decks.filter(deck => deck.type === route.
 const activeDeck = () => visibleDecks().find(deck => deck.id === store.state.activeDeckId) ?? visibleDecks()[0];
 const tell = message => { $('message').textContent = message; };
 function updateHeaderActions() {
-  $('deckActions').hidden = !route.type || !!session;
+  $('deckActions').hidden = !!session;
+  $('importButton').hidden = !route.type && route.path !== '/guide/';
+  $('exportButton').hidden = !route.type && route.path !== '/guide/';
   $('undoButton').hidden = !SHOW_UNDO_BUTTON || !store.canUndo;
 }
 function save(next, message, options) {
@@ -61,8 +63,11 @@ function render() {
   updateNavigation();
   document.title = `${route.label} · Study Room`;
   $('pageTitle').textContent = session ? session.deck.name : route.title;
-  $('pageTitle').classList.toggle('dashboard-title',!route.type);
-  $('dashboardView').hidden = !!route.type;
+  $('pageTitle').classList.toggle('dashboard-title',route.path === '/');
+  $('dashboardView').hidden = route.path !== '/';
+  $('guideView').hidden = route.path !== '/guide/';
+  if (route.path === '/guide/') $('guideLink').setAttribute('aria-current','page');
+  else $('guideLink').removeAttribute('aria-current');
   $('deckView').hidden = !route.type || !!session;
   $('studyView').hidden = !session;
   updateHeaderActions();
@@ -96,7 +101,7 @@ function renderDecks() {
   })));
   $('emptyState').hidden = !!selected.length;
   $('emptyState').replaceChildren(node('h3',questions.length ? `No ${activeFilter} questions yet` : deck ? 'This deck is ready for its first question' : 'Make room for something new'),
-    node('p',questions.length ? 'Choose another practice set or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a flashcard or text-input deck, or import a JSON study file.','helper'));
+    node('p',questions.length ? 'Choose another practice set or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a deck or import a JSON study file.','helper'));
 }
 function rateQuestion(deckId,questionId,value) {
   return save(updateQuestion(store.state,deckId,questionId,question => ({...question,difficulty:value})));
@@ -198,7 +203,7 @@ $('importFile').addEventListener('change',async () => {
     const imported = readImport(await file.text());
     if (imported.replace) {
       const scope = imported.scope ? TYPES[imported.scope].name.toLowerCase() : 'study';
-      if (!confirm(`Restore ${imported.collection.decks.length} decks? This replaces your ${scope} decks${imported.scope ? ' and keeps the other study type' : ''}. You can undo this change.`)) return;
+      if (!confirm(`Restore ${imported.collection.decks.length} decks? This replaces your ${scope} decks${imported.scope ? ' and keeps the other study types' : ''}. You can undo this change.`)) return;
     } else {
       if (!imported.collection.decks.length) throw new Error('The file contains no decks.');
       const duplicates = imported.collection.decks.filter(deck => store.state.decks.some(item => item.id === deck.id));
@@ -289,7 +294,7 @@ function renderStudy() {
     panel.append(controls);
   }
   $('studyStage').replaceChildren(panel);
-  if (deck.type === 'text' && !entry.revealed) panel.querySelector('input')?.focus();
+  if (typeFor(deck).evaluate && !entry.revealed) (panel.querySelector('input:checked') ?? panel.querySelector('input'))?.focus();
   else if (deck.type === 'flashcard' && !entry.revealed) panel.querySelector('.recall-card')?.focus();
   else panel.querySelector('.rating-button')?.focus();
 }

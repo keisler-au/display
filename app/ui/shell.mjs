@@ -1,10 +1,13 @@
 import {node, link} from './dom.mjs';
 import './viewport.mjs';
+import {mountGuide} from './guide.mjs';
 
 export const ROUTES = [
   {path:'/',label:'Dashboard',type:null,title:'Choose a focus.'},
   {path:'/flashcards/',label:'Flashcards',type:'flashcard',title:'Flashcards'},
-  {path:'/text-inputs/',label:'Text Inputs',type:'text',title:'Text Inputs'}
+  {path:'/text-inputs/',label:'Text Inputs',type:'text',title:'Text Inputs'},
+  {path:'/multiple-choice/',label:'Multiple Choice',type:'multiple-choice',title:'Multiple Choice'},
+  {path:'/guide/',label:'Guide',type:null,title:'Guide'}
 ];
 export function currentRoute() {
   const path = location.pathname.replace(/\/?$/, '/');
@@ -44,10 +47,11 @@ export function mountApp(root, navigate) {
     <div id="navigation"></div>
     <header class="page-header">
       <h1 id="pageTitle"></h1>
-      <div class="actions" id="deckActions"><button class="button" id="undoButton" type="button" hidden>Undo Last Change</button><button class="button" id="importButton" type="button">Import</button><button class="button" id="exportButton" type="button">Export</button><input id="importFile" type="file" accept="application/json,.json" hidden></div>
+      <div class="actions" id="deckActions"><button class="button" id="undoButton" type="button" hidden>Undo Last Change</button><a class="button" id="guideLink" href="/guide/">Guide</a><button class="button" id="importButton" type="button">Import</button><button class="button" id="exportButton" type="button">Export</button><input id="importFile" type="file" accept="application/json,.json" hidden></div>
     </header>
     <p class="message" id="message" role="status"></p>
     <section class="dashboard" id="dashboardView" aria-label="Choose a study type"></section>
+    <section class="guide-view" id="guideView" aria-label="Import guide" hidden></section>
     <section id="deckView" aria-label="Study decks" hidden>
       <div class="deck-bar panel">
         <div class="deck-picker"><label for="deckSelect">Current deck</label><select id="deckSelect"></select></div>
@@ -75,5 +79,7 @@ export function mountApp(root, navigate) {
     dashboard.append(tile);
   });
   bindNavigation(dashboard,navigate);
+  bindNavigation(root.querySelector('#deckActions'),navigate);
+  mountGuide(root.querySelector('#guideView'));
   return mountNavigation(root.querySelector('#navigation'),navigate);
 }

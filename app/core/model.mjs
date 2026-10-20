@@ -14,7 +14,7 @@ export function parseCollection(raw) {
   const decks = unique(list(data.decks,'decks').map((value, index) => {
     const path = `decks[${index}]`;
     const valueObject = object(value,path);
-    if (!Object.hasOwn(TYPES,valueObject.type)) fail(`${path}.type`, 'expected flashcard or text');
+    if (!Object.hasOwn(TYPES,valueObject.type)) fail(`${path}.type`, `expected ${Object.keys(TYPES).join(', ')}`);
     const adapter = TYPES[valueObject.type];
     const deck = {
       id:text(valueObject.id,`${path}.id`), name:text(valueObject.name,`${path}.name`), type:valueObject.type,

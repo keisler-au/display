@@ -53,15 +53,16 @@ export function questionRow(deck, question, {edit,remove,rate}) {
 }
 export function reviewList(results, deck) {
   const container = node('section',undefined,'review-list');
-  const missed = deck.type === 'text' ? results.filter(entry => entry.result && !entry.result.correct) : results;
-  container.append(node('h3',deck.type === 'text' ? 'Missed answers in this round' : 'Questions in this round'));
+  const checked = !!typeFor(deck).evaluate;
+  const missed = checked ? results.filter(entry => entry.result && !entry.result.correct) : results;
+  container.append(node('h3',checked ? 'Missed answers in this round' : 'Questions in this round'));
   if (!missed.length) container.append(node('p','None — perfect round!','helper'));
   missed.forEach(entry => {
     const item = node('article',undefined,'review-item');
     item.append(node('h4',entry.question.prompt));
     if (entry.result) {
       entry.result.fields.filter(field => !field.correct).forEach(field => {
-        item.append(node('p',`${field.label}: ${field.expected}`,'is-correct'),node('p',`You entered: ${field.given || '(blank)'}`,'is-wrong'));
+        item.append(node('p',`${field.label}: ${field.expected}`,'is-correct'),node('p',`${deck.type === 'multiple-choice' ? 'You selected' : 'You entered'}: ${field.given || '(blank)'}`,'is-wrong'));
       });
     } else typeFor(deck).answers(entry.question).forEach(answer => item.append(node('p',`${answer.label}: ${answer.value}`)));
     item.append(node('span',label(entry.rating ?? entry.question.difficulty),`difficulty-badge ${entry.rating ?? entry.question.difficulty}`));

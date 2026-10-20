@@ -10,6 +10,15 @@
 .recall-card { display: flex; flex-direction: column; justify-content: center; width: 100%; min-height: 300px; padding: 20px 12px; border: 0; border-radius: var(--radius-small); color: var(--text); background: transparent; text-align: center; }
 .recall-answer { display: block; margin: 20px 0; font-size: 1.2rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; }
 .answer-feedback { margin: 7px 0 0; font-size: .8rem; overflow-wrap: anywhere; }
+.choice-option { display: flex; align-items: center; gap: 12px; min-height: 52px; margin-bottom: 10px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-small); color: var(--text); background: var(--input); font-size: 1rem; font-weight: 400; cursor: pointer; }
+.choice-option > span { min-width: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.choice-option:hover { border-color: var(--accent); }
+.choice-option:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.choice-option:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px; }
+.choice-option.is-correct { color: var(--correct); border-color: var(--correct); background: var(--correct-soft); }
+.choice-option.is-wrong { color: var(--wrong); border-color: var(--wrong); background: var(--wrong-soft); }
+.choice-option:has(input:disabled) { cursor: default; }
+.choice-option .choice-status { margin-left: auto; font-size: .75rem; font-weight: 700; }
 .study-controls { margin-top: 16px; }
 .rating-actions { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
 .rating-button { min-height: 48px; }
