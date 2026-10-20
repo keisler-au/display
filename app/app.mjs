@@ -6,7 +6,9 @@ import {makeId} from './core/validation.mjs';
 import {filterQuestions} from './core/difficulty.mjs';
 import {questionPage} from './core/pagination.mjs';
 import {searchQuestions} from './core/search.mjs';
-import {BACKUP_FORMAT, parseCollection, readImport, applyImport, updateQuestion} from './core/model.mjs';
+import {BACKUP_FORMAT, parseCollection, readImport, updateQuestion} from './core/model.mjs';
+import {importCandidates, importDecks} from './core/import.mjs';
+import {showImportDialog} from './ui/import.mjs';
 import {createStore, STORAGE_KEY} from './core/storage.mjs';
 import {SET_SIZE, createSession, currentEntry, previous, advance, roundResults, sessionTotals} from './core/session.mjs';
 
@@ -241,20 +243,17 @@ $('importFile').addEventListener('change',async () => {
   if (!file) return;
   try {
     const imported = readImport(await file.text());
-    if (imported.replace) {
-      const scope = imported.scope ? TYPES[imported.scope].name.toLowerCase() : 'study';
-      if (!confirm(`Restore ${imported.collection.decks.length} decks? This replaces your ${scope} decks${imported.scope ? ' and keeps the other study types' : ''}. You can undo this change.`)) return;
-    } else {
-      if (!imported.collection.decks.length) throw new Error('The file contains no decks.');
-      const duplicates = imported.collection.decks.filter(deck => store.state.decks.some(item => item.id === deck.id));
-      if (duplicates.length && !confirm(`Replace ${duplicates.length} decks with matching IDs, including their saved results and ratings? Other decks will be kept. You can undo this change.`)) return;
-    }
-    const next = applyImport(store.state,imported);
-    closeEditor(); pageIndex = 0; leaveStudy(); activeFilter = 'all';
-    if (save(next,`${imported.collection.decks.length} decks imported`)) {
+    if (!imported.collection.decks.length) throw new Error('The file contains no decks.');
+    const candidates = importCandidates(store.state,imported.collection);
+    if (!candidates.length) { tell('All decks already imported'); return; }
+    showImportDialog($('deckDialog'),candidates,decks => {
+      const next = importDecks(store.state,decks);
+      closeEditor(); pageIndex = 0; activeFilter = 'all'; leaveStudy();
+      if (!save(next,`${decks.length} ${decks.length === 1 ? 'deck' : 'decks'} imported`)) return false;
       const selected = store.state.decks.find(deck => deck.id === store.state.activeDeckId);
       if (selected && selected.type !== route.type) navigate(ROUTES.find(item => item.type === selected.type));
-    }
+      return true;
+    });
   } catch (error) { tell(`Could not import: ${error.message}`); }
   finally { $('importFile').value = ''; }
 });
