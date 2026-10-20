@@ -528,10 +528,7 @@
         const text = document.createElement("div");
         text.className = session.flipped ? "study-text answer" : "study-text";
         text.textContent = session.flipped ? card.back : card.front;
-        const hint = document.createElement("div");
-        hint.className = "flip-hint";
-        hint.textContent = session.flipped ? "Click or press Space to show the question · Rate below to continue" : "Click the card or press Space to reveal";
-        studyCard.append(side, text, hint);
+        studyCard.append(side, text);
         studyCard.addEventListener("click", flipCard);
         studyCard.addEventListener("keydown", event => {
           if (event.key === " " || event.key === "Enter") { event.preventDefault(); flipCard(); }
