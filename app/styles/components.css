@@ -52,6 +52,7 @@ input.is-wrong { border-color: var(--wrong); background: var(--wrong-soft); }
 .answer-editor-row { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
 .answer-editor-row .form-field { margin-bottom: 10px; }
 .choice-group { min-width: 0; margin: 0 0 20px; padding: 0; border: 0; }
+.question-editor > .choice-group { padding-top: 20px; border-top: 1px solid var(--line); }
 .choice-group legend { margin-bottom: 12px; color: var(--muted); font-size: .84rem; font-weight: 700; }
 .choice-selection { display: flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; }
 .choice-selection input, .choice-option input { flex: 0 0 auto; width: 20px; height: 20px; min-height: 0; margin: 0; padding: 0; accent-color: var(--accent); }

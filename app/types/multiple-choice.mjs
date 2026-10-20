@@ -13,7 +13,6 @@ export default {
   },
   editor(question) {
     const element = node('fieldset',undefined,'choice-group');
-    element.append(node('legend','Answer options'),node('p','Add 2–10 options and select the correct answer.','helper'));
     const rows = node('div');
     const entries = [];
     const name = makeId();
@@ -52,7 +51,6 @@ export default {
   study({question, entry, reveal}) {
     const form = node('form');
     const group = node('fieldset',undefined,'choice-group');
-    group.append(node('legend','Choose one answer'));
     // Keep the shuffled order stable when revisiting a question.
     if (!entry.choiceOrder) {
       entry.choiceOrder = question.options.map((_,index) => index);
