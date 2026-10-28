@@ -172,7 +172,7 @@ $('questionForm').addEventListener('submit',event => {
     difficulty:previousQuestion?.difficulty ?? 'unrated',progress:{attempts:0,correct:0},...editor.read()};
   const questions = previousQuestion ? deck.questions.map(item => item.id === question.id ? question : item) : [...deck.questions,question];
   if (!previousQuestion) pageIndex = 0;
-  if (save({...store.state,decks:store.state.decks.map(item => item.id === deck.id ? {...item,questions} : item)},'Question saved')) closeEditor();
+  if (save({...store.state,decks:store.state.decks.map(item => item.id === deck.id ? {...item,questions} : item)},'Question saved')) openEditor(previousQuestion ? question : undefined);
 });
 $('addQuestionButton').addEventListener('click',() => openEditor());
 $('deckSelect').addEventListener('change',() => {
