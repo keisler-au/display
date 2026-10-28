@@ -38,17 +38,15 @@ export function questionRow(deck, question, {edit,remove,rate}) {
   meta.append(node('span',label(question.difficulty),`difficulty-badge ${question.difficulty}`));
   row.append(meta,node('h3',question.prompt,'row-prompt'));
   if (deck.type === 'text' && question.hint) row.append(node('p',question.hint,'helper'));
-  const details = node('details');
-  details.append(node('summary','View answer'));
   typeFor(deck).answers(question).forEach(answer => {
     const line = node('p',undefined,'answer-line');
-    line.append(node('strong',`${answer.label}: `),node('span',answer.value));
+    line.append(node('strong',`${answer.label}:`),node('br'),node('span',answer.value));
     if (answer.note) line.append(node('span',` (${answer.note})`,'helper'));
-    details.append(line);
+    row.append(line);
   });
   const tools = node('div',undefined,'row-tools');
   tools.append(ratingSelect(question,rate),button('Edit',edit),button('Delete',remove,'button danger'));
-  row.append(details,tools);
+  row.append(tools);
   return row;
 }
 export function reviewList(results, deck) {
