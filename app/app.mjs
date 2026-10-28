@@ -9,6 +9,7 @@ import {searchQuestions} from './core/search.mjs';
 import {BACKUP_FORMAT, parseCollection, readImport, updateQuestion} from './core/model.mjs';
 import {importCandidates, importDecks} from './core/import.mjs';
 import {showImportDialog} from './ui/import.mjs';
+import {createEditorLayout} from './ui/editor-layout.mjs';
 import {createStore, STORAGE_KEY} from './core/storage.mjs';
 import {SET_SIZE, createSession, currentEntry, previous, advance, roundResults, sessionTotals} from './core/session.mjs';
 
@@ -28,6 +29,7 @@ let session = null;
 let editor = null;
 if (location.pathname !== route.path) history.replaceState(null,'',route.path);
 const updateNavigation = mountApp($('app'),navigate);
+const editorLayout = createEditorLayout($('workspace'), $('questionForm'), storage);
 const visibleDecks = () => store.state.decks.filter(deck => deck.type === route.type);
 const activeDeck = () => visibleDecks().find(deck => deck.id === store.state.activeDeckId) ?? visibleDecks()[0];
 const tell = message => { $('message').textContent = message; };
@@ -47,6 +49,7 @@ function save(next, message, options) {
   } catch (error) { tell(`Could not apply this change: ${error.message}`); return false; }
 }
 function closeEditor() {
+  editorLayout.capture();
   editingId = null;
   editor = null;
   $('questionForm').hidden = true;
@@ -149,6 +152,7 @@ function rateQuestion(deckId,questionId,value) {
 function openEditor(question) {
   const deck = activeDeck();
   if (!deck) return;
+  editorLayout.capture();
   editingId = question?.id ?? null;
   const form = $('questionForm');
   form.hidden = false;
@@ -161,6 +165,7 @@ function openEditor(question) {
   actions.append(submit,button('Cancel',closeEditor));
   form.replaceChildren(node('h3',question ? 'Edit question' : 'Add question'),prompt.group);
   form.append(editor.element,actions);
+  editorLayout.restore();
   form.scrollIntoView({block:'start',behavior:'auto'});
   prompt.input.focus();
 }
@@ -172,7 +177,7 @@ $('questionForm').addEventListener('submit',event => {
     difficulty:previousQuestion?.difficulty ?? 'unrated',progress:{attempts:0,correct:0},...editor.read()};
   const questions = previousQuestion ? deck.questions.map(item => item.id === question.id ? question : item) : [...deck.questions,question];
   if (!previousQuestion) pageIndex = 0;
-  if (save({...store.state,decks:store.state.decks.map(item => item.id === deck.id ? {...item,questions} : item)},'Question saved')) openEditor(previousQuestion ? question : undefined);
+  if (save({...store.state,decks:store.state.decks.map(item => item.id === deck.id ? {...item,questions} : item)},'Question saved')) openEditor();
 });
 $('addQuestionButton').addEventListener('click',() => openEditor());
 $('deckSelect').addEventListener('change',() => {

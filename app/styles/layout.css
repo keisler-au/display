@@ -17,9 +17,14 @@
 .deck-heading > div { min-width: 0; }
 .deck-heading h2 { min-width: 0; margin-bottom: 0; overflow-wrap: anywhere; }
 .deck-heading .actions { flex-shrink: 0; }
-.workspace { display: grid; grid-template-columns: minmax(0,1fr); align-items: start; gap: 22px; }
-.workspace.is-editing { grid-template-columns: minmax(280px,350px) minmax(0,1fr); }
+.workspace { position: relative; display: grid; grid-template-columns: minmax(0,1fr); align-items: start; gap: 22px; }
+.workspace.is-editing { --editor-size: clamp(280px, var(--editor-width, 350px), calc(100% - 302px)); grid-template-columns: var(--editor-size) minmax(0,1fr); }
 .workspace > * { min-width: 0; }
+.editor-divider { display: none; position: absolute; top: 0; bottom: 0; left: var(--editor-size); width: 22px; cursor: col-resize; touch-action: none; }
+.workspace.is-editing > .editor-divider { display: block; }
+.editor-divider::after { content: ''; position: absolute; top: 0; bottom: 0; left: 10px; width: 2px; border-radius: 2px; background: var(--line); }
+.editor-divider:hover::after, .editor-divider:focus-visible::after, .is-resizing > .editor-divider::after { background: var(--accent); }
+.workspace.is-resizing { cursor: col-resize; user-select: none; }
 .question-editor { position: sticky; top: 18px; max-height: calc(100vh - 36px); max-height: calc(var(--viewport-height, 100dvh) - 36px); overflow-y: auto; scrollbar-gutter: stable; scroll-padding-block: 20px; padding: 24px; }
 .question-editor > .actions { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
 .question-list { display: grid; gap: 14px; }
@@ -40,6 +45,7 @@
 @media (max-width: 900px) {
   .deck-bar { align-items: stretch; flex-direction: column; }
   .workspace.is-editing { grid-template-columns: minmax(0,1fr); }
+  .workspace.is-editing > .editor-divider { display: none; }
   .question-editor { position: static; }
 }
 @media (max-width: 680px) {
