@@ -32,21 +32,39 @@ export function ratingActions(onRate) {
   }
   return group;
 }
-export function questionRow(deck, question, {edit,remove,rate}) {
+export function questionRow(deck, question, {edit,remove,rate,expanded = true,toggle = () => {}}) {
   const row = node('article',undefined,'panel question-row');
   const meta = node('div',undefined,'row-meta');
-  meta.append(node('span',label(question.difficulty),`difficulty-badge ${question.difficulty}`));
+  const details = node('div',undefined,'question-details');
+  details.id = `question-details-${question.id}`;
+  details.hidden = !expanded;
+  const toggleLabel = node('span',expanded ? 'Collapse' : 'Expand');
+  const arrow = node('span',expanded ? '▴' : '▾');
+  arrow.setAttribute('aria-hidden','true');
+  const control = button(undefined,() => {
+    expanded = !expanded;
+    details.hidden = !expanded;
+    control.setAttribute('aria-expanded',String(expanded));
+    toggleLabel.textContent = expanded ? 'Collapse' : 'Expand';
+    arrow.textContent = expanded ? '▴' : '▾';
+    toggle(expanded);
+  },'difficulty-badge question-toggle');
+  control.append(toggleLabel,arrow);
+  control.setAttribute('aria-expanded',String(expanded));
+  control.setAttribute('aria-controls',details.id);
+  meta.append(control);
   row.append(meta,node('h3',question.prompt,'row-prompt'));
-  if (deck.type === 'text' && question.hint) row.append(node('p',question.hint,'helper'));
+  if (deck.type === 'text' && question.hint) details.append(node('p',question.hint,'helper'));
   typeFor(deck).answers(question).forEach(answer => {
     const line = node('p',undefined,'answer-line');
     line.append(node('strong',`${answer.label}:`),node('br'),node('span',answer.value));
     if (answer.note) line.append(node('span',` (${answer.note})`,'helper'));
-    row.append(line);
+    details.append(line);
   });
   const tools = node('div',undefined,'row-tools');
   tools.append(ratingSelect(question,rate),button('Edit',edit),button('Delete',remove,'button danger'));
-  row.append(tools);
+  details.append(tools);
+  row.append(details);
   return row;
 }
 export function reviewList(results, deck) {

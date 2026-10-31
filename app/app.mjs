@@ -10,6 +10,7 @@ import {BACKUP_FORMAT, parseCollection, readImport, updateQuestion} from './core
 import {importCandidates, importDecks} from './core/import.mjs';
 import {showImportDialog} from './ui/import.mjs';
 import {createEditorLayout} from './ui/editor-layout.mjs';
+import {createDeckPicker} from './ui/deck-picker.mjs';
 import {createStore, STORAGE_KEY} from './core/storage.mjs';
 import {SET_SIZE, createSession, currentEntry, previous, advance, roundResults, sessionTotals} from './core/session.mjs';
 
@@ -24,16 +25,26 @@ let activeFilter = 'all';
 let pageIndex = 0;
 let pageContext = '';
 let searchDeckId = null;
+const collapsedQuestions = new Set();
 let editingId = null;
 let session = null;
 let editor = null;
 if (location.pathname !== route.path) history.replaceState(null,'',route.path);
 const updateNavigation = mountApp($('app'),navigate);
+const deckPicker = createDeckPicker($('deckSelect'),$('deckOptions'),$('deckSelectValue'));
 const editorLayout = createEditorLayout($('workspace'), $('questionForm'), storage);
 const visibleDecks = () => store.state.decks.filter(deck => deck.type === route.type);
 const activeDeck = () => visibleDecks().find(deck => deck.id === store.state.activeDeckId) ?? visibleDecks()[0];
 const tell = message => { $('message').textContent = message; };
 function updateHeaderActions() {
+  $('pageHeader').hidden = !!route.type && !session;
+  const menuSlot = $(route.type ? 'deckManagementSlot' : 'headerDeckActions');
+  if ($('deckManagement').parentElement !== menuSlot) {
+    $('deckManagement').open = false;
+    menuSlot.append($('deckManagement'));
+  }
+  $('headerDeckActions').hidden = !!session;
+  $('deckManagementEditing').hidden = !route.type;
   $('deckActions').hidden = !!session;
   $('importButton').hidden = !route.type && route.path !== '/guide/';
   $('exportButton').hidden = !route.type && route.path !== '/guide/';
@@ -68,7 +79,8 @@ function navigate(next, push = true) {
   session = null;
   closeEditor();
   render();
-  focusHeading($('app'));
+  if (route.type) $('deckSelect').focus();
+  else focusHeading($('app'));
 }
 window.addEventListener('popstate',() => navigate(currentRoute(),false));
 function render() {
@@ -96,7 +108,6 @@ function renderDecks() {
   const searching = !!query.trim();
   const matches = searching ? searchQuestions(deck,selected,query) : selected;
   $('questionSearch').disabled = !deck;
-  $('clearSearchButton').hidden = !query;
   $('questionSearchStatus').textContent = searching ? `${matches.length} matching ${matches.length === 1 ? 'question' : 'questions'} in the selected difficulty` : '';
   const context = JSON.stringify([deck?.id,activeFilter,query]);
   if (context !== pageContext) pageIndex = 0;
@@ -107,19 +118,18 @@ function renderDecks() {
   $('questionPageStatus').textContent = `Questions ${page.first}–${page.last} of ${matches.length}`;
   $('previousPageButton').disabled = pageIndex === 0;
   $('nextPageButton').disabled = pageIndex === page.pageCount - 1;
-  $('deckSelect').replaceChildren(...decks.map(item => {
-    const option = node('option',item.name);
-    option.value = item.id;
-    option.selected = item.id === deck?.id;
-    return option;
-  }));
-  $('deckSelect').disabled = !decks.length;
+  deckPicker.render(decks,deck?.id);
   for (const control of ['renameDeckButton','deleteDeckButton','addQuestionButton']) $(control).disabled = !deck;
   $('studyButton').disabled = !selected.length;
   $('studyButton').textContent = `Study ${activeFilter === 'all' ? 'all' : activeFilter} (${selected.length})`;
-  $('deckTitle').textContent = deck?.name ?? 'Your questions';
   $('filters').replaceChildren(...filters(questions,activeFilter,value => { activeFilter = value; renderDecks(); }));
   $('questionList').replaceChildren(...page.questions.map(question => questionRow(deck,question,{
+    expanded:!collapsedQuestions.has(JSON.stringify([deck.id,question.id])),
+    toggle:expanded => {
+      const key = JSON.stringify([deck.id,question.id]);
+      if (expanded) collapsedQuestions.delete(key);
+      else collapsedQuestions.add(key);
+    },
     edit:() => openEditor(question),
     remove:() => {
       if (!confirm(`Delete “${question.prompt.slice(0,100)}”? You can undo this change.`)) return;
@@ -130,20 +140,17 @@ function renderDecks() {
   })));
   $('emptyState').hidden = !!matches.length;
   $('emptyState').replaceChildren(node('h3',searching ? 'No matching questions' : questions.length ? `No ${activeFilter} questions yet` : deck ? 'This deck is ready for its first question' : 'Make room for something new'),
-    node('p',searching ? 'Try another search, clear the search, or choose a different difficulty.' : questions.length ? 'Choose another practice set or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a deck or import a JSON study file.','helper'));
+    node('p',searching ? 'Try another search, clear the search, or choose a different difficulty.' : questions.length ? 'Choose a different difficulty or change a question’s difficulty.' : deck ? 'Add a question using the same editor for every study type.' : 'Create a deck or import a JSON study file.','helper'));
 }
 $('questionSearch').addEventListener('input',() => { pageIndex = 0; renderDecks(); });
-$('clearSearchButton').addEventListener('click',() => {
-  $('questionSearch').value = '';
-  pageIndex = 0;
-  renderDecks();
-  $('questionSearch').focus();
-});
 for (const [id,step] of [['previousPageButton',-1],['nextPageButton',1]]) {
   $(id).addEventListener('click',() => {
     closeEditor();
     pageIndex += step;
     renderDecks();
+    $('questionList').scrollIntoView({block:'start'});
+    const heading = $('questionList').querySelector('h3');
+    if (heading) { heading.tabIndex = -1; heading.focus({preventScroll:true}); }
   });
 }
 function rateQuestion(deckId,questionId,value) {
