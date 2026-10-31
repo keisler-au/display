@@ -35,7 +35,12 @@ const deckPicker = createDeckPicker($('deckSelect'),$('deckOptions'),$('deckSele
 const editorLayout = createEditorLayout($('workspace'), $('questionForm'), storage);
 const visibleDecks = () => store.state.decks.filter(deck => deck.type === route.type);
 const activeDeck = () => visibleDecks().find(deck => deck.id === store.state.activeDeckId) ?? visibleDecks()[0];
-const tell = message => { $('message').textContent = message; };
+let messageTimer;
+const tell = message => {
+  clearTimeout(messageTimer);
+  $('message').textContent = message;
+  if (message) messageTimer = setTimeout(() => { $('message').textContent = ''; },5000);
+};
 function updateHeaderActions() {
   $('pageHeader').hidden = !!route.type && !session;
   const menuSlot = $(route.type ? 'deckManagementSlot' : 'headerDeckActions');
