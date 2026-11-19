@@ -1,6 +1,7 @@
 import {node, link} from './dom.mjs';
 import './viewport.mjs';
 import {mountGuide} from './guide.mjs';
+import {bindDeckManagement} from './deck-management.mjs';
 
 export const ROUTES = [
   {path:'/',label:'Dashboard',type:null,title:'Choose a focus.'},
@@ -103,26 +104,7 @@ export function mountApp(root, navigate) {
     </section>
     <input id="importFile" type="file" accept="application/json,.json" hidden>
     <dialog id="deckDialog" aria-labelledby="dialogTitle"></dialog>`;
-  const management = root.querySelector('#deckManagement');
-  const closeManagement = (restoreFocus = false) => {
-    management.open = false;
-    if (restoreFocus) management.querySelector('summary').focus();
-  };
-  management.addEventListener('click',event => {
-    if (event.target.closest('button,a')) closeManagement(true);
-  },true);
-  management.addEventListener('keydown',event => {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      closeManagement(true);
-    }
-  });
-  management.addEventListener('focusout',event => {
-    if (!management.contains(event.relatedTarget)) closeManagement();
-  });
-  root.ownerDocument.addEventListener('pointerdown',event => {
-    if (!management.contains(event.target)) closeManagement();
-  });
+  bindDeckManagement(root.querySelector('#deckManagement'));
   const dashboard = root.querySelector('#dashboardView');
   ROUTES.filter(route => route.type).forEach(route => {
     const tile = link('',route.path);

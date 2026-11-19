@@ -65,7 +65,7 @@ export function createDeckPicker(trigger, list, value) {
     if (!trigger.parentElement.contains(event.target)) close();
   });
   trigger.parentElement.addEventListener('focusout',event => {
-    if (!trigger.parentElement.contains(event.relatedTarget)) close();
+    if (event.relatedTarget && !trigger.parentElement.contains(event.relatedTarget)) close();
   });
   return {
     render(items,selectedId) {

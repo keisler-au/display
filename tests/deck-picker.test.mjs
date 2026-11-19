@@ -61,8 +61,18 @@ test('deck picker supports selection, keyboard navigation, dismissal, and empty 
     key(list,'Enter');
     assert.equal(trigger.value,'three');
     trigger.dispatchEvent(new Event('click'));
+    // A touch on a non-focusable option may blur the list before click.
+    const touchBlur = new Event('focusout');
+    Object.defineProperty(touchBlur,'relatedTarget',{value:null});
+    parent.dispatchEvent(touchBlur);
+    assert.equal(list.hidden,false);
     list.children[0].dispatchEvent(new Event('click'));
     assert.equal(trigger.value,'one');
+    trigger.dispatchEvent(new Event('click'));
+    const outsideFocus = new Event('focusout');
+    Object.defineProperty(outsideFocus,'relatedTarget',{value:new Element()});
+    parent.dispatchEvent(outsideFocus);
+    assert.equal(list.hidden,true);
     trigger.dispatchEvent(new Event('click'));
     key(list,'Tab');
     assert.equal(list.hidden,true);
